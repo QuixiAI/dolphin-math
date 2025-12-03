@@ -120,7 +120,8 @@ class DecimalAddSubGenerator(ProblemGenerator):
                 d1 = digits1[i]
                 d2 = digits2[i]
 
-                d1_eff = d1 - borrow # Apply borrow from previous column
+                borrow_in = borrow  # Carry over borrow from previous column
+                d1_eff = d1 - borrow_in
                 borrow = 0 # Reset borrow for this column
 
                 if d1_eff < d2:
@@ -137,7 +138,6 @@ class DecimalAddSubGenerator(ProblemGenerator):
                 col_diff = d1_eff - d2
                 result_digits[i] = col_diff
                 # Combine details to fit into step() arguments
-                borrow_in = 1 if d1_eff != d1 else 0
                 sub_details = f"{d1}-{d2} (borrow_in {borrow_in})" # Show original d1
                 sub_result = f"->{col_diff} (borrow_out {borrow})"
                 steps.append(step("DEC_SUB_COL", col_name, sub_details, sub_result))

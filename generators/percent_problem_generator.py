@@ -141,8 +141,9 @@ class PercentProblemGenerator(ProblemGenerator):
             # This step is high-level, but the core operation is multiplication,
             # which has its own detailed generator (DecimalMultGenerator).
             # For simplicity here, we keep this high-level step.
-            steps.append(step("PERCENT_CALC_PART", str(percent_dec), whole, str(part)))
-            final_answer_str = str(part)
+            part_str = str(part.quantize(Decimal('1.') if part == part.to_integral_value() else Decimal('0.01')))
+            steps.append(step("PERCENT_CALC_PART", str(percent_dec), whole, part_str))
+            final_answer_str = part_str
 
         elif problem_type == 'find_percent':
             # "P is what percent of W?" - Requires division: part / whole
@@ -165,8 +166,10 @@ class PercentProblemGenerator(ProblemGenerator):
             division_steps, _ = self._generate_division_steps(str(part), str(whole))
             steps.extend(division_steps)
             # Convert the final decimal result to percent
-            steps.append(step("DEC_TO_PERCENT", str(calculated_percent_dec), f"{calculated_percent_val}%"))
-            final_answer_str = f"{calculated_percent_val}%"
+            # Format percent with two decimals without scientific notation
+            percent_str = f"{calculated_percent_val.quantize(Decimal('0.01'))}%"
+            steps.append(step("DEC_TO_PERCENT", str(calculated_percent_dec), percent_str))
+            final_answer_str = percent_str
 
 
         else: # find_whole

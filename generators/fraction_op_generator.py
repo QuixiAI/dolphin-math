@@ -27,23 +27,28 @@ class FractionOpGenerator(ProblemGenerator):
         problem = f"{f1} {self.op_symbol} {f2}"
 
         if self.op_symbol in "+-":
+            d1_s, d2_s = f1.denominator, f2.denominator
             try:
-                lcd = math.lcm(d1, d2)
+                lcd = math.lcm(d1_s, d2_s)
             except AttributeError: # Fallback for Python < 3.9
-                lcd = (d1 * d2) // math.gcd(d1, d2)
+                lcd = (d1_s * d2_s) // math.gcd(d1_s, d2_s)
 
-            if d1 != d2: steps.append(step("L", d1, d2, lcd)) # Find LCD using denominators
-            n1c, n2c = n1 * (lcd // d1), n2 * (lcd // d2) # Calculate correct converted numerators
-            if d1 != lcd: steps.append(step("C", str(f1), lcd, f"{n1c}/{lcd}")) # Convert f1
-            if d2 != lcd: steps.append(step("C", str(f2), lcd, f"{n2c}/{lcd}")) # Convert f2
+            if d1_s != d2_s:
+                steps.append(step("L", d1_s, d2_s, lcd)) # Find LCD using simplified denominators
+            n1c, n2c = f1.numerator * (lcd // d1_s), f2.numerator * (lcd // d2_s) # Converted numerators
+            if d1_s != lcd: steps.append(step("C", str(f1), lcd, f"{n1c}/{lcd}")) # Convert f1
+            if d2_s != lcd: steps.append(step("C", str(f2), lcd, f"{n2c}/{lcd}")) # Convert f2
             out_num = n1c + n2c if self.op_symbol == "+" else n1c - n2c
             steps.append(step("A" if self.op_symbol == "+" else "S", n1c, n2c, out_num)) # Add/Sub numerators
             res = Fraction(out_num, lcd)
             out_den = lcd # Denominator before simplification
 
         elif self.op_symbol == "*":
-            out_num, out_den = n1 * n2, d1 * d2
-            steps += [step("M", n1, n2, out_num), step("M", d1, d2, out_den)] # Multiply numerators/denominators
+            # Use actual numerators/denominators from Fraction objects (which may have auto-simplified)
+            num1, den1 = f1.numerator, f1.denominator
+            num2, den2 = f2.numerator, f2.denominator
+            out_num, out_den = num1 * num2, den1 * den2
+            steps += [step("M", num1, num2, out_num), step("M", den1, den2, out_den)] # Multiply numerators/denominators
             res = Fraction(out_num, out_den)
             # lcd = out_den # Not really lcd, but denominator before simplification
 
