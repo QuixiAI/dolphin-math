@@ -14,6 +14,12 @@ from helpers import DELIM
 
 class TestDecimalAddSubGenerator(unittest.TestCase):
 
+
+    def setUp(self):
+
+        random.seed(42)  # Ensure deterministic tests
+
+
     def _run_basic_checks(self, result, expected_op_name, expected_op_symbol):
         """Helper function to run common checks."""
         self.assertIsInstance(result, dict)

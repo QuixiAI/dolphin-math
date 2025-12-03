@@ -31,6 +31,67 @@ from generators.pythag_hyp_generator import PythagHypGenerator
 from generators.abacus_addition_generator import AbacusAdditionGenerator
 from generators.proportional_relationship_generator import ProportionalRelationshipGenerator
 from generators.percent_problem_generator import PercentProblemGenerator
+from generators.multi_digit_addition_generator import MultiDigitAdditionGenerator
+from generators.multi_digit_subtraction_generator import MultiDigitSubtractionGenerator
+from generators.multi_digit_multiplication_generator import MultiDigitMultiplicationGenerator
+from generators.mixed_number_operation_generator import MixedNumberOperationGenerator
+from generators.mixed_number_operations_random import MixedNumberOperationsRandom
+from generators.fraction_comparison_generator import FractionComparisonGenerator
+from generators.fraction_decimal_percent_converter import FractionDecimalPercentConverter
+from generators.factors_generator import FactorsGenerator
+from generators.prime_factorization_generator import PrimeFactorizationGenerator
+from generators.gcf_generator import GCFGenerator
+from generators.lcm_generator import LCMGenerator
+from generators.order_of_operations_generator import OrderOfOperationsGenerator
+from generators.geometry_area_perimeter_generator import GeometryAreaPerimeterGenerator
+from generators.polygon_perimeter_generator import PolygonPerimeterGenerator
+from generators.volume_rect_prism_generator import VolumeRectPrismGenerator
+from generators.place_value_rounding_generator import PlaceValueRoundingGenerator
+from generators.divisibility_classification_generator import DivisibilityClassificationGenerator
+from generators.unit_conversion_generator import UnitConversionGenerator
+from generators.simple_stats_generator import SimpleStatsGenerator
+from generators.number_comparison_generator import NumberComparisonGenerator
+from generators.simple_probability_generator import SimpleProbabilityGenerator
+from generators.graph_interpret_generator import GraphInterpretGenerator
+
+# Middle School (6-8) Generators
+from generators.integer_operations_generator import IntegerOperationsGenerator
+from generators.unit_rate_generator import UnitRateGenerator, UnitRateFromTableGenerator
+from generators.scaling_generator import ScalingGenerator, SimilarFiguresScaleGenerator
+from generators.one_step_equation_generator import OneStepEquationGenerator
+from generators.two_step_equation_generator import TwoStepEquationGenerator
+from generators.one_step_inequality_generator import OneStepInequalityGenerator
+from generators.two_step_inequality_generator import TwoStepInequalityGenerator
+from generators.exponent_generator import (
+    ExponentEvaluationGenerator,
+    ExponentRulesGenerator,
+    ScientificNotationGenerator,
+    RootsAndRadicalsGenerator,
+)
+from generators.angle_relationships_generator import (
+    AngleRelationshipsGenerator,
+    AnglesWithParallelLinesGenerator,
+    TriangleAngleSumGenerator,
+)
+from generators.circle_generator import CircleAreaCircumferenceGenerator
+from generators.volume_3d_generator import (
+    VolumePrismGenerator,
+    VolumeCylinderGenerator,
+    SurfaceAreaPrismGenerator,
+    SurfaceAreaCylinderGenerator,
+)
+from generators.pythag_leg_generator import PythagoreanLegGenerator, PythagoreanWordProblemGenerator
+from generators.statistics_generator import (
+    MeanGenerator,
+    MedianGenerator,
+    ModeGenerator,
+    RangeGenerator,
+    MeanAbsoluteDeviationGenerator,
+)
+from generators.compound_probability_generator import (
+    CompoundProbabilityIndependentGenerator,
+    CompoundProbabilityDependentGenerator,
+)
 
 # Import Helpers if needed (jid is used in generate methods, step/DELIM are used internally)
 # from helpers import jid, step, DELIM # Not strictly needed here anymore
@@ -77,42 +138,171 @@ from generators.percent_problem_generator import PercentProblemGenerator
 # Final Answer: Z  (Contains the final formatted answer string)
 # -----------------------------------------------------------
 
-# Instantiate Generators
-# Note: For generators requiring args (like fractions, decimal add/sub),
+# ===========================================================================
+# ALL_GENERATORS - Master list of all problem generators
+# ===========================================================================
+# For generators requiring args (like fractions, decimal add/sub),
 # we instantiate one for each variant.
+#
+# Organization:
+#   - Elementary (Grades 3-5): 34 generators
+#   - Middle School (Grades 6-8): 39 generators
+#   - High School: Algebra, Geometry (more coming)
+# ===========================================================================
+
 ALL_GENERATORS = [
-    # Basic Arithmetic
+    # ===== ELEMENTARY (Grades 3-5) =====
+
+    # --- Basic Arithmetic ---
     LongDivisionGenerator(),
+    MultiDigitAdditionGenerator(),
+    MultiDigitSubtractionGenerator(),
+    MultiDigitMultiplicationGenerator(),
+    AbacusAdditionGenerator(),
+
+    # --- Decimals ---
+    DecimalAddSubGenerator('+'),
+    DecimalAddSubGenerator('-'),
     DecimalMultGenerator(),
-    DecimalAddSubGenerator('+'), # Add
-    DecimalAddSubGenerator('-'), # Subtract
     DecimalDivGenerator(),
-    FractionOpGenerator('+'),    # Add
-    FractionOpGenerator('-'),    # Subtract
-    FractionOpGenerator('*'),    # Multiply
-    FractionOpGenerator('/'),    # Divide
-    # Algebra
+
+    # --- Fractions ---
+    FractionOpGenerator('+'),
+    FractionOpGenerator('-'),
+    FractionOpGenerator('*'),
+    FractionOpGenerator('/'),
+    FractionComparisonGenerator(),
+    MixedNumberOperationsRandom(),  # Random operation picker
+    MixedNumberOperationGenerator('+'),
+    MixedNumberOperationGenerator('-'),
+    MixedNumberOperationGenerator('*'),
+    MixedNumberOperationGenerator('/'),
+
+    # --- Conversions ---
+    FractionDecimalPercentConverter(),
+
+    # --- Factors & Multiples ---
+    FactorsGenerator(),
+    PrimeFactorizationGenerator(),
+    GCFGenerator(),
+    LCMGenerator(),
+
+    # --- Order of Operations ---
+    OrderOfOperationsGenerator(),
+
+    # --- Number Sense ---
+    PlaceValueRoundingGenerator(),
+    NumberComparisonGenerator(),
+    DivisibilityClassificationGenerator(),
+
+    # --- Geometry (Elementary) ---
+    GeometryAreaPerimeterGenerator(),
+    PolygonPerimeterGenerator(),
+    VolumeRectPrismGenerator(),
+
+    # --- Units & Measurement ---
+    UnitConversionGenerator(),
+
+    # --- Data & Statistics (Elementary) ---
+    SimpleStatsGenerator(),
+    SimpleProbabilityGenerator(),
+    GraphInterpretGenerator(),
+
+    # ===== MIDDLE SCHOOL (Grades 6-8) =====
+
+    # --- Integer Operations ---
+    IntegerOperationsGenerator(),
+
+    # --- Ratios & Proportions ---
+    UnitRateGenerator(),
+    UnitRateFromTableGenerator(),
+    ScalingGenerator(),
+    SimilarFiguresScaleGenerator(),
+    ProportionalRelationshipGenerator(),
+
+    # --- Expressions & Equations ---
+    OneStepEquationGenerator(),
+    TwoStepEquationGenerator(),
     LinearSimpleGenerator(),
-    QuadraticGenerator(),
+    LinearComplexGenerator(),
     SimplifyExpressionGenerator(),
     EvaluateExpressionGenerator(),
-    LinearComplexGenerator(),
-    ProportionalRelationshipGenerator(),
-    # Geometry
+
+    # --- Inequalities ---
+    OneStepInequalityGenerator(),
+    TwoStepInequalityGenerator(),
+
+    # --- Exponents & Roots ---
+    ExponentEvaluationGenerator(),
+    ExponentRulesGenerator(),
+    ScientificNotationGenerator(),
+    RootsAndRadicalsGenerator(),
+
+    # --- Geometry (Middle School) ---
+    AngleRelationshipsGenerator(),
+    AnglesWithParallelLinesGenerator(),
+    TriangleAngleSumGenerator(),
+    CircleAreaCircumferenceGenerator(),
+    VolumePrismGenerator(),
+    VolumeCylinderGenerator(),
+    SurfaceAreaPrismGenerator(),
+    SurfaceAreaCylinderGenerator(),
     PythagHypGenerator(),
-    # Tools/Methods
-    AbacusAdditionGenerator(),
-    # Percentages
+    PythagoreanLegGenerator(),
+    PythagoreanWordProblemGenerator(),
+
+    # --- Statistics (Middle School) ---
+    MeanGenerator(),
+    MedianGenerator(),
+    ModeGenerator(),
+    RangeGenerator(),
+    MeanAbsoluteDeviationGenerator(),
+
+    # --- Probability (Middle School) ---
+    CompoundProbabilityIndependentGenerator(),
+    CompoundProbabilityDependentGenerator(),
+
+    # ===== HIGH SCHOOL =====
+
+    # --- Algebra ---
+    QuadraticGenerator(),
     PercentProblemGenerator(),
+
+    # --- (More High School generators coming soon) ---
 ]
+
+def select_generators(generator_arg: str):
+    """
+    Returns a filtered list of generators based on a comma-separated list of
+    class names. If no argument is provided, returns all generators.
+    """
+    if not generator_arg:
+        return ALL_GENERATORS
+
+    requested = {name.strip() for name in generator_arg.split(",") if name.strip()}
+    if not requested:
+        return ALL_GENERATORS
+
+    available_map = {gen.__class__.__name__: gen for gen in ALL_GENERATORS}
+    missing = requested - set(available_map.keys())
+    if missing:
+        available = ", ".join(sorted(available_map.keys()))
+        raise ValueError(f"Unknown generator(s): {', '.join(sorted(missing))}. Available: {available}")
+
+    return [available_map[name] for name in requested]
+
 
 def write_jsonl(fp, obj):
     """Writes a JSON object to a file handle, one object per line."""
     fp.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
-def build_dataset(n=10_000, path="math_visible_dataset_refactored.jsonl", seed=42):
+def build_dataset(n=10_000, path="math_visible_dataset_refactored.jsonl", seed=None, generators=None):
     """Generates the dataset by calling the generate() method of chosen generators."""
-    random.seed(seed)
+    if seed is not None:
+        random.seed(seed)
+    gen_pool = generators or ALL_GENERATORS
+    if not gen_pool:
+        raise ValueError("No generators selected; cannot build dataset.")
     count = 0
     attempts = 0
     # Allow slightly more attempts in case some generators fail validation often
@@ -125,7 +315,7 @@ def build_dataset(n=10_000, path="math_visible_dataset_refactored.jsonl", seed=4
             attempts += 1
             try:
                 # Choose a generator instance randomly
-                gen_instance = random.choice(ALL_GENERATORS)
+                gen_instance = random.choice(gen_pool)
                 example = gen_instance.generate() # Call the generate method
                 if example:
                     # Basic validation before writing
@@ -168,8 +358,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "-s", "--seed",
         type=int,
-        default=42,
-        help="Random seed for reproducibility."
+        default=None,
+        help="Random seed for reproducibility. Omit to use system randomness."
     )
     # Removed --generate_dataset flag, sample is now default if no args given
     parser.add_argument(
@@ -177,8 +367,15 @@ if __name__ == "__main__":
         action="store_true",
         help="Explicitly generate one sample from each generator type (this is also the default if no other args are given)."
     )
+    parser.add_argument(
+        "--generators",
+        type=str,
+        default=None,
+        help="Comma-separated list of generator class names to include (e.g., 'MultiDigitAdditionGenerator,LongDivisionGenerator')."
+    )
 
     args = parser.parse_args()
+    selected_generators = select_generators(args.generators)
 
     # Determine the output filename if not provided
     if args.output is None:
@@ -189,18 +386,24 @@ if __name__ == "__main__":
     # If no args, default to sample. If args are present but not --sample, generate dataset.
     if len(sys.argv) > 1 and not args.sample:
         # Generate dataset if arguments like -n, -o, -s are provided
+        names = ", ".join(gen.__class__.__name__ for gen in selected_generators)
         print(f"Generating dataset with n={args.num_examples}, output={args.output}, seed={args.seed}...")
-        build_dataset(n=args.num_examples, path=args.output, seed=args.seed)
+        print(f"Using generators: {names}")
+        build_dataset(n=args.num_examples, path=args.output, seed=args.seed, generators=selected_generators)
         print("Dataset generation finished.")
     else:
         # Default action (no args) or explicit --sample: print samples
         action_reason = "Default Action" if len(sys.argv) == 1 else "--sample specified"
         print(f"Generating one sample from each generator type ({action_reason}):")
         print("(Use -n, -o, or -s arguments to generate the full dataset file)")
+        if args.generators:
+            names = ", ".join(gen.__class__.__name__ for gen in selected_generators)
+            print(f"Limiting to generators: {names}")
         print("-" * 50)
-        random.seed(args.seed) # Use specified or default seed for samples
+        if args.seed is not None:
+            random.seed(args.seed) # Use specified seed for samples
 
-        for gen_instance in ALL_GENERATORS:
+        for gen_instance in selected_generators:
             generator_name = gen_instance.__class__.__name__
             # Handle generators that take arguments in __init__
             if hasattr(gen_instance, 'op_symbol'):
