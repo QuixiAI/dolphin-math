@@ -78,14 +78,14 @@
 - [x] Multi-step conversions for area/volume units
 - [x] Rate conversions (e.g., mph ↔ ft/s) and compound unit chains
 - [x] Temperature conversions (F/C/K) with algebraic steps
-- [ ] Dimensional analysis across domains (e.g., dosing mg/kg, flow L/min, pressure units)
+- [x] Dimensional analysis across domains (e.g., dosing mg/kg, flow L/min, pressure units)
 
 #### Data & Probability
 - [x] Read/Interpret Bar/Line/Pictographs
 - [x] Mean/Median/Mode for small datasets
 - [x] Simple Probability (single event; uniform outcomes)
-- [ ] Percent change / markup / discount / tax word problems
-- [ ] Repeating vs terminating decimal expansions and conversions
+- [x] Percent change / markup / discount / tax word problems
+- [x] Repeating vs terminating decimal expansions and conversions
 
 ---
 
@@ -94,7 +94,7 @@
 #### Ratios & Proportions
 - [x] Unit Rate Calculations
 - [x] Scaling (scale factor problems)
-- [ ] Proportion word problems with units (mi/hr, $/lb, etc.)
+- [x] Proportion word problems with units (mi/hr, $/lb, etc.)
 - [ ] Ratio tables/graphs and cross-multiplication checks
 - [ ] Percent change, markup/discount, tax/tip and bill splitting
 
