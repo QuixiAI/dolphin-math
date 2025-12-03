@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dolphin-math"
+version = "0.1.0"
+description = "Synthetic math problem generator with step-by-step solutions for training data."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+keywords = ["math", "dataset", "generator", "education"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools]
+py-modules = ["dolphin_math_datagen", "base_generator", "helpers"]
+
+[tool.setuptools.packages.find]
+include = ["generators"]
+exclude = ["tests"]
