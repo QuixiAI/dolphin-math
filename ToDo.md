@@ -77,7 +77,7 @@
 - [x] Unit Conversions (length/weight/capacity; time; money) with factor-label steps
 - [x] Multi-step conversions for area/volume units
 - [x] Rate conversions (e.g., mph ↔ ft/s) and compound unit chains
-- [ ] Temperature conversions (F/C/K) with algebraic steps
+- [x] Temperature conversions (F/C/K) with algebraic steps
 - [ ] Dimensional analysis across domains (e.g., dosing mg/kg, flow L/min, pressure units)
 
 #### Data & Probability
