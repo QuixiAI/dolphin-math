@@ -75,11 +75,17 @@
 
 #### Units & Measurement
 - [x] Unit Conversions (length/weight/capacity; time; money) with factor-label steps
+- [x] Multi-step conversions for area/volume units
+- [x] Rate conversions (e.g., mph ↔ ft/s) and compound unit chains
+- [ ] Temperature conversions (F/C/K) with algebraic steps
+- [ ] Dimensional analysis across domains (e.g., dosing mg/kg, flow L/min, pressure units)
 
 #### Data & Probability
 - [x] Read/Interpret Bar/Line/Pictographs
 - [x] Mean/Median/Mode for small datasets
 - [x] Simple Probability (single event; uniform outcomes)
+- [ ] Percent change / markup / discount / tax word problems
+- [ ] Repeating vs terminating decimal expansions and conversions
 
 ---
 
@@ -88,6 +94,9 @@
 #### Ratios & Proportions
 - [x] Unit Rate Calculations
 - [x] Scaling (scale factor problems)
+- [ ] Proportion word problems with units (mi/hr, $/lb, etc.)
+- [ ] Ratio tables/graphs and cross-multiplication checks
+- [ ] Percent change, markup/discount, tax/tip and bill splitting
 
 #### Integer Operations
 - [x] Adding Integers (number line / rules)
@@ -100,6 +109,8 @@
 - [x] Two-step Equations
 - [x] One-step Inequalities
 - [x] Two-step Inequalities
+- [ ] Linear equations/inequalities with fractions & decimals (including no/infinitely many solutions)
+- [ ] Mixed-number and decimal order of operations edge cases
 
 #### Exponents
 - [x] Exponent Evaluation (compute 2^5)
@@ -110,6 +121,8 @@
 - [x] Exponent Rules — Zero Exponent
 - [x] Scientific Notation Conversion
 - [x] Scientific Notation Operations
+- [ ] Mixed-rule simplification with negative/zero exponents in combined expressions
+- [ ] Decimal and fractional bases in exponent rules
 
 #### Roots & Radicals
 - [x] Square Root (perfect squares)
@@ -127,6 +140,10 @@
 - [x] Surface Area of Prisms
 - [x] Surface Area of Cylinders
 - [x] Pythagorean Theorem — Find Leg (given hypotenuse and one leg)
+- [ ] Surface area & volume of cones, pyramids, and spheres
+- [ ] Nets to surface area reasoning
+- [ ] Arc length and sector area
+- [ ] Right-triangle trig for ramps/navigation (SOH-CAH-TOA setup)
 
 #### Statistics
 - [x] Mean (average)
@@ -134,11 +151,19 @@
 - [x] Mode
 - [x] Range
 - [x] Mean Absolute Deviation (MAD)
+- [ ] Variance and standard deviation (intro, small datasets)
+- [ ] Z-scores and standardization (conceptual + small numeric)
+- [ ] Box plots/histograms interpretation; outlier (IQR) check
+- [ ] Simple linear regression slope/intercept from small tables (by hand)
 
 #### Probability
 - [x] Simple Probability (single event)
 - [x] Compound Probability (independent events)
 - [x] Compound Probability (dependent events)
+- [x] Permutations and combinations
+- [x] Binomial probability for small n
+- [ ] Conditional probability with tables/Bayes (e.g., test sensitivity/specificity)
+- [ ] Geometric probability on intervals/regions
 
 ---
 
@@ -157,6 +182,9 @@
 - [x] Point-Slope Form
 - [x] Standard Form ↔ Slope-Intercept Conversion
 - [x] Parallel & Perpendicular Line Equations
+- [ ] Function evaluation from rules and tables
+- [ ] Build tables from rules (linear/quadratic/exp) and infer domain/range
+- [ ] Piecewise/step functions (billing tiers, taxes)
 
 #### Systems of Equations
 - [x] Systems by Substitution
@@ -193,6 +221,7 @@
 - [ ] Dividing Radicals (rationalizing denominators)
 - [ ] Rational Exponents ↔ Radical Conversion
 - [ ] Solving Radical Equations
+- [ ] Applied exponential growth/decay (population, depreciation, half-life)
 
 #### Rational Expressions
 - [ ] Simplifying Rational Expressions
@@ -201,6 +230,15 @@
 - [ ] Adding/Subtracting Rational Expressions (like denominators)
 - [ ] Adding/Subtracting Rational Expressions (unlike denominators)
 - [ ] Solving Rational Equations
+
+### Applied & Cross-Disciplinary (to add)
+- [ ] Simple/compound interest; loan payment breakdown; budgeting/allocation
+- [ ] Kinematics basics (d = vt, v = d/t, a = Δv/Δt) and unit-consistent setups
+- [ ] Work/energy/power (W = Fd, P = W/t) with unit conversions
+- [ ] Binary/hex conversions and two’s-complement representation basics
+- [ ] Bitwise operations truth-table practice (AND/OR/XOR) and simple masking
+- [ ] Modular arithmetic in “clock math” contexts
+- [ ] Fermi estimation and significant figures/rounding through calculations
 
 #### Functions
 - [ ] Function Notation Evaluation (f(3) = ?)

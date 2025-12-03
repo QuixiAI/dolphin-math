@@ -35,6 +35,19 @@ class TestOrderOfOperationsGenerator(unittest.TestCase):
             if "(" not in expr.split("*")[0] and "(" not in expr.split("/")[0]:
                 self.assertIn(first_op, {"M", "D"})
 
+    def test_rewrite_sequence_no_duplicates(self):
+        """Ensure expressions are rewritten once per precedence move (no duplicate ops)."""
+        random.seed(1)
+        gen = OrderOfOperationsGenerator()
+        res = gen.generate()
+        steps = res["steps"]
+        # No adjacent identical arithmetic op-codes
+        op_codes = [s.split(DELIM)[0] for s in steps if not s.startswith(f"REWRITE{DELIM}")]
+        for prev, curr in zip(op_codes, op_codes[1:]):
+            self.assertNotEqual(prev + curr, "AA")
+            self.assertNotEqual(prev + curr, "MM")
+            self.assertNotEqual(prev + curr, "SS")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -56,33 +56,42 @@ class OrderOfOperationsGenerator(ProblemGenerator):
                 steps.append(step("D", x, y, result))
             return result
 
-        # Evaluate with manual ordering
-        if form in ["a + b * c", "a - b * c"]:
+        total = None
+
+        # Evaluate each template explicitly to avoid duplicated operations
+        if form == "a + b * c":
             mult = add_op("M", b, c)
-            sign = "+" if "+" in form else "-"
-            steps.append(step("REWRITE", f"{a} {sign} {mult}"))
-            if sign == "+":
-                total = add_op("A", a, mult)
-            else:
-                total = add_op("S", a, mult)
-        elif form in ["a + b / c", "a - b / c"]:
+            steps.append(step("REWRITE", f"{a} + {mult}"))
+            total = add_op("A", a, mult)
+        elif form == "a - b * c":
+            mult = add_op("M", b, c)
+            steps.append(step("REWRITE", f"{a} - {mult}"))
+            total = add_op("S", a, mult)
+        elif form == "a + b / c":
             div = add_op("D", b, c)
-            sign = "+" if "+" in form else "-"
-            steps.append(step("REWRITE", f"{a} {sign} {div}"))
-            if sign == "+":
-                total = add_op("A", a, div)
-            else:
-                total = add_op("S", a, div)
-        elif form in ["(a + b) * c", "(a - b) * c"]:
-            inner = add_op("A" if "+" in form else "S", a, b)
+            steps.append(step("REWRITE", f"{a} + {div}"))
+            total = add_op("A", a, div)
+        elif form == "a - b / c":
+            div = add_op("D", b, c)
+            steps.append(step("REWRITE", f"{a} - {div}"))
+            total = add_op("S", a, div)
+        elif form == "(a + b) * c":
+            inner = add_op("A", a, b)
             steps.append(step("REWRITE", f"{inner} * {c}"))
             total = add_op("M", inner, c)
-        else:  # a * (b + c) or a * (b - c)
-            inner = add_op("A" if "+" in form else "S", b, c)
+        elif form == "(a - b) * c":
+            inner = add_op("S", a, b)
+            steps.append(step("REWRITE", f"{inner} * {c}"))
+            total = add_op("M", inner, c)
+        elif form == "a * (b + c)":
+            inner = add_op("A", b, c)
             steps.append(step("REWRITE", f"{a} * {inner}"))
             total = add_op("M", a, inner)
-        # Extended 3-4 op forms
-        if form == "a + b * c - d":
+        elif form == "a * (b - c)":
+            inner = add_op("S", b, c)
+            steps.append(step("REWRITE", f"{a} * {inner}"))
+            total = add_op("M", a, inner)
+        elif form == "a + b * c - d":
             mult = add_op("M", b, c)
             steps.append(step("REWRITE", f"{a} + {mult} - {d}"))
             mid = add_op("A", a, mult)
@@ -118,6 +127,9 @@ class OrderOfOperationsGenerator(ProblemGenerator):
             div = add_op("D", b, inner)
             steps.append(step("REWRITE", f"{a} + {div}"))
             total = add_op("A", a, div)
+
+        if total is None:
+            raise ValueError(f"Unhandled form: {form}")
 
         final_answer = str(total)
         steps.append(step("Z", final_answer))

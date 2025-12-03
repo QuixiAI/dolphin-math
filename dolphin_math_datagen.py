@@ -49,6 +49,8 @@ from generators.volume_rect_prism_generator import VolumeRectPrismGenerator
 from generators.place_value_rounding_generator import PlaceValueRoundingGenerator
 from generators.divisibility_classification_generator import DivisibilityClassificationGenerator
 from generators.unit_conversion_generator import UnitConversionGenerator
+from generators.multi_step_unit_conversion_generator import MultiStepUnitConversionGenerator
+from generators.rate_conversion_generator import RateConversionGenerator
 from generators.simple_stats_generator import SimpleStatsGenerator
 from generators.number_comparison_generator import NumberComparisonGenerator
 from generators.simple_probability_generator import SimpleProbabilityGenerator
@@ -219,6 +221,8 @@ ALL_GENERATORS = [
 
     # --- Units & Measurement ---
     UnitConversionGenerator(),
+    MultiStepUnitConversionGenerator(),
+    RateConversionGenerator(),
 
     # --- Data & Statistics (Elementary) ---
     SimpleStatsGenerator(),

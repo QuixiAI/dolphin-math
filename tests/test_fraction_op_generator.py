@@ -86,6 +86,21 @@ class TestFractionOpGenerator(unittest.TestCase):
                 self.assertEqual(len(i_parts), 3, "I step should have 3 parts")
                 self.assertIn('/', i_parts[2], "Inverted fraction in I step should contain '/'")
 
+    def test_division_steps_use_inverted_parts(self):
+        """Division should multiply by the inverted fraction's numerator/denominator."""
+        generator = FractionOpGenerator('/')
+        random.seed(0)
+        result = generator.generate()
+        steps = result["steps"]
+        i_step = next(s for s in steps if s.startswith(f"I{DELIM}"))
+        m_steps = [s for s in steps if s.startswith(f"M{DELIM}")]
+        # Extract inversion target
+        inv_str = i_step.split(DELIM)[2]
+        inv_num, inv_den = inv_str.split("/")
+        # First M should use the original numerator and inverted numerator
+        self.assertTrue(any(inv_num == s.split(DELIM)[2] for s in m_steps), "Expected inverted numerator in multiply step")
+        self.assertTrue(any(inv_den == s.split(DELIM)[2] for s in m_steps), "Expected inverted denominator in multiply step")
+
 
 if __name__ == '__main__':
     unittest.main()

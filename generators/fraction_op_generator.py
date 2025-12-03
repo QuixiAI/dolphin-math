@@ -55,15 +55,17 @@ class FractionOpGenerator(ProblemGenerator):
         else: # division '/'
             if n2 == 0: # Should be caught by earlier check, but safeguard
                 return self.generate() # Retry if somehow n2 is 0
-            inv = Fraction(d2, n2)
-            # Show the fully inverted fraction string
+            num1, den1 = f1.numerator, f1.denominator
+            inv = Fraction(f2.denominator, f2.numerator)
             inv_str = f"{inv.numerator}/{inv.denominator}"
-            steps.append(step("I", str(f2), inv_str)) # Invert divisor
-            out_num, out_den = n1 * inv.numerator, d1 * inv.denominator # Use inverted parts
-            # Show the correct multiplication steps
-            steps += [step("M", n1, inv.numerator, out_num), step("M", d1, inv.denominator, out_den)] # Multiply
+            steps.append(step("I", str(f2), inv_str)) # Invert divisor as shown in problem
+            out_num, out_den = num1 * inv.numerator, den1 * inv.denominator
+            steps += [
+                step("M", num1, inv.numerator, out_num),
+                step("M", den1, inv.denominator, out_den),
+            ]
             res = Fraction(out_num, out_den)
-            # out_den is already the correct denominator before simplification
+            # out_den is already the correct denominator before simplification and matches the displayed factors
 
         final_answer_str = str(res)
         # Determine pre-simplification string based on operation (using out_den)
