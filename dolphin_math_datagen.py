@@ -62,6 +62,20 @@ from generators.one_step_equation_generator import OneStepEquationGenerator
 from generators.two_step_equation_generator import TwoStepEquationGenerator
 from generators.one_step_inequality_generator import OneStepInequalityGenerator
 from generators.two_step_inequality_generator import TwoStepInequalityGenerator
+from generators.literal_equation_generator import LiteralEquationGenerator
+from generators.absolute_value_equation_generator import AbsoluteValueEquationGenerator
+from generators.absolute_value_inequality_generator import AbsoluteValueInequalityGenerator
+from generators.compound_inequality_generator import CompoundInequalityGenerator
+from generators.slope_two_points_generator import SlopeTwoPointsGenerator
+from generators.slope_intercept_form_generator import SlopeInterceptFormGenerator
+from generators.equation_from_two_points_generator import EquationFromTwoPointsGenerator
+from generators.point_slope_generator import PointSlopeGenerator
+from generators.standard_form_conversion_generator import StandardFormConversionGenerator
+from generators.parallel_perpendicular_line_generator import ParallelPerpendicularLineGenerator
+from generators.systems_substitution_generator import SystemsSubstitutionGenerator
+from generators.systems_elimination_generator import SystemsEliminationGenerator
+from generators.polynomial_add_sub_generator import PolynomialAddSubGenerator
+from generators.monomial_mult_div_generator import MonomialMultDivGenerator
 from generators.exponent_generator import (
     ExponentEvaluationGenerator,
     ExponentRulesGenerator,
@@ -267,6 +281,20 @@ ALL_GENERATORS = [
     # --- Algebra ---
     QuadraticGenerator(),
     PercentProblemGenerator(),
+    LiteralEquationGenerator(),
+    AbsoluteValueEquationGenerator(),
+    AbsoluteValueInequalityGenerator(),
+    CompoundInequalityGenerator(),
+    SlopeTwoPointsGenerator(),
+    SlopeInterceptFormGenerator(),
+    EquationFromTwoPointsGenerator(),
+    PointSlopeGenerator(),
+    StandardFormConversionGenerator(),
+    ParallelPerpendicularLineGenerator(),
+    SystemsSubstitutionGenerator(),
+    SystemsEliminationGenerator(),
+    PolynomialAddSubGenerator(),
+    MonomialMultDivGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

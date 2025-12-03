@@ -145,27 +145,27 @@
 ### High School - Algebra 1
 
 #### Linear Equations & Inequalities
-- [ ] Literal Equations (solve for a variable)
-- [ ] Absolute Value Equations
-- [ ] Absolute Value Inequalities
-- [ ] Compound Inequalities (AND / OR)
+- [x] Literal Equations (solve for a variable)
+- [x] Absolute Value Equations
+- [x] Absolute Value Inequalities
+- [x] Compound Inequalities (AND / OR)
 
 #### Graphing (Computational Aspects)
-- [ ] Slope from Two Points
-- [ ] Slope-Intercept Form (identify m and b)
-- [ ] Writing Equations from Two Points
-- [ ] Point-Slope Form
-- [ ] Standard Form ↔ Slope-Intercept Conversion
-- [ ] Parallel & Perpendicular Line Equations
+- [x] Slope from Two Points
+- [x] Slope-Intercept Form (identify m and b)
+- [x] Writing Equations from Two Points
+- [x] Point-Slope Form
+- [x] Standard Form ↔ Slope-Intercept Conversion
+- [x] Parallel & Perpendicular Line Equations
 
 #### Systems of Equations
-- [ ] Systems by Substitution
-- [ ] Systems by Elimination
+- [x] Systems by Substitution
+- [x] Systems by Elimination
 
 #### Polynomials
-- [ ] Adding Polynomials
-- [ ] Subtracting Polynomials
-- [ ] Multiplying Monomials
+- [x] Adding Polynomials
+- [x] Subtracting Polynomials
+- [x] Multiplying Monomials
 - [ ] Multiplying Binomials (FOIL)
 - [ ] Multiplying Polynomials (distribution)
 - [ ] Dividing Polynomials by Monomials
@@ -322,6 +322,7 @@
 - [ ] Converting Degrees ↔ Radians
 - [ ] Evaluating Trig Functions (exact values)
 - [ ] Inverse Trig Function Evaluation
+- [ ] Find Amplitude, Period, Phase Shift (from equation)
 
 ---
 
