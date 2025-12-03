@@ -166,9 +166,9 @@
 - [x] Adding Polynomials
 - [x] Subtracting Polynomials
 - [x] Multiplying Monomials
-- [ ] Multiplying Binomials (FOIL)
-- [ ] Multiplying Polynomials (distribution)
-- [ ] Dividing Polynomials by Monomials
+- [x] Multiplying Binomials (FOIL)
+- [x] Multiplying Polynomials (distribution)
+- [x] Dividing Polynomials by Monomials
 
 #### Factoring
 - [ ] Factoring out GCF

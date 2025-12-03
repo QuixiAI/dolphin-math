@@ -76,6 +76,9 @@ from generators.systems_substitution_generator import SystemsSubstitutionGenerat
 from generators.systems_elimination_generator import SystemsEliminationGenerator
 from generators.polynomial_add_sub_generator import PolynomialAddSubGenerator
 from generators.monomial_mult_div_generator import MonomialMultDivGenerator
+from generators.multiplying_binomials_generator import MultiplyingBinomialsGenerator
+from generators.multiplying_polynomials_generator import MultiplyingPolynomialsGenerator
+from generators.polynomial_div_monomial_generator import PolynomialDivMonomialGenerator
 from generators.exponent_generator import (
     ExponentEvaluationGenerator,
     ExponentRulesGenerator,
@@ -295,6 +298,9 @@ ALL_GENERATORS = [
     SystemsEliminationGenerator(),
     PolynomialAddSubGenerator(),
     MonomialMultDivGenerator(),
+    MultiplyingBinomialsGenerator(),
+    MultiplyingPolynomialsGenerator(),
+    PolynomialDivMonomialGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]
