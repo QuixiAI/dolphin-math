@@ -3,15 +3,14 @@ import sys
 import os
 import random
 
-# Add parent directory to path to allow importing 'arithmetic' modules
+# Ensure repo root is on sys.path for package imports
 current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(current_dir)
-grandparent_dir = os.path.dirname(parent_dir) # Go up two levels
-if grandparent_dir not in sys.path:
-    sys.path.insert(0, grandparent_dir)
+repo_root = os.path.dirname(current_dir)
+if repo_root not in sys.path:
+    sys.path.insert(0, repo_root)
 
-from arithmetic.generators.simplify_expression_generator import SimplifyExpressionGenerator
-from arithmetic.helpers import DELIM
+from generators.simplify_expression_generator import SimplifyExpressionGenerator
+from helpers import DELIM
 
 class TestSimplifyExpressionGenerator(unittest.TestCase):
 

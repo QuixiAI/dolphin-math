@@ -1,7 +1,7 @@
 import random
 from decimal import Decimal, InvalidOperation
-from arithmetic.base_generator import ProblemGenerator
-from arithmetic.helpers import step, jid
+from base_generator import ProblemGenerator
+from helpers import step, jid
 
 # New Op-Codes:
 # DEC_ALIGN: Align numbers by decimal point (num1_aligned, num2_aligned)

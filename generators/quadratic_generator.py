@@ -1,7 +1,7 @@
 import random
 import math
-from arithmetic.base_generator import ProblemGenerator
-from arithmetic.helpers import step, jid
+from base_generator import ProblemGenerator
+from helpers import step, jid
 
 class QuadraticGenerator(ProblemGenerator):
     """Generates quadratic equation problems (ax^2 + bx + c = 0)."""

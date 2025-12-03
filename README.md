@@ -40,8 +40,6 @@ Generates problems and detailed steps for the following types:
     *   Abacus-style Addition (column-by-column with carries)
 
 ## Usage
-
-
 ### Generating Samples
 
 To see one sample output from each generator type:

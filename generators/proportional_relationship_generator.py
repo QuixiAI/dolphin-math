@@ -1,6 +1,6 @@
 import random
-from arithmetic.base_generator import ProblemGenerator
-from arithmetic.helpers import step, jid
+from base_generator import ProblemGenerator
+from helpers import step, jid
 
 class ProportionalRelationshipGenerator(ProblemGenerator):
     """Generates proportional relationship problems (a/b = c/x or a/b = x/c)."""

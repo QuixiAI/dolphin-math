@@ -1,7 +1,7 @@
 import random
 from decimal import Decimal, ROUND_HALF_UP
-from arithmetic.base_generator import ProblemGenerator
-from arithmetic.helpers import step, jid, DELIM # Import DELIM
+from base_generator import ProblemGenerator
+from helpers import step, jid, DELIM # Import DELIM
 
 # Op-Codes:
 # PERCENT_TO_DEC: Convert percent to decimal (percent_str, decimal_val)

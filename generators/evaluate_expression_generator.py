@@ -1,6 +1,6 @@
 import random
-from arithmetic.base_generator import ProblemGenerator
-from arithmetic.helpers import step, jid
+from base_generator import ProblemGenerator
+from helpers import step, jid
 
 class EvaluateExpressionGenerator(ProblemGenerator):
     """Generates algebraic expression evaluation problems."""

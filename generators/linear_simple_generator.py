@@ -1,7 +1,7 @@
 import random
 from fractions import Fraction
-from arithmetic.base_generator import ProblemGenerator
-from arithmetic.helpers import step, jid
+from base_generator import ProblemGenerator
+from helpers import step, jid
 
 class LinearSimpleGenerator(ProblemGenerator):
     """Generates simple linear equation problems (e.g., mx + b = y)."""

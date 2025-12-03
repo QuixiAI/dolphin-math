@@ -1,6 +1,6 @@
 import random
-from arithmetic.base_generator import ProblemGenerator
-from arithmetic.helpers import step, jid, DELIM
+from base_generator import ProblemGenerator
+from helpers import step, jid, DELIM
 
 class LongDivisionGenerator(ProblemGenerator):
     """Generates long division problems (e.g., 1234 / 56)."""

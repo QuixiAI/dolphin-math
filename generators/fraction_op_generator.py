@@ -1,8 +1,8 @@
 import random
 import math
 from fractions import Fraction
-from arithmetic.base_generator import ProblemGenerator
-from arithmetic.helpers import step, jid, DELIM
+from base_generator import ProblemGenerator
+from helpers import step, jid, DELIM
 
 class FractionOpGenerator(ProblemGenerator):
     """Generates fraction arithmetic problems (+, -, *, /)."""

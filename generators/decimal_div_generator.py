@@ -1,8 +1,8 @@
 import random
 import decimal # Required for localcontext
 from decimal import Decimal, InvalidOperation
-from arithmetic.base_generator import ProblemGenerator
-from arithmetic.helpers import step, jid, DELIM
+from base_generator import ProblemGenerator
+from helpers import step, jid, DELIM
 
 # New Op-Codes:
 # DEC_SHIFT: Shift decimal points (orig_dividend, orig_divisor, new_dividend, new_divisor, shift_places)

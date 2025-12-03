@@ -17,23 +17,23 @@ if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
 
 # Import Generator Classes (from generators subdirectory)
-from arithmetic.generators.long_division_generator import LongDivisionGenerator
-from arithmetic.generators.decimal_mult_generator import DecimalMultGenerator
-from arithmetic.generators.decimal_add_sub_generator import DecimalAddSubGenerator
-from arithmetic.generators.decimal_div_generator import DecimalDivGenerator
-from arithmetic.generators.fraction_op_generator import FractionOpGenerator
-from arithmetic.generators.linear_simple_generator import LinearSimpleGenerator
-from arithmetic.generators.quadratic_generator import QuadraticGenerator
-from arithmetic.generators.simplify_expression_generator import SimplifyExpressionGenerator
-from arithmetic.generators.evaluate_expression_generator import EvaluateExpressionGenerator
-from arithmetic.generators.linear_complex_generator import LinearComplexGenerator
-from arithmetic.generators.pythag_hyp_generator import PythagHypGenerator
-from arithmetic.generators.abacus_addition_generator import AbacusAdditionGenerator
-from arithmetic.generators.proportional_relationship_generator import ProportionalRelationshipGenerator
-from arithmetic.generators.percent_problem_generator import PercentProblemGenerator
+from generators.long_division_generator import LongDivisionGenerator
+from generators.decimal_mult_generator import DecimalMultGenerator
+from generators.decimal_add_sub_generator import DecimalAddSubGenerator
+from generators.decimal_div_generator import DecimalDivGenerator
+from generators.fraction_op_generator import FractionOpGenerator
+from generators.linear_simple_generator import LinearSimpleGenerator
+from generators.quadratic_generator import QuadraticGenerator
+from generators.simplify_expression_generator import SimplifyExpressionGenerator
+from generators.evaluate_expression_generator import EvaluateExpressionGenerator
+from generators.linear_complex_generator import LinearComplexGenerator
+from generators.pythag_hyp_generator import PythagHypGenerator
+from generators.abacus_addition_generator import AbacusAdditionGenerator
+from generators.proportional_relationship_generator import ProportionalRelationshipGenerator
+from generators.percent_problem_generator import PercentProblemGenerator
 
 # Import Helpers if needed (jid is used in generate methods, step/DELIM are used internally)
-# from arithmetic.helpers import jid, step, DELIM # Not strictly needed here anymore
+# from helpers import jid, step, DELIM # Not strictly needed here anymore
 
 # -----------------------------------------------------------
 # definitive op-code legend (For reference across generator files)
