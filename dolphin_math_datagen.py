@@ -52,6 +52,10 @@ from generators.unit_conversion_generator import UnitConversionGenerator
 from generators.multi_step_unit_conversion_generator import MultiStepUnitConversionGenerator
 from generators.rate_conversion_generator import RateConversionGenerator
 from generators.temperature_conversion_generator import TemperatureConversionGenerator
+from generators.dimensional_analysis_generator import DimensionalAnalysisGenerator
+from generators.percent_word_problem_generator import PercentWordProblemGenerator
+from generators.repeating_decimal_generator import RepeatingDecimalGenerator
+from generators.proportion_word_problem_generator import ProportionWordProblemGenerator
 from generators.simple_stats_generator import SimpleStatsGenerator
 from generators.number_comparison_generator import NumberComparisonGenerator
 from generators.simple_probability_generator import SimpleProbabilityGenerator
@@ -225,6 +229,10 @@ ALL_GENERATORS = [
     MultiStepUnitConversionGenerator(),
     RateConversionGenerator(),
     TemperatureConversionGenerator(),
+    DimensionalAnalysisGenerator(),
+    PercentWordProblemGenerator(),
+    RepeatingDecimalGenerator(),
+    ProportionWordProblemGenerator(),
 
     # --- Data & Statistics (Elementary) ---
     SimpleStatsGenerator(),
