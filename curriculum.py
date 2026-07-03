@@ -71,6 +71,7 @@ CURRICULUM = {
     "ErrorSpottingGenerator": {"grade_level": MIDDLE, "difficulty": 4},
     "FactorSpecialFormsGenerator": {"grade_level": HIGH, "difficulty": 4},
     "FactorGroupingGenerator": {"grade_level": HIGH, "difficulty": 5},
+    "QuadraticFactoringGenerator": {"grade_level": HIGH, "difficulty": 5},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},

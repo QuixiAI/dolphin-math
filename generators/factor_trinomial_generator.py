@@ -21,6 +21,34 @@ def binomial2(var, p, r):
     return f"({head} + {r})" if r > 0 else f"({head} - {-r})"
 
 
+def pair_search(steps, product, target_sum):
+    """Emits FACTOR_PAIR_GOAL and the TRY/REJECT/ACCEPT sweep for two
+    numbers with the given product and sum. Returns the winning pair.
+    Shared by trinomial factoring and quadratic solving by factoring."""
+    steps.append(step("FACTOR_PAIR_GOAL", f"m·n = {product}",
+                      f"m + n = {target_sum}"))
+    for d in range(1, abs(product) + 1):
+        if d * d > abs(product):
+            break
+        if abs(product) % d != 0:
+            continue
+        big = abs(product) // d
+        if product > 0:
+            m, n = (d, big) if target_sum > 0 else (-d, -big)
+        else:
+            m, n = (-d, big) if target_sum > 0 else (d, -big)
+        s = m + n
+        work = (f"{sgn_num(m)}·{sgn_num(n)}={product}, "
+                f"{sgn_num(m)}+{sgn_num(n)}={s}")
+        steps.append(step("TRY", f"({m}, {n})", work))
+        if s == target_sum:
+            steps.append(step("ACCEPT", f"({m}, {n})",
+                              f"product {product} ✓, sum {target_sum} ✓"))
+            return m, n
+        steps.append(step("REJECT", f"({m}, {n})", f"sum is {s}, need {target_sum}"))
+    raise ValueError(f"no pair for product={product}, sum={target_sum}")
+
+
 def xterm(coef, var):
     """Signed x-term for polynomial strings: '+ 9x', '- x'."""
     mag = "" if abs(coef) == 1 else str(abs(coef))
@@ -63,31 +91,7 @@ class FactorTrinomialGenerator(ProblemGenerator):
     # ------------------------------------------------------------------
 
     def _pair_search(self, steps, product, target_sum):
-        """Emits FACTOR_PAIR_GOAL and the TRY/REJECT/ACCEPT sweep for two
-        numbers with the given product and sum. Returns the winning pair."""
-        steps.append(step("FACTOR_PAIR_GOAL", f"m·n = {product}",
-                          f"m + n = {target_sum}"))
-        for d in range(1, abs(product) + 1):
-            if d * d > abs(product):
-                break
-            if abs(product) % d != 0:
-                continue
-            big = abs(product) // d
-            if product > 0:
-                m, n = (d, big) if target_sum > 0 else (-d, -big)
-            else:
-                m, n = (-d, big) if target_sum > 0 else (d, -big)
-            s = m + n
-            work = (f"{sgn_num(m)}·{sgn_num(n)}={product}, "
-                    f"{sgn_num(m)}+{sgn_num(n)}={s}")
-            steps.append(step("TRY", f"({m}, {n})", work))
-            if s == target_sum:
-                steps.append(step("ACCEPT", f"({m}, {n})",
-                                  f"product {product} ✓, sum {target_sum} ✓"))
-                return m, n
-            steps.append(step("REJECT", f"({m}, {n})",
-                              f"sum is {s}, need {target_sum}"))
-        raise ValueError(f"no pair for product={product}, sum={target_sum}")
+        return pair_search(steps, product, target_sum)
 
     @staticmethod
     def _pairs_before(product, d_win):
