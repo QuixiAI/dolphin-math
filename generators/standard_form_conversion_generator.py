@@ -47,7 +47,7 @@ class StandardFormConversionGenerator(ProblemGenerator):
             steps.append(step("MOVE_TERM", f"{term_a}", "to right side", f"{term_b_signed} = {rhs_step1}"))
             
             # Step 2: Divide by B
-            steps.append(step("EQ_OP_BOTH", "divide", B, "to isolate y"))
+            steps.append(step("EQ_OP_NOTE", "divide", B, "to isolate y"))
             
             # Simplify fractions
             # m = -A/B
@@ -134,7 +134,7 @@ class StandardFormConversionGenerator(ProblemGenerator):
             lcm = (m_den * b_den) // math.gcd(m_den, b_den)
             
             if lcm > 1:
-                steps.append(step("EQ_OP_BOTH", "multiply", lcm, "to clear fractions"))
+                steps.append(step("EQ_OP_NOTE", "multiply", lcm, "to clear fractions"))
                 
                 # New coeffs
                 term_y = f"{lcm}y"
@@ -162,7 +162,7 @@ class StandardFormConversionGenerator(ProblemGenerator):
             
             # Step 3: Ensure A is positive (standard convention often prefers A >= 0)
             if curr_A < 0:
-                steps.append(step("EQ_OP_BOTH", "multiply", -1, "to make A positive"))
+                steps.append(step("EQ_OP_NOTE", "multiply", -1, "to make A positive"))
                 curr_A = -curr_A
                 curr_B = -curr_B
                 curr_C = -curr_C

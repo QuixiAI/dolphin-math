@@ -35,11 +35,11 @@ class TestCompoundProbabilityIndependentGenerator(unittest.TestCase):
     def test_generate_consistency(self):
         for _ in range(20):
             result = self.generator.generate()
-            has_setup = any(s.startswith(f"PROB_SETUP{DELIM}") for s in result["steps"])
+            has_setup = any(s.startswith(f"PROB_DESCRIBE{DELIM}") for s in result["steps"])
             has_independent = any(s.startswith(f"PROB_INDEPENDENT{DELIM}") for s in result["steps"])
             has_multiply = any(s.startswith(f"PROB_MULTIPLY{DELIM}") for s in result["steps"])
 
-            self.assertTrue(has_setup, "Missing PROB_SETUP step")
+            self.assertTrue(has_setup, "Missing PROB_DESCRIBE step")
             self.assertTrue(has_independent, "Missing PROB_INDEPENDENT step")
             self.assertTrue(has_multiply, "Missing PROB_MULTIPLY step")
 
@@ -65,11 +65,11 @@ class TestCompoundProbabilityDependentGenerator(unittest.TestCase):
     def test_generate_consistency(self):
         for _ in range(20):
             result = self.generator.generate()
-            has_setup = any(s.startswith(f"PROB_SETUP{DELIM}") for s in result["steps"])
+            has_setup = any(s.startswith(f"PROB_DESCRIBE{DELIM}") for s in result["steps"])
             has_dependent = any(s.startswith(f"PROB_DEPENDENT{DELIM}") for s in result["steps"])
             has_conditional = any(s.startswith(f"PROB_CONDITIONAL{DELIM}") for s in result["steps"])
 
-            self.assertTrue(has_setup, "Missing PROB_SETUP step")
+            self.assertTrue(has_setup, "Missing PROB_DESCRIBE step")
             self.assertTrue(has_dependent, "Missing PROB_DEPENDENT step")
             self.assertTrue(has_conditional, "Missing PROB_CONDITIONAL step")
 

@@ -63,7 +63,7 @@ class PointSlopeGenerator(ProblemGenerator):
             steps.append(step("DIST", m_str, f"(x {x1_op} {abs(x1)})", f"{term1} {term2}".strip()))
             
             # Move y1
-            steps.append(step("EQ_OP_BOTH", "add" if y1 > 0 else "subtract", abs(y1), "to isolate y"))
+            steps.append(step("EQ_OP_NOTE", "add" if y1 > 0 else "subtract", abs(y1), "to isolate y"))
             
             b_final = c1_num + y1
             
@@ -77,7 +77,7 @@ class PointSlopeGenerator(ProblemGenerator):
             steps.append(step("DIST", m_str, f"(x {x1_op} {abs(x1)})", f"{term1} + {c1_num}/{m_den}"))
             
             # Move y1
-            steps.append(step("EQ_OP_BOTH", "add" if y1 > 0 else "subtract", abs(y1), "to isolate y"))
+            steps.append(step("EQ_OP_NOTE", "add" if y1 > 0 else "subtract", abs(y1), "to isolate y"))
             
             # Combine: c1 + y1
             # y1 = (y1 * m_den) / m_den

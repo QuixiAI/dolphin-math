@@ -11,7 +11,7 @@ class CompoundProbabilityIndependentGenerator(ProblemGenerator):
     P(A and B) = P(A) × P(B) for independent events
 
     Op-codes used:
-    - PROB_SETUP: Describe the probability scenario (event_description)
+    - PROB_DESCRIBE: Describe the probability scenario (event_description)
     - PROB_IDENTIFY: Identify individual probabilities (event, probability)
     - PROB_INDEPENDENT: Note that events are independent
     - PROB_MULTIPLY: Multiply probabilities (P(A), P(B), result)
@@ -65,7 +65,7 @@ class CompoundProbabilityIndependentGenerator(ProblemGenerator):
         problem = f"A coin is flipped twice. What is the probability of getting {target[0]} on the first flip and {target[1]} on the second flip?"
 
         steps_list = []
-        steps_list.append(step("PROB_SETUP", f"Two coin flips, looking for {target[0]} then {target[1]}"))
+        steps_list.append(step("PROB_DESCRIBE", f"Two coin flips, looking for {target[0]} then {target[1]}"))
         steps_list.append(step("PROB_IDENTIFY", f"P({target[0]})", "1/2"))
         steps_list.append(step("PROB_IDENTIFY", f"P({target[1]})", "1/2"))
         steps_list.append(step("PROB_INDEPENDENT", "Coin flips are independent events"))
@@ -90,7 +90,7 @@ class CompoundProbabilityIndependentGenerator(ProblemGenerator):
         problem = f"Two dice are rolled. What is the probability of getting a {target1} on the first die and a {target2} on the second die?"
 
         steps_list = []
-        steps_list.append(step("PROB_SETUP", f"Two dice rolls, looking for {target1} then {target2}"))
+        steps_list.append(step("PROB_DESCRIBE", f"Two dice rolls, looking for {target1} then {target2}"))
         steps_list.append(step("PROB_IDENTIFY", f"P(rolling {target1})", "1/6"))
         steps_list.append(step("PROB_IDENTIFY", f"P(rolling {target2})", "1/6"))
         steps_list.append(step("PROB_INDEPENDENT", "Dice rolls are independent events"))
@@ -115,7 +115,7 @@ class CompoundProbabilityIndependentGenerator(ProblemGenerator):
         problem = f"A coin is flipped and a die is rolled. What is the probability of getting {coin_target} and rolling a {die_target}?"
 
         steps_list = []
-        steps_list.append(step("PROB_SETUP", f"Coin flip and die roll, looking for {coin_target} and {die_target}"))
+        steps_list.append(step("PROB_DESCRIBE", f"Coin flip and die roll, looking for {coin_target} and {die_target}"))
         steps_list.append(step("PROB_IDENTIFY", f"P({coin_target})", "1/2"))
         steps_list.append(step("PROB_IDENTIFY", f"P(rolling {die_target})", "1/6"))
         steps_list.append(step("PROB_INDEPENDENT", "Coin flip and die roll are independent events"))
@@ -161,7 +161,7 @@ class CompoundProbabilityIndependentGenerator(ProblemGenerator):
         result = p1 * p2
 
         steps_list = []
-        steps_list.append(step("PROB_SETUP", f"Draw with replacement: {color1} then {color2}"))
+        steps_list.append(step("PROB_DESCRIBE", f"Draw with replacement: {color1} then {color2}"))
         steps_list.append(step("PROB_IDENTIFY", f"P({color1})", str(p1)))
         steps_list.append(step("PROB_IDENTIFY", f"P({color2})", str(p2)))
         steps_list.append(step("PROB_INDEPENDENT", "Drawing with replacement means independent events"))
@@ -186,7 +186,7 @@ class CompoundProbabilityDependentGenerator(ProblemGenerator):
     P(A and B) = P(A) × P(B|A) for dependent events
 
     Op-codes used:
-    - PROB_SETUP: Describe the probability scenario
+    - PROB_DESCRIBE: Describe the probability scenario
     - PROB_IDENTIFY: Identify individual probabilities
     - PROB_DEPENDENT: Note that events are dependent
     - PROB_CONDITIONAL: Calculate conditional probability P(B|A)
@@ -230,7 +230,7 @@ class CompoundProbabilityDependentGenerator(ProblemGenerator):
         result = p1 * p2
 
         steps_list = []
-        steps_list.append(step("PROB_SETUP", f"Draw without replacement: {color1} then {color2}"))
+        steps_list.append(step("PROB_DESCRIBE", f"Draw without replacement: {color1} then {color2}"))
         steps_list.append(step("PROB_IDENTIFY", f"P(first {color1})", str(p1)))
         steps_list.append(step("PROB_DEPENDENT", "Drawing without replacement means dependent events"))
         steps_list.append(step("PROB_CONDITIONAL", f"P({color2}|first was {color1})", str(p2)))
@@ -265,7 +265,7 @@ class CompoundProbabilityDependentGenerator(ProblemGenerator):
         result = p1 * p2
 
         steps_list = []
-        steps_list.append(step("PROB_SETUP", f"Draw two {suit} cards without replacement"))
+        steps_list.append(step("PROB_DESCRIBE", f"Draw two {suit} cards without replacement"))
         steps_list.append(step("PROB_IDENTIFY", f"P(first {suit})", f"{p1} = 13/52"))
         steps_list.append(step("PROB_DEPENDENT", "Drawing without replacement means dependent events"))
         steps_list.append(step("PROB_CONDITIONAL", f"P(second {suit}|first was {suit})", f"{p2} = 12/51"))

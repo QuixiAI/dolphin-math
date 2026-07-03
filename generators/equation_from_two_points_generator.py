@@ -110,7 +110,7 @@ class EquationFromTwoPointsGenerator(ProblemGenerator):
             # Wait, if y - 3, we add 3. if y + 3, we subtract 3.
             # y1_op was based on sign. if y1=3 -> y-3. we add 3.
             
-            steps.append(step("EQ_OP_BOTH", "add" if y1 > 0 else "subtract", abs(y1), "to isolate y"))
+            steps.append(step("EQ_OP_NOTE", "add" if y1 > 0 else "subtract", abs(y1), "to isolate y"))
             
             b_sign = "+" if b_final >= 0 else "-"
             ans = f"y = {m_str}x {b_sign} {abs(b_final)}"

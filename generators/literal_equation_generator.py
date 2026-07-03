@@ -17,9 +17,9 @@ class LiteralEquationGenerator(ProblemGenerator):
     
     Op-codes used:
     - EQ_SETUP: Set up the equation
-    - EQ_OP_BOTH: Apply operation to both sides
+    - EQ_OP_NOTE: Apply operation to both sides (verb, operand, note)
     - EQ_SIMPLIFY: Simplify the expression
-    - EQ_RESULT: Show the result
+    - REWRITE: Show the current equation after the step
     - Z: Final answer
     """
     
@@ -71,9 +71,9 @@ class LiteralEquationGenerator(ProblemGenerator):
         equation = f"{x} + {a} = {b}"
         steps = []
         steps.append(step("EQ_SETUP", equation))
-        steps.append(step("EQ_OP_BOTH", "subtract", a, "from both sides"))
+        steps.append(step("EQ_OP_NOTE", "subtract", a, "from both sides"))
         ans = f"{b} - {a}"
-        steps.append(step("EQ_RESULT", f"{x} = {ans}"))
+        steps.append(step("REWRITE", f"{x} = {ans}"))
         steps.append(step("Z", ans))
         
         return dict(
@@ -91,9 +91,9 @@ class LiteralEquationGenerator(ProblemGenerator):
         equation = f"{x} - {a} = {b}"
         steps = []
         steps.append(step("EQ_SETUP", equation))
-        steps.append(step("EQ_OP_BOTH", "add", a, "to both sides"))
+        steps.append(step("EQ_OP_NOTE", "add", a, "to both sides"))
         ans = f"{b} + {a}"
-        steps.append(step("EQ_RESULT", f"{x} = {ans}"))
+        steps.append(step("REWRITE", f"{x} = {ans}"))
         steps.append(step("Z", ans))
         
         return dict(
@@ -113,9 +113,9 @@ class LiteralEquationGenerator(ProblemGenerator):
         equation = f"{a}{x} = {b}"
         steps = []
         steps.append(step("EQ_SETUP", equation))
-        steps.append(step("EQ_OP_BOTH", "divide", a, "from both sides"))
+        steps.append(step("EQ_OP_NOTE", "divide", a, "from both sides"))
         ans = f"{b}/{a}"
-        steps.append(step("EQ_RESULT", f"{x} = {ans}"))
+        steps.append(step("REWRITE", f"{x} = {ans}"))
         steps.append(step("Z", ans))
         
         return dict(
@@ -133,7 +133,7 @@ class LiteralEquationGenerator(ProblemGenerator):
         equation = f"{x}/{a} = {b}"
         steps = []
         steps.append(step("EQ_SETUP", equation))
-        steps.append(step("EQ_OP_BOTH", "multiply", a, "to both sides"))
+        steps.append(step("EQ_OP_NOTE", "multiply", a, "to both sides"))
         ans = f"{b}{a}" # or ab, usually alphabetical order is nicer but raw is fine
         # Let's try to sort for cleaner look if simple chars
         if a < b:
@@ -141,7 +141,7 @@ class LiteralEquationGenerator(ProblemGenerator):
         else:
             ans = f"{b}{a}"
             
-        steps.append(step("EQ_RESULT", f"{x} = {ans}"))
+        steps.append(step("REWRITE", f"{x} = {ans}"))
         steps.append(step("Z", ans))
         
         return dict(
@@ -161,14 +161,14 @@ class LiteralEquationGenerator(ProblemGenerator):
         steps.append(step("EQ_SETUP", equation))
         
         # Step 1: Subtract b
-        steps.append(step("EQ_OP_BOTH", "subtract", b, "from both sides"))
+        steps.append(step("EQ_OP_NOTE", "subtract", b, "from both sides"))
         intermediate = f"{c} - {b}"
-        steps.append(step("EQ_RESULT", f"{a}{x} = {intermediate}"))
+        steps.append(step("REWRITE", f"{a}{x} = {intermediate}"))
         
         # Step 2: Divide by a
-        steps.append(step("EQ_OP_BOTH", "divide", a, "from both sides"))
+        steps.append(step("EQ_OP_NOTE", "divide", a, "from both sides"))
         ans = f"({intermediate})/{a}"
-        steps.append(step("EQ_RESULT", f"{x} = {ans}"))
+        steps.append(step("REWRITE", f"{x} = {ans}"))
         steps.append(step("Z", ans))
         
         return dict(
@@ -191,9 +191,9 @@ class LiteralEquationGenerator(ProblemGenerator):
              
         steps = []
         steps.append(step("EQ_SETUP", equation))
-        steps.append(step("EQ_OP_BOTH", "divide", other, "from both sides"))
+        steps.append(step("EQ_OP_NOTE", "divide", other, "from both sides"))
         ans = f"A/{other}"
-        steps.append(step("EQ_RESULT", f"{target} = {ans}"))
+        steps.append(step("REWRITE", f"{target} = {ans}"))
         steps.append(step("Z", ans))
         
         return dict(
@@ -215,15 +215,15 @@ class LiteralEquationGenerator(ProblemGenerator):
         
         # Step 1: Subtract 2*other
         term_to_subtract = f"2{other}"
-        steps.append(step("EQ_OP_BOTH", "subtract", term_to_subtract, "from both sides"))
+        steps.append(step("EQ_OP_NOTE", "subtract", term_to_subtract, "from both sides"))
         
-        steps.append(step("EQ_RESULT", f"2{target} = P - {term_to_subtract}"))
+        steps.append(step("REWRITE", f"2{target} = P - {term_to_subtract}"))
         
         # Step 2: Divide by 2
-        steps.append(step("EQ_OP_BOTH", "divide", "2", "from both sides"))
+        steps.append(step("EQ_OP_NOTE", "divide", "2", "from both sides"))
         
         ans = f"(P - 2{other})/2"
-        steps.append(step("EQ_RESULT", f"{target} = {ans}"))
+        steps.append(step("REWRITE", f"{target} = {ans}"))
         steps.append(step("Z", ans))
         
         return dict(
@@ -247,14 +247,14 @@ class LiteralEquationGenerator(ProblemGenerator):
         steps.append(step("EQ_SETUP", equation))
         
         # Step 1: Subtract b
-        steps.append(step("EQ_OP_BOTH", "subtract", "b", "from both sides"))
-        steps.append(step("EQ_RESULT", f"{other}{target} = y - b"))
+        steps.append(step("EQ_OP_NOTE", "subtract", "b", "from both sides"))
+        steps.append(step("REWRITE", f"{other}{target} = y - b"))
         
         # Step 2: Divide by other
-        steps.append(step("EQ_OP_BOTH", "divide", other, "from both sides"))
+        steps.append(step("EQ_OP_NOTE", "divide", other, "from both sides"))
         ans = f"(y - b)/{other}"
         
-        steps.append(step("EQ_RESULT", f"{target} = {ans}"))
+        steps.append(step("REWRITE", f"{target} = {ans}"))
         steps.append(step("Z", ans))
         
         return dict(

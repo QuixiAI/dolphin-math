@@ -131,7 +131,7 @@ class ParallelPerpendicularLineGenerator(ProblemGenerator):
         steps.append(step("DIST", m2_str, f"(x {x1_op} {abs(x1)})", f"{dist_term} {dist_const_str}".strip()))
         
         # Move y1
-        steps.append(step("EQ_OP_BOTH", "add" if y1 > 0 else "subtract", abs(y1), "to isolate y"))
+        steps.append(step("EQ_OP_NOTE", "add" if y1 > 0 else "subtract", abs(y1), "to isolate y"))
         
         # Final formatting
         if b_num == 0:
