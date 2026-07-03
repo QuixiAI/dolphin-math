@@ -88,7 +88,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 - [ ] Inverse functions — algebraic method, verify f(f⁻¹(x)) = x (ties A1) · `InverseFunctionGenerator` · high · d4
 
 ### Factoring & Quadratics — trial-and-error steps required (A2)
-- [ ] Factor out the GCF · `FactorGCFGenerator` · high · d4
 - [ ] Factor trinomials x²+bx+c — show candidate factor pairs tested and rejected · `FactorTrinomialGenerator` · high · d4
 - [ ] Factor trinomials ax²+bx+c, a≠1 — ac-method or tested candidates · variant of `FactorTrinomialGenerator` · high · d5
 - [ ] Special forms — difference of squares, perfect-square trinomials, sum/difference of cubes · `FactorSpecialFormsGenerator` · high · d4
