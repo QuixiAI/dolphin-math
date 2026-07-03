@@ -168,7 +168,6 @@ Not new skills — multipliers on everything. **A0–A2 and A9 gate the Algebra 
 - [ ] General form → standard form by completing the square · `ConicStandardFormGenerator` · high · d5
 
 ### Geometry & Measurement
-- [ ] Volume & surface area — pyramids, cones, spheres · `RoundSolidsGenerator` · middle · d4
 - [ ] Nets → surface area — net given textually as a list of faces with dimensions · `NetsSurfaceAreaGenerator` · middle · d4
 - [ ] Area of regular polygons via apothem · `RegularPolygonAreaGenerator` · high · d4
 - [ ] Similar triangles — set up ratios, solve for missing sides · `SimilarTrianglesGenerator` · high · d4

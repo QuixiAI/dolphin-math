@@ -65,6 +65,7 @@ CURRICULUM = {
     "LinearFractionalGenerator": {"grade_level": MIDDLE, "difficulty": 4},
     "SpecialSolutionEquationGenerator": {"grade_level": MIDDLE, "difficulty": 4},
     "ExponentMixedRulesGenerator": {"grade_level": MIDDLE, "difficulty": 4},
+    "RoundSolidsGenerator": {"grade_level": MIDDLE, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "ScalingGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "SimilarFiguresScaleGenerator": {"grade_level": MIDDLE, "difficulty": 3},
