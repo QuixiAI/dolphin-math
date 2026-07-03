@@ -50,24 +50,8 @@ These principles are what make the data worth training on:
 
 ## Cross-Cutting Upgrades
 
-Not new skills — multipliers on everything. **A0–A2 and A9 gate the Algebra 2+ push.**
+Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.md "Answer Format Conventions" and "Verification & Trial-and-Error Vocabulary", and the A9 oracle rule in AGENTS.md.)
 
-- [ ] **A0. Answer-format spec** — canonical `final_answer` conventions per
-      domain: term ordering, required simplification level, multi-solution
-      syntax (`x = 2 or x = -3`), interval/inequality notation, exact vs
-      decimal and π-form, units, `+ C`. Document in DESIGN.md; validation
-      already requires `Z|` to equal `final_answer` exactly, and RL graders
-      need one canonical form. Retrofitting this after 40 symbolic generators
-      exist would be painful — write it first.
-- [ ] **A1. Self-verification (CHECK steps)** — a step family emitted before
-      `Z|`: substitute the solution back, confirm
-      `dividend = divisor × quotient + remainder`, magnitude estimate.
-      Roll out on long division, linear equations, and systems first; emit on
-      a fraction of examples per build so both habits appear in training.
-      The single highest-value scratchpad behavior for RL.
-- [ ] **A2. Trial-and-error steps** — shared codes for candidate testing
-      (try / reject-with-reason / accept), required by the factoring and
-      rational-root generators below.
 - [ ] **A3. Per-instance difficulty** — generators compute `difficulty` from
       actual operands (digit counts, signs, negative coefficients, step
       count), overriding the static `curriculum.py` tier. Pipeline support
@@ -89,13 +73,6 @@ Not new skills — multipliers on everything. **A0–A2 and A9 gate the Algebra 
       Difficulty tiers read *relative to the band*: a `college · d2` item is
       routine for that level, not middle-school hard. **Blocker for the
       entire University & Graduate backlog.**
-- [ ] **A9. Oracle cross-checks** — tests for symbolic/advanced generators
-      must recompute the final answer with an independent oracle (sympy/numpy
-      as dev-dependencies only, never runtime). The generator agreeing with
-      itself is not verification: a subtly wrong procedure at 5,000 examples
-      per skill is a poisoned well, and op-code-presence tests can't catch it.
-      Required for every generator whose steps a reviewer can't eyeball-verify
-      in seconds — roughly everything from Factoring & Quadratics upward.
 
 ---
 
@@ -620,9 +597,7 @@ come out as exact fractions.
 
 ## Suggested Order
 
-1. **A0–A2 + A9** (answer spec, CHECK steps, trial-and-error codes, oracle test harness) — before anything symbolic
-2. Middle-school completion (small list: ratios, fractional equations, exponents, round solids)
-3. Algebra 1 core: Factoring & Quadratics → Radicals & Rationals → Functions → Sequences
+1. Algebra 1 core: Factoring & Quadratics → Radicals & Rationals → Functions → Sequences
 4. Geometry & Trigonometry
 5. Exponentials/Logs, Complex, Polynomials, Conics
 6. Vectors/Matrices → Limits → Calculus AB → BC

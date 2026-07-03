@@ -15,6 +15,50 @@
 - **Dedup & budget:** exact `(operation, problem)` repeats are skipped (unless `--allow-duplicates`); the attempt budget is `n*10 + 1000` with an early stop after `max(2000, n)` consecutive rejects (exhausted problem space). A per-generator stats table (emitted / duplicates skipped / errors) prints after every build, and `build_dataset` returns the same summary programmatically.
 - **Reproducibility:** with `-s/--seed`, builds are byte-for-byte deterministic (`helpers.jid()` draws UUIDs from the seeded `random` module); without a seed, natural randomness.
 
+## Answer Format Conventions (A0)
+
+Validation requires `steps[-1] == "Z|" + final_answer` exactly, and RL graders
+need one canonical form. These conventions are the contract; extend this
+section (don't fork it) when a new tier introduces new answer shapes.
+
+- **Integers:** plain: `-4`, `366 R4` (division with remainder).
+- **Money:** `$20.06` — dollar sign, two decimals, cents always exact.
+- **Percentages:** `15%`.
+- **Fractions:** lowest terms, `5/2`; mixed numbers space-separated `8 1/2`;
+  final answers in mixed-number contexts convert improper → mixed.
+- **Decimals:** exact only, minimal digits (`11.4`, not `11.40`).
+- **π-forms:** coefficient then π then unit: `36π cubic units`; fractional
+  coefficient keeps π before the slash's denominator: `500π/3 cubic units`.
+- **Units:** appended when the problem has them: `cubic units`, `square units`.
+- **Powers:** `x^5`; negative exponents rewritten: `1/x^3`; fraction bases
+  reciprocal-flipped: `(3/2)^2`; exponent 1 and 0 simplified away (`x`, `1`).
+- **Single solutions:** bare value `7`. **Inequalities:** `x ≤ 9` (relation
+  symbols < > ≤ ≥). **Systems:** `x=-2, y=-3`. **Special solutions:**
+  `No solution`, `All real numbers`.
+- **Factored forms** (Algebra 1 tier): ASCII signs inside factors,
+  GCF first, binomial factors ordered by ascending constant term:
+  `3(x - 4)(x + 2)`.
+- **Multiple roots:** ascending, joined with " or ": `x = -3 or x = 2`.
+- **Radicals:** coefficient then radical `6√2`; variables inside the radical
+  parenthesized when compound: `5x√(2x)`; denominators rationalized.
+- **Expressions:** terms in descending power order: `2x^2 + 3x - 5`.
+
+## Verification & Trial-and-Error Vocabulary (A1 / A2)
+
+- `CHECK|method|lhs_work|rhs_work` — two independent routes to the same
+  value; the two work strings MUST agree. Methods so far: `cross_products`,
+  `split`, `tip_two_ways`, `substitute`, `boundary_equality`,
+  `multiply_back`. Emitted on roughly half of examples (both habits — with
+  and without an explicit check — should appear in training).
+- `CHECK_POINT|point|lhs_work|rhs_work` — evaluate both sides at a test
+  point; agreement NOT required (a contradiction's check point deliberately
+  disagrees; an identity's check points agree).
+- `TRY|candidate|test_work` / `REJECT|candidate|reason` /
+  `ACCEPT|candidate|confirmation` (A2, reserved) — candidate testing for
+  factoring, rational-root search, and radical simplification. Real
+  scratchpads contain dead ends; emit the tried-and-rejected candidates,
+  not just the winner.
+
 ## Curriculum (Generators & Skills)
 - **Long Division:** Integers 2–99 divisors; includes bring-down (`B`), divide (`D`), multiply (`M`), subtract (`S`), remainder (`R`), and final `Z`.
 - **Multi-digit Addition (integers):** Column alignment (`INT_ALIGN`), per-column sums with carry (`ADD_COL`), final carry (`CARRY_FINAL`), and final `Z`.

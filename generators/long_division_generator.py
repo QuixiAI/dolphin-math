@@ -71,6 +71,15 @@ class LongDivisionGenerator(ProblemGenerator):
 
             final_answer_str = f"{int(q_str)}" + (f" R{rem}" if rem > 0 else "")
 
+        # Self-verification (A1), emitted on about half of examples:
+        # quotient × divisor + remainder must reproduce the dividend.
+        if random.random() < 0.5:
+            q_val = 0 if dividend < divisor else int(q_str)
+            r_val = dividend if dividend < divisor else rem
+            steps.append(step("CHECK", "multiply_back",
+                              f"{q_val}×{divisor}+{r_val}={q_val * divisor + r_val}",
+                              str(dividend)))
+
         steps.append(step("Z", final_answer_str)) # Final answer step
 
         return dict(

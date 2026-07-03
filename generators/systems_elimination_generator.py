@@ -152,6 +152,16 @@ class SystemsEliminationGenerator(ProblemGenerator):
             steps.append(step("EQ_OP_BOTH", "subtract", val_term, f"{A}x", C - val_term))
             steps.append(step("EQ_OP_BOTH", "divide", A, "x", x_sol))
             
+        # Self-verification (A1), on about half of examples: the solution
+        # must also satisfy Eq 2 (the equation NOT used for back-substitution).
+        if random.random() < 0.5:
+            xt = f"({x_sol})" if x_sol < 0 else str(x_sol)
+            yt = f"({y_sol})" if y_sol < 0 else str(y_sol)
+            e_term = f"+ {E}{yt}" if E >= 0 else f"- {abs(E)}{yt}"
+            steps.append(step("CHECK", "substitute",
+                              f"{D}{xt} {e_term} = {D * x_sol + E * y_sol}",
+                              str(F)))
+
         ans = f"x={x_sol}, y={y_sol}"
         steps.append(step("Z", ans))
         

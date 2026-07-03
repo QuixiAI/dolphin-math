@@ -84,6 +84,12 @@ class TwoStepEquationGenerator(ProblemGenerator):
         # Step 5: Result
         steps.append(step("EQ_RESULT", "x", x))
 
+        # Self-verification (A1), on about half of examples
+        if random.random() < 0.5:
+            xt = f"({x})" if x < 0 else str(x)
+            steps.append(step("CHECK", "substitute",
+                              f"{a}·{xt} + {b} = {a * x + b}", str(c)))
+
         # Final answer
         steps.append(step("Z", x))
 
@@ -130,6 +136,12 @@ class TwoStepEquationGenerator(ProblemGenerator):
 
         # Step 5: Result
         steps.append(step("EQ_RESULT", "x", x))
+
+        # Self-verification (A1), on about half of examples
+        if random.random() < 0.5:
+            xt = f"({x})" if x < 0 else str(x)
+            steps.append(step("CHECK", "substitute",
+                              f"{a}·{xt} - {b} = {a * x - b}", str(c)))
 
         # Final answer
         steps.append(step("Z", x))
@@ -178,6 +190,12 @@ class TwoStepEquationGenerator(ProblemGenerator):
         # Step 5: Result
         steps.append(step("EQ_RESULT", "x", x))
 
+        # Self-verification (A1), on about half of examples
+        if random.random() < 0.5:
+            xt = f"({x})" if x < 0 else str(x)
+            steps.append(step("CHECK", "substitute",
+                              f"{a}({xt} + {b}) = {a * (x + b)}", str(c)))
+
         # Final answer
         steps.append(step("Z", x))
 
@@ -225,6 +243,12 @@ class TwoStepEquationGenerator(ProblemGenerator):
 
         # Step 5: Result
         steps.append(step("EQ_RESULT", "x", x))
+
+        # Self-verification (A1), on about half of examples
+        if random.random() < 0.5:
+            xt = f"({x})" if x < 0 else str(x)
+            steps.append(step("CHECK", "substitute",
+                              f"{xt}/{a} + {b} = {x // a + b}", str(c)))
 
         # Final answer
         steps.append(step("Z", x))

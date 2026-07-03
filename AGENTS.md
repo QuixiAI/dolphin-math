@@ -31,6 +31,15 @@
 
 ## Testing Guidelines
 - Add/extend `unittest` cases in `tests/` for each generator; mirror file names.
+- **Oracle cross-checks (A9, required):** every generator's tests must include
+  an oracle that recomputes `final_answer` **from the problem text alone**
+  (parse the problem, solve it independently with exact arithmetic —
+  `fractions.Fraction`, integer math — and compare). The generator agreeing
+  with itself is not verification. Also verify the arithmetic inside emitted
+  steps (A/S/M/D/E/ROOT/CHECK fields) where practical. Use sympy (dev-dep)
+  only when stdlib-exact arithmetic genuinely can't express the oracle.
+- Answer strings must follow the conventions in DESIGN.md ("Answer Format
+  Conventions") — graders depend on exact equality with the `Z|` payload.
 - Use deterministic seeds in tests to stabilize expectations; assert both `steps` content and final answers where possible. Patch `random` if you need specific borrow/carry scenarios.
 - Run `python -m unittest discover tests` before raising a PR; include targeted runs when touching a single generator.
 - Manual check: `python dolphin_math_datagen.py --sample --generators <GeneratorName>` and verify the steps match human pencil-and-paper workflow (alignment, carries/borrows, etc.).
