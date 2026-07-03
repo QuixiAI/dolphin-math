@@ -101,9 +101,6 @@ Not new skills — multipliers on everything. **A0–A2 and A9 gate the Algebra 
 
 ## Backlog
 
-### Ratios, Percents & Consumer Math
-- [ ] Tip and bill-splitting (extends the implemented percent word problems) · `TipBillSplitGenerator` · middle · d3
-
 ### Equations & Inequalities (completion)
 - [ ] Linear equations/inequalities with fraction & decimal coefficients — clear denominators via LCD first · `LinearFractionalGenerator` · middle · d4
 - [ ] Special-solution equations — identities (infinitely many) and contradictions (none); scratchpad ends `0 = 5 → contradiction` · `SpecialSolutionEquationGenerator` · middle · d4

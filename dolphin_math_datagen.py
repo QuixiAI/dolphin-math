@@ -61,6 +61,7 @@ from generators.graph_interpret_generator import GraphInterpretGenerator
 from generators.integer_operations_generator import IntegerOperationsGenerator
 from generators.unit_rate_generator import UnitRateGenerator, UnitRateFromTableGenerator
 from generators.ratio_table_generator import RatioTableGenerator
+from generators.tip_bill_split_generator import TipBillSplitGenerator
 from generators.scaling_generator import ScalingGenerator, SimilarFiguresScaleGenerator
 from generators.one_step_equation_generator import OneStepEquationGenerator
 from generators.two_step_equation_generator import TwoStepEquationGenerator
@@ -208,6 +209,7 @@ ALL_GENERATORS = [
     UnitRateGenerator(),
     UnitRateFromTableGenerator(),
     RatioTableGenerator(),
+    TipBillSplitGenerator(),
     ScalingGenerator(),
     SimilarFiguresScaleGenerator(),
     ProportionalRelationshipGenerator(),

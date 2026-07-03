@@ -61,6 +61,7 @@ CURRICULUM = {
     "IntegerOperationsGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "UnitRateGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "RatioTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},
+    "TipBillSplitGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "ScalingGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "SimilarFiguresScaleGenerator": {"grade_level": MIDDLE, "difficulty": 3},
