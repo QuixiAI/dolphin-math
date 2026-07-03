@@ -88,7 +88,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 - [ ] Inverse functions — algebraic method, verify f(f⁻¹(x)) = x (ties A1) · `InverseFunctionGenerator` · high · d4
 
 ### Factoring & Quadratics — trial-and-error steps required (A2)
-- [ ] Special forms — difference of squares, perfect-square trinomials, sum/difference of cubes · `FactorSpecialFormsGenerator` · high · d4
 - [ ] Factor by grouping · `FactorGroupingGenerator` · high · d5
 - [ ] Solve quadratics by factoring (zero-product property) · `QuadraticFactoringGenerator` · high · d5
 - [ ] Solve quadratics by square roots · `QuadraticSquareRootGenerator` · high · d4
