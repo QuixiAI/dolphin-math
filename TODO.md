@@ -81,7 +81,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Functions
 
 ### Sequences & Series
-- [ ] Recursive ↔ explicit conversion · `RecursiveExplicitGenerator` · high · d4
 - [ ] Sigma notation — expand and evaluate for small n · `SigmaNotationGenerator` · high · d4
 - [ ] Pascal's triangle — build rows by hand, read off nCr (bridge to FOIL powers and binomial probability) · `PascalTriangleGenerator` · middle · d3
 
