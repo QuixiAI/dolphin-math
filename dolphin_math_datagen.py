@@ -73,6 +73,7 @@ from generators.factor_grouping_generator import FactorGroupingGenerator
 from generators.quadratic_factoring_generator import QuadraticFactoringGenerator
 from generators.quadratic_square_root_generator import QuadraticSquareRootGenerator
 from generators.completing_square_generator import CompletingSquareGenerator
+from generators.discriminant_generator import DiscriminantGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -305,6 +306,7 @@ ALL_GENERATORS = [
     QuadraticFactoringGenerator(),
     QuadraticSquareRootGenerator(),
     CompletingSquareGenerator(),
+    DiscriminantGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),
