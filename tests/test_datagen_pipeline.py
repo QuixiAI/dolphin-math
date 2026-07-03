@@ -1,3 +1,5 @@
+import contextlib
+import io
 import json
 import os
 import random
@@ -23,8 +25,16 @@ from dolphin_math_datagen import (
 from generators.multi_digit_addition_generator import MultiDigitAdditionGenerator
 from generators.long_division_generator import LongDivisionGenerator
 from generators.mixed_number_operations_random import MixedNumberOperationsRandom
+
+
 from base_generator import ProblemGenerator
 from helpers import jid
+
+
+def quiet_build_dataset(**kwargs):
+    """build_dataset with its progress/stats output suppressed."""
+    with contextlib.redirect_stdout(io.StringIO()):
+        return build_dataset(**kwargs)
 
 
 def make_valid_example():
@@ -250,7 +260,7 @@ class TestParseWeights(unittest.TestCase):
     def test_weights_skew_sampling(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = os.path.join(tmp, "skew.jsonl")
-            build_dataset(
+            quiet_build_dataset(
                 path=path, n=200, seed=7,
                 generators=[LongDivisionGenerator(),
                             MultiDigitAdditionGenerator()],
@@ -263,9 +273,64 @@ class TestParseWeights(unittest.TestCase):
             self.assertGreater(share, 0.7)
 
 
+class _TinySpaceGenerator(ProblemGenerator):
+    """Test double with only 3 distinct problems; emits its own metadata."""
+
+    def generate(self):
+        a = random.randint(1, 3)
+        return {
+            "problem_id": jid(),
+            "operation": "tiny_add",
+            "problem": f"{a} + 0",
+            "steps": [f"A|{a}|0|{a}", f"Z|{a}"],
+            "final_answer": str(a),
+            "grade_level": "elementary",
+            "difficulty": 1,
+        }
+
+
+class TestDeduplication(unittest.TestCase):
+    def test_duplicates_skipped_by_default(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, "dedup.jsonl")
+            summary = quiet_build_dataset(path=path, n=10, seed=5,
+                                    generators=[_TinySpaceGenerator()])
+            with open(path, encoding="utf-8") as fp:
+                rows = [json.loads(line) for line in fp]
+            self.assertEqual(len(rows), 3)  # problem space exhausted
+            self.assertEqual(summary["count"], 3)
+            self.assertEqual(len({r["problem"] for r in rows}), 3)
+            stats = summary["stats"]["_TinySpaceGenerator"]
+            self.assertEqual(stats["emitted"], 3)
+            self.assertGreater(stats["duplicates_skipped"], 0)
+
+    def test_allow_duplicates_restores_old_behavior(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, "dups.jsonl")
+            summary = quiet_build_dataset(path=path, n=10, seed=5,
+                                    generators=[_TinySpaceGenerator()],
+                                    allow_duplicates=True)
+            with open(path, encoding="utf-8") as fp:
+                rows = [json.loads(line) for line in fp]
+            self.assertEqual(len(rows), 10)
+            self.assertEqual(summary["stats"]["_TinySpaceGenerator"]["duplicates_skipped"], 0)
+
+    def test_errors_counted_in_stats(self):
+        class _Broken(ProblemGenerator):
+            def generate(self):
+                raise RuntimeError("boom")
+
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, "err.jsonl")
+            summary = quiet_build_dataset(path=path, n=3, seed=5,
+                                    generators=[_Broken()])
+            self.assertEqual(summary["count"], 0)
+            self.assertGreater(summary["stats"]["_Broken"]["errors"], 0)
+
+
 class TestBuildDatasetEndToEnd(unittest.TestCase):
     def _build(self, path, **kwargs):
-        build_dataset(path=path, **kwargs)
+        quiet_build_dataset(path=path, **kwargs)
         with open(path, encoding="utf-8") as fp:
             return [json.loads(line) for line in fp]
 
@@ -275,17 +340,21 @@ class TestBuildDatasetEndToEnd(unittest.TestCase):
             rows = self._build(path, n=25, seed=42,
                                generators=[MultiDigitAdditionGenerator()])
             self.assertEqual(len(rows), 25)
+            seen_keys = set()
             for row in rows:
                 validate_example(row)
                 self.assertEqual(row["steps"][-1],
                                  "Z|" + str(row["final_answer"]))
+                key = (row["operation"], row["problem"])
+                self.assertNotIn(key, seen_keys)
+                seen_keys.add(key)
 
     def test_same_seed_is_deterministic(self):
         with tempfile.TemporaryDirectory() as tmp:
             p1 = os.path.join(tmp, "a.jsonl")
             p2 = os.path.join(tmp, "b.jsonl")
-            build_dataset(path=p1, n=40, seed=123)
-            build_dataset(path=p2, n=40, seed=123)
+            quiet_build_dataset(path=p1, n=40, seed=123)
+            quiet_build_dataset(path=p2, n=40, seed=123)
             with open(p1, encoding="utf-8") as f1, open(p2, encoding="utf-8") as f2:
                 self.assertEqual(f1.read(), f2.read())
 

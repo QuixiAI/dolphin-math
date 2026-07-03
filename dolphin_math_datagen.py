@@ -423,14 +423,26 @@ def write_jsonl(fp, obj):
     """Writes a JSON object to a file handle, one object per line."""
     fp.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
+def _instance_label(gen_instance):
+    """Display label for stats: class name plus variant symbol if present."""
+    name = gen_instance.__class__.__name__
+    if hasattr(gen_instance, "op_symbol"):
+        name += f"({gen_instance.op_symbol})"
+    return name
+
+
 def build_dataset(n=10_000, path="math_visible_dataset_refactored.jsonl", seed=None,
-                  generators=None, weights=None):
+                  generators=None, weights=None, allow_duplicates=False):
     """Generates the dataset by calling the generate() method of chosen generators.
 
     Sampling is balanced per skill (generator class): each skill gets equal
     probability by default, and a skill's variant instances are chosen
-    uniformly within it. `weights` (a {skill_name: float} dict) overrides
-    individual skill weights; unlisted skills keep weight 1.0.
+    uniformly within it. `weights` (a {skill_name: float} dict or --weights
+    spec string) overrides individual skill weights; unlisted skills keep
+    weight 1.0.
+
+    Exact repeats of (operation, problem) are skipped unless
+    allow_duplicates is set. Returns a summary dict with per-instance stats.
     """
     if seed is not None:
         random.seed(seed)
@@ -445,35 +457,80 @@ def build_dataset(n=10_000, path="math_visible_dataset_refactored.jsonl", seed=N
 
     count = 0
     attempts = 0
-    # Allow slightly more attempts in case some generators fail validation often
-    max_attempts = int(n * 1.2) + 50
+    seen = set()
+    stats = {}
+    # Generous budget: dedup can reject heavily when a skill's problem space
+    # is small, so allow many more attempts than examples...
+    max_attempts = n * 10 + 1000
+    # ...but stop early if nothing new has been accepted for a long stretch
+    # (likely an exhausted problem space).
+    consecutive_rejects = 0
+    max_consecutive_rejects = max(2000, n)
 
     print(f"Attempting to generate {n} examples...")
     # Explicitly set encoding='utf-8' for writing
     with open(path, "w", encoding="utf-8") as fp:
         while count < n and attempts < max_attempts:
+            if consecutive_rejects >= max_consecutive_rejects:
+                print(f"WARN: no new examples accepted in the last "
+                      f"{consecutive_rejects} attempts; the problem space of the "
+                      f"selected skills is likely exhausted. Stopping early.")
+                break
             attempts += 1
+            # Choose a skill (optionally weighted), then an instance within it
+            skill = random.choices(skill_names, weights=skill_weights)[0]
+            gen_instance = random.choice(skills[skill])
+            entry = stats.setdefault(
+                _instance_label(gen_instance),
+                {"emitted": 0, "duplicates_skipped": 0, "errors": 0})
             try:
-                # Choose a skill (optionally weighted), then an instance within it
-                skill = random.choices(skill_names, weights=skill_weights)[0]
-                gen_instance = random.choice(skills[skill])
-                example = gen_instance.generate() # Call the generate method
-                if example:
-                    example = stamp_metadata(example, gen_instance)
-                    validate_example(example)
-                    write_jsonl(fp, example)
-                    count += 1
-                    if count % 1000 == 0 and count > 0:
-                        print(f"... successfully generated {count}/{n} examples")
+                example = gen_instance.generate()
+                if not example:
+                    raise ValueError("generate() returned an empty example")
+                example = stamp_metadata(example, gen_instance)
+                validate_example(example)
             except Exception as e:
-                # Provide more context on which generator failed
-                gen_name = gen_instance.__class__.__name__ if 'gen_instance' in locals() else "Unknown"
-                print(f"ERROR: Generator {gen_name} failed during generation or validation: {e}. Skipping attempt {attempts}.")
-                # Optional: Add more detailed error logging or handling here
+                entry["errors"] += 1
+                consecutive_rejects += 1
+                if entry["errors"] <= 5:
+                    print(f"ERROR: Generator {gen_instance.__class__.__name__} failed "
+                          f"during generation or validation: {e}. Skipping attempt {attempts}.")
+                elif entry["errors"] == 6:
+                    print(f"ERROR: suppressing further errors from "
+                          f"{gen_instance.__class__.__name__} (see stats table).")
+                continue
+
+            key = (example["operation"], example["problem"])
+            if not allow_duplicates:
+                if key in seen:
+                    entry["duplicates_skipped"] += 1
+                    consecutive_rejects += 1
+                    continue
+                seen.add(key)
+
+            write_jsonl(fp, example)
+            entry["emitted"] += 1
+            count += 1
+            consecutive_rejects = 0
+            if count % 1000 == 0:
+                print(f"... successfully generated {count}/{n} examples")
 
     print(f"✔  Successfully wrote {count} lines → {path} (after {attempts} attempts)")
+    if stats:
+        width = max(len(name) for name in stats)
+        totals = {"emitted": 0, "duplicates_skipped": 0, "errors": 0}
+        print(f"{'Generator'.ljust(width)}  {'emitted':>8}  {'dup_skip':>8}  {'errors':>6}")
+        for name in sorted(stats):
+            s = stats[name]
+            for k in totals:
+                totals[k] += s[k]
+            print(f"{name.ljust(width)}  {s['emitted']:>8}  "
+                  f"{s['duplicates_skipped']:>8}  {s['errors']:>6}")
+        print(f"{'TOTAL'.ljust(width)}  {totals['emitted']:>8}  "
+              f"{totals['duplicates_skipped']:>8}  {totals['errors']:>6}")
     if count < n:
         print(f"WARN: Target of {n} examples not reached ({count}/{n}). Consider increasing max_attempts or checking generator logic.")
+    return {"count": count, "attempts": attempts, "stats": stats}
 
 # ---------- Main Execution Block ----------
 if __name__ == "__main__":
@@ -516,6 +573,11 @@ if __name__ == "__main__":
              "or a path to a JSON file of {\"SkillName\": weight}. Unlisted skills "
              "keep weight 1.0. Ignored with --sample."
     )
+    parser.add_argument(
+        "--allow-duplicates",
+        action="store_true",
+        help="Keep exact repeats of (operation, problem) instead of skipping them."
+    )
 
     args = parser.parse_args()
     selected_generators = select_generators(args.generators)
@@ -538,7 +600,8 @@ if __name__ == "__main__":
         print(f"Using generators: {names}")
         try:
             build_dataset(n=args.num_examples, path=args.output, seed=args.seed,
-                          generators=explicit_selection, weights=args.weights)
+                          generators=explicit_selection, weights=args.weights,
+                          allow_duplicates=args.allow_duplicates)
         except ValueError as e:
             print(f"ERROR: {e}")
             sys.exit(2)
