@@ -88,7 +88,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 - [ ] Inverse functions — algebraic method, verify f(f⁻¹(x)) = x (ties A1) · `InverseFunctionGenerator` · high · d4
 
 ### Factoring & Quadratics — trial-and-error steps required (A2)
-- [ ] Completing the square — solve and convert to vertex form · `CompletingSquareGenerator` · high · d5
 - [ ] Discriminant analysis — number and type of solutions · `DiscriminantGenerator` · high · d4
 
 ### Radicals & Rational Expressions
