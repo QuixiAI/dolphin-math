@@ -87,9 +87,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 - [ ] Domain from equation — exclude zero denominators, require radicand ≥ 0 · `DomainRangeGenerator` · high · d4
 - [ ] Inverse functions — algebraic method, verify f(f⁻¹(x)) = x (ties A1) · `InverseFunctionGenerator` · high · d4
 
-### Radicals & Rational Expressions
-- [ ] Solve rational equations — extraneous-root check (A1) · `RationalEquationGenerator` · high · d5
-
 ### Sequences & Series
 - [ ] Arithmetic sequences — nth term and partial sum · `ArithmeticSequenceGenerator` · high · d4
 - [ ] Geometric sequences — nth term, partial sum, infinite sum when |r|<1 · `GeometricSequenceGenerator` · high · d4
