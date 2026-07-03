@@ -88,6 +88,7 @@ from generators.function_evaluation_generator import FunctionEvaluationGenerator
 from generators.function_table_generator import FunctionTableGenerator
 from generators.piecewise_evaluation_generator import PiecewiseEvaluationGenerator
 from generators.function_operations_generator import FunctionOperationsGenerator
+from generators.function_composition_generator import FunctionCompositionGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -335,6 +336,7 @@ ALL_GENERATORS = [
     FunctionTableGenerator(),
     PiecewiseEvaluationGenerator(),
     FunctionOperationsGenerator(),
+    FunctionCompositionGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),

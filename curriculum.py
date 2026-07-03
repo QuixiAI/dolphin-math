@@ -89,6 +89,7 @@ CURRICULUM = {
     "FunctionTableGenerator": {"grade_level": HIGH, "difficulty": 3},
     "PiecewiseEvaluationGenerator": {"grade_level": HIGH, "difficulty": 4},
     "FunctionOperationsGenerator": {"grade_level": HIGH, "difficulty": 4},
+    "FunctionCompositionGenerator": {"grade_level": HIGH, "difficulty": 4},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},
