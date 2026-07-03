@@ -11,8 +11,18 @@ if repo_root not in sys.path:
 
 import curriculum
 from curriculum import CURRICULUM, GRADE_LEVELS, stamp_metadata
-from dolphin_math_datagen import ALL_GENERATORS, build_dataset, validate_example
+from dolphin_math_datagen import (
+    ALL_GENERATORS,
+    DEFAULT_POOL_EXCLUDED,
+    build_dataset,
+    group_into_skills,
+    parse_weights,
+    resolve_pool,
+    validate_example,
+)
 from generators.multi_digit_addition_generator import MultiDigitAdditionGenerator
+from generators.long_division_generator import LongDivisionGenerator
+from generators.mixed_number_operations_random import MixedNumberOperationsRandom
 from base_generator import ProblemGenerator
 from helpers import jid
 
@@ -175,6 +185,82 @@ class TestCurriculumCoverage(unittest.TestCase):
         orphans = sorted(set(CURRICULUM) - registered)
         self.assertEqual(orphans, [],
                          f"CURRICULUM entries with no registered generator: {orphans}")
+
+
+class TestSkillSampling(unittest.TestCase):
+    def test_variant_instances_form_one_skill(self):
+        skills = group_into_skills(resolve_pool())
+        self.assertEqual(len(skills["FractionOpGenerator"]), 4)
+        self.assertEqual(len(skills["MixedNumberOperationGenerator"]), 4)
+        self.assertEqual(len(skills["DecimalAddSubGenerator"]), 2)
+
+    def test_default_pool_excludes_wrapper(self):
+        names = {g.__class__.__name__ for g in resolve_pool()}
+        self.assertFalse(names & DEFAULT_POOL_EXCLUDED)
+        self.assertEqual(
+            len(names),
+            len({g.__class__.__name__ for g in ALL_GENERATORS}
+                - DEFAULT_POOL_EXCLUDED),
+        )
+
+    def test_explicit_selection_honored_verbatim(self):
+        wrapper = MixedNumberOperationsRandom()
+        pool = resolve_pool([wrapper])
+        self.assertEqual(pool, [wrapper])
+        self.assertIn("MixedNumberOperationsRandom", group_into_skills(pool))
+
+    def test_empty_explicit_selection_raises(self):
+        with self.assertRaises(ValueError):
+            resolve_pool([])
+
+
+class TestParseWeights(unittest.TestCase):
+    AVAILABLE = {"LongDivisionGenerator", "QuadraticGenerator"}
+
+    def test_inline_spec(self):
+        weights = parse_weights(
+            "LongDivisionGenerator=2.5, QuadraticGenerator=0.5", self.AVAILABLE)
+        self.assertEqual(weights, {"LongDivisionGenerator": 2.5,
+                                   "QuadraticGenerator": 0.5})
+
+    def test_json_file_spec(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, "weights.json")
+            with open(path, "w", encoding="utf-8") as fp:
+                json.dump({"QuadraticGenerator": 3}, fp)
+            weights = parse_weights(path, self.AVAILABLE)
+            self.assertEqual(weights, {"QuadraticGenerator": 3.0})
+
+    def test_unknown_skill_lists_available(self):
+        with self.assertRaises(ValueError) as ctx:
+            parse_weights("NoSuchSkill=2", self.AVAILABLE)
+        self.assertIn("Available:", str(ctx.exception))
+        self.assertIn("LongDivisionGenerator", str(ctx.exception))
+
+    def test_bad_entries(self):
+        for spec in ("LongDivisionGenerator", "LongDivisionGenerator=abc",
+                     "LongDivisionGenerator=0", "LongDivisionGenerator=-1"):
+            with self.assertRaises(ValueError, msg=spec):
+                parse_weights(spec, self.AVAILABLE)
+
+    def test_missing_json_file(self):
+        with self.assertRaises(ValueError):
+            parse_weights("/nonexistent/weights.json", self.AVAILABLE)
+
+    def test_weights_skew_sampling(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, "skew.jsonl")
+            build_dataset(
+                path=path, n=200, seed=7,
+                generators=[LongDivisionGenerator(),
+                            MultiDigitAdditionGenerator()],
+                weights={"LongDivisionGenerator": 9.0,
+                         "MultiDigitAdditionGenerator": 1.0},
+            )
+            with open(path, encoding="utf-8") as fp:
+                rows = [json.loads(line) for line in fp]
+            share = sum(r["operation"] == "long_division" for r in rows) / len(rows)
+            self.assertGreater(share, 0.7)
 
 
 class TestBuildDatasetEndToEnd(unittest.TestCase):

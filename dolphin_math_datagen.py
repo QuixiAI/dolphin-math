@@ -278,6 +278,90 @@ ALL_GENERATORS = [
     # --- (More High School generators coming soon) ---
 ]
 
+# Instances excluded from the DEFAULT pool: MixedNumberOperationsRandom is a
+# pure wrapper that re-rolls the four MixedNumberOperationGenerator variants,
+# so including both would double-count the mixed-number skill. It stays
+# registered and can still be requested explicitly via --generators.
+DEFAULT_POOL_EXCLUDED = {"MixedNumberOperationsRandom"}
+
+
+def resolve_pool(generators=None):
+    """Returns the working generator pool.
+
+    An explicit selection is honored as-is; the default pool is
+    ALL_GENERATORS minus DEFAULT_POOL_EXCLUDED wrapper duplicates.
+    """
+    if generators is not None:
+        pool = list(generators)
+        if not pool:
+            raise ValueError("No generators selected; cannot build dataset.")
+        return pool
+    return [g for g in ALL_GENERATORS
+            if g.__class__.__name__ not in DEFAULT_POOL_EXCLUDED]
+
+
+def group_into_skills(gen_pool):
+    """Groups generator instances into skills keyed by class name.
+
+    Variant instances of one class (e.g. the four FractionOpGenerator ops)
+    form a single skill so each skill gets equal sampling probability by
+    default, regardless of how many instances implement it.
+    """
+    skills = {}
+    for gen in gen_pool:
+        skills.setdefault(gen.__class__.__name__, []).append(gen)
+    return skills
+
+
+def parse_weights(spec, available):
+    """Parses a --weights spec into {skill_name: positive float}.
+
+    Accepts inline "SkillA=2.5,SkillB=0.5" or a path to a JSON file holding
+    an object of skill: weight. Unknown skills, non-numeric or non-positive
+    weights raise ValueError.
+    """
+    if isinstance(spec, dict):
+        raw = dict(spec)
+    elif os.path.isfile(spec) or spec.endswith(".json"):
+        try:
+            with open(spec, encoding="utf-8") as fp:
+                raw = json.load(fp)
+        except (OSError, json.JSONDecodeError) as e:
+            raise ValueError(f"Could not read weights file {spec!r}: {e}")
+        if not isinstance(raw, dict):
+            raise ValueError(
+                f"Weights file {spec!r} must contain a JSON object of "
+                f"{{\"SkillName\": weight}}.")
+    else:
+        raw = {}
+        for part in spec.split(","):
+            part = part.strip()
+            if not part:
+                continue
+            name, sep, val = part.partition("=")
+            if not sep:
+                raise ValueError(
+                    f"Bad weight entry {part!r}; expected SkillName=NUMBER")
+            raw[name.strip()] = val.strip()
+
+    weights = {}
+    for name, val in raw.items():
+        try:
+            num = float(val)
+        except (TypeError, ValueError):
+            raise ValueError(f"Weight for {name!r} must be a number, got {val!r}")
+        if num <= 0:
+            raise ValueError(f"Weight for {name!r} must be positive, got {num}")
+        weights[name] = num
+
+    unknown = set(weights) - set(available)
+    if unknown:
+        raise ValueError(
+            f"Unknown skill(s) in --weights: {', '.join(sorted(unknown))}. "
+            f"Available: {', '.join(sorted(available))}")
+    return weights
+
+
 def select_generators(generator_arg: str):
     """
     Returns a filtered list of generators based on a comma-separated list of
@@ -339,13 +423,26 @@ def write_jsonl(fp, obj):
     """Writes a JSON object to a file handle, one object per line."""
     fp.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
-def build_dataset(n=10_000, path="math_visible_dataset_refactored.jsonl", seed=None, generators=None):
-    """Generates the dataset by calling the generate() method of chosen generators."""
+def build_dataset(n=10_000, path="math_visible_dataset_refactored.jsonl", seed=None,
+                  generators=None, weights=None):
+    """Generates the dataset by calling the generate() method of chosen generators.
+
+    Sampling is balanced per skill (generator class): each skill gets equal
+    probability by default, and a skill's variant instances are chosen
+    uniformly within it. `weights` (a {skill_name: float} dict) overrides
+    individual skill weights; unlisted skills keep weight 1.0.
+    """
     if seed is not None:
         random.seed(seed)
-    gen_pool = generators or ALL_GENERATORS
-    if not gen_pool:
-        raise ValueError("No generators selected; cannot build dataset.")
+    gen_pool = resolve_pool(generators)
+    skills = group_into_skills(gen_pool)
+    skill_names = list(skills)
+    if weights:
+        weights = parse_weights(weights, skill_names)
+        skill_weights = [weights.get(name, 1.0) for name in skill_names]
+    else:
+        skill_weights = None
+
     count = 0
     attempts = 0
     # Allow slightly more attempts in case some generators fail validation often
@@ -357,8 +454,9 @@ def build_dataset(n=10_000, path="math_visible_dataset_refactored.jsonl", seed=N
         while count < n and attempts < max_attempts:
             attempts += 1
             try:
-                # Choose a generator instance randomly
-                gen_instance = random.choice(gen_pool)
+                # Choose a skill (optionally weighted), then an instance within it
+                skill = random.choices(skill_names, weights=skill_weights)[0]
+                gen_instance = random.choice(skills[skill])
                 example = gen_instance.generate() # Call the generate method
                 if example:
                     example = stamp_metadata(example, gen_instance)
@@ -410,6 +508,14 @@ if __name__ == "__main__":
         default=None,
         help="Comma-separated list of generator class names to include (e.g., 'MultiDigitAdditionGenerator,LongDivisionGenerator')."
     )
+    parser.add_argument(
+        "--weights",
+        type=str,
+        default=None,
+        help="Skill weight overrides for dataset builds: inline 'SkillA=2.5,SkillB=0.5' "
+             "or a path to a JSON file of {\"SkillName\": weight}. Unlisted skills "
+             "keep weight 1.0. Ignored with --sample."
+    )
 
     args = parser.parse_args()
     selected_generators = select_generators(args.generators)
@@ -422,11 +528,20 @@ if __name__ == "__main__":
     # OR if the --sample flag was explicitly used.
     # If no args, default to sample. If args are present but not --sample, generate dataset.
     if len(sys.argv) > 1 and not args.sample:
-        # Generate dataset if arguments like -n, -o, -s are provided
-        names = ", ".join(gen.__class__.__name__ for gen in selected_generators)
+        # Generate dataset if arguments like -n, -o, -s are provided.
+        # Only an explicit --generators selection overrides the default pool
+        # (which excludes wrapper duplicates, see DEFAULT_POOL_EXCLUDED).
+        explicit_selection = selected_generators if args.generators else None
+        pool = resolve_pool(explicit_selection)
+        names = ", ".join(gen.__class__.__name__ for gen in pool)
         print(f"Generating dataset with n={args.num_examples}, output={args.output}, seed={args.seed}...")
         print(f"Using generators: {names}")
-        build_dataset(n=args.num_examples, path=args.output, seed=args.seed, generators=selected_generators)
+        try:
+            build_dataset(n=args.num_examples, path=args.output, seed=args.seed,
+                          generators=explicit_selection, weights=args.weights)
+        except ValueError as e:
+            print(f"ERROR: {e}")
+            sys.exit(2)
         print("Dataset generation finished.")
     else:
         # Default action (no args) or explicit --sample: print samples
