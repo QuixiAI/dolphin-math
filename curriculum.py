@@ -85,6 +85,7 @@ CURRICULUM = {
     "RationalExprMultDivGenerator": {"grade_level": HIGH, "difficulty": 5},
     "RationalExprAddSubGenerator": {"grade_level": HIGH, "difficulty": 5},
     "RationalEquationGenerator": {"grade_level": HIGH, "difficulty": 5},
+    "FunctionEvaluationGenerator": {"grade_level": HIGH, "difficulty": 3},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},

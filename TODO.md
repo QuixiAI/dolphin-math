@@ -79,7 +79,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ## Backlog
 
 ### Functions
-- [ ] Function evaluation from rules and tables — f(3) = ? · `FunctionEvaluationGenerator` · high · d3
 - [ ] Build value tables from rules (linear/quadratic/exponential) · `FunctionTableGenerator` · high · d3
 - [ ] Piecewise & step functions — billing tiers, tax brackets, shipping bands · `PiecewiseEvaluationGenerator` · high · d4
 - [ ] Function operations f±g, f·g, f/g · `FunctionOperationsGenerator` · high · d4
