@@ -102,7 +102,6 @@ Not new skills — multipliers on everything. **A0–A2 and A9 gate the Algebra 
 ## Backlog
 
 ### Exponents (completion)
-- [ ] Mixed-rule simplification — negative/zero exponents combined in one expression · `ExponentMixedRulesGenerator` · middle · d4
 - [ ] Decimal and fractional bases in exponent rules — variant of `ExponentRulesGenerator` · middle · d4
 
 ### Functions
