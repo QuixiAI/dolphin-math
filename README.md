@@ -11,119 +11,51 @@ It works for both SFT and RL. You should generate separate datasets for SFT and 
 
 ## Features
 
-### Elementary (Grades 3-5) — 34 Problem Types
+**114 skills · ~224 problem operations · 283 scratchpad op-codes · every
+generator oracle-tested.** The authoritative inventory is the code: run
+`python dolphin_math_datagen.py --sample` to see one example of everything,
+or read `curriculum.py` for the class → grade/difficulty table. The backlog
+of what's next lives in [TODO.md](TODO.md).
 
-#### Basic Arithmetic
-- **Long Division** — with remainder, showing divide/multiply/subtract/bring-down cycle
-- **Multi-digit Addition** — standard column algorithm with carries
-- **Multi-digit Subtraction** — standard column algorithm with borrows
-- **Multi-digit Multiplication** — partial products method
-- **Mixed Number Operations** — all four operations (+, -, *, /) with LCD, simplification
-- **Fraction Comparison** — find common denominator and compare
-- **Fraction/Decimal/Percent Conversions** — bidirectional conversions
-- **Decimal Addition/Subtraction** — column alignment with decimal points
-- **Decimal Multiplication** — integer multiplication then decimal placement
-- **Decimal Division** — shift decimals, long division, place decimal in quotient
-- **Fraction Operations** — add, subtract, multiply, divide with LCD and simplification
+Coverage by grade band (35 elementary · 44 middle · 35 high school):
 
-#### Factors & Multiples
-- **Finding All Factors** — trial division with factor pairs
-- **Prime Factorization** — factor tree method
-- **GCF (Greatest Common Factor)** — Euclidean algorithm
-- **LCM (Least Common Multiple)** — via GCD formula
+- **Elementary (3-5):** the classic by-hand algorithms — long division with
+  bring-downs, column addition/subtraction/multiplication with carries and
+  borrows, fractions/decimals/percents with LCDs, factors/GCF/LCM via trial
+  division and Euclid, place value, unit conversions, basic geometry, data
+  reading, probability.
+- **Middle (6-8):** ratios and proportional reasoning, integer operations,
+  one/two-step equations and inequalities (including fraction/decimal
+  coefficients cleared via LCD, and identities/contradictions), exponent
+  rules (with decimal and fractional bases), scientific notation, angle
+  relationships, circle/prism/cylinder/pyramid/cone/sphere measurement,
+  statistics, compound probability, consumer math.
+- **High school:** the full Algebra 1 factoring ladder (GCF, trinomials by
+  visible trial-and-error, special forms, grouping), quadratics solved four
+  ways (factoring, square roots, completing the square, formula) plus
+  discriminant analysis, radicals end to end (simplify, add, multiply,
+  rationalize with conjugates, rational exponents, radical equations with
+  extraneous-root rejection), rational expressions, systems, lines,
+  polynomials, and normal-distribution probability with the z-table
+  excerpt supplied in the problem.
 
-#### Order of Operations
-- **PEMDAS Problems** — with rewrite steps showing work
+Signature behaviors, beyond topic coverage:
 
-#### Basic Geometry
-- **Perimeter/Area of Rectangles, Squares, Triangles, Parallelograms, Trapezoids**
-- **Perimeter of General Polygons** — sum of all sides
-- **Volume of Rectangular Prisms**
+- **Visible trial-and-error** (`TRY`/`REJECT`/`ACCEPT`): factoring searches
+  show every rejected candidate pair; radical equations test every
+  candidate root in the original equation and reject the extraneous ones
+  with the disagreement shown.
+- **Self-verification** (`CHECK`): cross-multiplication, substitute-back,
+  multiply-back, FOIL-back, and estimate comparisons — emitted on a
+  fraction of examples so both habits appear in training.
+- **Critic formats:** error-spotting (a worked scratchpad with one seeded,
+  propagated mistake — find it, flag it, redo from that line) and
+  fill-in-the-missing-step, with composite answers that make the reward
+  ungameable. See DESIGN.md "Derived Record Formats".
+- **Estimate-then-compute** variants that open with a 1-sig-fig or
+  compatible-numbers `ESTIMATE` and close by comparing the exact result
+  against it.
 
-#### Number Sense
-- **Place Value and Rounding** — whole numbers and decimals
-- **Comparing/Ordering Numbers** — whole numbers and decimals
-- **Divisibility Rules** — prime/composite classification
-
-#### Units & Measurement
-- **Unit Conversions** — length, weight, capacity, time, money
-
-#### Data & Probability
-- **Mean, Median, Mode** — for small datasets
-- **Simple Probability** — single event with uniform outcomes
-- **Graph Interpretation** — bar charts, line graphs, pictographs
-
-#### Tools/Methods
-- **Abacus-style Addition** — column-by-column with carries
-
----
-
-### Middle School (Grades 6-8) — 41 Problem Types
-
-#### Ratios & Proportions
-- **Unit Rate Calculations** — find rate per unit
-- **Unit Rate from Tables** — extract rate from data tables
-- **Scaling Problems** — maps, blueprints, models
-- **Similar Figures** — find missing sides using scale factors
-- **Proportional Relationships** — solve proportions
-
-#### Integer Operations
-- **Adding/Subtracting Integers** — with number line reasoning
-- **Multiplying/Dividing Integers** — sign rules
-
-#### Expressions & Equations
-- **One-step Equations** — all operations (x+a=b, ax=b, etc.)
-- **Two-step Equations** — (ax+b=c, a(x+b)=c, etc.)
-- **One-step Inequalities** — with inequality flip for negative coefficients
-- **Two-step Inequalities** — with proper sign handling
-- **Simple Linear Equations** — (ax + b = c)
-- **Complex Linear Equations** — variables on both sides (ax + b = cx + d)
-- **Simplifying Expressions** — distribution and combining like terms
-- **Evaluating Expressions** — variable substitution
-
-#### Exponents & Roots
-- **Exponent Evaluation** — compute powers like 2^5, (-3)^4
-- **Exponent Rules** — product, quotient, power, negative, zero exponent
-- **Scientific Notation** — convert to/from, operations
-- **Square Roots** — perfect squares
-- **Cube Roots** — perfect cubes
-- **Simplifying Radicals** — √72 → 6√2
-
-#### Geometry
-- **Angle Relationships** — complementary, supplementary, vertical (numeric and algebraic)
-- **Angles with Parallel Lines** — corresponding, alternate interior/exterior, co-interior
-- **Triangle Angle Sum** — find missing angle
-- **Exterior Angle Theorem**
-- **Circle Area and Circumference** — with π symbol or decimal
-- **Volume of Prisms** — rectangular and triangular
-- **Volume of Cylinders**
-- **Surface Area of Prisms**
-- **Surface Area of Cylinders**
-- **Pythagorean Theorem — Find Hypotenuse**
-- **Pythagorean Theorem — Find Leg**
-- **Pythagorean Word Problems** — ladders, distances, etc.
-
-#### Statistics
-- **Mean (Average)** — sum and divide with steps
-- **Median** — sort and find middle
-- **Mode** — frequency counting (unimodal, bimodal, no mode)
-- **Range** — max minus min
-- **Mean Absolute Deviation (MAD)**
-
-#### Probability
-- **Simple Probability** — P = favorable/total
-- **Compound Probability — Independent Events** — coin flips, dice
-- **Compound Probability — Dependent Events** — drawing without replacement
-
----
-
-### High School — 6 Problem Types (more coming)
-
-#### Algebra
-- **Quadratic Equations** — using quadratic formula with discriminant
-- **Percentage Problems** — find part, percent, or whole
-
----
 
 ## Usage
 
@@ -223,20 +155,11 @@ The scratchpad vocabulary belongs to the model and evolves organically: generato
 
 ## Curriculum Progress
 
-| Category | Implemented | Remaining |
-|----------|-------------|-----------|
-| Elementary (3-5) | 34 | 0 |
-| Middle School (6-8) | 41 | 0 |
-| Algebra 1 | 4 | 48 |
-| Geometry | 1 | 28 |
-| Algebra 2 | 1 | 40 |
-| Precalculus | 0 | 38 |
-| AP Statistics | 0 | 26 |
-| AP Calculus AB | 0 | 38 |
-| AP Calculus BC | 0 | 24 |
-| **Total** | **81** | **~243** |
-
-See [TODO.md](TODO.md) for the complete curriculum roadmap.
+114 skills implemented; the remaining backlog (currently ~372 items through
+graduate-level math, physics, information theory, and transformer
+arithmetic) lives in [TODO.md](TODO.md) — a pure backlog where shipped items
+are deleted, so it never goes stale. Counts here are summaries; the code is
+the source of truth.
 
 ---
 
@@ -254,15 +177,20 @@ dolphin-math/
 ├── dolphin_math_datagen.py   # Main CLI and generator orchestration
 ├── base_generator.py         # Abstract base class for generators
 ├── helpers.py                # Utility functions (step formatter, UUID)
+├── curriculum.py             # Class -> grade_level/difficulty table
+├── tools/
+│   └── gen_opcode_legend.py  # Regenerates OPCODES.md (--check to verify)
 ├── generators/               # All generator implementations
 │   ├── __init__.py
 │   ├── long_division_generator.py
 │   ├── fraction_op_generator.py
-│   └── ... (51 generator files)
+│   └── ... (98 generator files)
 ├── tests/                    # Unit tests for all generators
 │   ├── __init__.py
 │   ├── test_long_division_generator.py
-│   └── ... (51 test files)
+│   └── ... (101 test files)
+├── OPCODES.md                # Generated op-code legend
+├── DESIGN.md                 # Architecture, answer conventions, formats
 ├── README.md                 # This file
 ├── AGENTS.md                 # Guidelines for AI coding agents
 ├── TODO.md                   # Curriculum roadmap
@@ -276,8 +204,12 @@ dolphin-math/
 When adding a new generator:
 
 1. Create `generators/my_new_generator.py` extending `ProblemGenerator`
-2. Create `tests/test_my_new_generator.py` with unit tests
+2. Create `tests/test_my_new_generator.py` with unit tests, including an
+   oracle that recomputes the answer from the problem text alone (see the
+   A9 rule in AGENTS.md)
 3. **IMPORTANT**: Add import and instance to `ALL_GENERATORS` in `dolphin_math_datagen.py`
-4. Delete the item's line from `TODO.md` (it's a pure backlog — only unimplemented skills are listed)
-5. Run `python dolphin_math_datagen.py --sample --generators MyNewGenerator` to verify output
-6. Run `python -m unittest discover tests` to ensure all tests pass
+4. Add the class to `curriculum.CURRICULUM` (grade_level + difficulty) — test-enforced
+5. Regenerate the op-code legend: `python tools/gen_opcode_legend.py`
+6. Delete the item's line from `TODO.md` (it's a pure backlog — only unimplemented skills are listed)
+7. Run `python dolphin_math_datagen.py --sample --generators MyNewGenerator` to verify output
+8. Run `python -m unittest discover tests` to ensure all tests pass
