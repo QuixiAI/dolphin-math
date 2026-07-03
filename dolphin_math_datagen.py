@@ -176,6 +176,8 @@ ALL_GENERATORS = [
 
     # --- Order of Operations ---
     OrderOfOperationsGenerator(),
+    OrderOfOperationsGenerator("decimals"),
+    OrderOfOperationsGenerator("mixed_numbers"),
 
     # --- Number Sense ---
     PlaceValueRoundingGenerator(),
@@ -382,13 +384,15 @@ def select_generators(generator_arg: str):
     if not requested:
         return ALL_GENERATORS
 
-    available_map = {gen.__class__.__name__: gen for gen in ALL_GENERATORS}
-    missing = requested - set(available_map.keys())
+    available = {gen.__class__.__name__ for gen in ALL_GENERATORS}
+    missing = requested - available
     if missing:
-        available = ", ".join(sorted(available_map.keys()))
-        raise ValueError(f"Unknown generator(s): {', '.join(sorted(missing))}. Available: {available}")
+        raise ValueError(f"Unknown generator(s): {', '.join(sorted(missing))}. "
+                         f"Available: {', '.join(sorted(available))}")
 
-    return [available_map[name] for name in requested]
+    # All instances of each requested class (variant instances included).
+    return [gen for gen in ALL_GENERATORS
+            if gen.__class__.__name__ in requested]
 
 
 def validate_example(example):

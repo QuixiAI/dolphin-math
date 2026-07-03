@@ -101,9 +101,6 @@ Not new skills — multipliers on everything. **A0–A2 and A9 gate the Algebra 
 
 ## Backlog
 
-### Equations & Inequalities (completion)
-- [ ] Order-of-operations edge cases with mixed numbers and decimals — difficulty variant of `OrderOfOperationsGenerator` (see A3) · middle · d4
-
 ### Exponents (completion)
 - [ ] Mixed-rule simplification — negative/zero exponents combined in one expression · `ExponentMixedRulesGenerator` · middle · d4
 - [ ] Decimal and fractional bases in exponent rules — variant of `ExponentRulesGenerator` · middle · d4
