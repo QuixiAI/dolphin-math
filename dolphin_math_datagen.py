@@ -294,6 +294,7 @@ ALL_GENERATORS = [
     MonomialMultDivGenerator(),
     FactorGCFGenerator(),
     FactorTrinomialGenerator(),
+    FactorTrinomialGenerator("general"),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),
