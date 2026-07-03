@@ -252,13 +252,14 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 - [ ] Calendar arithmetic — days between dates, weekday counting · `CalendarArithmeticGenerator` · middle · d3
 - [ ] Fermi estimation with significant figures carried through the calculation · `FermiEstimationGenerator` · high · d4
 
-### Stretch — new record formats (design before building)
-These change the record shape (input includes steps), so they need a format
-decision first; all are high-value for RL/critic training:
-- [ ] Error-spotting — a worked scratchpad with one seeded mistake; find it, fix it, finish correctly
-- [ ] Fill-in-the-missing-step — a scratchpad with one step blanked
-- [ ] Estimate-then-compute — ESTIMATE step first, exact computation, then compare against the estimate
-- [ ] Normal distribution with a z-table excerpt supplied in the problem text (reframes the removed table-lookup topics per Principle 5)
+### Critic & Estimation Formats — PRIORITIZED (design shipped: DESIGN.md "Derived Record Formats")
+Format decision made: given scratchpads embed in the problem text as
+numbered pipe-dialect lines; no schema change. `ErrorSpottingGenerator`
+shipped (equation + ratio error models) — extend it with more error models
+(long division, fractions) as the library grows.
+- [ ] Fill-in-the-missing-step — one given line blanked; answer is the missing step verbatim · `FillInStepGenerator` · middle · d3
+- [ ] Estimate-then-compute — ESTIMATE opens, CHECK|magnitude closes; variant flag on multiplication/division generators first · middle · d3
+- [ ] Normal distribution with z-table excerpt in the problem text (Principle 5 reframe of the removed lookup topics) · `NormalTableGenerator` · high · d4
 
 ---
 

@@ -68,6 +68,7 @@ from generators.exponent_mixed_rules_generator import ExponentMixedRulesGenerato
 from generators.round_solids_generator import RoundSolidsGenerator
 from generators.factor_gcf_generator import FactorGCFGenerator
 from generators.factor_trinomial_generator import FactorTrinomialGenerator
+from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.scaling_generator import ScalingGenerator, SimilarFiguresScaleGenerator
 from generators.one_step_equation_generator import OneStepEquationGenerator
 from generators.two_step_equation_generator import TwoStepEquationGenerator
@@ -291,6 +292,9 @@ ALL_GENERATORS = [
     MonomialMultDivGenerator(),
     FactorGCFGenerator(),
     FactorTrinomialGenerator(),
+
+    # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
+    ErrorSpottingGenerator(),
     MultiplyingBinomialsGenerator(),
     MultiplyingPolynomialsGenerator(),
     PolynomialDivMonomialGenerator(),

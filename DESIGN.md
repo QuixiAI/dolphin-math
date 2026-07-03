@@ -59,6 +59,29 @@ section (don't fork it) when a new tier introduces new answer shapes.
   scratchpads contain dead ends; emit the tried-and-rejected candidates,
   not just the winner.
 
+## Derived Record Formats (critic tasks)
+
+**Format decision: no schema change.** A given (worked or partial)
+scratchpad embeds in the `problem` text as numbered lines in the normal
+pipe dialect — the model reads its own step language as input. The output
+is ordinary `steps`. Step fields never contain pipes: given lines are
+referenced by their 1-indexed number.
+
+- **Error-spotting** (`error_spotting_*` operations): the problem shows a
+  worked solution with exactly one arithmetic mistake; every given line
+  after the mistake is consistent with it (real erring-student work — the
+  error propagates). Output: `VERIFY|k|ok` sweeps each given line in order;
+  `FLAG|k|<true arithmetic, pipe-free>` marks the wrong line; then the work
+  is REDONE from line k in ordinary op-codes (lines after k are implicitly
+  invalidated), ending with a CHECK where natural and `Z`.
+  `final_answer` is composite (Principle 8): `step <k>; <correct answer>` —
+  re-solving without locating the error earns nothing.
+- **Fill-in-the-missing-step**: one given line is replaced by `____`;
+  `final_answer` is the missing step verbatim (pipe format).
+- **Estimate-then-compute**: not a new record shape — a variant where steps
+  open with `ESTIMATE|<rounding work>|<estimate>` and close with
+  `CHECK|magnitude|<estimate>|<exact>` before `Z`.
+
 ## Curriculum (Generators & Skills)
 - **Long Division:** Integers 2–99 divisors; includes bring-down (`B`), divide (`D`), multiply (`M`), subtract (`S`), remainder (`R`), and final `Z`.
 - **Multi-digit Addition (integers):** Column alignment (`INT_ALIGN`), per-column sums with carry (`ADD_COL`), final carry (`CARRY_FINAL`), and final `Z`.
