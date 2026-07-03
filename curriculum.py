@@ -81,6 +81,7 @@ CURRICULUM = {
     "RadicalRationalizeGenerator": {"grade_level": HIGH, "difficulty": 5},
     "RationalExponentGenerator": {"grade_level": HIGH, "difficulty": 4},
     "RadicalEquationGenerator": {"grade_level": HIGH, "difficulty": 5},
+    "RationalExprSimplifyGenerator": {"grade_level": HIGH, "difficulty": 4},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},

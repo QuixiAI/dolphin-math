@@ -80,6 +80,7 @@ from generators.radical_multiply_generator import RadicalMultiplyGenerator
 from generators.radical_rationalize_generator import RadicalRationalizeGenerator
 from generators.rational_exponent_generator import RationalExponentGenerator
 from generators.radical_equation_generator import RadicalEquationGenerator
+from generators.rational_expr_simplify_generator import RationalExprSimplifyGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -319,6 +320,7 @@ ALL_GENERATORS = [
     RadicalRationalizeGenerator(),
     RationalExponentGenerator(),
     RadicalEquationGenerator(),
+    RationalExprSimplifyGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),

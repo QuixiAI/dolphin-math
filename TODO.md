@@ -88,7 +88,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 - [ ] Inverse functions — algebraic method, verify f(f⁻¹(x)) = x (ties A1) · `InverseFunctionGenerator` · high · d4
 
 ### Radicals & Rational Expressions
-- [ ] Simplify rational expressions — factor and cancel · `RationalExprSimplifyGenerator` · high · d4
 - [ ] Multiply/divide rational expressions · `RationalExprMultDivGenerator` · high · d5
 - [ ] Add/subtract rational expressions — like and unlike denominators · `RationalExprAddSubGenerator` · high · d5
 - [ ] Solve rational equations — extraneous-root check (A1) · `RationalEquationGenerator` · high · d5
