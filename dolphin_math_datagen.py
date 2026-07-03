@@ -9,6 +9,9 @@ import argparse
 import sys
 import os
 
+from curriculum import GRADE_LEVELS, stamp_metadata
+from helpers import DELIM
+
 # Import Generator Classes (from generators subdirectory)
 from generators.long_division_generator import LongDivisionGenerator
 from generators.decimal_mult_generator import DecimalMultGenerator
@@ -125,10 +128,9 @@ from generators.compound_probability_generator import (
 # For generators requiring args (like fractions, decimal add/sub),
 # we instantiate one for each variant.
 #
-# Organization:
-#   - Elementary (Grades 3-5): 34 generators
-#   - Middle School (Grades 6-8): 39 generators
-#   - High School: Algebra, Geometry (more coming)
+# The grade-band banners below are the source of truth for grade_level;
+# per-class grade/difficulty metadata lives in curriculum.py and every class
+# listed here must have a CURRICULUM entry (enforced by tests).
 # ===========================================================================
 
 ALL_GENERATORS = [
@@ -297,6 +299,42 @@ def select_generators(generator_arg: str):
     return [available_map[name] for name in requested]
 
 
+def validate_example(example):
+    """Structural validation of a generated example; raises ValueError.
+
+    Deliberately vocabulary-agnostic: op-codes are not checked against any
+    fixed list (the scratchpad vocabulary evolves organically), only the
+    step *shape* and the required record fields are enforced.
+    """
+    if not isinstance(example, dict):
+        raise ValueError(f"example must be a dict, got {type(example).__name__}")
+    for key in ("problem_id", "operation", "problem", "steps", "final_answer",
+                "grade_level", "difficulty"):
+        if key not in example:
+            raise ValueError(f"missing required key: {key}")
+    steps = example["steps"]
+    if not isinstance(steps, list) or not steps:
+        raise ValueError("steps must be a non-empty list")
+    for i, s in enumerate(steps):
+        if not isinstance(s, str) or not s:
+            raise ValueError(f"step {i} must be a non-empty string, got {s!r}")
+        fields = s.split(DELIM)
+        if not fields[0]:
+            raise ValueError(f"step {i} has an empty op-code: {s!r}")
+        if len(fields) > 5:
+            raise ValueError(f"step {i} has more than 4 payload fields: {s!r}")
+    expected_final = f"Z{DELIM}{example['final_answer']}"
+    if steps[-1] != expected_final:
+        raise ValueError(
+            f"last step must be {expected_final!r}, got {steps[-1]!r}")
+    if example["grade_level"] not in GRADE_LEVELS:
+        raise ValueError(f"invalid grade_level: {example['grade_level']!r}")
+    difficulty = example["difficulty"]
+    if not isinstance(difficulty, int) or isinstance(difficulty, bool) \
+            or not 1 <= difficulty <= 5:
+        raise ValueError(f"difficulty must be an int in 1..5, got {difficulty!r}")
+
+
 def write_jsonl(fp, obj):
     """Writes a JSON object to a file handle, one object per line."""
     fp.write(json.dumps(obj, ensure_ascii=False) + "\n")
@@ -323,14 +361,8 @@ def build_dataset(n=10_000, path="math_visible_dataset_refactored.jsonl", seed=N
                 gen_instance = random.choice(gen_pool)
                 example = gen_instance.generate() # Call the generate method
                 if example:
-                    # Basic validation before writing
-                    assert 'problem_id' in example
-                    assert 'operation' in example
-                    assert 'problem' in example
-                    assert 'steps' in example and isinstance(example['steps'], list) and len(example['steps']) > 0
-                    assert 'final_answer' in example
-                    assert example['steps'][-1].startswith("Z|") # Check final step format
-
+                    example = stamp_metadata(example, gen_instance)
+                    validate_example(example)
                     write_jsonl(fp, example)
                     count += 1
                     if count % 1000 == 0 and count > 0:
@@ -416,7 +448,7 @@ if __name__ == "__main__":
 
             print(f"Generator: {generator_name}")
             try:
-                example = gen_instance.generate()
+                example = stamp_metadata(gen_instance.generate(), gen_instance)
                 print(json.dumps(example, indent=2, ensure_ascii=False))
             except Exception as e:
                 print(f"  ERROR generating sample: {e}")

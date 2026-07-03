@@ -1,3 +1,4 @@
+import random
 import uuid
 
 DELIM = "|"  # Use standard vertical bar delimiter
@@ -10,5 +11,9 @@ def step(op, x="", y="", z="", o=""):
     return DELIM.join(parts)
 
 def jid() -> str:
-    """Generates a unique job ID."""
-    return str(uuid.uuid4())
+    """Generates a unique job ID (UUID4 format).
+
+    Drawn from the `random` module rather than os.urandom so that seeded
+    dataset builds (-s/--seed) are reproducible byte-for-byte.
+    """
+    return str(uuid.UUID(int=random.getrandbits(128), version=4))
