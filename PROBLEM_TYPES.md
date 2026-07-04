@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**248 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**249 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5186,4 +5186,27 @@ Steps:
   CURL_COMPONENT|k|-2 - 0|-2
   Z|divergence 6; curl <5, -6, -2>
 Answer: divergence 6; curl <5, -6, -2>
+```
+
+### Line Integral — `LineIntegralGenerator`  ·  college · difficulty 4
+
+Work line integrals and conservative-field potential functions.
+
+**Variants:** `line_integral_potential_work`, `line_integral_segment_work`
+
+```
+Problem: For F(x,y) = <8*x - y + 3, 2*y - x + 2>, find a potential function and compute the work from (2, 0) to (3, 1).
+Steps:
+  LINE_SETUP|F(x,y) = <8*x - y + 3, 2*y - x + 2>|from (2, 0) to (3, 1)
+  PARTIAL_RESULT|P_y|-1
+  PARTIAL_RESULT|Q_x|-1
+  CHECK|P_y = Q_x|-1 = -1|conservative
+  POTENTIAL_BUILD|integrate P dx|4*x^2 - x*y + 3*x + g(y)|g'(y) remains
+  POTENTIAL_BUILD|match Q|g'(y) = 2*y + 2|y^2 + 2*y
+  POTENTIAL_RESULT|phi(x,y)|4*x^2 + y^2 - x*y + 3*x + 2*y
+  EVAL|phi(3,1)|45
+  EVAL|phi(2,0)|22
+  WORK_DIFF|phi(end) - phi(start)|45 - 22|23
+  Z|potential 4*x^2 + y^2 - x*y + 3*x + 2*y; work 23
+Answer: potential 4*x^2 + y^2 - x*y + 3*x + 2*y; work 23
 ```
