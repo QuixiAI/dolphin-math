@@ -105,7 +105,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Calculus — Series (BC)
 
 ### Statistics
-- [ ] Five-number summary, IQR, 1.5×IQR outlier check · `FiveNumberSummaryGenerator` · middle · d3
 - [ ] Variance & standard deviation by hand — deviation table · `StandardDeviationGenerator` · middle · d4
 - [ ] Z-scores & standardization · `ZScoreGenerator` · high · d4
 - [ ] Frequency tables & histogram interpretation · `FrequencyTableGenerator` · middle · d3
