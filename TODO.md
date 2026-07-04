@@ -93,7 +93,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Geometry & Measurement
 
 ### Trigonometry
-- [ ] Law of Sines / Law of Cosines — SSA ambiguous case stays excluded · `TriangleSolveGenerator` · high · d5
 - [ ] Triangle area — ½ab·sin C · `TriangleAreaSASGenerator` · high · d4
 - [ ] Polar ↔ rectangular (points & equations); parametric → rectangular · `PolarParametricGenerator` · high · d5
 
