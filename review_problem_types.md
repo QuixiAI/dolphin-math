@@ -6,7 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] KinematicsGenerator — Kinematics (middle · d4)
 - [ ] PhysicsFormulaGenerator — Physics Formula (middle · d4)
 - [ ] BaseConversionGenerator — Base Conversion (middle · d3)
 - [ ] BaseArithmeticGenerator — Base Arithmetic (middle · d4)
