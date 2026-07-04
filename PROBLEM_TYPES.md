@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**319 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**320 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7640,4 +7640,27 @@ Steps:
   D|-24/41|8/41|-3
   Z|plane point = (1/2, -3)
 Answer: plane point = (1/2, -3)
+```
+
+### Fundamental Form — `FundamentalFormGenerator`  ·  graduate · difficulty 4
+
+First fundamental form coefficients and patch area for standard parametrized surfaces.
+
+**Variants:** `fundamental_form_cylinder_patch`, `fundamental_form_sphere_patch`
+
+```
+Problem: For the sphere r(theta,phi)=(8 sin phi cos theta,8 sin phi sin theta,8 cos phi), 0<=theta<=pi/6 and 90<=phi<=120. Given cos(90)=0 and cos(120)=-1/2, find E, F, G and the patch area.
+Steps:
+  FUNDAMENTAL_FORM_SETUP|sphere|R=8|theta in [0,pi/6], phi in [90,120]
+  PARTIAL|r_theta=(-R sin phi sin theta,R sin phi cos theta,0)|r_phi=(R cos phi cos theta,R cos phi sin theta,-R sin phi)
+  DOT|r_theta dot r_theta|64sin^2(phi)
+  DOT|r_theta dot r_phi|0
+  E|8|2|64
+  DOT|r_phi dot r_phi|64
+  AREA_INTEGRAL|sqrt(EG-F^2)=R^2 sin(phi)|area = R^2*theta*(cos phi1 - cos phi2)
+  S|0|-1/2|1/2
+  M|64|1/6|32/3
+  M|32/3|1/2|16/3
+  Z|E = 64sin^2(phi), F = 0, G = 64, area = 16pi/3
+Answer: E = 64sin^2(phi), F = 0, G = 64, area = 16pi/3
 ```

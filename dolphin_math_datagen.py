@@ -286,6 +286,7 @@ from generators.hyperbolic_function_generator import HyperbolicFunctionGenerator
 from generators.angle_defect_generator import AngleDefectGenerator
 from generators.hyperbolic_distance_generator import HyperbolicDistanceGenerator
 from generators.stereographic_generator import StereographicGenerator
+from generators.fundamental_form_generator import FundamentalFormGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -743,6 +744,7 @@ ALL_GENERATORS = [
     AngleDefectGenerator(),
     HyperbolicDistanceGenerator(),
     StereographicGenerator(),
+    FundamentalFormGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

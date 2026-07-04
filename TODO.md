@@ -135,7 +135,6 @@ Angle sums that refuse to be 180° — mind-bending results from ordinary
 arithmetic. Nice angles (30°/45°/60°/90°) keep everything exact per Principle 5.
 
 ### Differential Geometry & Topology (computational)
-- [ ] First fundamental form E, F, G for parametrized surfaces (cylinder, sphere, torus); surface area via ∫∫√(EG−F²) · `FundamentalFormGenerator` · graduate · d4
 - [ ] Christoffel symbols for 2D metrics (polar coordinates, the sphere) — tabular formula grinding at its purest · `ChristoffelGenerator` · graduate · d5
 - [ ] Gaussian curvature — surfaces of revolution and orthogonal metrics; K = 1/R² on the sphere, K < 0 on the saddle · `GaussianCurvatureGenerator` · graduate · d5
 - [ ] Gauss-Bonnet as verification — total curvature vs 2πχ on sphere and torus; the theorem *is* a CHECK step (A1) · `GaussBonnetGenerator` · graduate · d4

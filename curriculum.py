@@ -351,6 +351,7 @@ CURRICULUM = {
     "AngleDefectGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "HyperbolicDistanceGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "StereographicGenerator": {"grade_level": GRADUATE, "difficulty": 4},
+    "FundamentalFormGenerator": {"grade_level": GRADUATE, "difficulty": 4},
 }
 
 
