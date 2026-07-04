@@ -266,6 +266,7 @@ from generators.primality_test_generator import PrimalityTestGenerator
 from generators.cayley_table_generator import CayleyTableGenerator
 from generators.cyclic_group_generator import CyclicGroupGenerator
 from generators.permutation_group_generator import PermutationGroupGenerator
+from generators.coset_generator import CosetGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -703,6 +704,7 @@ ALL_GENERATORS = [
     CayleyTableGenerator(),
     CyclicGroupGenerator(),
     PermutationGroupGenerator(),
+    CosetGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

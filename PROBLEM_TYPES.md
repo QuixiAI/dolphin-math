@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**299 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**300 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -6967,4 +6967,103 @@ Steps:
   MR_WITNESS_RESULT|4|composite
   Z|composite; witness = 4
 Answer: composite; witness = 4
+```
+
+### Coset — `CosetGenerator`  ·  graduate · difficulty 4
+
+Left coset enumeration in small finite groups.
+
+**Variants:** `coset_d3`, `coset_units`, `coset_zn`
+
+```
+Problem: In U(60) under multiplication modulo 60, let H=<43>. Enumerate the distinct left cosets aH.
+Steps:
+  GROUP_SETUP|U(60)|multiplication mod n|group size 16
+  SUBGROUP_START|H=<43>|identity 1
+  M|1|43|43
+  MOD_REDUCE|43|mod 60|43
+  SUBGROUP_ELEM|k=1|43
+  M|43|43|1849
+  MOD_REDUCE|1849|mod 60|49
+  SUBGROUP_ELEM|k=2|49
+  M|49|43|2107
+  MOD_REDUCE|2107|mod 60|7
+  SUBGROUP_ELEM|k=3|7
+  M|7|43|301
+  MOD_REDUCE|301|mod 60|1
+  SUBGROUP_ELEM|k=4|1
+  SUBGROUP|H={1, 43, 49, 7}|size 4
+  COSET_START|rep 1|1H
+  M|1|1|1
+  MOD_REDUCE|1|mod 60|1
+  COSET_ELEM|1H|1
+  M|1|43|43
+  MOD_REDUCE|43|mod 60|43
+  COSET_ELEM|1H|43
+  M|1|49|49
+  MOD_REDUCE|49|mod 60|49
+  COSET_ELEM|1H|49
+  M|1|7|7
+  MOD_REDUCE|7|mod 60|7
+  COSET_ELEM|1H|7
+  COSET|1H|{1, 43, 49, 7}
+  COSET_SKIP|7|already listed
+  COSET_START|rep 11|11H
+  M|11|1|11
+  MOD_REDUCE|11|mod 60|11
+  COSET_ELEM|11H|11
+  M|11|43|473
+  MOD_REDUCE|473|mod 60|53
+  COSET_ELEM|11H|53
+  M|11|49|539
+  MOD_REDUCE|539|mod 60|59
+  COSET_ELEM|11H|59
+  M|11|7|77
+  MOD_REDUCE|77|mod 60|17
+  COSET_ELEM|11H|17
+  COSET|11H|{11, 53, 59, 17}
+  COSET_START|rep 13|13H
+  M|13|1|13
+  MOD_REDUCE|13|mod 60|13
+  COSET_ELEM|13H|13
+  M|13|43|559
+  MOD_REDUCE|559|mod 60|19
+  COSET_ELEM|13H|19
+  M|13|49|637
+  MOD_REDUCE|637|mod 60|37
+  COSET_ELEM|13H|37
+  M|13|7|91
+  MOD_REDUCE|91|mod 60|31
+  COSET_ELEM|13H|31
+  COSET|13H|{13, 19, 37, 31}
+  COSET_SKIP|17|already listed
+  COSET_SKIP|19|already listed
+  COSET_START|rep 23|23H
+  M|23|1|23
+  MOD_REDUCE|23|mod 60|23
+  COSET_ELEM|23H|23
+  M|23|43|989
+  MOD_REDUCE|989|mod 60|29
+  COSET_ELEM|23H|29
+  M|23|49|1127
+  MOD_REDUCE|1127|mod 60|47
+  COSET_ELEM|23H|47
+  M|23|7|161
+  MOD_REDUCE|161|mod 60|41
+  COSET_ELEM|23H|41
+  COSET|23H|{23, 29, 47, 41}
+  COSET_SKIP|29|already listed
+  COSET_SKIP|31|already listed
+  COSET_SKIP|37|already listed
+  COSET_SKIP|41|already listed
+  COSET_SKIP|43|already listed
+  COSET_SKIP|47|already listed
+  COSET_SKIP|49|already listed
+  COSET_SKIP|53|already listed
+  COSET_SKIP|59|already listed
+  D|16|4|4
+  INDEX|G size 16|H size 4|4
+  CHECK|cosets partition group|yes
+  Z|cosets = 1H={1, 43, 49, 7}; 11H={11, 53, 59, 17}; 13H={13, 19, 37, 31}; 23H={23, 29, 47, 41}; index = 4
+Answer: cosets = 1H={1, 43, 49, 7}; 11H={11, 53, 59, 17}; 13H={13, 19, 37, 31}; 23H={23, 29, 47, 41}; index = 4
 ```
