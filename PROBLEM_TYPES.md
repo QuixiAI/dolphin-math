@@ -2242,8 +2242,8 @@ Steps:
   MONO_SETUP|(4x^8) / (4x^5)
   MONO_DIV_COEFF|4 / 4|1
   MONO_SUB_EXP|x^8 / x^5 = x^(8-5)|x^3
-  Z|1x^3
-Answer: 1x^3
+  Z|x^3
+Answer: x^3
 ```
 
 ### Factor GCF — `FactorGCFGenerator`  ·  high · difficulty 4

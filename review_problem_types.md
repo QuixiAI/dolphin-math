@@ -6,7 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] MonomialMultDivGenerator — Monomial Mult Div (high · d4)
 - [ ] FactorGCFGenerator — Factor GCF (high · d4)
 - [ ] FactorTrinomialGenerator — Factor Trinomial (high · d4)
 - [ ] FactorSpecialFormsGenerator — Factor Special Forms (high · d4)

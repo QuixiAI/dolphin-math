@@ -2,6 +2,18 @@ import random
 from base_generator import ProblemGenerator
 from helpers import step, jid
 
+
+def mono(coef, power):
+    """Monomial text with 1-coefficients dropped: x^3, -x, 7, 3x^2."""
+    var = "" if power == 0 else "x" if power == 1 else f"x^{power}"
+    if not var:
+        return str(coef)
+    if coef == 1:
+        return var
+    if coef == -1:
+        return f"-{var}"
+    return f"{coef}{var}"
+
 class MonomialMultDivGenerator(ProblemGenerator):
     """
     Generates problems for multiplying and dividing monomials.
@@ -25,9 +37,9 @@ class MonomialMultDivGenerator(ProblemGenerator):
             p1 = random.randint(1, 9)
             p2 = random.randint(1, 9)
             
-            term1 = f"{c1}x^{p1}" if p1 > 1 else f"{c1}x"
-            term2 = f"{c2}x^{p2}" if p2 > 1 else f"{c2}x"
-            
+            term1 = mono(c1, p1)
+            term2 = mono(c2, p2)
+
             problem_str = f"({term1})({term2})"
             
             steps = []
@@ -41,9 +53,9 @@ class MonomialMultDivGenerator(ProblemGenerator):
             new_p = p1 + p2
             steps.append(step("MONO_ADD_EXP", f"x^{p1} * x^{p2} = x^({p1}+{p2})", f"x^{new_p}"))
             
-            ans = f"{new_c}x^{new_p}"
+            ans = mono(new_c, new_p)
             steps.append(step("Z", ans))
-            
+
             return dict(
                 problem_id=jid(),
                 operation="monomial_mult",
@@ -64,9 +76,9 @@ class MonomialMultDivGenerator(ProblemGenerator):
             diff = random.randint(0, 5)
             p1 = p2 + diff
             
-            term1 = f"{c1}x^{p1}" if p1 > 1 else f"{c1}x"
-            term2 = f"{c2}x^{p2}" if p2 > 1 else f"{c2}x"
-            
+            term1 = mono(c1, p1)
+            term2 = mono(c2, p2)
+
             problem_str = f"({term1}) / ({term2})"
             
             steps = []
@@ -80,13 +92,13 @@ class MonomialMultDivGenerator(ProblemGenerator):
             new_p = p1 - p2
             if new_p == 0:
                 steps.append(step("MONO_SUB_EXP", f"x^{p1} / x^{p2} = x^({p1}-{p2})", "x^0 = 1"))
-                ans = f"{new_c}"
+                ans = str(new_c)
             elif new_p == 1:
                 steps.append(step("MONO_SUB_EXP", f"x^{p1} / x^{p2} = x^({p1}-{p2})", "x^1 = x"))
-                ans = f"{new_c}x"
+                ans = mono(new_c, 1)
             else:
                 steps.append(step("MONO_SUB_EXP", f"x^{p1} / x^{p2} = x^({p1}-{p2})", f"x^{new_p}"))
-                ans = f"{new_c}x^{new_p}"
+                ans = mono(new_c, new_p)
                 
             steps.append(step("Z", ans))
             
