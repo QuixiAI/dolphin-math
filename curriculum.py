@@ -191,6 +191,7 @@ CURRICULUM = {
     "CompositeArithmeticGenerator": {"grade_level": ELEMENTARY, "difficulty": 4},
     "ZScoreGenerator": {"grade_level": HIGH, "difficulty": 4},
     "FrequencyTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},
+    "RegressionGenerator": {"grade_level": HIGH, "difficulty": 5},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},

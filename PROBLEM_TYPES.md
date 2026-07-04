@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**218 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**219 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -4485,6 +4485,23 @@ Steps:
   CHECK|abs(z) > 2 rule|abs(-1) ≤ 2|usual
   Z|usual
 Answer: usual
+```
+
+### Regression — `RegressionGenerator`  ·  high · difficulty 5
+
+Least-squares linear regression by the deviation formulas: b = Sxy/Sxx, a = ȳ - b·x̄, r = Sxy/√(Sxx·Syy), r² and residuals. Data are built so x̄, ȳ, Sxx and √(Sxx·Syy) are integers, making every reported value an exact terminating decimal.
+
+**Variants:** `regression_correlation`, `regression_line`, `regression_predict`, `regression_r_squared`, `regression_residual`
+
+```
+Problem: The least-squares line for a data set is ŷ = 32.6 - 0.2x. Find the residual at the point (3, 32).
+Steps:
+  RESID_SETUP|point (3, 32), line ŷ = 32.6 - 0.2x|residual = observed − predicted
+  M|-0.2|3|-0.6
+  A|32.6|-0.6|32
+  S|32|32|0
+  Z|0
+Answer: 0
 ```
 
 ### Normal Table — `NormalTableGenerator`  ·  high · difficulty 4
