@@ -367,6 +367,7 @@ CURRICULUM = {
     "ProjectorGenerator": {"grade_level": GRADUATE, "difficulty": 3},
     "UncertaintyGenerator": {"grade_level": GRADUATE, "difficulty": 5},
     "MatrixGroupCheckGenerator": {"grade_level": GRADUATE, "difficulty": 3},
+    "LieExponentialGenerator": {"grade_level": GRADUATE, "difficulty": 4},
 }
 
 

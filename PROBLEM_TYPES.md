@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**335 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**336 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7987,4 +7987,34 @@ Steps:
   CHECK|det M|1|special
   Z|SU2 member yes; U^dagger U = I, det = 1
 Answer: SU2 member yes; U^dagger U = I, det = 1
+```
+
+### Lie Exponential — `LieExponentialGenerator`  ·  graduate · difficulty 4
+
+Exponentiate standard Lie algebra generators into exact rotation matrices.
+
+**Variants:** `lie_exponential_so2`, `lie_exponential_so3`
+
+```
+Problem: Exponentiate the so(3) element theta=660 deg about the x-axis with K=[[0, 0, 0], [0, 0, -1], [0, 1, 0]].
+Steps:
+  LIE_EXP_SETUP|SO3|axis=x|theta=660 deg|K=[[0, 0, 0], [0, 0, -1], [0, 1, 0]]
+  MOD_REDUCE|660|mod 360|300
+  MATRIX_POWER|K^2|[[0, 0, 0], [0, -1, 0], [0, 0, -1]]
+  RODRIGUES_FORM|e^(theta K)|I + sin(theta)K + (1-cos(theta))K^2
+  TABLE_LOOKUP|cos 300 deg|1/2
+  TABLE_LOOKUP|sin 300 deg|-sqrt3/2
+  MAT_ENTRY|(1,1)|1|1
+  MAT_ENTRY|(1,2)|0|0
+  MAT_ENTRY|(1,3)|0|0
+  MAT_ENTRY|(2,1)|0|0
+  MAT_ENTRY|(2,2)|cos(theta)|1/2
+  MAT_ENTRY|(2,3)|-sin(theta)|sqrt3/2
+  MAT_ENTRY|(3,1)|0|0
+  MAT_ENTRY|(3,2)|sin(theta)|-sqrt3/2
+  MAT_ENTRY|(3,3)|cos(theta)|1/2
+  CHECK|R^T R|I|orthogonal
+  CHECK|det R|1|proper rotation
+  Z|e^(theta K_x)=[[1, 0, 0], [0, 1/2, sqrt3/2], [0, -sqrt3/2, 1/2]]
+Answer: e^(theta K_x)=[[1, 0, 0], [0, 1/2, sqrt3/2], [0, -sqrt3/2, 1/2]]
 ```
