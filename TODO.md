@@ -86,7 +86,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Statistics
 
 ### Probability
-- [ ] Geometric distribution — first success · `GeometricDistributionGenerator` · high · d4
 
 ### Applied & Cross-Disciplinary
 - [ ] Simple & compound interest; loan payment breakdown; budgeting splits · `FinanceGenerator` · middle · d4

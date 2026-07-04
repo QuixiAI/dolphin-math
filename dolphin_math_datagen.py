@@ -195,6 +195,7 @@ from generators.binomial_probability_generator import BinomialProbabilityGenerat
 from generators.probability_addition_rule_generator import ProbabilityAdditionRuleGenerator
 from generators.conditional_probability_generator import ConditionalProbabilityGenerator
 from generators.geometric_probability_generator import GeometricProbabilityGenerator
+from generators.geometric_distribution_generator import GeometricDistributionGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -551,6 +552,7 @@ ALL_GENERATORS = [
     BinomialProbabilityGenerator(),
     ProbabilityAdditionRuleGenerator(),
     ConditionalProbabilityGenerator(),
+    GeometricDistributionGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),

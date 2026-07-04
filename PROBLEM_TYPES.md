@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**228 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**229 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -4684,6 +4684,22 @@ Steps:
   CHECK|positive tests|posterior denominator = 44
   Z|7/11
 Answer: 7/11
+```
+
+### Geometric Distribution — `GeometricDistributionGenerator`  ·  high · difficulty 4
+
+Geometric distribution for the trial number of the first success. The scratchpad shows repeated failures followed by success, complement rules, tail probabilities, and the expected waiting time.
+
+**Variants:** `geometric_distribution_after_k`, `geometric_distribution_at_most`, `geometric_distribution_exact_k`, `geometric_distribution_mean`
+
+```
+Problem: A geometric experiment has success probability p = 4/5. Let X be the trial number of the first success. Find the expected trial number of the first success.
+Steps:
+  GEOM_SETUP|p = 4/5|E[X]
+  GEOM_FORMULA|E[X] = 1/p
+  D|1|4/5|1.25
+  Z|1.25
+Answer: 1.25
 ```
 
 ### Normal Table — `NormalTableGenerator`  ·  high · difficulty 4
