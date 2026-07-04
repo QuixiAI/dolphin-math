@@ -417,6 +417,7 @@ from generators.classifier_metrics_generator import ClassifierMetricsGenerator
 from generators.matrix_calculus_generator import MatrixCalculusGenerator
 from generators.matrix_norm_generator import MatrixNormGenerator
 from generators.positive_definite_generator import PositiveDefiniteGenerator
+from generators.pca_generator import PCAGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -1005,6 +1006,7 @@ ALL_GENERATORS = [
     MatrixCalculusGenerator(),
     MatrixNormGenerator(),
     PositiveDefiniteGenerator(),
+    PCAGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

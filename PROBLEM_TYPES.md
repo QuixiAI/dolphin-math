@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**450 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**451 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -11278,4 +11278,89 @@ Steps:
   GRAD_ENTRY|g2|0
   Z|grad=(4,0)
 Answer: grad=(4,0)
+```
+
+### PCA — `PCAGenerator`  ·  graduate · difficulty 4
+
+2D PCA from a small dataset: mean, covariance, eigendecomposition, projection.
+
+**Variants:** `pca_2d_projection`
+
+```
+Problem: For points [(3,1), (-1,1), (1,4), (1,-2)], use population covariance (divide by n) to compute 2D PCA and project each centered point onto the principal component.
+Steps:
+  PCA_SETUP|points=[(3,1), (-1,1), (1,4), (1,-2)]|population covariance
+  A|0|3|3
+  A|3|-1|2
+  A|2|1|3
+  A|3|1|4
+  D|4|4|1
+  A|0|1|1
+  A|1|1|2
+  A|2|4|6
+  A|6|-2|4
+  D|4|4|1
+  S|3|1|2
+  S|1|1|0
+  CENTER|P1|(2,0)
+  S|-1|1|-2
+  S|1|1|0
+  CENTER|P2|(-2,0)
+  S|1|1|0
+  S|4|1|3
+  CENTER|P3|(0,3)
+  S|1|1|0
+  S|-2|1|-3
+  CENTER|P4|(0,-3)
+  E|2|2|4
+  E|-2|2|4
+  E|0|2|0
+  E|0|2|0
+  A|0|4|4
+  A|4|4|8
+  A|8|0|8
+  A|8|0|8
+  D|8|4|2
+  COV_ENTRY|xx|2
+  M|2|0|0
+  M|-2|0|0
+  M|0|3|0
+  M|0|-3|0
+  A|0|0|0
+  A|0|0|0
+  A|0|0|0
+  A|0|0|0
+  D|0|4|0
+  COV_ENTRY|xy|0
+  E|0|2|0
+  E|0|2|0
+  E|3|2|9
+  E|-3|2|9
+  A|0|0|0
+  A|0|0|0
+  A|0|9|9
+  A|9|9|18
+  D|18|4|9/2
+  COV_ENTRY|yy|9/2
+  EIGENVALUES|diagonal covariance|lambda_x=2, lambda_y=9/2
+  CHECK|lambda_x vs lambda_y|2 < 9/2|pc=e2
+  PC_VECTOR|e2|(0,1)
+  M|2|0|0
+  M|0|1|0
+  A|0|0|0
+  PROJECT|P1|0
+  M|-2|0|0
+  M|0|1|0
+  A|0|0|0
+  PROJECT|P2|0
+  M|0|0|0
+  M|3|1|3
+  A|0|3|3
+  PROJECT|P3|3
+  M|0|0|0
+  M|-3|1|-3
+  A|0|-3|-3
+  PROJECT|P4|-3
+  Z|cov=[[2,0], [0,9/2]]; pc=(0,1); scores=0,0,3,-3
+Answer: cov=[[2,0], [0,9/2]]; pc=(0,1); scores=0,0,3,-3
 ```
