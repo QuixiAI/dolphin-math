@@ -143,7 +143,7 @@ Each line of the generated JSONL is one problem:
 ```
 
 - `steps` — the visible scratchpad: pipe-delimited op-code strings (`CODE|field|field|...`, up to 4 payload fields), ending with `Z|<final_answer>`.
-- `grade_level` (`elementary` / `middle` / `high`) and `difficulty` (coarse 1-5 tier) are stamped from the per-class table in `curriculum.py`; a generator may emit either key itself to override (e.g. difficulty computed from its operands).
+- `grade_level` (`elementary` / `middle` / `high` / `college` / `graduate`) and `difficulty` (coarse 1-5 tier, read relative to the grade band) are stamped from the per-class table in `curriculum.py`; a generator may emit either key itself to override (e.g. difficulty computed from its operands).
 
 ## Op-Code Legend
 

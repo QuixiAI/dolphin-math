@@ -6,18 +6,23 @@ generated example after ``generate()`` returns. A generator may instead emit
 either key itself (e.g. computed per-instance from its operands); generator-
 provided values always win over the table.
 
-grade_level: "elementary" (grades 3-5), "middle" (6-8), "high" (high school).
-difficulty:  coarse 1-5 tier for curriculum staging and filtering —
-             1 = single-read/lookup, 2 = standard elementary algorithm,
-             3 = multi-stage elementary / intro middle, 4 = multi-step middle
-             or single-topic high school, 5 = hardest current skills.
+grade_level: "elementary" (grades 3-5), "middle" (6-8), "high" (high school),
+             "college" (undergraduate), "graduate".
+difficulty:  coarse 1-5 tier, read *relative to the grade band* — a
+             "college · d2" item is routine for that level, not
+             middle-school hard. Within a band:
+             1 = single-read/lookup, 2 = standard algorithm,
+             3 = multi-stage, 4 = multi-step / single-topic advanced,
+             5 = the band's hardest skills.
 """
 
 ELEMENTARY = "elementary"
 MIDDLE = "middle"
 HIGH = "high"
+COLLEGE = "college"
+GRADUATE = "graduate"
 
-GRADE_LEVELS = (ELEMENTARY, MIDDLE, HIGH)
+GRADE_LEVELS = (ELEMENTARY, MIDDLE, HIGH, COLLEGE, GRADUATE)
 
 CURRICULUM = {
     # ===== ELEMENTARY (Grades 3-5) =====

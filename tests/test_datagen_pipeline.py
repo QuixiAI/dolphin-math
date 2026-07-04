@@ -110,8 +110,15 @@ class TestValidateExample(unittest.TestCase):
 
     def test_bad_grade_level(self):
         ex = make_valid_example()
-        ex["grade_level"] = "college"
+        ex["grade_level"] = "kindergarten"
         with self.assertRaises(ValueError):
+            validate_example(ex)
+
+    def test_all_grade_bands_validate(self):
+        for band in ("elementary", "middle", "high", "college",
+                     "graduate"):
+            ex = make_valid_example()
+            ex["grade_level"] = band
             validate_example(ex)
 
     def test_bad_difficulty(self):
