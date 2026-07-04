@@ -452,6 +452,7 @@ CURRICULUM = {
     "HydrogenAtomGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "BraKetGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "SpecialRelativityGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "RelativisticEnergyGenerator": {"grade_level": COLLEGE, "difficulty": 4},
 }
 
 

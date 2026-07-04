@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**420 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**421 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8159,6 +8159,25 @@ Steps:
   D|54|41/40|2160/41
   Z|L=2160/41 m
 Answer: L=2160/41 m
+```
+
+### Relativistic Energy — `RelativisticEnergyGenerator`  ·  college · difficulty 4
+
+Relativistic rest energy, mass-shell energy, and velocity addition.
+
+**Variants:** `relativistic_energy_energy_momentum`, `relativistic_energy_rest_energy`, `relativistic_energy_velocity_addition`
+
+```
+Problem: In c=1 units, a particle has momentum p=35 and mass m=12. Find E from E^2=p^2+m^2.
+Steps:
+  REL_ENERGY_SETUP|energy_momentum|c=1|p=35, m=12
+  REL_ENERGY_FORMULA|E=sqrt(p^2+m^2)
+  E|35|2|1225
+  E|12|2|144
+  A|1225|144|1369
+  ROOT|sqrt(1369)|37
+  Z|E=37
+Answer: E=37
 ```
 
 ## Graduate

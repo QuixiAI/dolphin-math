@@ -166,7 +166,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Physics — Quantum Mechanics
 
 ### Physics — Relativity, Waves & Optics
-- [ ] Relativistic energy-momentum; velocity addition; E = mc² · `RelativisticEnergyGenerator` · college · d4
 - [ ] Minkowski invariant interval — s² = c²t² − x² classification (timelike/spacelike/lightlike); rapidity addition, where velocities compose by simple addition · `MinkowskiIntervalGenerator` · graduate · d4
 - [ ] Doppler shift — acoustic and relativistic · `DopplerGenerator` · college · d3
 - [ ] Snell's law; thin-lens and mirror equations; magnification · `OpticsGenerator` · college · d2
