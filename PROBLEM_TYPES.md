@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**328 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**329 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7047,6 +7047,24 @@ Steps:
   M|-1|0|0
   Z|A tensor B = diag(-5,-1,-5,-1); output = [-40,0,-30,0]
 Answer: A tensor B = diag(-5,-1,-5,-1); output = [-40,0,-30,0]
+```
+
+### Quantum Gate — `QuantumGateGenerator`  ·  college · difficulty 3
+
+Apply H, X, Y, Z, and CNOT gates to basis states, with exact measurement probabilities.
+
+**Variants:** `quantum_gate_cnot`, `quantum_gate_single`
+
+```
+Problem: Apply the CNOT gate to ket10 and give measurement probabilities.
+Steps:
+  QUANTUM_SETUP|gate=CNOT|input=ket10
+  GATE_MATRIX|CNOT|ket00bra00+ket01bra01+ket11bra10+ket10bra11
+  XOR|control=1|target=0|1
+  APPLY_GATE|CNOT|ket10|ket11
+  MEASURE_PROB|computational basis|P(11)=1|all other outcomes 0
+  Z|state = ket11; P(11) = 1
+Answer: state = ket11; P(11) = 1
 ```
 
 ## Graduate

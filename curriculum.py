@@ -360,6 +360,7 @@ CURRICULUM = {
     "LegendreConstructionGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "HermitianCheckGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "TensorProductGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "QuantumGateGenerator": {"grade_level": COLLEGE, "difficulty": 3},
 }
 
 
