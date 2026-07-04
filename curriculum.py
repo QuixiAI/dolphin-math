@@ -244,6 +244,7 @@ CURRICULUM = {
     "BaseConversionGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "BaseArithmeticGenerator": {"grade_level": MIDDLE, "difficulty": 4},
     "BitwiseOpsGenerator": {"grade_level": MIDDLE, "difficulty": 3},
+    "ModularArithmeticGenerator": {"grade_level": MIDDLE, "difficulty": 4},
 
     # ===== HIGH SCHOOL =====
     "QuadraticGenerator": {"grade_level": HIGH, "difficulty": 5},

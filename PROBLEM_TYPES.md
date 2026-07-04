@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**235 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**236 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -1594,6 +1594,40 @@ Steps:
   CHECK|1 OR 8|9|1001
   Z|1001_2 = 9
 Answer: 1001_2 = 9
+```
+
+### Modular Arithmetic — `ModularArithmeticGenerator`  ·  middle · difficulty 4
+
+Applied modular arithmetic: clock arithmetic, ISBN-10 check digits, and Luhn check digits. Each variant shows the modular reduction that makes the procedure useful.
+
+**Variants:** `modular_arithmetic_clock`, `modular_arithmetic_isbn10`, `modular_arithmetic_luhn`
+
+```
+Problem: Find the ISBN-10 check digit for prefix 604876475.
+Steps:
+  MOD_SETUP|ISBN-10 modulus 11|prefix 604876475
+  MOD_TERM|10 * 6|60
+  MOD_TERM|9 * 0|0
+  A|60|0|60
+  MOD_TERM|8 * 4|32
+  A|60|32|92
+  MOD_TERM|7 * 8|56
+  A|92|56|148
+  MOD_TERM|6 * 7|42
+  A|148|42|190
+  MOD_TERM|5 * 6|30
+  A|190|30|220
+  MOD_TERM|4 * 4|16
+  A|220|16|236
+  MOD_TERM|3 * 7|21
+  A|236|21|257
+  MOD_TERM|2 * 5|10
+  A|257|10|267
+  MOD_REDUCE|267|mod 11|3
+  MOD_SOLVE|d ≡ -3 mod 11|8
+  CHECK|267 + 8|275|multiple of 11
+  Z|8
+Answer: 8
 ```
 
 ### Pascal Triangle — `PascalTriangleGenerator`  ·  middle · difficulty 3
