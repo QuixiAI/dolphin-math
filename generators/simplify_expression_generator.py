@@ -56,22 +56,30 @@ class SimplifyExpressionGenerator(ProblemGenerator):
         rewritten_expr = "".join(rewritten_expr_parts).lstrip('+')
         steps.append(step("REWRITE", rewritten_expr))
 
+        # Coefficient rendering: 1x -> x, -1x -> -x, 21x stays 21x
+        def coeff_x_text(k):
+            if k == 1: return "x"
+            if k == -1: return "-x"
+            return f"{k}x"
+
+        def signed_coeff_x_text(k):
+            sign = "+" if k >= 0 else "-"
+            mag = abs(k)
+            return f"{sign}{'' if mag == 1 else mag}x"
+
         # Step 3: Combine x terms
-        comb_x_term = f"{final_coeff_x}x".replace("1x","x").replace("-1x","-x")
-        steps.append(step("COMB_X", f"{dist_term1}x", f"{d:+}x", comb_x_term))
+        comb_x_term = coeff_x_text(final_coeff_x)
+        steps.append(step("COMB_X", coeff_x_text(dist_term1),
+                          signed_coeff_x_text(d), comb_x_term))
 
         # Step 4: Combine constant terms
-        comb_const_term = f"{final_const:+}"
-        steps.append(step("COMB_CONST", f"{dist_term2:+}", f"{e:+}", comb_const_term))
+        steps.append(step("COMB_CONST", f"{dist_term2:+}", f"{e:+}",
+                          final_const))
 
         # Step 5: Final Answer
         final_answer_str = comb_x_term
-        if final_const != 0: # Already includes sign
-            final_answer_str += comb_const_term
-
-        # Final cleanup if result is just 'x' or '-x'
-        if final_answer_str == "1x": final_answer_str = "x"
-        elif final_answer_str == "-1x": final_answer_str = "-x"
+        if final_const != 0:
+            final_answer_str += f"{final_const:+}"
 
         steps.append(step("Z", final_answer_str))
 

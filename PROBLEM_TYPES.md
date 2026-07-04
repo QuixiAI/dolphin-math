@@ -918,7 +918,7 @@ Problem: Simplify: 3(2x-5)-x+4
 Steps:
   DIST|3|2x-5|6x-15
   REWRITE|6x-15-x+4
-  COMB_X|6x|-1x|5x
+  COMB_X|6x|-x|5x
   COMB_CONST|-15|+4|-11
   Z|5x-11
 Answer: 5x-11

@@ -68,5 +68,33 @@ class TestSimplifyExpressionGenerator(unittest.TestCase):
             self.assertNotEqual(result["final_answer"], "0")
 
 
+    def test_oracle_equivalence_by_evaluation(self):
+        """A9 oracle: the simplified answer must equal the original
+        expression at several test points (exact Fraction arithmetic),
+        and never contain a 1x/-1x coefficient."""
+        import re
+        from fractions import Fraction
+
+        def eval_expr(text, xv):
+            t = re.sub(r"(\d|\))\(", r"\1*(", text)
+            t = re.sub(r"([\d)])x", r"\1*x", t)
+            t = t.replace("-x", "-1*x").replace("+x", "+1*x")
+            if t.startswith("x"):
+                t = "1*" + t
+            if t.startswith("-("):
+                t = t.replace("-(", "-1*(", 1)
+            return eval(t, {"x": xv})
+
+        for _ in range(500):
+            result = self.generator.generate()
+            problem = result["problem"].replace("Simplify: ", "")
+            answer = result["final_answer"]
+            for xv in (Fraction(3), Fraction(-7), Fraction(1, 2)):
+                self.assertEqual(eval_expr(problem, xv),
+                                 eval_expr(answer, xv),
+                                 f"{problem} != {answer}")
+            self.assertNotRegex(answer, r"(?<!\d)1x|(?<!\d)-1x")
+
+
 if __name__ == '__main__':
     unittest.main()
