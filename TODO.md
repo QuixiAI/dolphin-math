@@ -97,7 +97,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Vectors & Matrices
 
 ### Limits
-- [ ] Limit definition of the derivative · `DerivativeLimitDefGenerator` · high · d5
 
 ### Calculus — Derivatives
 - [ ] Power rule with sums and constants · `DerivativePowerRuleGenerator` · high · d4
