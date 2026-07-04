@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**293 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**294 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -6559,6 +6559,72 @@ Steps:
   CONVERGENT|i=4|541/110
   Z|continued fraction = [4; 1, 11, 4, 2]; convergents = 4/1, 5/1, 59/12, 241/49, 541/110
 Answer: continued fraction = [4; 1, 11, 4, 2]; convergents = 4/1, 5/1, 59/12, 241/49, 541/110
+```
+
+### RSA — `RSAGenerator`  ·  college · difficulty 4
+
+RSA key generation, encryption, and decryption with small primes.
+
+**Variants:** `rsa`
+
+```
+Problem: For RSA primes p=23 and q=29 with public exponent e=17 and message m=43, compute n, phi(n), d, encrypt, and decrypt.
+Steps:
+  RSA_SETUP|p=23|q=29|message=43
+  M|23|29|667
+  S|23|1|22
+  S|29|1|28
+  M|22|28|616
+  GCD_RESULT|gcd(17,616)|1
+  EXT_GCD_SETUP|17|616
+  BACK_SUB_ROW|r=17|x=1|y=0
+  BACK_SUB_ROW|r=616|x=0|y=1
+  EUCLID_DIV|17|616|0|17
+  M|0|616|0
+  S|17|0|17
+  M|0|0|0
+  S|1|0|1
+  M|0|1|0
+  S|0|0|0
+  BACK_SUB_ROW|r=17|x=1|y=0
+  EUCLID_DIV|616|17|36|4
+  M|36|17|612
+  S|616|612|4
+  M|36|1|36
+  S|0|36|-36
+  M|36|0|0
+  S|1|0|1
+  BACK_SUB_ROW|r=4|x=-36|y=1
+  EUCLID_DIV|17|4|4|1
+  M|4|4|16
+  S|17|16|1
+  M|4|-36|-144
+  S|1|-144|145
+  M|4|1|4
+  S|0|4|-4
+  BACK_SUB_ROW|r=1|x=145|y=-4
+  EUCLID_DIV|4|1|4|0
+  M|4|1|4
+  S|4|4|0
+  M|4|145|580
+  S|-36|580|-616
+  M|4|-4|-16
+  S|1|-16|17
+  BACK_SUB_ROW|r=0|x=-616|y=17
+  MOD_NORMALIZE|145|mod 616|145
+  MOD_INVERSE|17 mod 616|145
+  M|17|145|2465
+  MOD_REDUCE|2465|mod 616|1
+  CHECK|e*d mod phi|1
+  RSA_PUBLIC_KEY|n=667|e=17
+  RSA_PRIVATE_KEY|d=145
+  MOD_POWER|43^17|mod 667|214
+  RSA_ENCRYPT|43|214
+  MOD_POWER|214^145|mod 667|43
+  RSA_DECRYPT|214|43
+  CHECK|decrypted message|43
+  Z|n = 667; phi = 616; d = 145; ciphertext = 214; decrypted = 43
+Answer: n = 667; phi = 616; d = 145; ciphertext = 214; decrypted = 43
 ```
 
 ## Graduate
