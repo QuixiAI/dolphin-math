@@ -152,7 +152,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Numerical Methods
 
 ### Probability Theory & Mathematical Statistics
-- [ ] Method of moments estimators · `MethodOfMomentsGenerator` · graduate · d3
 - [ ] Conjugate Bayesian updates — beta-binomial and normal-normal posterior parameters, purely mechanical · `BayesianUpdateGenerator` · graduate · d4
 - [ ] Markov chains — n-step probabilities, steady state, absorption probabilities and expected hitting times via linear systems · `MarkovChainGenerator` · college · d4
 - [ ] Order statistics — small n, uniform case · `OrderStatisticsGenerator` · graduate · d4

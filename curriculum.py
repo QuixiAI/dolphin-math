@@ -404,6 +404,7 @@ CURRICULUM = {
     "MGFGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "RVTransformGenerator": {"grade_level": GRADUATE, "difficulty": 5},
     "MLEGenerator": {"grade_level": GRADUATE, "difficulty": 4},
+    "MethodOfMomentsGenerator": {"grade_level": GRADUATE, "difficulty": 3},
 }
 
 

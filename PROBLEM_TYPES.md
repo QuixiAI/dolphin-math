@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**372 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**373 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8926,4 +8926,26 @@ Steps:
   CHECK|lambda_hat=9/56>0|valid rate parameter
   Z|ell(lambda)=9*log(lambda)-56*lambda; score=9/lambda-56; lambda_hat=9/56
 Answer: ell(lambda)=9*log(lambda)-56*lambda; score=9/lambda-56; lambda_hat=9/56
+```
+
+### Method Of Moments — `MethodOfMomentsGenerator`  ·  graduate · difficulty 3
+
+First-moment method-of-moments estimators.
+
+**Variants:** `method_of_moments_exponential`, `method_of_moments_poisson`, `method_of_moments_uniform_zero_theta`
+
+```
+Problem: For data [1,5,9,8,7,5,8,6,10] from an Exponential(lambda) model, use E[X]=1/lambda to find the method-of-moments estimator lambda_hat.
+Steps:
+  MOM_SETUP|exponential|parameter=lambda|data=[1,5,9,8,7,5,8,6,10]
+  COUNT|n|9
+  SUM|sum x_i|1 + 5 + 9 + 8 + 7 + 5 + 8 + 6 + 10|59
+  D|59|9|59/9
+  SAMPLE_MOMENT|xbar|59/9
+  MOM_EQUATION|E[X]=1/lambda|xbar=1/lambda
+  REWRITE|lambda_hat=1/xbar
+  D|9|59|9/59
+  CHECK|lambda_hat=9/59>0|valid rate parameter
+  Z|xbar=59/9; lambda_hat=9/59
+Answer: xbar=59/9; lambda_hat=9/59
 ```
