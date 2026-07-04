@@ -2134,9 +2134,9 @@ Generates problems converting between Standard Form (Ax + By = C) and Slope-Inte
 **Variants:** `slope_intercept_to_standard`, `standard_to_slope_intercept`
 
 ```
-Problem: Convert to Standard Form: y = 1x - 2/5
+Problem: Convert to Standard Form: y = x - 2/5
 Steps:
-  EQ_SETUP|y = 1x - 2/5
+  EQ_SETUP|y = x - 2/5
   GOAL|Convert to Standard Form (Ax + By = C, integers)
   EQ_OP_NOTE|multiply|5|to clear fractions
   REWRITE|5y = 5x - 2

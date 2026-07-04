@@ -26,11 +26,10 @@ class StandardFormConversionGenerator(ProblemGenerator):
             B = random.choice([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5])
             C = random.randint(-20, 20)
             
-            # Form equation
-            # Ax + By = C
+            # Form equation Ax + By = C (coefficient 1/-1 drops the digit)
             op_b = "+" if B >= 0 else "-"
-            term_a = f"{A}x"
-            term_b = f"{abs(B)}y"
+            term_a = "x" if A == 1 else "-x" if A == -1 else f"{A}x"
+            term_b = "y" if abs(B) == 1 else f"{abs(B)}y"
             equation = f"{term_a} {op_b} {term_b} = {C}"
             
             steps = []
@@ -41,8 +40,9 @@ class StandardFormConversionGenerator(ProblemGenerator):
             op_move = "subtract" if A > 0 else "add"
             val_move = abs(A)
             
-            term_b_signed = f"{B}y"
-            rhs_step1 = f"{-A}x + {C}" if C >= 0 else f"{-A}x - {abs(C)}"
+            term_b_signed = "y" if B == 1 else "-y" if B == -1 else f"{B}y"
+            neg_a_txt = "x" if -A == 1 else "-x" if -A == -1 else f"{-A}x"
+            rhs_step1 = f"{neg_a_txt} + {C}" if C >= 0 else f"{neg_a_txt} - {abs(C)}"
             
             steps.append(step("MOVE_TERM", f"{term_a}", "to right side", f"{term_b_signed} = {rhs_step1}"))
             
@@ -60,11 +60,12 @@ class StandardFormConversionGenerator(ProblemGenerator):
                 m_num = -m_num
                 m_den = -m_den
             
+            # coefficient 1/-1 drops the digit: y = -x + 1/3, not -1x
             if m_den == 1:
-                m_str = f"{m_num}"
+                m_str = "" if m_num == 1 else "-" if m_num == -1 else f"{m_num}"
             else:
                 m_str = f"{m_num}/{m_den}"
-                
+
             common_b = math.gcd(C, B)
             b_num = C // common_b
             b_den = B // common_b
@@ -116,9 +117,11 @@ class StandardFormConversionGenerator(ProblemGenerator):
             b_num = random.randint(-10, 10)
             b_den = random.choice([1, 2, 3, 4, 5]) # allow different denominators
             
-            # Formulate y = mx + b
-            if m_den == 1: m_str = f"{m_num}"
-            else: m_str = f"{m_num}/{m_den}"
+            # Formulate y = mx + b (coefficient 1/-1 drops the digit)
+            if m_den == 1:
+                m_str = "" if m_num == 1 else "-" if m_num == -1 else f"{m_num}"
+            else:
+                m_str = f"{m_num}/{m_den}"
             
             if b_den == 1: b_str = f"{b_num}"
             else: b_str = f"{b_num}/{b_den}"
