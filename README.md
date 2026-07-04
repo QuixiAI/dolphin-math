@@ -145,6 +145,10 @@ Each line of the generated JSONL is one problem:
 - `steps` — the visible scratchpad: pipe-delimited op-code strings (`CODE|field|field|...`, up to 4 payload fields), ending with `Z|<final_answer>`.
 - `grade_level` (`elementary` / `middle` / `high` / `college` / `graduate`) and `difficulty` (coarse 1-5 tier, read relative to the grade band) are stamped from the per-class table in `curriculum.py`; a generator may emit either key itself to override (e.g. difficulty computed from its operands).
 
+## Problem Types
+
+A user-facing catalog of every problem type — description, grade band, difficulty, variants, and a worked example each — lives in [PROBLEM_TYPES.md](PROBLEM_TYPES.md). It is a **generated** file; regenerate it with `python tools/gen_problem_types.py` (verify freshness with `--check`).
+
 ## Op-Code Legend
 
 The full legend of op-codes in use lives in [OPCODES.md](OPCODES.md) — a **generated** file; regenerate it with `python tools/gen_opcode_legend.py` (verify freshness with `--check`).

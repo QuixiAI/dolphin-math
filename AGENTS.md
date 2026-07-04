@@ -23,6 +23,7 @@
 - Tests (focused): `python -m unittest tests.test_quadratic_generator`.
 - Op-code legend: `python tools/gen_opcode_legend.py` regenerates `OPCODES.md`; `--check` verifies freshness.
 - Backlog check: `python tools/check_backlog.py` fails if a shipped (registered) generator still has an unchecked TODO.md line — delete the item's line when it ships.
+- Problem catalog: `python tools/gen_problem_types.py` regenerates the user-facing `PROBLEM_TYPES.md` (one entry per generator with a worked example); `--check` verifies freshness. Regenerate after adding or changing a generator.
 
 ## Coding Style & Naming Conventions
 - Python 3.9+; 4-space indentation; prefer explicit, side-effect-free helpers.
