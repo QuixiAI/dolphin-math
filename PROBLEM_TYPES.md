@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**445 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**446 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8751,6 +8751,55 @@ Steps:
   CENTROID_UPDATE|C2|(-2,-5)
   Z|assignments=P1:C2,P2:C1,P3:C1,P4:C1; C1_new=(-1/3,3); C2_new=(-2,-5)
 Answer: assignments=P1:C2,P2:C1,P3:C1,P4:C1; C1_new=(-1/3,3); C2_new=(-2,-5)
+```
+
+### KNN — `KNNGenerator`  ·  college · difficulty 2
+
+k-nearest-neighbor classification with an explicit squared-distance table.
+
+**Variants:** `knn_classification`
+
+```
+Problem: Classify query q=(4,4) by 3-NN using squared Euclidean distance. Training points: P1=(-1,0,B), P2=(3,4,B), P3=(5,-1,B), P4=(-1,4,B), P5=(-5,0,B).
+Steps:
+  KNN_SETUP|q=(4,4)|k=3|training=P1=(-1,0,B), P2=(3,4,B), P3=(5,-1,B), P4=(-1,4,B), P5=(-5,0,B)
+  S|4|-1|5
+  E|5|2|25
+  S|4|0|4
+  E|4|2|16
+  A|25|16|41
+  KNN_DISTANCE|P1|label=B|d2=41
+  S|4|3|1
+  E|1|2|1
+  S|4|4|0
+  E|0|2|0
+  A|1|0|1
+  KNN_DISTANCE|P2|label=B|d2=1
+  S|4|5|-1
+  E|-1|2|1
+  S|4|-1|5
+  E|5|2|25
+  A|1|25|26
+  KNN_DISTANCE|P3|label=B|d2=26
+  S|4|-1|5
+  E|5|2|25
+  S|4|4|0
+  E|0|2|0
+  A|25|0|25
+  KNN_DISTANCE|P4|label=B|d2=25
+  S|4|-5|9
+  E|9|2|81
+  S|4|0|4
+  E|4|2|16
+  A|81|16|97
+  KNN_DISTANCE|P5|label=B|d2=97
+  KNN_SORT|P2:1:B,P4:25:B,P3:26:B,P1:41:B,P5:97:B
+  KNN_NEIGHBORS|P2:1:B,P4:25:B,P3:26:B
+  LABEL_COUNT|A|0
+  LABEL_COUNT|B|3
+  CHECK|A vs B|0 < 3|predict=B
+  Z|class=B; neighbors=P2:B,P4:B,P3:B
+Answer: class=B; neighbors=P2:B,P4:B,P3:B
 ```
 
 ## Graduate

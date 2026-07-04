@@ -477,6 +477,7 @@ CURRICULUM = {
     "NaiveBayesGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "InformationGainGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "KMeansStepGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "KNNGenerator": {"grade_level": COLLEGE, "difficulty": 2},
 }
 
 
