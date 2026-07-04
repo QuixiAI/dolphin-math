@@ -403,6 +403,7 @@ CURRICULUM = {
     "JointDistributionGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "MGFGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "RVTransformGenerator": {"grade_level": GRADUATE, "difficulty": 5},
+    "MLEGenerator": {"grade_level": GRADUATE, "difficulty": 4},
 }
 
 

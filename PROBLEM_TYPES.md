@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**371 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**372 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8905,4 +8905,25 @@ Steps:
   CHECK|u+v=2|u-v=16|in support
   Z|inverse x=(u+v)/2, y=(u-v)/2; support=0<=u+v<=30 and 0<=u-v<=30; absJ=1/2; f_UV(u,v)=1/450; f_UV(9,-7)=1/450
 Answer: inverse x=(u+v)/2, y=(u-v)/2; support=0<=u+v<=30 and 0<=u-v<=30; absJ=1/2; f_UV(u,v)=1/450; f_UV(9,-7)=1/450
+```
+
+### MLE — `MLEGenerator`  ·  graduate · difficulty 4
+
+Maximum-likelihood estimates from log-likelihood score equations.
+
+**Variants:** `mle_bernoulli`, `mle_exponential`, `mle_normal_mu`
+
+```
+Problem: For exponential data [7,1,5,9,8,7,5,8,6], write the log-likelihood for lambda, differentiate, and solve for the MLE lambda_hat.
+Steps:
+  MLE_SETUP|exponential|parameter=lambda|data=[7,1,5,9,8,7,5,8,6]
+  COUNT|n|9
+  SUM|sum x_i|7 + 1 + 5 + 9 + 8 + 7 + 5 + 8 + 6|56
+  LOG_LIKELIHOOD|ell(lambda)=9*log(lambda)-56*lambda
+  DERIVATIVE|score=9/lambda-56
+  SCORE_EQ|9/lambda=56
+  D|9|56|9/56
+  CHECK|lambda_hat=9/56>0|valid rate parameter
+  Z|ell(lambda)=9*log(lambda)-56*lambda; score=9/lambda-56; lambda_hat=9/56
+Answer: ell(lambda)=9*log(lambda)-56*lambda; score=9/lambda-56; lambda_hat=9/56
 ```
