@@ -28,8 +28,8 @@ class TestCompoundInequalityGenerator(unittest.TestCase):
         from unittest.mock import patch
         with patch('random.choice', side_effect=['or_disjoint', 3]):
              problem = self.gen.generate()
-             self.assertIn("OR", problem['problem'])
-             self.assertIn("OR", problem['final_answer'])
+             self.assertIn(" or ", problem['problem'])
+             self.assertIn(" or ", problem['final_answer'])
              self.assertTrue(any("COMP_INEQ_PART" in s for s in problem['steps']))
 
 if __name__ == '__main__':

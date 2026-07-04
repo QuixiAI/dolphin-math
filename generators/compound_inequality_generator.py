@@ -1,6 +1,14 @@
 import random
+from fractions import Fraction
 from base_generator import ProblemGenerator
 from helpers import step, jid
+
+
+def frac_str(num, den):
+    """num/den reduced to lowest terms (2/4 -> 1/2, 6/3 -> 2)."""
+    value = Fraction(num, den)
+    return (str(value.numerator) if value.denominator == 1
+            else f"{value.numerator}/{value.denominator}")
 
 class CompoundInequalityGenerator(ProblemGenerator):
     """
@@ -77,8 +85,8 @@ class CompoundInequalityGenerator(ProblemGenerator):
             # Step 2: Divide by b
             if b != 1:
                 # Format fractions
-                l_str = str(curr_low // b) if curr_low % b == 0 else f"{curr_low}/{b}"
-                h_str = str(curr_high // b) if curr_high % b == 0 else f"{curr_high}/{b}"
+                l_str = frac_str(curr_low, b)
+                h_str = frac_str(curr_high, b)
                 steps.append(step("INEQ_OP_ALL", "divide", b, f"{l_str} < x < {h_str}"))
                 ans = f"{l_str} < x < {h_str}"
             else:
@@ -100,7 +108,7 @@ class CompoundInequalityGenerator(ProblemGenerator):
                 
             prob1 = f"{inner} < {low}"
             prob2 = f"{inner} > {high}"
-            problem_str = f"{prob1} OR {prob2}"
+            problem_str = f"{prob1} or {prob2}"
             steps.append(step("COMP_INEQ_SETUP", problem_str))
             
             # Solve Part 1
@@ -111,7 +119,7 @@ class CompoundInequalityGenerator(ProblemGenerator):
             sol2 = self._solve_part(b, c, high, '>')
             steps.append(step("COMP_INEQ_PART", "Part 2", f"{prob2} -> {sol2}"))
             
-            ans = f"{sol1} OR {sol2}"
+            ans = f"{sol1} or {sol2}"
             steps.append(step("Z", ans))
             return self._pack(problem_str, steps, ans)
 
@@ -123,13 +131,8 @@ class CompoundInequalityGenerator(ProblemGenerator):
             else: curr += abs(c)
             
         if b != 1:
-            if curr % b == 0:
-                val = curr // b
-                return f"x {op} {val}"
-            else:
-                return f"x {op} {curr}/{b}"
-        else:
-            return f"x {op} {curr}"
+            return f"x {op} {frac_str(curr, b)}"
+        return f"x {op} {curr}"
 
     def _pack(self, prob, steps, ans):
         return dict(

@@ -2045,13 +2045,13 @@ Generates compound inequalities.
 **Variants:** `compound_inequality`
 
 ```
-Problem: Solve: 3x - 9 < -27 OR 3x - 9 > 9
+Problem: Solve: 3x - 9 < -27 or 3x - 9 > 9
 Steps:
-  COMP_INEQ_SETUP|3x - 9 < -27 OR 3x - 9 > 9
+  COMP_INEQ_SETUP|3x - 9 < -27 or 3x - 9 > 9
   COMP_INEQ_PART|Part 1|3x - 9 < -27 -> x < -6
   COMP_INEQ_PART|Part 2|3x - 9 > 9 -> x > 6
-  Z|x < -6 OR x > 6
-Answer: x < -6 OR x > 6
+  Z|x < -6 or x > 6
+Answer: x < -6 or x > 6
 ```
 
 ### Slope Two Points — `SlopeTwoPointsGenerator`  ·  high · difficulty 4
