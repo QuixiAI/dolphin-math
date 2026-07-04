@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**330 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**331 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7875,4 +7875,28 @@ Steps:
   CHECK|Tr(rho_A^2)|1|pure separable
   Z|rho_A = [[1/2,1/2],[1/2,1/2]]; entangled no
 Answer: rho_A = [[1/2,1/2],[1/2,1/2]]; entangled no
+```
+
+### Density Matrix — `DensityMatrixGenerator`  ·  graduate · difficulty 4
+
+Build a diagonal density matrix from a two-state ensemble, then compute expectation Tr(rho A) and purity Tr(rho^2).
+
+**Variants:** `density_matrix_diagonal`
+
+```
+Problem: An ensemble has probability 13/15 of ket0 and the remaining probability of ket1. For observable A=diag(-9,-2), build rho, compute Tr(rho A), and compute Tr(rho^2).
+Steps:
+  DENSITY_SETUP|p0=13/15|p1=1-p0|A=diag(-9,-2)
+  S|1|13/15|2/15
+  DENSITY_MATRIX|rho=[[13/15,0],[0,2/15]]
+  TRACE_EXPECT|Tr(rho A)=p0*a+p1*b
+  M|13/15|-9|-39/5
+  M|2/15|-2|-4/15
+  A|-39/5|-4/15|-121/15
+  E|13/15|2|169/225
+  E|2/15|2|4/225
+  A|169/225|4/225|173/225
+  PURITY|Tr(rho^2)=173/225
+  Z|rho = [[13/15,0],[0,2/15]]; expectation = -121/15; purity = 173/225
+Answer: rho = [[13/15,0],[0,2/15]]; expectation = -121/15; purity = 173/225
 ```

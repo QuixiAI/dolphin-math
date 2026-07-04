@@ -297,6 +297,7 @@ from generators.hermitian_check_generator import HermitianCheckGenerator
 from generators.tensor_product_generator import TensorProductGenerator
 from generators.quantum_gate_generator import QuantumGateGenerator
 from generators.partial_trace_generator import PartialTraceGenerator
+from generators.density_matrix_generator import DensityMatrixGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -765,6 +766,7 @@ ALL_GENERATORS = [
     TensorProductGenerator(),
     QuantumGateGenerator(),
     PartialTraceGenerator(),
+    DensityMatrixGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

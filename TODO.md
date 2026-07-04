@@ -139,7 +139,6 @@ arithmetic. Nice angles (30°/45°/60°/90°) keep everything exact per Principl
 ### Hilbert Spaces & Quantum Information
 Where linear algebra becomes physics. Everything here is finite-dimensional
 matrix arithmetic or explicit integration — no functional analysis proofs.
-- [ ] Density matrices — build ρ from ensembles; expectations Tr(ρA); purity Tr(ρ²) · `DensityMatrixGenerator` · graduate · d4
 - [ ] Von Neumann entropy — dyadic eigenvalues so log₂ is exact (composes with `EntropyGenerator`) · `VonNeumannEntropyGenerator` · graduate · d4
 - [ ] Projectors & completeness — verify P² = P and Σ|i⟩⟨i| = I resolutions · `ProjectorGenerator` · graduate · d3
 - [ ] Uncertainty products — ΔxΔp for particle-in-a-box states (extends `WavefunctionGenerator`, reusing its ⟨x⟩/⟨x²⟩ machinery) · `UncertaintyGenerator` · graduate · d5
