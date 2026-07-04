@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**223 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**224 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -1635,6 +1635,24 @@ Steps:
   A|14|8|22
   Z|22
 Answer: 22
+```
+
+### Permutation Combination — `PermutationCombinationGenerator`  ·  middle · difficulty 4
+
+Factorials, permutations, and combinations with the factorial arithmetic written out as running products — the by-hand way. Combinations reuse the permutation count and divide by r!. All answers are exact integers.
+
+**Variants:** `permutation_combination_combination`, `permutation_combination_factorial`, `permutation_combination_permutation`, `permutation_combination_word`
+
+```
+Problem: In how many ways can 2 people be seated in a row of 2 chairs, chosen from a group of 7?
+Steps:
+  PERM_SETUP|arrange 2 of 7|order matters
+  IDENTIFY|order matters|use P(n, r)
+  PERM_FORMULA|P(n, r) = n·(n-1)···(n-r+1), 2 factors
+  REWRITE|7 · 6
+  M|7|6|42
+  Z|42
+Answer: 42
 ```
 
 ### Error Spotting — `ErrorSpottingGenerator`  ·  middle · difficulty 4
