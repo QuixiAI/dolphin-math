@@ -119,7 +119,6 @@ bind extra hard at this level:
 ### Linear Algebra (beyond the small-matrix K-12 items)
 
 ### Differential Equations
-- [ ] First-order linear — integrating factor · `IntegratingFactorGenerator` · college · d3
 - [ ] Exactness test; solve exact equations · `ExactODEGenerator` · college · d3
 - [ ] Substitutions — Bernoulli, homogeneous y = vx · `ODESubstitutionGenerator` · college · d4
 - [ ] Second-order constant-coefficient — characteristic equation, all three root cases · `SecondOrderODEGenerator` · college · d3

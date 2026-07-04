@@ -292,6 +292,7 @@ CURRICULUM = {
     "LeastSquaresGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "MatrixExponentialGenerator": {"grade_level": GRADUATE, "difficulty": 3},
     "SVDGenerator": {"grade_level": GRADUATE, "difficulty": 4},
+    "IntegratingFactorGenerator": {"grade_level": COLLEGE, "difficulty": 3},
 }
 
 

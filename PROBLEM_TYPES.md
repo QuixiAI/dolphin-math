@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**260 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**261 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5439,6 +5439,29 @@ Steps:
   CHECK|X^T residual|[0, 0]|orthogonal
   Z|ŷ = 18 - 3x; projection [27, 21, 15, 9]; residual [-1, 1, 1, -1]
 Answer: ŷ = 18 - 3x; projection [27, 21, 15, 9]; residual [-1, 1, 1, -1]
+```
+
+### Integrating Factor — `IntegratingFactorGenerator`  ·  college · difficulty 3
+
+First-order linear differential equations solved by an integrating factor. Coefficients are chosen so the particular coefficient and integration constant are exact integers.
+
+**Variants:** `integrating_factor_constant_rhs`, `integrating_factor_exponential_rhs`
+
+```
+Problem: Solve y' + 4y = 8e^(4x) with y(0) = 2 using an integrating factor.
+Steps:
+  ODE_SETUP|y' + 4y = 8e^(4x), y(0) = 2|integrating factor
+  IFACTOR|mu = e^(∫ 4 dx)|e^(4x)
+  MULTIPLY_IF|e^(4x)y' + 4e^(4x)y|8e^(8x)
+  REWRITE|(e^(4x)y)' = 8e^(8x)
+  A|4|4|8
+  D|8|8|1
+  ANTIDERIV|8e^(8x) dx|e^(8x) + C
+  SOLVE_Y|e^(4x)y = e^(8x) + C|y = e^(4x) + Ce^(-4x)
+  SUBST|x|0|2 = 1 + C
+  S|2|1|1
+  Z|y = e^(4x) + e^(-4x)
+Answer: y = e^(4x) + e^(-4x)
 ```
 
 ## Graduate
