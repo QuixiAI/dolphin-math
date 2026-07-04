@@ -98,6 +98,40 @@ class TestDecimalDivGenerator(unittest.TestCase):
             # Check first step is DEC_SHIFT
             self.assertTrue(result["steps"][0].startswith(f"DEC_SHIFT{DELIM}"), "First step should be DEC_SHIFT")
 
+    def test_oracle_and_step_consistency(self):
+        """A9 oracle: recompute the quotient from the problem text, and
+        verify the DEC_SHIFT expression preserves the ratio, PLACE_DP_Q
+        agrees with the answer, and D/M/S long-division arithmetic."""
+        from decimal import Decimal
+        for _ in range(500):
+            result = self.generator.generate()
+            answer = result["final_answer"]
+            p1, p2 = result["problem"].split(" / ")
+            self.assertEqual(Decimal(answer), Decimal(p1) / Decimal(p2),
+                             result["problem"])
+            self.assertNotRegex(answer, r"[eE]")
+            for raw in result["steps"]:
+                fields = raw.split(DELIM)
+                if fields[0] == "DEC_SHIFT":
+                    na, nb = fields[2].split("/")
+                    self.assertEqual(Decimal(na) / Decimal(nb),
+                                     Decimal(p1) / Decimal(p2), raw)
+                elif fields[0] == "PLACE_DP_Q":
+                    digits, pos, placed = fields[1], int(fields[2]), fields[3]
+                    manual = digits[:pos] + ("." + digits[pos:]
+                                             if pos < len(digits) else "")
+                    self.assertEqual(Decimal(manual), Decimal(answer), raw)
+                    self.assertEqual(placed, answer, raw)
+                elif fields[0] == "D":
+                    cur, div, q = (int(f) for f in fields[1:4])
+                    self.assertEqual(cur // div, q, raw)
+                elif fields[0] == "M":
+                    self.assertEqual(int(fields[1]) * int(fields[2]),
+                                     int(fields[3]), raw)
+                elif fields[0] == "S":
+                    self.assertEqual(int(fields[1]) - int(fields[2]),
+                                     int(fields[3]), raw)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -151,7 +151,7 @@ Generates decimal division problems with detailed, long-division steps after shi
 ```
 Problem: 84.37 / 0.5
 Steps:
-  DEC_SHIFT|84.37/0.5|843.7/05|1
+  DEC_SHIFT|84.37/0.5|843.7/5|1
   DIV_SETUP|8437|5
   D|8|5|1
   M|1|5|5
@@ -172,7 +172,7 @@ Steps:
   D|20|5|4
   M|4|5|20
   S|20|20|0
-  PLACE_DP_Q|16874|3
+  PLACE_DP_Q|16874|3|168.74
   Z|168.74
 Answer: 168.74
 ```

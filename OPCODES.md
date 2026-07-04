@@ -312,7 +312,7 @@ The scratchpad vocabulary belongs to the model and evolves organically: generato
 | `DEC_ADD_COL` | 3 | `DEC_ADD_COL\|frac_0\|8+0+0\|->8 (carry 0)` | decimal_add_sub_generator.py |
 | `DEC_ALIGN` | 2 | `DEC_ALIGN\|17.98\|23.20` | decimal_add_sub_generator.py |
 | `DEC_CARRY_FINAL` | 1 | `DEC_CARRY_FINAL\|1` | decimal_add_sub_generator.py |
-| `DEC_SHIFT` | 3 | `DEC_SHIFT\|7.5/1.0\|7.5/10\|1` | decimal_div_generator.py, percent_problem_generator.py |
+| `DEC_SHIFT` | 3 | `DEC_SHIFT\|7.5/1.0\|75/10\|1` | decimal_div_generator.py, percent_problem_generator.py |
 | `DEC_SUB_COL` | 3 | `DEC_SUB_COL\|frac_0\|7-1 (borrow_in 0)\|->6 (borrow_out 0)` | decimal_add_sub_generator.py |
 | `DEC_TO_FRAC` | 2 | `DEC_TO_FRAC\|0.1\|1/10` | fraction_decimal_percent_converter.py |
 | `DEC_TO_PERCENT` | 2 | `DEC_TO_PERCENT\|1\|100.00%` | fraction_decimal_percent_converter.py, percent_problem_generator.py, tip_bill_split_generator.py |
@@ -1002,7 +1002,7 @@ The scratchpad vocabulary belongs to the model and evolves organically: generato
 | `PI_DEN` | 3 | `PI_DEN\|28/165\|π\|28/(165π)` | gauss_law_generator.py, hawking_generator.py, magnetism_generator.py |
 | `PI_MULT` | 3 | `PI_MULT\|2/5\|π\|2π/5` | shm_generator.py |
 | `PLACE_DP` | 3 | `PLACE_DP\|4060686\|3\|4060.686` | decimal_mult_generator.py |
-| `PLACE_DP_Q` | 2 | `PLACE_DP_Q\|75\|1` | decimal_div_generator.py, percent_problem_generator.py |
+| `PLACE_DP_Q` | 2, 3 | `PLACE_DP_Q\|75\|1\|7.5` | decimal_div_generator.py, percent_problem_generator.py |
 | `PLACE_VALUE` | 2 | `PLACE_VALUE\|C * 16^0\|12` | base_conversion_generator.py |
 | `PLANCK_SETUP` | 4 | `PLANCK_SETUP\|length\|hbar=81\|G=81\|c=9` | planck_units_generator.py |
 | `PLUS_MINUS` | 2 | `PLUS_MINUS\|x - 7 = ±11\|x - 7 = 11 or x - 7 = -11` | completing_square_generator.py, quadratic_square_root_generator.py, rational_equation_generator.py |

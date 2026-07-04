@@ -5,14 +5,14 @@ from base_generator import ProblemGenerator
 from helpers import step, jid, DELIM
 
 # New Op-Codes:
-# DEC_SHIFT: Shift decimal points (orig_dividend, orig_divisor, new_dividend, new_divisor, shift_places)
+# DEC_SHIFT: Shift decimal points (orig_expression, shifted_expression, shift_places)
 # DIV_SETUP: Setup long division (integer_dividend, integer_divisor)
 # B: Bring down digit (current_num, digit_brought_down, new_num_to_divide) - Reuse
 # D: Divide step (num_to_divide, divisor, quotient_digit) - Reuse
 # M: Multiply step (quotient_digit, divisor, product) - Reuse
 # S: Subtract step (current_num, product, remainder) - Reuse
 # R: Final Remainder (if any) - Reuse (Likely 0 for terminating decimals)
-# PLACE_DP_Q: Place decimal in quotient (quotient_str_no_dp, position_from_right, final_quotient_str)
+# PLACE_DP_Q: Place decimal in quotient (quotient_digits, digits_before_point, final_quotient)
 
 class DecimalDivGenerator(ProblemGenerator):
     """
@@ -56,28 +56,30 @@ class DecimalDivGenerator(ProblemGenerator):
             a_dec, b_dec = Decimal(a_str), Decimal(b_str)
             result_dec = a_dec / b_dec
 
-        final_answer_str = str(result_dec.normalize())
+        result_norm = result_dec.normalize()
+        # normalize() renders round values in scientific notation (30 -> 3E+1);
+        # requantize to keep plain digits
+        if result_norm.as_tuple().exponent > 0:
+            result_norm = result_norm.quantize(Decimal(1))
+        final_answer_str = str(result_norm)
         if final_answer_str.startswith('.'): final_answer_str = '0' + final_answer_str
         elif final_answer_str.startswith('-.'): final_answer_str = '-0' + final_answer_str[1:]
 
         problem = f"{a_str} / {b_str}" # Use / for consistency
         steps = []
 
-        # 1. Shift Decimals
-        a_dp = len(a_str.split(".")[1]) if '.' in a_str else 0
+        # 1. Shift Decimals: multiply BOTH numbers by 10^(divisor decimals)
+        # so the divisor becomes an integer and the ratio is unchanged
         b_dp = len(b_str.split(".")[1]) if '.' in b_str else 0
         shift_places = b_dp
 
-        a_i_str = a_str.replace(".", "")
-        b_i_str = b_str.replace(".", "")
-
-        # Calculate new dividend string after shift
-        if a_dp >= shift_places:
-            new_a_str = a_i_str[:a_dp - shift_places + len(a_i_str) - a_dp] + '.' + a_i_str[a_dp - shift_places + len(a_i_str) - a_dp:]
-        else: # Need to add trailing zeros
-            new_a_str = a_i_str + '0' * (shift_places - a_dp) + '.'
-        new_a_str = new_a_str.rstrip('.') # Remove trailing dot if it ended up there
-        new_b_str = b_i_str # Divisor becomes integer
+        scale = Decimal(10) ** shift_places
+        new_a_dec = a_dec * scale
+        if new_a_dec == new_a_dec.to_integral_value():
+            new_a_str = str(new_a_dec.quantize(Decimal(1)))
+        else:
+            new_a_str = str(new_a_dec.normalize())
+        new_b_str = str(int(b_dec * scale)) # Divisor becomes integer
 
         # Combine args: op, originals, shifted, shift_count
         steps.append(step("DEC_SHIFT", f"{a_str}/{b_str}", f"{new_a_str}/{new_b_str}", shift_places))
@@ -153,13 +155,17 @@ class DecimalDivGenerator(ProblemGenerator):
 
 
         # 3. Place Decimal Point in Quotient
-        # Position is based on original decimal point position in the *shifted* dividend (new_a_str)
-        quotient_dp_pos = dividend_dp_pos # Num digits before decimal in shifted dividend
-
-        # Add step showing where decimal point goes based on calculation
-        # Args: quotient_digits_string, num_digits_before_dp_in_shifted_dividend
+        # The raw quotient digits are exactly the answer's digits; the point
+        # goes after the answer's integer digits.
         if not q_str: q_str = "0" # Handle cases where quotient is 0
-        steps.append(step("PLACE_DP_Q", q_str, quotient_dp_pos))
+        answer_digits = final_answer_str.replace('.', '')
+        int_digit_count = (final_answer_str.index('.')
+                           if '.' in final_answer_str else len(final_answer_str))
+        # Internal consistency: the long-division digits must match the answer
+        assert int(q_str) == int(answer_digits), \
+            f"quotient digits {q_str} disagree with answer {final_answer_str}"
+        steps.append(step("PLACE_DP_Q", answer_digits, int_digit_count,
+                          final_answer_str))
 
         # 4. Final Answer Step (use precisely calculated one from Decimal)
         steps.append(step("Z", final_answer_str))
