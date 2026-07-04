@@ -83,7 +83,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Sequences & Series
 
 ### Complex Numbers
-- [ ] Complex solutions to quadratics (negative discriminant) — variant of `QuadraticGenerator` · high · d5
 
 ### Polynomials & Rational Functions
 - [ ] Polynomial long division — the long-division scratchpad, algebra edition · `PolynomialLongDivisionGenerator` · high · d5

@@ -4,7 +4,7 @@
 
 The scratchpad vocabulary belongs to the model and evolves organically: generators may introduce new op-codes freely, and this legend is *descriptive*, not prescriptive. Steps are pipe-delimited strings (`CODE|field|field|...`, at most 4 payload fields) built with `helpers.step()`; the final step of every problem is `Z|<final_answer>`.
 
-309 distinct op-codes observed.
+310 distinct op-codes observed.
 
 | Code | Payload fields | Example | Used by |
 |---|---|---|---|
@@ -73,11 +73,11 @@ The scratchpad vocabulary belongs to the model and evolves organically: generato
 | `DEC_TO_PERCENT` | 2 | `DEC_TO_PERCENT\|1\|100.00%` | fraction_decimal_percent_converter.py, percent_problem_generator.py, tip_bill_split_generator.py |
 | `DEC_TYPE` | 2 | `DEC_TYPE\|5/12\|repeating` | repeating_decimal_generator.py |
 | `DEC_VALUE` | 2 | `DEC_VALUE\|5/12\|0.416667` | repeating_decimal_generator.py |
-| `DISC` | 3 | `DISC\|1089\|1080\|9` | discriminant_generator.py, quadratic_generator.py |
-| `DISC_CLASSIFY` | 2 | `DISC_CLASSIFY\|-3 < 0\|no real solutions` | discriminant_generator.py |
+| `DISC` | 2, 3 | `DISC\|1089\|1080\|9` | complex_quadratic_generator.py, discriminant_generator.py, quadratic_generator.py |
+| `DISC_CLASSIFY` | 2 | `DISC_CLASSIFY\|-3 < 0\|no real solutions` | complex_quadratic_generator.py, discriminant_generator.py |
 | `DIST` | 3 | `DIST\|3\|-4x+3\|-12x+9` | equation_from_two_points_generator.py, function_composition_generator.py, parallel_perpendicular_line_generator.py, point_slope_generator.py, radical_multiply_generator.py, radical_rationalize_generator.py, rational_expr_add_sub_generator.py, recursive_explicit_generator.py, simplify_expression_generator.py, special_solution_equation_generator.py |
 | `DIST_COMBINE` | 1 | `DIST_COMBINE\|-20y + 105 = -15` | systems_substitution_generator.py |
-| `DIST_TERM` | 2 | `DIST_TERM\|-5x\|- 5x^3 + 15x^2 + 20x` | multiplying_polynomials_generator.py |
+| `DIST_TERM` | 2 | `DIST_TERM\|-x\|- 2x^3 - 4x^2 - 4x` | multiplying_polynomials_generator.py |
 | `DIV_CHECK` | 3 | `DIV_CHECK\|89\|2\|1` | divisibility_classification_generator.py |
 | `DIV_COEFF` | 3 | `DIV_COEFF\|-5\|-8\|x=5/8` | linear_complex_generator.py |
 | `DIV_SETUP` | 2 | `DIV_SETUP\|75\|10` | decimal_div_generator.py, percent_problem_generator.py |
@@ -89,10 +89,10 @@ The scratchpad vocabulary belongs to the model and evolves organically: generato
 | `EQ_OP_BOTH` | 4 | `EQ_OP_BOTH\|divide\|4\|x\|-8` | absolute_value_equation_generator.py, completing_square_generator.py, error_spotting_generator.py, fill_in_step_generator.py, inverse_function_generator.py, linear_fractional_generator.py, one_step_equation_generator.py, quadratic_factoring_generator.py, quadratic_square_root_generator.py, radical_equation_generator.py, rational_equation_generator.py, special_solution_equation_generator.py, systems_elimination_generator.py, systems_substitution_generator.py, two_step_equation_generator.py |
 | `EQ_OP_NOTE` | 3 | `EQ_OP_NOTE\|divide\|x\|from both sides` | equation_from_two_points_generator.py, literal_equation_generator.py, parallel_perpendicular_line_generator.py, point_slope_generator.py, standard_form_conversion_generator.py |
 | `EQ_RESULT` | 2 | `EQ_RESULT\|x\|-8` | completing_square_generator.py, error_spotting_generator.py, fill_in_step_generator.py, linear_fractional_generator.py, one_step_equation_generator.py, quadratic_factoring_generator.py, quadratic_square_root_generator.py, radical_equation_generator.py, rational_equation_generator.py, special_solution_equation_generator.py, two_step_equation_generator.py |
-| `EQ_SETUP` | 1 | `EQ_SETUP\|x = 45/3` | completing_square_generator.py, discriminant_generator.py, error_spotting_generator.py, fill_in_step_generator.py, linear_fractional_generator.py, literal_equation_generator.py, one_step_equation_generator.py, proportion_word_problem_generator.py, quadratic_factoring_generator.py, quadratic_square_root_generator.py, radical_equation_generator.py, rational_equation_generator.py, special_solution_equation_generator.py, standard_form_conversion_generator.py, two_step_equation_generator.py |
+| `EQ_SETUP` | 1, 2 | `EQ_SETUP\|x = 45/3` | completing_square_generator.py, complex_quadratic_generator.py, discriminant_generator.py, error_spotting_generator.py, fill_in_step_generator.py, linear_fractional_generator.py, literal_equation_generator.py, one_step_equation_generator.py, proportion_word_problem_generator.py, quadratic_factoring_generator.py, quadratic_square_root_generator.py, radical_equation_generator.py, rational_equation_generator.py, special_solution_equation_generator.py, standard_form_conversion_generator.py, two_step_equation_generator.py |
 | `EQ_SIMPLIFY` | 1 | `EQ_SIMPLIFY\|10x = -70` | error_spotting_generator.py, fill_in_step_generator.py, linear_fractional_generator.py, two_step_equation_generator.py |
-| `ESTIMATE` | 2 | `ESTIMATE\|33938 × 25129 ≈ 30000 × 30000\|900000000` | long_division_generator.py, multi_digit_multiplication_generator.py |
-| `ESTIMATE_CHECK` | 3 | `ESTIMATE_CHECK\|900000000\|852828002\|852828002 ≈ 900000000 ✓` | long_division_generator.py, multi_digit_multiplication_generator.py |
+| `ESTIMATE` | 2 | `ESTIMATE\|92167 × 55334 ≈ 90000 × 60000\|5400000000` | long_division_generator.py, multi_digit_multiplication_generator.py |
+| `ESTIMATE_CHECK` | 3 | `ESTIMATE_CHECK\|5400000000\|5099968778\|5099968778 ≈ 5400000000 ✓` | long_division_generator.py, multi_digit_multiplication_generator.py |
 | `EVAL` | 2 | `EVAL\|g(2)\|-15` | complex_division_generator.py, function_composition_generator.py, function_operations_generator.py, recursive_explicit_generator.py |
 | `EXP_EXPAND` | 1 | `EXP_EXPAND\|10 × 10` | exponent_generator.py |
 | `EXP_PARTIAL` | 3 | `EXP_PARTIAL\|10\|10\|100` | exponent_generator.py |
@@ -107,7 +107,7 @@ The scratchpad vocabulary belongs to the model and evolves organically: generato
 | `FACT_CHECK` | 3 | `FACT_CHECK\|107\|1\|0` | factors_generator.py |
 | `FACT_PAIR` | 2 | `FACT_PAIR\|1\|107` | factors_generator.py |
 | `FIND_SLOPE` | 2 | `FIND_SLOPE\|Given slope (m1)\|3/2` | parallel_perpendicular_line_generator.py |
-| `FLAG` | 2 | `FLAG\|4\|-8 ÷ 8 = -1, not -3` | error_spotting_generator.py |
+| `FLAG` | 2 | `FLAG\|3\|88 ÷ 11 = 8, not 10` | error_spotting_generator.py |
 | `FOIL_F` | 2 | `FOIL_F\|First: 9 * (-3)\|-27` | complex_division_generator.py, complex_number_ops_generator.py, multiplying_binomials_generator.py |
 | `FOIL_I` | 2 | `FOIL_I\|Inner: (-8i) * (-3)\|24i` | complex_division_generator.py, complex_number_ops_generator.py, multiplying_binomials_generator.py |
 | `FOIL_L` | 2 | `FOIL_L\|Last: (-8i) * (-8i)\|64i^2` | complex_division_generator.py, complex_number_ops_generator.py, multiplying_binomials_generator.py |
@@ -167,9 +167,9 @@ The scratchpad vocabulary belongs to the model and evolves organically: generato
 | `MUL_PARTIAL` | 3 | `MUL_PARTIAL\|6\|68395\|410370` | decimal_mult_generator.py, multi_digit_multiplication_generator.py |
 | `MUL_SETUP` | 2 | `MUL_SETUP\|68395\|1956` | decimal_mult_generator.py, multi_digit_multiplication_generator.py |
 | `MUL_TERM` | 3 | `MUL_TERM\|12\|(-4/3)x\|-16x` | linear_fractional_generator.py, rational_equation_generator.py |
-| `NEED` | 2 | `NEED\|line 2 subtracts 15, giving -15\|line 4 divides by 3` | fill_in_step_generator.py |
+| `NEED` | 2 | `NEED\|line 2 adds 4, giving -14\|line 4 divides by 2` | fill_in_step_generator.py |
 | `NEW_SLOPE` | 2 | `NEW_SLOPE\|New slope (m2) = 3/2\|Parallel lines have the same slope` | parallel_perpendicular_line_generator.py |
-| `NORM_SETUP` | 2 | `NORM_SETUP\|X ~ N(492, 5)\|P(X < 500)` | normal_table_generator.py |
+| `NORM_SETUP` | 2 | `NORM_SETUP\|X ~ N(55, 4)\|P(63.4 < X < 64.2)` | normal_table_generator.py |
 | `PARALLEL_RELATION` | 1 | `PARALLEL_RELATION\|5x + 26 = 6x + 16` | angle_relationships_generator.py |
 | `PARALLEL_SETUP` | 2 | `PARALLEL_SETUP\|corresponding\|Corresponding angles are equal` | angle_relationships_generator.py |
 | `PARALLEL_SOLVE` | 2 | `PARALLEL_SOLVE\|-1x = -10\|x = 10` | angle_relationships_generator.py |
@@ -188,10 +188,10 @@ The scratchpad vocabulary belongs to the model and evolves organically: generato
 | `POINT_SLOPE_SETUP` | 1 | `POINT_SLOPE_SETUP\|y - 6 = 2(x + 7)` | equation_from_two_points_generator.py, parallel_perpendicular_line_generator.py, point_slope_generator.py |
 | `POLY_COMBINE` | 1 | `POLY_COMBINE\|4x^3 + 8x^2 - 8x + 4` | multiplying_binomials_generator.py, polynomial_add_sub_generator.py |
 | `POLY_DIST_NEG` | 1 | `POLY_DIST_NEG\|Distribute negative sign to second polynomial` | polynomial_add_sub_generator.py |
-| `POLY_DIV_SETUP` | 1 | `POLY_DIV_SETUP\|(- 16x^6 - 24x^6 - 24x^5) / (8x^3)` | polynomial_div_monomial_generator.py |
-| `POLY_DIV_SPLIT` | 1 | `POLY_DIV_SPLIT\|(-16x^6) / (8x^3) + (-24x^6) / (8x^3) + (-24x^5) / (8x^3)` | polynomial_div_monomial_generator.py |
+| `POLY_DIV_SETUP` | 1 | `POLY_DIV_SETUP\|(- 28x^7 + 28x^7 + 28x^6 - 35x^4) / (7x^3)` | polynomial_div_monomial_generator.py |
+| `POLY_DIV_SPLIT` | 1 | `POLY_DIV_SPLIT\|(-28x^7) / (7x^3) + (28x^7) / (7x^3) + (28x^6) / (7x^3) + (-35x^4) / (7x^3)` | polynomial_div_monomial_generator.py |
 | `POLY_GROUP_LIKE` | 1 | `POLY_GROUP_LIKE\|(4x^3) + (8x^2) + (-1x -7x) + (9 -5)` | multiplying_polynomials_generator.py, polynomial_add_sub_generator.py |
-| `POLY_MULT_SETUP` | 1 | `POLY_MULT_SETUP\|(-5x + 3)(x^2 - 3x - 4)` | multiplying_polynomials_generator.py |
+| `POLY_MULT_SETUP` | 1 | `POLY_MULT_SETUP\|(-x - 1)(2x^2 + 4x + 4)` | multiplying_polynomials_generator.py |
 | `POLY_SETUP` | 1 | `POLY_SETUP\|(4x^3 - x + 9) + (8x^2 - 7x - 5)` | factor_gcf_generator.py, factor_grouping_generator.py, factor_special_forms_generator.py, factor_trinomial_generator.py, polynomial_add_sub_generator.py, rational_expr_add_sub_generator.py, rational_expr_mult_div_generator.py, rational_expr_simplify_generator.py |
 | `PRIME` | 1 | `PRIME\|89` | divisibility_classification_generator.py |
 | `PROB_CONDITIONAL` | 2 | `PROB_CONDITIONAL\|P(second spades\|first was spades)\|4/17 = 12/51` | compound_probability_generator.py |
@@ -212,8 +212,8 @@ The scratchpad vocabulary belongs to the model and evolves organically: generato
 | `PYTHAG_SOLVE` | 2 | `PYTHAG_SOLVE\|b² = 900 - 576\|324` | pythag_leg_generator.py |
 | `PYTHAG_SQUARE` | 2 | `PYTHAG_SQUARE\|24\|576` | pythag_leg_generator.py |
 | `PYTHAG_SUBSTITUTE` | 1 | `PYTHAG_SUBSTITUTE\|24² + b² = 30²` | pythag_leg_generator.py |
-| `Q1` | 4 | `Q1\|33\|3\|6\|6` | quadratic_generator.py |
-| `Q2` | 4 | `Q2\|33\|3\|6\|5` | quadratic_generator.py |
+| `Q1` | 4 | `Q1\|33\|3\|6\|6` | complex_quadratic_generator.py, quadratic_generator.py |
+| `Q2` | 4 | `Q2\|33\|3\|6\|5` | complex_quadratic_generator.py, quadratic_generator.py |
 | `R` | 1 | `R\|21` | complex_number_ops_generator.py, long_division_generator.py |
 | `RATIONALIZE` | 1 | `RATIONALIZE\|(3 - √6)/(3 - √6)` | radical_rationalize_generator.py |
 | `RATIO_BASE` | 3 | `RATIO_BASE\|28:16\|4\|7:4` | error_spotting_generator.py, fill_in_step_generator.py, ratio_table_generator.py |
@@ -225,7 +225,7 @@ The scratchpad vocabulary belongs to the model and evolves organically: generato
 | `ROOT_EXTRACT` | 2 | `ROOT_EXTRACT\|7\|√7` | exponent_generator.py |
 | `ROOT_IDENTIFY` | 3 | `ROOT_IDENTIFY\|343\|49\|7` | exponent_generator.py |
 | `ROOT_SETUP` | 1 | `ROOT_SETUP\|√343` | exponent_generator.py, radical_add_sub_generator.py, radical_multiply_generator.py, radical_rationalize_generator.py, radical_variable_simplify_generator.py |
-| `ROOT_SIMPLIFY` | 1 | `ROOT_SIMPLIFY\|7√7` | exponent_generator.py |
+| `ROOT_SIMPLIFY` | 1 | `ROOT_SIMPLIFY\|7√7` | complex_quadratic_generator.py, exponent_generator.py |
 | `ROUND_CHECK` | 3 | `ROUND_CHECK\|68867\|100\|>=5` | place_value_rounding_generator.py |
 | `ROUND_RESULT` | 2 | `ROUND_RESULT\|68867\|68900` | place_value_rounding_generator.py |
 | `S` | 3 | `S\|632\|594\|38` | arithmetic_sequence_generator.py, complex_number_ops_generator.py, decimal_div_generator.py, fraction_op_generator.py, function_operations_generator.py, geometric_sequence_generator.py, graph_interpret_generator.py, linear_simple_generator.py, long_division_generator.py, mixed_number_operation_generator.py, normal_table_generator.py, order_of_operations_generator.py, percent_problem_generator.py, percent_word_problem_generator.py, piecewise_evaluation_generator.py, radical_add_sub_generator.py, radical_rationalize_generator.py, rational_expr_add_sub_generator.py, slope_two_points_generator.py, temperature_conversion_generator.py, tip_bill_split_generator.py |
@@ -266,6 +266,7 @@ The scratchpad vocabulary belongs to the model and evolves organically: generato
 | `SPECIAL_SOLUTION` | 2 | `SPECIAL_SOLUTION\|1 = 1\|identity: true for every x` | radical_equation_generator.py, special_solution_equation_generator.py |
 | `SPLIT_MIDDLE` | 2 | `SPLIT_MIDDLE\|18x = 15x + 3x\|9x^2 + 15x + 3x + 5` | factor_trinomial_generator.py |
 | `SQRT_BOTH_SIDES` | 2 | `SQRT_BOTH_SIDES\|y^2 = 49\|y = ±7` | completing_square_generator.py, quadratic_square_root_generator.py, rational_equation_generator.py |
+| `SQRT_NEG` | 2 | `SQRT_NEG\|√(-36)\|6i` | complex_quadratic_generator.py |
 | `SQUARE_BOTH_SIDES` | 2 | `SQUARE_BOTH_SIDES\|√(3x - 20) = x - 6\|3x - 20 = (x - 6)^2` | radical_equation_generator.py |
 | `SQUARE_FACTOR` | 3 | `SQUARE_FACTOR\|490\|49 × 10\|49` | radical_add_sub_generator.py, radical_multiply_generator.py, radical_rationalize_generator.py, radical_variable_simplify_generator.py |
 | `SQUARE_TEST` | 3 | `SQUARE_TEST\|1\|1^2 = 1\|perfect square` | discriminant_generator.py |
@@ -314,6 +315,6 @@ The scratchpad vocabulary belongs to the model and evolves organically: generato
 | `VOL_CALCULATE` | 2 | `VOL_CALCULATE\|V = 3 × 11 × 6\|198` | round_solids_generator.py, volume_3d_generator.py |
 | `VOL_FORMULA` | 1 | `VOL_FORMULA\|V = l × w × h` | round_solids_generator.py, volume_3d_generator.py |
 | `VOL_SETUP` | 2 | `VOL_SETUP\|rectangular_prism\|l=3, w=11, h=6` | volume_3d_generator.py |
-| `Z` | 1 | `Z\|63 R84` | abacus_addition_generator.py, absolute_value_equation_generator.py, absolute_value_inequality_generator.py, angle_relationships_generator.py, arithmetic_sequence_generator.py, circle_generator.py, completing_square_generator.py, complex_division_generator.py, complex_number_ops_generator.py, compound_inequality_generator.py, compound_probability_generator.py, decimal_add_sub_generator.py, decimal_div_generator.py, decimal_mult_generator.py, dimensional_analysis_generator.py, discriminant_generator.py, divisibility_classification_generator.py, domain_range_generator.py, equation_from_two_points_generator.py, error_spotting_generator.py, evaluate_expression_generator.py, exponent_generator.py, exponent_mixed_rules_generator.py, factor_gcf_generator.py, factor_grouping_generator.py, factor_special_forms_generator.py, factor_trinomial_generator.py, factors_generator.py, fill_in_step_generator.py, fraction_comparison_generator.py, fraction_decimal_percent_converter.py, fraction_op_generator.py, function_composition_generator.py, function_evaluation_generator.py, function_operations_generator.py, function_table_generator.py, gcf_generator.py, geometric_sequence_generator.py, geometry_area_perimeter_generator.py, graph_interpret_generator.py, integer_operations_generator.py, inverse_function_generator.py, lcm_generator.py, linear_complex_generator.py, linear_fractional_generator.py, linear_simple_generator.py, literal_equation_generator.py, long_division_generator.py, mixed_number_operation_generator.py, monomial_mult_div_generator.py, multi_digit_addition_generator.py, multi_digit_multiplication_generator.py, multi_digit_subtraction_generator.py, multi_step_unit_conversion_generator.py, multiplying_binomials_generator.py, multiplying_polynomials_generator.py, normal_table_generator.py, number_comparison_generator.py, one_step_equation_generator.py, one_step_inequality_generator.py, order_of_operations_generator.py, parallel_perpendicular_line_generator.py, pascal_triangle_generator.py, percent_problem_generator.py, percent_word_problem_generator.py, piecewise_evaluation_generator.py, place_value_rounding_generator.py, point_slope_generator.py, polygon_perimeter_generator.py, polynomial_add_sub_generator.py, polynomial_div_monomial_generator.py, prime_factorization_generator.py, proportion_word_problem_generator.py, proportional_relationship_generator.py, pythag_hyp_generator.py, pythag_leg_generator.py, quadratic_factoring_generator.py, quadratic_generator.py, quadratic_square_root_generator.py, radical_add_sub_generator.py, radical_equation_generator.py, radical_multiply_generator.py, radical_rationalize_generator.py, radical_variable_simplify_generator.py, rate_conversion_generator.py, ratio_table_generator.py, rational_equation_generator.py, rational_exponent_generator.py, rational_expr_add_sub_generator.py, rational_expr_mult_div_generator.py, rational_expr_simplify_generator.py, recursive_explicit_generator.py, repeating_decimal_generator.py, round_solids_generator.py, scaling_generator.py, sigma_notation_generator.py, simple_probability_generator.py, simple_stats_generator.py, simplify_expression_generator.py, slope_intercept_form_generator.py, slope_two_points_generator.py, special_solution_equation_generator.py, standard_form_conversion_generator.py, statistics_generator.py, systems_elimination_generator.py, systems_substitution_generator.py, temperature_conversion_generator.py, tip_bill_split_generator.py, two_step_equation_generator.py, two_step_inequality_generator.py, unit_conversion_generator.py, unit_rate_generator.py, volume_3d_generator.py, volume_rect_prism_generator.py |
+| `Z` | 1 | `Z\|63 R84` | abacus_addition_generator.py, absolute_value_equation_generator.py, absolute_value_inequality_generator.py, angle_relationships_generator.py, arithmetic_sequence_generator.py, circle_generator.py, completing_square_generator.py, complex_division_generator.py, complex_number_ops_generator.py, complex_quadratic_generator.py, compound_inequality_generator.py, compound_probability_generator.py, decimal_add_sub_generator.py, decimal_div_generator.py, decimal_mult_generator.py, dimensional_analysis_generator.py, discriminant_generator.py, divisibility_classification_generator.py, domain_range_generator.py, equation_from_two_points_generator.py, error_spotting_generator.py, evaluate_expression_generator.py, exponent_generator.py, exponent_mixed_rules_generator.py, factor_gcf_generator.py, factor_grouping_generator.py, factor_special_forms_generator.py, factor_trinomial_generator.py, factors_generator.py, fill_in_step_generator.py, fraction_comparison_generator.py, fraction_decimal_percent_converter.py, fraction_op_generator.py, function_composition_generator.py, function_evaluation_generator.py, function_operations_generator.py, function_table_generator.py, gcf_generator.py, geometric_sequence_generator.py, geometry_area_perimeter_generator.py, graph_interpret_generator.py, integer_operations_generator.py, inverse_function_generator.py, lcm_generator.py, linear_complex_generator.py, linear_fractional_generator.py, linear_simple_generator.py, literal_equation_generator.py, long_division_generator.py, mixed_number_operation_generator.py, monomial_mult_div_generator.py, multi_digit_addition_generator.py, multi_digit_multiplication_generator.py, multi_digit_subtraction_generator.py, multi_step_unit_conversion_generator.py, multiplying_binomials_generator.py, multiplying_polynomials_generator.py, normal_table_generator.py, number_comparison_generator.py, one_step_equation_generator.py, one_step_inequality_generator.py, order_of_operations_generator.py, parallel_perpendicular_line_generator.py, pascal_triangle_generator.py, percent_problem_generator.py, percent_word_problem_generator.py, piecewise_evaluation_generator.py, place_value_rounding_generator.py, point_slope_generator.py, polygon_perimeter_generator.py, polynomial_add_sub_generator.py, polynomial_div_monomial_generator.py, prime_factorization_generator.py, proportion_word_problem_generator.py, proportional_relationship_generator.py, pythag_hyp_generator.py, pythag_leg_generator.py, quadratic_factoring_generator.py, quadratic_generator.py, quadratic_square_root_generator.py, radical_add_sub_generator.py, radical_equation_generator.py, radical_multiply_generator.py, radical_rationalize_generator.py, radical_variable_simplify_generator.py, rate_conversion_generator.py, ratio_table_generator.py, rational_equation_generator.py, rational_exponent_generator.py, rational_expr_add_sub_generator.py, rational_expr_mult_div_generator.py, rational_expr_simplify_generator.py, recursive_explicit_generator.py, repeating_decimal_generator.py, round_solids_generator.py, scaling_generator.py, sigma_notation_generator.py, simple_probability_generator.py, simple_stats_generator.py, simplify_expression_generator.py, slope_intercept_form_generator.py, slope_two_points_generator.py, special_solution_equation_generator.py, standard_form_conversion_generator.py, statistics_generator.py, systems_elimination_generator.py, systems_substitution_generator.py, temperature_conversion_generator.py, tip_bill_split_generator.py, two_step_equation_generator.py, two_step_inequality_generator.py, unit_conversion_generator.py, unit_rate_generator.py, volume_3d_generator.py, volume_rect_prism_generator.py |
 | `ZERO_PRODUCT` | 2 | `ZERO_PRODUCT\|(x + 6)(x - 5) = 0\|x + 6 = 0 or x - 5 = 0` | domain_range_generator.py, quadratic_factoring_generator.py, radical_equation_generator.py |
-| `ZSCORE` | 2 | `ZSCORE\|(500 - 492)/5\|1.60` | normal_table_generator.py |
+| `ZSCORE` | 2 | `ZSCORE\|(63.4 - 55)/4\|2.10` | normal_table_generator.py |
