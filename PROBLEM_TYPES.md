@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**395 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**396 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7852,6 +7852,25 @@ Steps:
   CHECK|vertical forces|86|load 86
   Z|RA=1290/17 N; RB=172/17 N
 Answer: RA=1290/17 N; RB=172/17 N
+```
+
+### Rotational Dynamics — `RotationalDynamicsGenerator`  ·  college · difficulty 4
+
+Rotational inertia and angular momentum conservation.
+
+**Variants:** `rotational_dynamics_angular_momentum`, `rotational_dynamics_parallel_axis`
+
+```
+Problem: A rotating system has moment of inertia I1=27 kg*m^2 and angular speed omega1=2 rad/s. Its moment of inertia changes to I2=17 kg*m^2 with no external torque. Find the new angular speed.
+Steps:
+  ROT_SETUP|angular_momentum|I1=27, omega1=2|I2=17
+  ROT_FORMULA|I1*omega1=I2*omega2
+  M|27|2|54
+  D|54|17|54/17
+  M|17|54/17|54
+  CHECK|angular momentum|54|initial 54
+  Z|omega2=54/17 rad/s; L=54 kg*m^2/s
+Answer: omega2=54/17 rad/s; L=54 kg*m^2/s
 ```
 
 ## Graduate

@@ -158,7 +158,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Signals & Systems / Control
 
 ### Physics — Mechanics
-- [ ] Rotational dynamics — parallel-axis theorem, angular momentum conservation · `RotationalDynamicsGenerator` · college · d4
 - [ ] Simple harmonic motion — ω, period, energy exchange · `SHMGenerator` · college · d3
 - [ ] Lagrangian mechanics — write T and V, apply Euler-Lagrange (pendulum, mass-spring, Atwood) · `LagrangianGenerator` · graduate · d4
 - [ ] Hamilton's equations for the same systems · `HamiltonianGenerator` · graduate · d4
