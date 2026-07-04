@@ -99,6 +99,7 @@ from generators.pascal_triangle_generator import PascalTriangleGenerator
 from generators.complex_number_ops_generator import ComplexNumberOpsGenerator
 from generators.complex_division_generator import ComplexDivisionGenerator
 from generators.complex_quadratic_generator import ComplexQuadraticGenerator
+from generators.polynomial_long_division_generator import PolynomialLongDivisionGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -357,6 +358,7 @@ ALL_GENERATORS = [
     ComplexNumberOpsGenerator(),
     ComplexDivisionGenerator(),
     ComplexQuadraticGenerator(),
+    PolynomialLongDivisionGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),

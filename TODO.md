@@ -85,7 +85,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Complex Numbers
 
 ### Polynomials & Rational Functions
-- [ ] Polynomial long division — the long-division scratchpad, algebra edition · `PolynomialLongDivisionGenerator` · high · d5
 - [ ] Synthetic division · `SyntheticDivisionGenerator` · high · d4
 - [ ] Horner's method evaluation — bridges to synthetic division · `HornerEvaluationGenerator` · high · d4
 - [ ] Remainder & factor theorems · `RemainderFactorTheoremGenerator` · high · d4
