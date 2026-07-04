@@ -129,7 +129,6 @@ bind extra hard at this level:
 ### Abstract Algebra (computational side only)
 
 ### Complex Analysis (computational)
-- [ ] Mandelbrot/Julia escape iterations — trace z ← z² + c with rational c, |z| > 2 escape check; pure arithmetic, maximally mind-bending · `FractalIterationGenerator` · college · d3
 - [ ] Cauchy-Riemann verification; harmonic conjugates by integration · `CauchyRiemannGenerator` · college · d3
 - [ ] Residues at simple and higher-order poles · `ResidueGenerator` · graduate · d4
 - [ ] Contour integrals via the residue theorem · `ContourIntegralGenerator` · graduate · d5

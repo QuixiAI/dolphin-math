@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**307 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**308 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -6861,6 +6861,32 @@ Steps:
   LINE_EQ|-4x + 16y + 16 = 0
   Z|-4x + 16y + 16 = 0; type = line
 Answer: -4x + 16y + 16 = 0; type = line
+```
+
+### Fractal Iteration — `FractalIterationGenerator`  ·  college · difficulty 3
+
+Mandelbrot/Julia escape iteration z <- z^2 + c with exact rational arithmetic and |z| > 2 checks.
+
+**Variants:** `fractal_iteration_julia`, `fractal_iteration_mandelbrot`
+
+```
+Problem: Trace the julia iteration z <- z^2 + c for 5 iterations from z0=(-3/2,-1/2) with c=(1/2,0). Report the first step with |z| > 2, if any.
+Steps:
+  FRACTAL_SETUP|julia|z0=(-3/2,-1/2)|c=(1/2,0)|N=5
+  E|-3/2|2|9/4
+  E|-1/2|2|1/4
+  S|9/4|1/4|2
+  M|2|-3/2|-3
+  M|-3|-1/2|3/2
+  A|2|1/2|5/2
+  A|3/2|0|3/2
+  ITERATE|n=1|z=(5/2,3/2)
+  E|5/2|2|25/4
+  E|3/2|2|9/4
+  A|25/4|9/4|17/2
+  ESCAPE_CHECK|n=1|norm2=17/2|escaped
+  Z|escaped at step 1
+Answer: escaped at step 1
 ```
 
 ## Graduate
