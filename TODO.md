@@ -99,7 +99,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Limits
 
 ### Calculus — Derivatives
-- [ ] Linear approximation · `LinearApproxGenerator` · high · d4
 - [ ] L'Hôpital's rule · `LHopitalGenerator` · high · d5
 - [ ] Curve analysis — critical points, first/second derivative tests, inflection points · `CurveAnalysisGenerator` · high · d5
 - [ ] Optimization word problems · `OptimizationGenerator` · high · d5
