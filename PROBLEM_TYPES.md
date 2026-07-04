@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**417 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**418 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8121,6 +8121,28 @@ Steps:
   D|53312|45|53312/45
   Z|lambda=53312/45 m
 Answer: lambda=53312/45 m
+```
+
+### Hydrogen Atom — `HydrogenAtomGenerator`  ·  college · difficulty 3
+
+Hydrogen-atom Rydberg transition and ionization arithmetic.
+
+**Variants:** `hydrogen_atom_ionization_energy`, `hydrogen_atom_transition_energy`, `hydrogen_atom_transition_wavelength`
+
+```
+Problem: For hydrogen with R_L=9 1/m, an electron drops from n=5 to n=4. Use the Rydberg formula to find lambda.
+Steps:
+  HYDROGEN_SETUP|transition_wavelength|n_low=4, n_high=5|R_L=9 1/m
+  HYDROGEN_FORMULA|1/lambda=R_L*(1/n_low^2-1/n_high^2)
+  E|4|2|16
+  E|5|2|25
+  D|1|16|1/16
+  D|1|25|1/25
+  S|1/16|1/25|9/400
+  M|9|9/400|81/400
+  D|1|81/400|400/81
+  Z|lambda=400/81 m
+Answer: lambda=400/81 m
 ```
 
 ## Graduate

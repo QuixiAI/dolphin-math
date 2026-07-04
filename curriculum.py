@@ -449,6 +449,7 @@ CURRICULUM = {
     "SpinHalfGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "CommutatorGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "LadderOperatorGenerator": {"grade_level": GRADUATE, "difficulty": 5},
+    "HydrogenAtomGenerator": {"grade_level": COLLEGE, "difficulty": 3},
 }
 
 
