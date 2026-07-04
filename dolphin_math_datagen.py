@@ -439,6 +439,7 @@ from generators.lr_schedule_generator import LRScheduleGenerator
 from generators.perplexity_generator import PerplexityGenerator
 from generators.quantization_generator import QuantizationGenerator
 from generators.annuity_generator import AnnuityGenerator
+from generators.bond_pricing_generator import BondPricingGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -1049,6 +1050,7 @@ ALL_GENERATORS = [
     PerplexityGenerator(),
     QuantizationGenerator(),
     AnnuityGenerator(),
+    BondPricingGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

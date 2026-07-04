@@ -504,6 +504,7 @@ CURRICULUM = {
     "PerplexityGenerator": {"grade_level": GRADUATE, "difficulty": 3},
     "QuantizationGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "AnnuityGenerator": {"grade_level": COLLEGE, "difficulty": 4},
+    "BondPricingGenerator": {"grade_level": COLLEGE, "difficulty": 4},
 }
 
 

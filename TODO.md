@@ -184,7 +184,6 @@ construction: choose logits as ln of rationals (Principle 5), so the weights
 come out as exact fractions.
 
 ### Financial Mathematics
-- [ ] Bond pricing and current yield · `BondPricingGenerator` · college · d4
 - [ ] NPV; IRR via Newton iterations (composes with `NewtonRaphsonGenerator`) · `NPVIRRGenerator` · college · d4
 - [ ] Two-asset portfolio — expected return and variance with covariance · `PortfolioGenerator` · graduate · d4
 - [ ] Black-Scholes evaluation with N(d₁), N(d₂) provided (Principle 5) · `BlackScholesGenerator` · graduate · d4

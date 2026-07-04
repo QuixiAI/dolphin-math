@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**472 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**473 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -9151,6 +9151,37 @@ Steps:
   M|750|1.952|1464
   Z|present_value $1464.00
 Answer: present_value $1464.00
+```
+
+### Bond Pricing — `BondPricingGenerator`  ·  college · difficulty 4
+
+Annual coupon bond pricing and current yield.
+
+**Variants:** `bond_pricing_current_yield`
+
+```
+Problem: A bond has face value $5400, annual coupon rate 25%, yield to maturity 25%, and 1 years to maturity with annual coupons. Compute the bond price and current yield.
+Steps:
+  BOND_SETUP|face=5400|coupon=25%,ytm=25%,years=1
+  PERCENT_TO_DEC|25%|0.25
+  PERCENT_TO_DEC|25%|0.25
+  BOND_FORMULA|price=sum coupon/(1+y)^t + face/(1+y)^n
+  M|5400|0.25|1350
+  COUPON|1350
+  A|1|0.25|1.25
+  E|1.25|1|1.25
+  D|1350|1.25|1080
+  CASHFLOW_PV|coupon_t1|1080
+  A|0|1080|1080
+  E|1.25|1|1.25
+  D|5400|1.25|4320
+  CASHFLOW_PV|face|4320
+  A|1080|4320|5400
+  BOND_PRICE|$5400.00
+  D|1350|5400|0.25
+  CURRENT_YIELD|0.25
+  Z|price $5400.00; current_yield=0.25
+Answer: price $5400.00; current_yield=0.25
 ```
 
 ## Graduate
