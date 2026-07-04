@@ -129,7 +129,6 @@ bind extra hard at this level:
 ### Abstract Algebra (computational side only)
 
 ### Complex Analysis (computational)
-- [ ] Complex loci — |z−a| = r and |z−a| = |z−b| identified as circle/line by completing the square in ℂ · `ComplexLocusGenerator` · college · d3
 - [ ] Möbius transformations — images of points, fixed points via quadratic, cross-ratios · `MobiusTransformGenerator` · graduate · d4
 - [ ] Mandelbrot/Julia escape iterations — trace z ← z² + c with rational c, |z| > 2 escape check; pure arithmetic, maximally mind-bending · `FractalIterationGenerator` · college · d3
 - [ ] Cauchy-Riemann verification; harmonic conjugates by integration · `CauchyRiemannGenerator` · college · d3

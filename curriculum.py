@@ -337,6 +337,7 @@ CURRICULUM = {
     "EulerFormulaGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "DeMoivreGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "ComplexLogGenerator": {"grade_level": GRADUATE, "difficulty": 4},
+    "ComplexLocusGenerator": {"grade_level": COLLEGE, "difficulty": 3},
 }
 
 

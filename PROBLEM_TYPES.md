@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**305 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**306 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -6833,6 +6833,34 @@ Steps:
   ROOT|cis(315 deg)
   Z|roots = cis(0 deg), cis(45 deg), cis(90 deg), cis(135 deg), cis(180 deg), cis(225 deg), cis(270 deg), cis(315 deg)
 Answer: roots = cis(0 deg), cis(45 deg), cis(90 deg), cis(135 deg), cis(180 deg), cis(225 deg), cis(270 deg), cis(315 deg)
+```
+
+### Complex Locus — `ComplexLocusGenerator`  ·  college · difficulty 3
+
+Complex loci converted to Cartesian equations.
+
+**Variants:** `complex_locus_bisector`, `complex_locus_circle`
+
+```
+Problem: Identify the locus |z - (1,-5)| = |z - (-1,3)|, where z=x+iy. Give the Cartesian equation and type.
+Steps:
+  LOCUS_SETUP|z=x+iy|p=(1,-5)|q=(-1,3)
+  DIST_FORMULA|(x - 1)^2+(y + 5)^2 = (x + 1)^2+(y - 3)^2
+  EXPAND|cancel x^2 and y^2
+  S|-1|1|-2
+  M|2|-2|-4
+  S|3|-5|8
+  M|2|8|16
+  E|1|2|1
+  E|-5|2|25
+  A|1|25|26
+  E|-1|2|1
+  E|3|2|9
+  A|1|9|10
+  S|26|10|16
+  LINE_EQ|-4x + 16y + 16 = 0
+  Z|-4x + 16y + 16 = 0; type = line
+Answer: -4x + 16y + 16 = 0; type = line
 ```
 
 ## Graduate
