@@ -107,29 +107,26 @@ class PolynomialAddSubGenerator(ProblemGenerator):
             # (2x^2 - 5x^2)
             if c1 == 0 and c2 == 0: continue
             
-            terms_in_group = []
-            if c1 != 0:
-                terms_in_group.append(f"{c1}x^{d}" if d > 1 else (f"{c1}x" if d==1 else f"{c1}"))
+            def term_text(coef):
+                # 1-coefficients drop the digit: x^2, -x, 7
+                if d == 0:
+                    return str(coef)
+                var = f"x^{d}" if d > 1 else "x"
+                if coef == 1: return var
+                if coef == -1: return f"-{var}"
+                return f"{coef}{var}"
+
             if c2 != 0:
-                # Show original sign relative to op?
-                # If op is -, we are doing (c1 - c2)
-                # Display: (c1x^2 - c2x^2)
-                
-                # Simpler: just use effective values
-                val1_str = f"{c1}x^{d}" if d>1 else (f"{c1}x" if d==1 else f"{c1}")
-                val2_str = f"{eff_c2}x^{d}" if d>1 else (f"{eff_c2}x" if d==1 else f"{eff_c2}")
-                
-                # Make coeff explicit sign for second term
+                val2_str = term_text(eff_c2)
                 if eff_c2 >= 0: val2_str = "+" + val2_str
-                
-                if c1 == 0: 
-                    grp = f"({val2_str.replace('+','',1)})" # remove leading +
+                if c1 == 0:
+                    grp = f"({val2_str.replace('+', '', 1)})" # remove leading +
                 else:
-                    grp = f"({val1_str} {val2_str})"
+                    grp = f"({term_text(c1)} {val2_str})"
                 grouped_terms_display.append(grp)
             elif c1 != 0:
                  # Only c1
-                 grp = f"({c1}x^{d})" if d>1 else (f"({c1}x)" if d==1 else f"({c1})")
+                 grp = f"({term_text(c1)})"
                  grouped_terms_display.append(grp)
                  
         group_str = " + ".join(grouped_terms_display)
