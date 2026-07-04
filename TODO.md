@@ -101,7 +101,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Calculus — Derivatives
 
 ### Calculus — Integrals & Differential Equations
-- [ ] Integration by parts · `IntegrationByPartsGenerator` · high · d5
 - [ ] Partial fraction decomposition & integration · `PartialFractionsGenerator` · high · d5
 - [ ] Improper integrals · `ImproperIntegralGenerator` · high · d5
 - [ ] Euler's method — stepwise table, pure scratchpad · `EulerMethodGenerator` · high · d5
