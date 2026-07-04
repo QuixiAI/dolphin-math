@@ -269,6 +269,9 @@ CURRICULUM = {
     "MultiplyingBinomialsGenerator": {"grade_level": HIGH, "difficulty": 5},
     "MultiplyingPolynomialsGenerator": {"grade_level": HIGH, "difficulty": 5},
     "PolynomialDivMonomialGenerator": {"grade_level": HIGH, "difficulty": 5},
+
+    # ===== COLLEGE =====
+    "PartialDerivativeGenerator": {"grade_level": COLLEGE, "difficulty": 2},
 }
 
 

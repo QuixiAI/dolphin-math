@@ -206,6 +206,7 @@ from generators.modular_arithmetic_generator import ModularArithmeticGenerator
 from generators.manual_square_root_generator import ManualSquareRootGenerator
 from generators.calendar_arithmetic_generator import CalendarArithmeticGenerator
 from generators.fermi_estimation_generator import FermiEstimationGenerator
+from generators.partial_derivative_generator import PartialDerivativeGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -583,6 +584,7 @@ ALL_GENERATORS = [
     MultiplyingBinomialsGenerator(),
     MultiplyingPolynomialsGenerator(),
     PolynomialDivMonomialGenerator(),
+    PartialDerivativeGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

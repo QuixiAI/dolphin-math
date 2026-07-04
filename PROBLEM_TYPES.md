@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**239 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**240 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -4979,4 +4979,26 @@ Steps:
   POLY_DIV_SPLIT|(3x^5) / (3x^2) + (9x^4) / (3x^2)
   Z|1x^3 + 3x^2
 Answer: 1x^3 + 3x^2
+```
+
+## College
+
+### Partial Derivative — `PartialDerivativeGenerator`  ·  college · difficulty 2
+
+Partial derivatives of two-variable polynomials, including second partials and mixed partials with Clairaut equality as a check.
+
+**Variants:** `partial_derivative_first_x`, `partial_derivative_first_y`, `partial_derivative_mixed_xy`, `partial_derivative_second_xx`, `partial_derivative_second_yy`
+
+```
+Problem: Let f(x,y) = 4*x^4*y^4 + 8*x^4*y. Find f_yy.
+Steps:
+  PARTIAL_SETUP|f(x,y) = 4*x^4*y^4 + 8*x^4*y|f_yy
+  PARTIAL_RULE|8*x^4*y|d/dy|8*x^4
+  PARTIAL_RULE|4*x^4*y^4|d/dy|16*x^4*y^3
+  PARTIAL_RESULT|f_y|16*x^4*y^3 + 8*x^4
+  PARTIAL_RULE|8*x^4|d/dy|0
+  PARTIAL_RULE|16*x^4*y^3|d/dy|48*x^4*y^2
+  PARTIAL_RESULT|f_yy|48*x^4*y^2
+  Z|48*x^4*y^2
+Answer: 48*x^4*y^2
 ```

@@ -115,7 +115,6 @@ bind extra hard at this level:
 - **A8 first.** These items use the `college` and `graduate` grade levels.
 
 ### Multivariable Calculus
-- [ ] Partial derivatives — higher-order and mixed; Clairaut equality as the built-in check (A1) · `PartialDerivativeGenerator` · college · d2
 - [ ] Gradient, directional derivatives, tangent planes · `GradientGenerator` · college · d2
 - [ ] Multivariable chain rule; total differential · `MultivarChainRuleGenerator` · college · d3
 - [ ] Critical points via the second-partials (Hessian) test · `HessianClassifyGenerator` · college · d3
