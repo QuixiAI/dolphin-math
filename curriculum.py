@@ -163,6 +163,7 @@ CURRICULUM = {
     "LHopitalGenerator": {"grade_level": HIGH, "difficulty": 5},
     "CurveAnalysisGenerator": {"grade_level": HIGH, "difficulty": 5},
     "OptimizationGenerator": {"grade_level": HIGH, "difficulty": 5},
+    "MeanValueTheoremGenerator": {"grade_level": HIGH, "difficulty": 4},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},

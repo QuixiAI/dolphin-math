@@ -99,7 +99,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Limits
 
 ### Calculus — Derivatives
-- [ ] MVT and IVT applications · `MeanValueTheoremGenerator` · high · d4
 
 ### Calculus — Integrals & Differential Equations
 - [ ] Antiderivatives — power, trig, exponential/log · `AntiderivativeGenerator` · high · d4
