@@ -372,6 +372,7 @@ from generators.transient_circuit_generator import TransientCircuitGenerator
 from generators.ac_circuit_generator import ACCircuitGenerator
 from generators.magnetism_generator import MagnetismGenerator
 from generators.gas_law_generator import GasLawGenerator
+from generators.first_law_generator import FirstLawGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -915,6 +916,7 @@ ALL_GENERATORS = [
     ACCircuitGenerator(),
     MagnetismGenerator(),
     GasLawGenerator(),
+    FirstLawGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

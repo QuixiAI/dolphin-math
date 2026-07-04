@@ -162,7 +162,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Physics — Electromagnetism & Circuits
 
 ### Physics — Thermodynamics & Statistical Mechanics
-- [ ] First-law bookkeeping — Q, W, ΔU across isothermal/adiabatic/isobaric/isochoric legs · `FirstLawGenerator` · college · d3
 - [ ] Heat engines and refrigerators — efficiency, Carnot limits, COP · `HeatEngineGenerator` · college · d3
 - [ ] Entropy changes for ideal-gas processes and mixing · `EntropyChangeGenerator` · college · d4
 - [ ] Calorimetry with phase changes · `CalorimetryGenerator` · college · d2

@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**405 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**406 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7992,6 +7992,25 @@ Steps:
   D|6525|28|6525/28
   Z|P2=6525/28 atm
 Answer: P2=6525/28 atm
+```
+
+### First Law — `FirstLawGenerator`  ·  college · difficulty 3
+
+First-law bookkeeping with DeltaU = Q - W, W done by the gas/system.
+
+**Variants:** `first_law_adiabatic`, `first_law_isobaric`, `first_law_isochoric`, `first_law_isothermal`
+
+```
+Problem: An isobaric process has pressure P=14 Pa, volume changes from V1=2 m^3 to V2=6 m^3, and heat Q=50 J. Using W=P(V2-V1) and DeltaU=Q-W, find W and DeltaU.
+Steps:
+  FIRSTLAW_SETUP|isobaric|P=14, V1=2, V2=6|Q=50
+  FIRSTLAW_FORMULA|W=P*(V2-V1)
+  S|6|2|4
+  M|14|4|56
+  FIRSTLAW_FORMULA|DeltaU=Q-W
+  S|50|56|-6
+  Z|W=56 J; DeltaU=-6 J
+Answer: W=56 J; DeltaU=-6 J
 ```
 
 ## Graduate
