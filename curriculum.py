@@ -411,6 +411,7 @@ CURRICULUM = {
     "SimplexGenerator": {"grade_level": COLLEGE, "difficulty": 5},
     "LPCornerGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "GradientDescentGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "TransportationGenerator": {"grade_level": GRADUATE, "difficulty": 4},
 }
 
 

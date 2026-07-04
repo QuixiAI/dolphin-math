@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**379 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**380 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -9153,4 +9153,51 @@ Steps:
   D|14|810|7/405
   Z|f_{7:8}(x)=56*x^6*(1-x)^1; E[X_(7)]=7/9; Var(X_(7))=7/405; f_{7:8}(2/3)=3584/2187
 Answer: f_{7:8}(x)=56*x^6*(1-x)^1; E[X_(7)]=7/9; Var(X_(7))=7/405; f_{7:8}(2/3)=3584/2187
+```
+
+### Transportation — `TransportationGenerator`  ·  graduate · difficulty 4
+
+Northwest-corner transportation start and one stepping-stone improvement.
+
+**Variants:** `transportation_nw_stepping_stone`
+
+```
+Problem: Use northwest-corner then one stepping-stone improvement for a 2x2 transportation problem with supply (14,8), demand (9,13), and costs [[15,3],[6,10]].
+Steps:
+  TRANSPORT_SETUP|supply=(14,8)|demand=(9,13)|costs=(15,3;6,10)
+  CHECK|14+8|9+13|balanced
+  NW_ALLOC|cell x11|min(14,9)|9
+  S|14|9|5
+  NW_ALLOC|cell x12|remaining row 1 supply|5
+  NW_ALLOC|cell x22|remaining row 2 supply|8
+  NW_ALLOC|x11=9, x12=5, x21=0, x22=8
+  COST|initial
+  M|9|15|135
+  M|5|3|15
+  M|0|6|0
+  M|8|10|80
+  A|135|15|150
+  A|150|0|150
+  A|150|80|230
+  STEPPING_STONE|enter x21|+x21 -x22 +x12 -x11
+  S|6|10|-4
+  A|-4|3|-1
+  S|-1|15|-16
+  CHECK|delta=-16|improves cost
+  THETA|min(8,9)|8
+  A|0|8|8
+  S|8|8|0
+  A|5|8|13
+  S|9|8|1
+  NW_ALLOC|x11=1, x12=13, x21=8, x22=0
+  COST|improved
+  M|1|15|15
+  M|13|3|39
+  M|8|6|48
+  M|0|10|0
+  A|15|39|54
+  A|54|48|102
+  A|102|0|102
+  Z|initial cost=230; improved x11=1, x12=13, x21=8, x22=0; final cost=102
+Answer: initial cost=230; improved x11=1, x12=13, x21=8, x22=0; final cost=102
 ```

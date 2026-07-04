@@ -346,6 +346,7 @@ from generators.order_statistics_generator import OrderStatisticsGenerator
 from generators.simplex_generator import SimplexGenerator
 from generators.lp_corner_generator import LPCornerGenerator
 from generators.gradient_descent_generator import GradientDescentGenerator
+from generators.transportation_generator import TransportationGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -863,6 +864,7 @@ ALL_GENERATORS = [
     SimplexGenerator(),
     LPCornerGenerator(),
     GradientDescentGenerator(),
+    TransportationGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]
