@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**409 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**410 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -9880,4 +9880,25 @@ Steps:
   AC_COMPLEX|Z|27|0j
   Z|omega0=1 rad/s; Z=27 ohm
 Answer: omega0=1 rad/s; Z=27 ohm
+```
+
+### Partition Function — `PartitionFunctionGenerator`  ·  graduate · difficulty 4
+
+Two-level partition functions with supplied Boltzmann factors.
+
+**Variants:** `partition_function_degenerate_two_level`, `partition_function_two_level`
+
+```
+Problem: A two-level system has ground degeneracy g0=4, excited degeneracy g1=1, excited energy epsilon=9, and Boltzmann factor b=1/10 for the excited level. Compute Z, excited occupancy, and mean energy.
+Steps:
+  PARTITION_SETUP|degenerate_two_level|g0=4, g1=1|epsilon=9, b=1/10
+  PARTITION_FORMULA|Z=g0+g1*b
+  M|1|1/10|1/10
+  A|4|1/10|41/10
+  D|4|41/10|40/41
+  D|1/10|41/10|1/41
+  PARTITION_FORMULA|mean_energy=epsilon*p_excited
+  M|9|1/41|9/41
+  Z|Z=41/10; p_excited=1/41; mean_energy=9/41
+Answer: Z=41/10; p_excited=1/41; mean_energy=9/41
 ```

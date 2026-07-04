@@ -162,7 +162,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Physics — Electromagnetism & Circuits
 
 ### Physics — Thermodynamics & Statistical Mechanics
-- [ ] Two-level systems — Boltzmann factors, partition function, occupancies, mean energy · `PartitionFunctionGenerator` · graduate · d4
 - [ ] Blackbody radiation — Wien and Stefan-Boltzmann solves · `BlackbodyGenerator` · college · d3
 
 ### Physics — Quantum Mechanics
