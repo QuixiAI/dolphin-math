@@ -35,7 +35,9 @@ class GraphInterpretGenerator(ProblemGenerator):
         categories = self._get_categories("bar")
         num_categories = random.randint(4, 6)
         selected = random.sample(categories, num_categories)
-        values = {cat: random.randint(5, 50) for cat in selected}
+        # distinct values: max/min/compare questions stay unambiguous
+        drawn = random.sample(range(5, 51), num_categories)
+        values = dict(zip(selected, drawn))
 
         # Choose question type
         question_type = random.choice([
@@ -51,19 +53,35 @@ class GraphInterpretGenerator(ProblemGenerator):
         num_points = random.randint(5, 8)
         selected_times = time_labels[:num_points]
 
-        # Generate values with some trend
-        start_val = random.randint(10, 30)
-        values = {}
-        current = start_val
-        for t in selected_times:
-            values[t] = current
-            change = random.randint(-5, 8)
-            current = max(5, current + change)
-
-        # Choose question type
+        # Choose question type first, then draw a walk that keeps its
+        # answer unambiguous (unique extremum / unique largest change)
         question_type = random.choice([
             "read_value", "increase", "decrease", "max", "min", "range"
         ])
+
+        while True:
+            start_val = random.randint(10, 30)
+            values = {}
+            current = start_val
+            for t in selected_times:
+                values[t] = current
+                change = random.randint(-5, 8)
+                current = max(5, current + change)
+            vals = [values[t] for t in selected_times]
+            diffs = [vals[i + 1] - vals[i] for i in range(len(vals) - 1)]
+            if question_type == "max" and vals.count(max(vals)) != 1:
+                continue
+            if question_type == "min" and vals.count(min(vals)) != 1:
+                continue
+            if question_type == "increase":
+                top = max(diffs)
+                if top <= 0 or diffs.count(top) != 1:
+                    continue
+            if question_type == "decrease":
+                bottom = min(diffs)
+                if bottom >= 0 or diffs.count(bottom) != 1:
+                    continue
+            break
 
         return self._create_line_problem(values, selected_times, question_type)
 
@@ -78,8 +96,10 @@ class GraphInterpretGenerator(ProblemGenerator):
         symbols = ["★", "●", "■", "▲", "♦"]
         symbol = random.choice(symbols)
 
-        # Generate symbol counts (1-8 symbols per category)
-        symbol_counts = {cat: random.randint(1, 8) for cat in selected}
+        # Generate distinct symbol counts (1-8 symbols per category) so
+        # max/compare questions stay unambiguous
+        drawn = random.sample(range(1, 9), num_categories)
+        symbol_counts = dict(zip(selected, drawn))
         actual_values = {cat: count * symbol_value for cat, count in symbol_counts.items()}
 
         # Choose question type

@@ -642,33 +642,34 @@ Generates problems for reading and interpreting bar charts, line graphs, and pic
 
 ```
 Problem: Line Graph Data:
-  2018: 18
-  2019: 21
-  2020: 23
-  2021: 24
-  2022: 31
+  2018: 25
+  2019: 25
+  2020: 29
+  2021: 27
+  2022: 30
 
 Question: Between which two consecutive time periods was there the largest decrease?
 Steps:
-  GRAPH_DATA|line_graph|2018:18,2019:21,2020:23,2021:24,2022:31
-  GRAPH_READ|2018|18
-  GRAPH_READ|2019|21
-  S|18|21|-3
-  GRAPH_CHANGE|2018|2019|3
-  GRAPH_READ|2019|21
-  GRAPH_READ|2020|23
-  S|21|23|-2
-  GRAPH_CHANGE|2019|2020|2
-  GRAPH_READ|2020|23
-  GRAPH_READ|2021|24
-  S|23|24|-1
-  GRAPH_CHANGE|2020|2021|1
-  GRAPH_READ|2021|24
-  GRAPH_READ|2022|31
-  S|24|31|-7
-  GRAPH_CHANGE|2021|2022|7
-  Z|No decrease occurred
-Answer: No decrease occurred
+  GRAPH_DATA|line_graph|2018:25,2019:25,2020:29,2021:27,2022:30
+  GRAPH_READ|2018|25
+  GRAPH_READ|2019|25
+  S|25|25|0
+  GRAPH_CHANGE|2018|2019|0
+  GRAPH_READ|2019|25
+  GRAPH_READ|2020|29
+  S|25|29|-4
+  GRAPH_CHANGE|2019|2020|4
+  GRAPH_READ|2020|29
+  GRAPH_READ|2021|27
+  S|29|27|2
+  GRAPH_CHANGE|2020|2021|-2
+  GRAPH_READ|2021|27
+  GRAPH_READ|2022|30
+  S|27|30|-3
+  GRAPH_CHANGE|2021|2022|3
+  GRAPH_MAX_CHANGE|2020|2021|-2
+  Z|2020 to 2021 (decrease of 2)
+Answer: 2020 to 2021 (decrease of 2)
 ```
 
 ### Composite Arithmetic — `CompositeArithmeticGenerator`  ·  elementary · difficulty 4
