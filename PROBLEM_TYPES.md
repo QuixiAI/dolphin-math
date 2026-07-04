@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**283 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**284 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -6104,6 +6104,65 @@ Steps:
   EULER_ROUTE|B-A-C-D-A-E-B-D|uses 7 edges
   Z|Euler path = B-A-C-D-A-E-B-D
 Answer: Euler path = B-A-C-D-A-E-B-D
+```
+
+### DPTable — `DPTableGenerator`  ·  college · difficulty 4
+
+Dynamic-programming table filling for common discrete math algorithms.
+
+**Variants:** `dp_table_coin_change`, `dp_table_edit_distance`, `dp_table_knapsack`, `dp_table_lcs`
+
+```
+Problem: Fill the coin-change DP table for coins 1, 2, 5 and target 7, counting combinations with unlimited coins. How many ways are there?
+Steps:
+  DP_SETUP|coin change|target 7
+  DP_COINS|1, 2, 5
+  DP_ROW|i=0|1, 0, 0, 0, 0, 0, 0, 0
+  DP_CELL|i=1,amount=0|base empty set|1
+  A|0|1|1
+  DP_CELL|i=1,amount=1|without 0, with 1|1
+  A|0|1|1
+  DP_CELL|i=1,amount=2|without 0, with 1|1
+  A|0|1|1
+  DP_CELL|i=1,amount=3|without 0, with 1|1
+  A|0|1|1
+  DP_CELL|i=1,amount=4|without 0, with 1|1
+  A|0|1|1
+  DP_CELL|i=1,amount=5|without 0, with 1|1
+  A|0|1|1
+  DP_CELL|i=1,amount=6|without 0, with 1|1
+  A|0|1|1
+  DP_CELL|i=1,amount=7|without 0, with 1|1
+  DP_ROW|i=1|1, 1, 1, 1, 1, 1, 1, 1
+  DP_CELL|i=2,amount=0|base empty set|1
+  DP_CELL|i=2,amount=1|no coin 2|1
+  A|1|1|2
+  DP_CELL|i=2,amount=2|without 1, with 1|2
+  A|1|1|2
+  DP_CELL|i=2,amount=3|without 1, with 1|2
+  A|1|2|3
+  DP_CELL|i=2,amount=4|without 1, with 2|3
+  A|1|2|3
+  DP_CELL|i=2,amount=5|without 1, with 2|3
+  A|1|3|4
+  DP_CELL|i=2,amount=6|without 1, with 3|4
+  A|1|3|4
+  DP_CELL|i=2,amount=7|without 1, with 3|4
+  DP_ROW|i=2|1, 1, 2, 2, 3, 3, 4, 4
+  DP_CELL|i=3,amount=0|base empty set|1
+  DP_CELL|i=3,amount=1|no coin 5|1
+  DP_CELL|i=3,amount=2|no coin 5|2
+  DP_CELL|i=3,amount=3|no coin 5|2
+  DP_CELL|i=3,amount=4|no coin 5|3
+  A|3|1|4
+  DP_CELL|i=3,amount=5|without 3, with 1|4
+  A|4|1|5
+  DP_CELL|i=3,amount=6|without 4, with 1|5
+  A|4|2|6
+  DP_CELL|i=3,amount=7|without 4, with 2|6
+  DP_ROW|i=3|1, 1, 2, 2, 3, 4, 5, 6
+  Z|ways = 6
+Answer: ways = 6
 ```
 
 ## Graduate

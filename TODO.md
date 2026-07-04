@@ -123,7 +123,6 @@ bind extra hard at this level:
 ### Discrete Math & Combinatorics
 
 ### Graph Theory & Algorithms
-- [ ] DP table filling — knapsack, LCS, edit distance, coin change; the table IS the scratchpad · `DPTableGenerator` · college · d4
 - [ ] Algorithm state traces — binary search, insertion/merge sort after k steps · `AlgorithmTraceGenerator` · college · d3
 - [ ] DFA simulation — state sequence for a given input string · `DFASimulationGenerator` · college · d3
 
