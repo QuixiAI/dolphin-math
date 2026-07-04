@@ -160,6 +160,7 @@ CURRICULUM = {
     "TangentLineGenerator": {"grade_level": HIGH, "difficulty": 4},
     "RelatedRatesGenerator": {"grade_level": HIGH, "difficulty": 5},
     "LinearApproxGenerator": {"grade_level": HIGH, "difficulty": 4},
+    "LHopitalGenerator": {"grade_level": HIGH, "difficulty": 5},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},
