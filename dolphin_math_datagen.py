@@ -107,6 +107,7 @@ from generators.rational_root_generator import RationalRootGenerator
 from generators.polynomial_zeros_generator import PolynomialZerosGenerator
 from generators.rational_function_features_generator import RationalFunctionFeaturesGenerator
 from generators.exponential_model_generator import ExponentialModelGenerator
+from generators.log_conversion_generator import LogConversionGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -373,6 +374,7 @@ ALL_GENERATORS = [
     PolynomialZerosGenerator(),
     RationalFunctionFeaturesGenerator(),
     ExponentialModelGenerator(),
+    LogConversionGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),

@@ -87,7 +87,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Polynomials & Rational Functions
 
 ### Exponentials & Logarithms
-- [ ] Exponential ↔ log conversion; evaluating logs; change of base; ln · `LogConversionGenerator` · high · d4
 - [ ] Log properties — product/quotient/power; expand and condense · `LogPropertiesGenerator` · high · d4
 - [ ] Solve exponential equations — same base, and via logs · `ExponentialEquationGenerator` · high · d5
 - [ ] Solve log equations — with domain check for extraneous solutions (A1) · `LogEquationGenerator` · high · d5
