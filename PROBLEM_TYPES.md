@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**226 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**227 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -4643,6 +4643,28 @@ Steps:
   CHECK|χ² vs critical value|6.25 > 3.841|reject H0
   Z|reject H0
 Answer: reject H0
+```
+
+### Conditional Probability — `ConditionalProbabilityGenerator`  ·  high · difficulty 5
+
+Conditional probability from a two-way table and Bayes-style diagnostic test questions built from sensitivity and specificity. Counts are small integers, so each answer is exact.
+
+**Variants:** `conditional_probability_bayes_negative`, `conditional_probability_bayes_positive`, `conditional_probability_table`
+
+```
+Problem: A screening test is used for 104 people. Disease=yes count is 40 and disease=no count is 64. Sensitivity P(test positive given disease=yes) = 7/10. Specificity P(test negative given disease=no) = 3/4. Find P(disease=yes given test positive). Give an exact answer.
+Steps:
+  BAYES_SETUP|disease=yes 40, disease=no 64|sensitivity 7/10, specificity 3/4|P(disease=yes given test positive)
+  BAYES_CELL|true positive|40 * 7/10|28
+  BAYES_CELL|false negative|40 - 28|12
+  BAYES_CELL|true negative|64 * 3/4|48
+  BAYES_CELL|false positive|64 - 48|16
+  A|28|16|44
+  BAYES_FORMULA|P(disease=yes given positive) = TP/(TP + FP)
+  FRAC_BUILD|28/44|7/11
+  CHECK|positive tests|posterior denominator = 44
+  Z|7/11
+Answer: 7/11
 ```
 
 ### Normal Table — `NormalTableGenerator`  ·  high · difficulty 4

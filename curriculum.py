@@ -199,6 +199,7 @@ CURRICULUM = {
     "PermutationCombinationGenerator": {"grade_level": MIDDLE, "difficulty": 4},
     "BinomialProbabilityGenerator": {"grade_level": MIDDLE, "difficulty": 4},
     "ProbabilityAdditionRuleGenerator": {"grade_level": MIDDLE, "difficulty": 4},
+    "ConditionalProbabilityGenerator": {"grade_level": HIGH, "difficulty": 5},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},

@@ -193,6 +193,7 @@ from generators.chi_square_generator import ChiSquareGenerator
 from generators.permutation_combination_generator import PermutationCombinationGenerator
 from generators.binomial_probability_generator import BinomialProbabilityGenerator
 from generators.probability_addition_rule_generator import ProbabilityAdditionRuleGenerator
+from generators.conditional_probability_generator import ConditionalProbabilityGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -547,6 +548,7 @@ ALL_GENERATORS = [
     PermutationCombinationGenerator(),
     BinomialProbabilityGenerator(),
     ProbabilityAdditionRuleGenerator(),
+    ConditionalProbabilityGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),

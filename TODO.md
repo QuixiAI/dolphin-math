@@ -86,7 +86,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Statistics
 
 ### Probability
-- [ ] Conditional probability from two-way tables; simple Bayes (test sensitivity/specificity) · `ConditionalProbabilityGenerator` · high · d5
 - [ ] Geometric probability on intervals and regions · `GeometricProbabilityGenerator` · middle · d4
 - [ ] Geometric distribution — first success · `GeometricDistributionGenerator` · high · d4
 
