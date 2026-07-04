@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**322 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**323 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7708,4 +7708,23 @@ Steps:
   CHECK|negative curvature|-28|saddle
   Z|K = -28
 Answer: K = -28
+```
+
+### Gauss Bonnet — `GaussBonnetGenerator`  ·  graduate · difficulty 4
+
+Gauss-Bonnet verification for closed surfaces: integral K dA = 2*pi*chi.
+
+**Variants:** `gauss_bonnet_flat_torus`, `gauss_bonnet_sphere`
+
+```
+Problem: Verify Gauss-Bonnet for a flat rectangular torus of width 28 and height 4, with Euler characteristic 0.
+Steps:
+  GAUSS_BONNET_SETUP|flat_torus|width=28, height=4|chi=0
+  THEOREM|integral K dA = 2*pi*chi
+  M|28|4|112
+  M|0|112|0
+  M|2|0|0
+  CHECK|integral K dA|0|2pi chi = 0
+  Z|verified: integral K dA = 0 = 2pi chi
+Answer: verified: integral K dA = 0 = 2pi chi
 ```

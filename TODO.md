@@ -135,7 +135,6 @@ Angle sums that refuse to be 180° — mind-bending results from ordinary
 arithmetic. Nice angles (30°/45°/60°/90°) keep everything exact per Principle 5.
 
 ### Differential Geometry & Topology (computational)
-- [ ] Gauss-Bonnet as verification — total curvature vs 2πχ on sphere and torus; the theorem *is* a CHECK step (A1) · `GaussBonnetGenerator` · graduate · d4
 - [ ] Arc length under a given metric — integrate ds² = E du² + 2F du dv + G dv² along simple paths · `MetricArcLengthGenerator` · graduate · d4
 
 ### Hilbert Spaces & Quantum Information
