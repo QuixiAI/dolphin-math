@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**277 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**278 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5860,6 +5860,34 @@ Steps:
   A|-196864|4|-196860
   Z|a_8 = -196860
 Answer: a_8 = -196860
+```
+
+### Boolean Algebra — `BooleanAlgebraGenerator`  ·  college · difficulty 3
+
+Boolean truth-table normal forms and Karnaugh-map simplification.
+
+**Variants:** `boolean_algebra_cnf`, `boolean_algebra_dnf`, `boolean_algebra_kmap`
+
+```
+Problem: Truth table for f(A,B,C): 000->0, 001->0, 010->1, 011->0, 100->0, 101->1, 110->0, 111->1. Write a conjunctive normal form (CNF).
+Steps:
+  BOOL_SETUP|variables A, B, C|CNF from f=0 rows
+  TRUTH_ROW|A=0, B=0, C=0|f=0
+  MAXTERM|000|A OR B OR C
+  TRUTH_ROW|A=0, B=0, C=1|f=0
+  MAXTERM|001|A OR B OR NOT C
+  TRUTH_ROW|A=0, B=1, C=0|f=1
+  TRUTH_ROW|A=0, B=1, C=1|f=0
+  MAXTERM|011|A OR NOT B OR NOT C
+  TRUTH_ROW|A=1, B=0, C=0|f=0
+  MAXTERM|100|NOT A OR B OR C
+  TRUTH_ROW|A=1, B=0, C=1|f=1
+  TRUTH_ROW|A=1, B=1, C=0|f=0
+  MAXTERM|110|NOT A OR NOT B OR C
+  TRUTH_ROW|A=1, B=1, C=1|f=1
+  CNF_FORM|(A OR B OR C) AND (A OR B OR NOT C) AND (A OR NOT B OR NOT C) AND (NOT A OR B OR C) AND (NOT A OR NOT B OR C)
+  Z|CNF = (A OR B OR C) AND (A OR B OR NOT C) AND (A OR NOT B OR NOT C) AND (NOT A OR B OR C) AND (NOT A OR NOT B OR C)
+Answer: CNF = (A OR B OR C) AND (A OR B OR NOT C) AND (A OR NOT B OR NOT C) AND (NOT A OR B OR C) AND (NOT A OR NOT B OR C)
 ```
 
 ## Graduate

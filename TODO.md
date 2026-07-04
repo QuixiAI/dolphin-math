@@ -121,7 +121,6 @@ bind extra hard at this level:
 ### Differential Equations
 
 ### Discrete Math & Combinatorics
-- [ ] Boolean algebra — truth tables → DNF/CNF, simplification, Karnaugh maps · `BooleanAlgebraGenerator` · college · d3
 
 ### Graph Theory & Algorithms
 - [ ] Degree sequences, handshake counts; adjacency-matrix powers for walk counts · `GraphCountingGenerator` · college · d3
