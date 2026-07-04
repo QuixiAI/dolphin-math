@@ -99,7 +99,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Limits
 
 ### Calculus — Derivatives
-- [ ] Tangent & normal line equations · `TangentLineGenerator` · high · d4
 - [ ] Related rates · `RelatedRatesGenerator` · high · d5
 - [ ] Linear approximation · `LinearApproxGenerator` · high · d4
 - [ ] L'Hôpital's rule · `LHopitalGenerator` · high · d5
