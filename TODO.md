@@ -156,7 +156,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Optimization & Operations Research
 
 ### Signals & Systems / Control
-- [ ] Transfer functions from ODEs; block-diagram reduction; poles and zeros · `TransferFunctionGenerator` · graduate · d4
 - [ ] Routh-Hurwitz stability array · `RouthHurwitzGenerator` · graduate · d4
 
 ### Physics — Mechanics

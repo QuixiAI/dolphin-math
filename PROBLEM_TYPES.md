@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**387 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**388 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -9415,4 +9415,26 @@ Steps:
   TERMS|y[0..4]=[1,7,49,343,2401]
   Z|Y(z)=1/(1-7z^-1); y[0..4]=[1,7,49,343,2401]
 Answer: Y(z)=1/(1-7z^-1); y[0..4]=[1,7,49,343,2401]
+```
+
+### Transfer Function — `TransferFunctionGenerator`  ·  graduate · difficulty 4
+
+Transfer functions from ODEs and simple feedback block diagrams.
+
+**Variants:** `transfer_function_block_feedback`, `transfer_function_ode`
+
+```
+Problem: Reduce a unity negative-feedback block diagram with G1=7/(s+5) and G2=1/(s+9).
+Steps:
+  TF_SETUP|block_feedback|G1=7/(s+5), G2=1/(s+9)|H=1
+  SERIES|G=G1*G2
+  M|7|1|7
+  A|5|9|14
+  M|5|9|45
+  TRANSFER|G(s)=7/(s^2+14s+45)
+  FEEDBACK|T=G/(1+G)
+  A|45|7|52
+  TRANSFER|T(s)=7/(s^2+14s+52)
+  Z|T(s)=7/(s^2+14s+52)
+Answer: T(s)=7/(s^2+14s+52)
 ```

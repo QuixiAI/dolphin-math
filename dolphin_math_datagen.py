@@ -354,6 +354,7 @@ from generators.dft_generator import DFTGenerator
 from generators.fourier_series_generator import FourierSeriesGenerator
 from generators.z_transform_generator import ZTransformGenerator
 from generators.signal_arithmetic_generator import SignalArithmeticGenerator
+from generators.transfer_function_generator import TransferFunctionGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -879,6 +880,7 @@ ALL_GENERATORS = [
     FourierSeriesGenerator(),
     ZTransformGenerator(),
     SignalArithmeticGenerator(),
+    TransferFunctionGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]
