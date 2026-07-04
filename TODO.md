@@ -160,7 +160,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Physics — Mechanics
 
 ### Physics — Electromagnetism & Circuits
-- [ ] Coulomb superposition — fields and potentials of point-charge sets · `ElectrostaticsGenerator` · college · d3
 - [ ] Gauss's law for symmetric distributions · `GaussLawGenerator` · college · d4
 - [ ] RC/RL transients — time constants, exponential answers in exact form · `TransientCircuitGenerator` · college · d4
 - [ ] AC circuits — complex impedance, phasors, resonance (composes with complex arithmetic) · `ACCircuitGenerator` · graduate · d4

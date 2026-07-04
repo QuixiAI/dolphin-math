@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**399 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**400 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7891,6 +7891,27 @@ Steps:
   PI_MULT|1/5|π|π/5
   Z|omega=10 rad/s; T=π/5 s
 Answer: omega=10 rad/s; T=π/5 s
+```
+
+### Electrostatics — `ElectrostaticsGenerator`  ·  college · difficulty 3
+
+Coulomb superposition for point charges on a line, with k=1 supplied.
+
+**Variants:** `electrostatics_field_axis`, `electrostatics_potential_axis`
+
+```
+Problem: In scaled units with k=1, three point charges are at distances r1=9 m, r2=8 m, r3=7 m from the origin with charges q1=5 C, q2=-8 C, q3=-1 C. Find the electric potential at the origin.
+Steps:
+  ELEC_SETUP|potential_axis|q1=5, r1=9|q2=-8, r2=8
+  ELEC_SETUP|q3=-1, r3=7|k=1
+  ELEC_FORMULA|V=sum(q_i/r_i)
+  D|5|9|5/9
+  D|-8|8|-1
+  A|5/9|-1|-4/9
+  D|-1|7|-1/7
+  A|-4/9|-1/7|-37/63
+  Z|V=-37/63 V
+Answer: V=-37/63 V
 ```
 
 ## Graduate
