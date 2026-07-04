@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**378 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**379 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7507,6 +7507,48 @@ Steps:
   CHECK|max value 149|at (1,16)
   Z|optimal vertex=(1,16), max z=149
 Answer: optimal vertex=(1,16), max z=149
+```
+
+### Gradient Descent — `GradientDescentGenerator`  ·  college · difficulty 3
+
+Fixed-step gradient descent on diagonal quadratic bowls.
+
+**Variants:** `gradient_descent_quadratic`
+
+```
+Problem: Starting at (-2,7) for f(x,y)=1/2*(4x^2+4y^2), run 3 gradient-descent steps with step size eta=1/6.
+Steps:
+  GD_SETUP|f(x,y)=1/2*(4x^2+4y^2)|start=(-2,7)|eta=1/6
+  GRADIENT_FORMULA|grad=(4x,4y)
+  M|4|-2|-8
+  M|4|7|28
+  M|1/6|-8|-4/3
+  S|-2|-4/3|-2/3
+  M|1/6|28|14/3
+  S|7|14/3|7/3
+  ITERATE|k=1|(-2/3,7/3)
+  M|4|-2/3|-8/3
+  M|4|7/3|28/3
+  M|1/6|-8/3|-4/9
+  S|-2/3|-4/9|-2/9
+  M|1/6|28/3|14/9
+  S|7/3|14/9|7/9
+  ITERATE|k=2|(-2/9,7/9)
+  M|4|-2/9|-8/9
+  M|4|7/9|28/9
+  M|1/6|-8/9|-4/27
+  S|-2/9|-4/27|-2/27
+  M|1/6|28/9|14/27
+  S|7/9|14/27|7/27
+  ITERATE|k=3|(-2/27,7/27)
+  E|-2/27|2|4/729
+  M|4|4/729|16/729
+  E|7/27|2|49/729
+  M|4|49/729|196/729
+  A|16/729|196/729|212/729
+  D|212/729|2|106/729
+  Z|x_3=-2/27, y_3=7/27, f(x_3,y_3)=106/729
+Answer: x_3=-2/27, y_3=7/27, f(x_3,y_3)=106/729
 ```
 
 ## Graduate
