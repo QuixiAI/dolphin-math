@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**220 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**221 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -4523,6 +4523,25 @@ Steps:
   CHECK|net vs 0|-3 < 0|unfavorable
   Z|unfavorable
 Answer: unfavorable
+```
+
+### Confidence Interval — `ConfidenceIntervalGenerator`  ·  high · difficulty 5
+
+Confidence intervals for a mean or a proportion, margins of error, and minimum sample sizes — with the critical value z* given in the problem (Principle 5). Sample sizes are perfect squares and the margins are chosen so √n is an integer and every quantity is an exact terminating decimal.
+
+**Variants:** `confidence_interval_mean_ci`, `confidence_interval_mean_margin`, `confidence_interval_prop_margin`, `confidence_interval_sample_size_mean`, `confidence_interval_sample_size_prop`
+
+```
+Problem: You want a margin of error of 0.5 for a confidence interval for the mean, with population standard deviation σ = 3. Using z* = 2.05, find the minimum sample size.
+Steps:
+  CI_SETUP|σ = 3, E = 0.5, z* = 2.05|minimum sample size for the mean
+  SAMPLE_SIZE_FORMULA|n = (z*·σ/E)^2
+  M|2.05|3|6.15
+  D|6.15|0.5|12.3
+  E|12.3|2|151.29
+  CEIL|151.29|152
+  Z|152
+Answer: 152
 ```
 
 ### Normal Table — `NormalTableGenerator`  ·  high · difficulty 4
