@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**318 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**319 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7622,4 +7622,22 @@ Steps:
   LOG_EVAL|17/12|ln(17/12)
   Z|distance = ln(17/12)
 Answer: distance = ln(17/12)
+```
+
+### Stereographic — `StereographicGenerator`  ·  graduate · difficulty 4
+
+Stereographic projection between the plane and the unit sphere, using the north pole and the plane z=0.
+
+**Variants:** `stereographic_plane_to_sphere`, `stereographic_sphere_to_plane`
+
+```
+Problem: Map sphere point (X,Y,Z)=(4/41,-24/41,33/41) with Z != 1 to the plane by inverse stereographic projection from the north pole.
+Steps:
+  STEREO_SETUP|sphere_to_plane|X=4/41|Y=-24/41|Z=33/41
+  FORMULA|u=X/(1-Z); v=Y/(1-Z)
+  S|1|33/41|8/41
+  D|4/41|8/41|1/2
+  D|-24/41|8/41|-3
+  Z|plane point = (1/2, -3)
+Answer: plane point = (1/2, -3)
 ```

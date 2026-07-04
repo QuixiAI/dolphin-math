@@ -350,6 +350,7 @@ CURRICULUM = {
     "HyperbolicFunctionGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "AngleDefectGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "HyperbolicDistanceGenerator": {"grade_level": GRADUATE, "difficulty": 4},
+    "StereographicGenerator": {"grade_level": GRADUATE, "difficulty": 4},
 }
 
 

@@ -133,7 +133,6 @@ bind extra hard at this level:
 ### Spherical & Non-Euclidean Geometry
 Angle sums that refuse to be 180° — mind-bending results from ordinary
 arithmetic. Nice angles (30°/45°/60°/90°) keep everything exact per Principle 5.
-- [ ] Stereographic projection — plane ↔ Riemann sphere point mapping both directions · `StereographicGenerator` · graduate · d4
 
 ### Differential Geometry & Topology (computational)
 - [ ] First fundamental form E, F, G for parametrized surfaces (cylinder, sphere, torus); surface area via ∫∫√(EG−F²) · `FundamentalFormGenerator` · graduate · d4
