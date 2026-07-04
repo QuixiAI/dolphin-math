@@ -436,6 +436,7 @@ CURRICULUM = {
     "TransientCircuitGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "ACCircuitGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "MagnetismGenerator": {"grade_level": COLLEGE, "difficulty": 4},
+    "GasLawGenerator": {"grade_level": COLLEGE, "difficulty": 2},
 }
 
 

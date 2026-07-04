@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**404 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**405 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7972,6 +7972,26 @@ Steps:
   PI_DEN|27/2|π|27/(2π)
   Z|B=27/(2π) T
 Answer: B=27/(2π) T
+```
+
+### Gas Law — `GasLawGenerator`  ·  college · difficulty 2
+
+Ideal-gas and combined-gas law computations with R supplied as 1.
+
+**Variants:** `gas_law_combined_pressure`, `gas_law_ideal_moles`
+
+```
+Problem: A gas changes from P1=25 atm, V1=29 L, T1=14 K to V2=2 L and T2=9 K. Use the combined gas law to find P2.
+Steps:
+  GAS_SETUP|combined_pressure|P1=25, V1=29, T1=14|V2=2, T2=9
+  GAS_FORMULA|P1*V1/T1=P2*V2/T2
+  GAS_FORMULA|P2=P1*V1*T2/(T1*V2)
+  M|25|29|725
+  M|725|9|6525
+  M|14|2|28
+  D|6525|28|6525/28
+  Z|P2=6525/28 atm
+Answer: P2=6525/28 atm
 ```
 
 ## Graduate
