@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**427 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**428 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -4999,6 +4999,23 @@ Steps:
   LIMITING_REAGENT|N2|NH3=2 mol
   Z|limiting=N2; NH3=2 mol
 Answer: limiting=N2; NH3=2 mol
+```
+
+### Solution Chem — `SolutionChemGenerator`  ·  high · difficulty 3
+
+Exact solution-concentration arithmetic for dilution and mixing.
+
+**Variants:** `solution_chem_dilution_final_molarity`, `solution_chem_dilution_stock_volume`, `solution_chem_mixing_molarity`
+
+```
+Problem: A stock solution has molarity M1=8 M. Prepare V2=311 mL at M2=1/3 M. Find stock volume V1.
+Steps:
+  SOLUTION_SETUP|dilution_stock_volume|M1=8|M2=1/3, V2=311
+  SOLUTION_FORMULA|M1*V1=M2*V2
+  M|1/3|311|311/3
+  D|311/3|8|311/24
+  Z|V1=311/24 mL
+Answer: V1=311/24 mL
 ```
 
 ## College
