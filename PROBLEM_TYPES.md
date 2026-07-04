@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**467 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**468 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -12080,4 +12080,39 @@ Steps:
   GRAD|3|-8/11
   Z|p=(7/11,1/11,3/11); log_softmax=(ln(7/11),ln(1/11),ln(3/11)); CE=ln(11/3); grad=(7/11,1/11,-8/11)
 Answer: p=(7/11,1/11,3/11); log_softmax=(ln(7/11),ln(1/11),ln(3/11)); CE=ln(11/3); grad=(7/11,1/11,-8/11)
+```
+
+### Adam Step — `AdamStepGenerator`  ·  graduate · difficulty 4
+
+One exact Adam optimizer step.
+
+**Variants:** `adam_step_exact_t1`
+
+```
+Problem: Perform one Adam update at t=1 with theta=2, gradient g=-9, m0=0, v0=0, beta1=9/10, beta2=99/100, lr=1/20, and epsilon=0.
+Steps:
+  ADAM_SETUP|theta=2,g=-9|beta1=9/10,beta2=99/100|lr=1/20,epsilon=0
+  M|9/10|0|0
+  S|1|9/10|1/10
+  M|1/10|-9|-9/10
+  A|0|-9/10|-9/10
+  MOMENT|m1|-9/10
+  M|99/100|0|0
+  S|1|99/100|1/100
+  E|-9|2|81
+  M|1/100|81|81/100
+  A|0|81/100|81/100
+  MOMENT|v1|81/100
+  D|-9/10|1/10|-9
+  BIAS_CORRECT|m_hat|-9
+  D|81/100|1/100|81
+  BIAS_CORRECT|v_hat|81
+  ROOT|sqrt(81)|9
+  A|9|0|9
+  D|-9|9|-1
+  M|1/20|-1|-1/20
+  S|2|-1/20|41/20
+  ADAM_UPDATE|theta_new|41/20
+  Z|m=-9/10; v=81/100; m_hat=-9; v_hat=81; theta_new=41/20
+Answer: m=-9/10; v=81/100; m_hat=-9; v_hat=81; theta_new=41/20
 ```

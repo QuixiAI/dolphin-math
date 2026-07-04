@@ -182,7 +182,6 @@ Poetic bonus: the model learns to compute its own building blocks on paper.
 The model hand-computes its own forward pass. Softmax stays exact by
 construction: choose logits as ln of rationals (Principle 5), so the weights
 come out as exact fractions.
-- [ ] One Adam step by hand — moment updates, bias correction, parameter update with nice numbers (extends `GradientStepGenerator`) · `AdamStepGenerator` · graduate · d4
 - [ ] Learning-rate schedules — linear warmup + cosine decay evaluated at step t · `LRScheduleGenerator` · college · d2
 - [ ] Perplexity — from cross-entropy with dyadic probabilities so the exponentiation is exact (composes with `EntropyGenerator`) · `PerplexityGenerator` · graduate · d3
 - [ ] Quantization arithmetic — int8 scale/zero-point, quantize → dequantize a small tensor, measure round-trip error · `QuantizationGenerator` · college · d3

@@ -499,6 +499,7 @@ CURRICULUM = {
     "ParamCountGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "FLOPsMemoryGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "ScalingLawGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "AdamStepGenerator": {"grade_level": GRADUATE, "difficulty": 4},
 }
 
 
