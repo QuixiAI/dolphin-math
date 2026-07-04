@@ -396,6 +396,7 @@ CURRICULUM = {
     "NewtonRaphsonGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "FixedPointGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "InterpolationGenerator": {"grade_level": COLLEGE, "difficulty": 4},
+    "FiniteDifferenceGenerator": {"grade_level": COLLEGE, "difficulty": 3},
 }
 
 

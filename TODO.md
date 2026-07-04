@@ -150,7 +150,6 @@ The daily hand-computation of the field — kinematics, bookkeeping, and
 algebra checks. Constants and logs provided per Principle 5.
 
 ### Numerical Methods
-- [ ] Finite-difference tables; forward/central difference derivatives · `FiniteDifferenceGenerator` · college · d3
 - [ ] Runge-Kutta single steps — RK2/RK4 stage tables (extends `EulerMethodGenerator`) · `RungeKuttaGenerator` · college · d4
 
 ### Probability Theory & Mathematical Statistics

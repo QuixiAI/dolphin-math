@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**364 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**365 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7262,6 +7262,22 @@ Steps:
   A|3|-6|-3
   Z|P(1) = -3
 Answer: P(1) = -3
+```
+
+### Finite Difference — `FiniteDifferenceGenerator`  ·  college · difficulty 3
+
+Finite-difference tables and derivative estimates.
+
+**Variants:** `finite_difference_central_derivative`, `finite_difference_forward_derivative`, `finite_difference_table`
+
+```
+Problem: Use the forward difference with h=4, f(-1)=-5, and f(3)=23 to estimate f'(-1).
+Steps:
+  FINITE_DIFF_SETUP|forward_derivative|x0=-1,h=4|f0=-5,f1=23
+  S|23|-5|28
+  D|28|4|7
+  Z|forward f'(-1) = 7
+Answer: forward f'(-1) = 7
 ```
 
 ## Graduate
