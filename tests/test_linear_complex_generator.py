@@ -64,12 +64,41 @@ class TestLinearComplexGenerator(unittest.TestCase):
             self.assertIn("x", result["problem"]) # Should contain x
 
             # Check if final answer looks reasonable (starts with x=)
-            self.assertTrue(result["final_answer"].startswith("x="))
-            # Check if the value part is a valid fraction string
+            # A0 convention: single solutions are bare values (no x= prefix)
+            self.assertFalse(result["final_answer"].startswith("x="))
+            # Check the bare answer is a valid fraction string
             try:
-                Fraction(result["final_answer"].split('=')[1])
+                Fraction(result["final_answer"])
             except (ValueError, ZeroDivisionError):
-                self.fail(f"Final answer value '{result['final_answer'].split('=')[1]}' is not a valid Fraction string.")
+                self.fail(f"Final answer '{result['final_answer']}' is not a valid Fraction string.")
+
+
+    def test_oracle_solves_equation_from_problem_text(self):
+        """A9 oracle: parse both sides as a*x+b and solve exactly."""
+        import re
+        from fractions import Fraction
+
+        def parse_side(text):
+            text = text.replace(" ", "")
+            a = b = Fraction(0)
+            for tok in re.findall(r"[+-]?[^+-]+", text):
+                if tok.endswith("x"):
+                    c = tok[:-1]
+                    a += Fraction(1 if c in ("", "+")
+                                  else -1 if c == "-" else int(c))
+                else:
+                    b += Fraction(tok)
+            return a, b
+
+        for _ in range(500):
+            result = self.generator.generate()
+            eq = result["problem"].replace("Solve: ", "").replace("Solve ", "")
+            lhs, rhs = eq.split(" = ")
+            a1, b1 = parse_side(lhs)
+            a2, b2 = parse_side(rhs)
+            self.assertNotEqual(a1, a2, eq)
+            expected = (b2 - b1) / (a1 - a2)
+            self.assertEqual(Fraction(result["final_answer"]), expected, eq)
 
 
 if __name__ == '__main__':

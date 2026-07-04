@@ -68,7 +68,8 @@ class LinearComplexGenerator(ProblemGenerator):
         final_val = Fraction(const_val_right, coeff_x)
         steps.append(step("DIV_COEFF", const_val_right, coeff_x, f"x={final_val}"))
 
-        final_answer_str = f"x={final_val}"
+        # A0 convention: single solutions are bare values
+        final_answer_str = str(final_val)
         steps.append(step("Z", final_answer_str))
 
         return dict(

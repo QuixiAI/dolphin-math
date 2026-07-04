@@ -15,7 +15,8 @@ class LinearSimpleGenerator(ProblemGenerator):
 
         rhs1 = y - b
         sol = Fraction(rhs1, m)
-        final_answer_str = f"x={sol}"
+        # A0 convention: single solutions are bare values
+        final_answer_str = str(sol)
 
         # Format problem string carefully
         lhs = f"{m:+}x".replace("+1x", "+x").replace("-1x", "-x").lstrip('+')
@@ -24,7 +25,8 @@ class LinearSimpleGenerator(ProblemGenerator):
 
         steps = [
             step("S", y, b, rhs1), # Subtract b from both sides
-            step("D", rhs1, m, final_answer_str) # Divide by m
+            step("D", rhs1, m, str(sol)), # Divide by m
+            step("EQ_RESULT", "x", str(sol)),
         ]
         steps.append(step("Z", final_answer_str)) # Final answer step
 

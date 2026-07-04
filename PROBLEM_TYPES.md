@@ -881,9 +881,10 @@ Generates simple linear equation problems (e.g., mx + b = y).
 Problem: Solve 4x-9 = 3
 Steps:
   S|3|-9|12
-  D|12|4|x=3
-  Z|x=3
-Answer: x=3
+  D|12|4|3
+  EQ_RESULT|x|3
+  Z|3
+Answer: 3
 ```
 
 ### Linear Complex — `LinearComplexGenerator`  ·  middle · difficulty 4
@@ -902,8 +903,8 @@ Steps:
   COMB_CONST|6|-7|-1
   REWRITE|-4x = -1
   DIV_COEFF|-1|-4|x=1/4
-  Z|x=1/4
-Answer: x=1/4
+  Z|1/4
+Answer: 1/4
 ```
 
 ### Simplify Expression — `SimplifyExpressionGenerator`  ·  middle · difficulty 4
