@@ -231,6 +231,7 @@ from generators.integrating_factor_generator import IntegratingFactorGenerator
 from generators.exact_ode_generator import ExactODEGenerator
 from generators.ode_substitution_generator import ODESubstitutionGenerator
 from generators.second_order_ode_generator import SecondOrderODEGenerator
+from generators.undetermined_coeff_generator import UndeterminedCoeffGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -633,6 +634,7 @@ ALL_GENERATORS = [
     ExactODEGenerator(),
     ODESubstitutionGenerator(),
     SecondOrderODEGenerator(),
+    UndeterminedCoeffGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

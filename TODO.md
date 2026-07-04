@@ -119,7 +119,6 @@ bind extra hard at this level:
 ### Linear Algebra (beyond the small-matrix K-12 items)
 
 ### Differential Equations
-- [ ] Undetermined coefficients · `UndeterminedCoeffGenerator` · college · d4
 - [ ] Variation of parameters; Wronskian · `VariationParametersGenerator` · college · d5
 - [ ] Laplace-transform IVPs — transform table provided (Principle 5), inverse via partial fractions · `LaplaceIVPGenerator` · college · d4
 - [ ] Linear systems x′ = Ax via eigenvalues · `ODESystemGenerator` · college · d5

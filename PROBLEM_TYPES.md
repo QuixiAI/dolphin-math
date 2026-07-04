@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**264 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**265 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5529,6 +5529,45 @@ Steps:
   SOLVE_CONST|C1 = -4|C2 = 1
   Z|y = (-4 + x)e^(3x)
 Answer: y = (-4 + x)e^(3x)
+```
+
+### Undetermined Coeff — `UndeterminedCoeffGenerator`  ·  college · difficulty 4
+
+Undetermined coefficients for nonhomogeneous constant-coefficient ODEs.
+
+**Variants:** `undetermined_coeff_constant_forcing`, `undetermined_coeff_exponential_forcing`
+
+```
+Problem: Solve y'' + y' - 12y = -10e^x with y(0) = 6 and y'(0) = 9 by undetermined coefficients.
+Steps:
+  ODE_SETUP|y'' + y' - 12y = -10e^x|y(0) = 6, y'(0) = 9
+  CHAR_EQ|assume y=e^(rx)|r^2 + r - 12 = 0
+  FACTOR|r^2 + r - 12|(r + 4)(r - 3) = 0
+  CHAR_ROOTS|r1 = -4, r2 = 3|complementary
+  HOM_SOL|y_h|y_h = C1e^(-4x) + C2e^(3x)
+  UC_GUESS|exponential forcing|y_p = Ae^x
+  APPLY_OPERATOR|L[Ae^x]|A(1 + 1 - 12)e^x
+  M|1|1|1
+  M|1|1|1
+  A|1|1|2
+  A|2|-12|-10
+  D|-10|-10|1
+  PARTICULAR|y_p|e^x
+  SOL_FORM|y = C1e^(-4x) + C2e^(3x) + e^x
+  SUBST|x=0|C1 + C2 + 1 = 6
+  S|6|1|5
+  DERIV_FORM|y'|-4C1e^(-4x) + 3C2e^(3x) + e^x
+  M|1|1|1
+  S|9|1|8
+  SUBST|x=0|-4C1 + 3C2 = 8
+  M|3|5|15
+  S|8|15|-7
+  S|-4|3|-7
+  D|-7|-7|1
+  S|5|1|4
+  SOLVE_CONST|C1 = 1|C2 = 4
+  Z|y = e^(-4x) + 4e^(3x) + e^x
+Answer: y = e^(-4x) + 4e^(3x) + e^x
 ```
 
 ## Graduate

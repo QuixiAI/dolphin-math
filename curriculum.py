@@ -296,6 +296,7 @@ CURRICULUM = {
     "ExactODEGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "ODESubstitutionGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "SecondOrderODEGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "UndeterminedCoeffGenerator": {"grade_level": COLLEGE, "difficulty": 4},
 }
 
 
