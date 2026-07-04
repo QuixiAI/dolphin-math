@@ -126,6 +126,7 @@ from generators.transformation_generator import TransformationGenerator
 from generators.arc_sector_generator import ArcSectorGenerator
 from generators.circle_angle_generator import CircleAngleGenerator
 from generators.circle_equation_generator import CircleEquationGenerator
+from generators.taxicab_geometry_generator import TaxicabGeometryGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -411,6 +412,7 @@ ALL_GENERATORS = [
     ArcSectorGenerator(),
     CircleAngleGenerator(),
     CircleEquationGenerator(),
+    TaxicabGeometryGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),

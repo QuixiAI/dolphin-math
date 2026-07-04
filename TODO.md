@@ -91,7 +91,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Conic Sections
 
 ### Geometry & Measurement
-- [ ] Taxicab & Chebyshev metrics — distances, "circles" that come out as diamonds and squares; mind-bending with middle-school arithmetic · `TaxicabGeometryGenerator` · middle · d3
 - [ ] Euler characteristic — V − E + F for polyhedra; sphere-family solids give 2, the torus gives 0 · `EulerCharacteristicGenerator` · middle · d3
 - [ ] Hypercube counting — vertices, edges, faces, cells of the n-cube via 2ⁿ and C(n,k)·2ⁿ⁻ᵏ; distances in ℝ⁴ · `HypercubeCountingGenerator` · high · d4
 
