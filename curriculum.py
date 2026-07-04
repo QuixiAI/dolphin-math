@@ -308,6 +308,7 @@ CURRICULUM = {
     "StarsAndBarsGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "DerangementGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "RecurrenceGenerator": {"grade_level": COLLEGE, "difficulty": 4},
+    "GeneratingFunctionGenerator": {"grade_level": GRADUATE, "difficulty": 4},
 }
 
 

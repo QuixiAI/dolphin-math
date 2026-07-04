@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**276 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**277 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5951,4 +5951,45 @@ Steps:
   COEFF|a_5|49
   Z|y = 5880 + 5880x + 2940x^2 + 980x^3 + 245x^4 + 49x^5 + O(x^6)
 Answer: y = 5880 + 5880x + 2940x^2 + 980x^3 + 245x^4 + 49x^5 + O(x^6)
+```
+
+### Generating Function — `GeneratingFunctionGenerator`  ·  graduate · difficulty 4
+
+Coefficient extraction from simple generating-function products.
+
+**Variants:** `generating_function_binomial_product`, `generating_function_geometric_product`
+
+```
+Problem: Find the coefficient of x^18 in 1/((1 - x^3)(1 - x^5)).
+Steps:
+  GF_SETUP|[x^18]|1/((1 - x^3)(1 - x^5))
+  GF_EXPAND|1/(1 - x^3)|sum x^(3i), i >= 0
+  GF_EXPAND|1/(1 - x^5)|sum x^(5j), j >= 0
+  M|3|0|0
+  S|18|0|18
+  GF_DIV_CHECK|18 / 5|not integer|reject
+  M|3|1|3
+  S|18|3|15
+  D|15|5|3
+  COEFF_PAIR|i=1, j=3|3i + 5j = 18|accepted
+  A|0|1|1
+  M|3|2|6
+  S|18|6|12
+  GF_DIV_CHECK|12 / 5|not integer|reject
+  M|3|3|9
+  S|18|9|9
+  GF_DIV_CHECK|9 / 5|not integer|reject
+  M|3|4|12
+  S|18|12|6
+  GF_DIV_CHECK|6 / 5|not integer|reject
+  M|3|5|15
+  S|18|15|3
+  GF_DIV_CHECK|3 / 5|not integer|reject
+  M|3|6|18
+  S|18|18|0
+  D|0|5|0
+  COEFF_PAIR|i=6, j=0|3i + 5j = 18|accepted
+  A|1|1|2
+  Z|coefficient = 2
+Answer: coefficient = 2
 ```

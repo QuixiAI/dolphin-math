@@ -121,7 +121,6 @@ bind extra hard at this level:
 ### Differential Equations
 
 ### Discrete Math & Combinatorics
-- [ ] Generating functions — coefficient extraction for simple products · `GeneratingFunctionGenerator` · graduate · d4
 - [ ] Boolean algebra — truth tables → DNF/CNF, simplification, Karnaugh maps · `BooleanAlgebraGenerator` · college · d3
 
 ### Graph Theory & Algorithms
