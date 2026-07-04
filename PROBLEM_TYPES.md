@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**403 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**404 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7954,6 +7954,24 @@ Steps:
   TRANSIENT_FORMULA|I=18/7*(1-e^-5)
   Z|I=(18/7)*(1-e^-5) A
 Answer: I=(18/7)*(1-e^-5) A
+```
+
+### Magnetism — `MagnetismGenerator`  ·  college · difficulty 4
+
+Magnetic force and standard magnetic-field cases.
+
+**Variants:** `magnetism_force`, `magnetism_loop_center`, `magnetism_straight_wire`
+
+```
+Problem: A long straight wire carries current I=54 A. At distance r=2 m, use mu0=1 to find the magnetic field magnitude B=mu0*I/(2πr).
+Steps:
+  MAG_SETUP|straight_wire|I=54, r=2|mu0=1
+  MAG_FORMULA|B=mu0*I/(2πr)
+  M|2|2|4
+  D|54|4|27/2
+  PI_DEN|27/2|π|27/(2π)
+  Z|B=27/(2π) T
+Answer: B=27/(2π) T
 ```
 
 ## Graduate

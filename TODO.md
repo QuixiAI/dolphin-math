@@ -160,7 +160,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Physics — Mechanics
 
 ### Physics — Electromagnetism & Circuits
-- [ ] Magnetic forces; Biot-Savart and Ampère standard cases · `MagnetismGenerator` · college · d4
 
 ### Physics — Thermodynamics & Statistical Mechanics
 - [ ] Gas laws and multi-step processes · `GasLawGenerator` · college · d2
