@@ -60,7 +60,7 @@ class CircleAreaCircumferenceGenerator(ProblemGenerator):
 
     def _generate_area_from_radius(self) -> dict:
         """Generate: Given radius, find area."""
-        radius = random.randint(2, 15)
+        radius = random.randint(2, 35)
 
         problem = f"Find the area of a circle with radius {radius} units."
 
@@ -91,8 +91,9 @@ class CircleAreaCircumferenceGenerator(ProblemGenerator):
 
     def _generate_area_from_diameter(self) -> dict:
         """Generate: Given diameter, find area."""
-        diameter = random.randint(4, 20)
-        radius = diameter / 2
+        # even diameter -> integer radius -> integer pi-coefficient
+        diameter = 2 * random.randint(2, 25)
+        radius = diameter // 2
 
         problem = f"Find the area of a circle with diameter {diameter} units."
 
@@ -127,7 +128,7 @@ class CircleAreaCircumferenceGenerator(ProblemGenerator):
 
     def _generate_circumference_from_radius(self) -> dict:
         """Generate: Given radius, find circumference."""
-        radius = random.randint(2, 15)
+        radius = random.randint(2, 35)
 
         problem = f"Find the circumference of a circle with radius {radius} units."
 
@@ -158,7 +159,7 @@ class CircleAreaCircumferenceGenerator(ProblemGenerator):
 
     def _generate_circumference_from_diameter(self) -> dict:
         """Generate: Given diameter, find circumference."""
-        diameter = random.randint(4, 20)
+        diameter = random.randint(4, 50)
 
         problem = f"Find the circumference of a circle with diameter {diameter} units."
 

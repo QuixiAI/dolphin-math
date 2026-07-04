@@ -1170,14 +1170,14 @@ Generates circle area and circumference problems.
 **Variants:** `circle_area`, `circle_circumference`
 
 ```
-Problem: Find the circumference of a circle with diameter 17 units.
+Problem: Find the circumference of a circle with diameter 30 units.
 Steps:
-  CIRCLE_SETUP|17|diameter
+  CIRCLE_SETUP|30|diameter
   CIRCLE_FORMULA|C = πd
-  CIRCLE_SUBSTITUTE|C = π × 17
-  CIRCLE_CALCULATE|C = 17π|17π
-  Z|17π units
-Answer: 17π units
+  CIRCLE_SUBSTITUTE|C = π × 30
+  CIRCLE_CALCULATE|C = 30π|30π
+  Z|30π units
+Answer: 30π units
 ```
 
 ### Volume Prism — `VolumePrismGenerator`  ·  middle · difficulty 4
