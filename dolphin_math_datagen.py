@@ -337,6 +337,7 @@ from generators.continuous_distribution_generator import ContinuousDistributionG
 from generators.named_distribution_generator import NamedDistributionGenerator
 from generators.joint_distribution_generator import JointDistributionGenerator
 from generators.mgf_generator import MGFGenerator
+from generators.rv_transform_generator import RVTransformGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -845,6 +846,7 @@ ALL_GENERATORS = [
     NamedDistributionGenerator(),
     JointDistributionGenerator(),
     MGFGenerator(),
+    RVTransformGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

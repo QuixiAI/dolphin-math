@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**370 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**371 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8873,4 +8873,36 @@ Steps:
   S|1/2|25/256|103/256
   Z|M(t)=25/32 + 1/8*e^t + 3/32*e^(2t); E[X]=5/16; E[X^2]=1/2; Var(X)=103/256
 Answer: M(t)=25/32 + 1/8*e^t + 3/32*e^(2t); E[X]=5/16; E[X^2]=1/2; Var(X)=103/256
+```
+
+### RVTransform — `RVTransformGenerator`  ·  graduate · difficulty 5
+
+Transform random variables with CDF and Jacobian methods.
+
+**Variants:** `rv_transform_cdf_square`, `rv_transform_jacobian_sum_difference`
+
+```
+Problem: Let X,Y be independent Uniform(0,15). Define U=X+Y and V=X-Y. Use the Jacobian method to find the inverse map, transformed support, density f_UV(u,v), and f_UV at the point produced by x=1, y=8.
+Steps:
+  TRANSFORM_SETUP|jacobian|X,Y~Uniform(0,15)|U=X+Y,V=X-Y
+  DENSITY|f_XY(x,y)|1/15^2
+  E|15|2|225
+  D|1|225|1/225
+  INVERSE_MAP|x=(u+v)/2|y=(u-v)/2
+  D|1|2|1/2
+  JAC_MATRIX|dx/du=1/2, dx/dv=1/2|dy/du=1/2, dy/dv=-1/2
+  M|1/2|-1/2|-1/4
+  M|1/2|1/2|1/4
+  S|-1/4|1/4|-1/2
+  ABS|-1/2|1/2
+  M|1/225|1/2|1/450
+  M|2|15|30
+  SUPPORT|0<=u+v<=30|0<=u-v<=30
+  A|1|8|9
+  S|1|8|-7
+  A|9|-7|2
+  S|9|-7|16
+  CHECK|u+v=2|u-v=16|in support
+  Z|inverse x=(u+v)/2, y=(u-v)/2; support=0<=u+v<=30 and 0<=u-v<=30; absJ=1/2; f_UV(u,v)=1/450; f_UV(9,-7)=1/450
+Answer: inverse x=(u+v)/2, y=(u-v)/2; support=0<=u+v<=30 and 0<=u-v<=30; absJ=1/2; f_UV(u,v)=1/450; f_UV(9,-7)=1/450
 ```
