@@ -6,7 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] ProportionalRelationshipGenerator — Proportional Relationship (middle · d3)
 - [ ] OneStepEquationGenerator — One Step Equation (middle · d3)
 - [ ] TwoStepEquationGenerator — Two Step Equation (middle · d4)
 - [ ] LinearSimpleGenerator — Linear Simple (middle · d4)

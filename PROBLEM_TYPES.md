@@ -829,7 +829,8 @@ Generates proportional relationship problems (a/b = c/x or a/b = x/c).
 Problem: If 7 is to 7, what is proportional to 14?
 Steps:
   PROP_SETUP|7/7 = x/14
-  M|7x|7*14=98
+  M|7|14|98
+  EQ_SETUP|x = 98/7
   D|98|7|14
   Z|14
 Answer: 14

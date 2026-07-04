@@ -19,10 +19,7 @@ class ProportionalRelationshipGenerator(ProblemGenerator):
             x_ans = b * k
             problem = f"If {a} is to {b}, what is {c} proportional to?"
             proportion_str = f"{a}/{b} = {c}/x"
-            cross_mult_lhs = f"{a}x"
-            cross_mult_rhs_val = b * c
-            cross_mult_rhs = f"{b}*{c}={cross_mult_rhs_val}" # Use * instead of ×
-            division_step = f"x = {cross_mult_rhs_val}/{a}"
+            factor1, factor2 = b, c
             divisor = a
         else:
             # Case 2: a/b = x/c => x = (a*c)/b
@@ -30,18 +27,19 @@ class ProportionalRelationshipGenerator(ProblemGenerator):
             x_ans = a * k
             problem = f"If {a} is to {b}, what is proportional to {c}?"
             proportion_str = f"{a}/{b} = x/{c}"
-            cross_mult_lhs = f"{b}x"
-            cross_mult_rhs_val = a * c
-            cross_mult_rhs = f"{a}*{c}={cross_mult_rhs_val}" # Use * instead of ×
-            division_step = f"x = {cross_mult_rhs_val}/{b}"
+            factor1, factor2 = a, c
             divisor = b
 
+        cross = factor1 * factor2
         final_answer_str = str(x_ans)
 
+        # Same step pattern as ProportionWordProblemGenerator:
+        # numeric cross-multiplication, then isolate x, then divide
         steps = [
-            step("PROP_SETUP", proportion_str), # Setup proportion
-            step("M", cross_mult_lhs, cross_mult_rhs), # Show cross multiplication expression
-            step("D", cross_mult_rhs_val, divisor, x_ans) # Show division and result (Dividend, Divisor, Quotient)
+            step("PROP_SETUP", proportion_str),
+            step("M", factor1, factor2, cross),
+            step("EQ_SETUP", f"x = {cross}/{divisor}"),
+            step("D", cross, divisor, x_ans),
         ]
         steps.append(step("Z", final_answer_str)) # Final answer step
 
