@@ -242,7 +242,7 @@ class ExponentRulesGenerator(ProblemGenerator):
         else:
             answer = f"1/{base}^{exp}"
             steps.append(step("EXP_RULE_IDENTIFY", "negative_exponent", "x^(-n) = 1/x^n"))
-        steps.append(step("EXP_RULE_APPLY", "negate", exp, "", exp))
+        steps.append(step("EXP_RULE_APPLY", "negate", exp, exp))
         steps.append(step("EXP_RULE_SIMPLIFY", answer))
         steps.append(step("Z", answer))
 

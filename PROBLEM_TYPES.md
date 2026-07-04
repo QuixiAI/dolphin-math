@@ -1056,7 +1056,7 @@ Problem: Simplify: b^(-2)
 Steps:
   EXP_RULE_SETUP|b^(-2)
   EXP_RULE_IDENTIFY|negative_exponent|x^(-n) = 1/x^n
-  EXP_RULE_APPLY|negate|2||2
+  EXP_RULE_APPLY|negate|2|2
   EXP_RULE_SIMPLIFY|1/b^2
   Z|1/b^2
 Answer: 1/b^2

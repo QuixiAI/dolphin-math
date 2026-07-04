@@ -6,7 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] ExponentRulesGenerator — Exponent Rules (middle · d4)
 - [ ] ExponentMixedRulesGenerator — Exponent Mixed Rules (middle · d4)
 - [ ] ScientificNotationGenerator — Scientific Notation (middle · d4)
 - [ ] RootsAndRadicalsGenerator — Roots And Radicals (middle · d4)
