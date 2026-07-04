@@ -205,8 +205,11 @@ class SimilarFiguresScaleGenerator(ProblemGenerator):
         else:  # square
             sides_small = [random.randint(3, 10)]
 
-        # Calculate larger figure sides
-        sides_large = [s * scale_factor for s in sides_small]
+        # Calculate larger figure sides (render whole values without .0)
+        sides_large = [int(s * scale_factor)
+                       if s * scale_factor == int(s * scale_factor)
+                       else s * scale_factor
+                       for s in sides_small]
 
         # Decide which side to "hide"
         hidden_idx = random.randint(0, len(sides_small) - 1)
