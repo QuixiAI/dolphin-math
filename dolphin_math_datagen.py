@@ -322,6 +322,7 @@ from generators.natural_units_generator import NaturalUnitsGenerator
 from generators.invariant_mass_generator import InvariantMassGenerator
 from generators.conservation_law_generator import ConservationLawGenerator
 from generators.quark_composition_generator import QuarkCompositionGenerator
+from generators.branching_ratio_generator import BranchingRatioGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -815,6 +816,7 @@ ALL_GENERATORS = [
     InvariantMassGenerator(),
     ConservationLawGenerator(),
     QuarkCompositionGenerator(),
+    BranchingRatioGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

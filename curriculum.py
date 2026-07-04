@@ -387,6 +387,7 @@ CURRICULUM = {
     "InvariantMassGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "ConservationLawGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "QuarkCompositionGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "BranchingRatioGenerator": {"grade_level": GRADUATE, "difficulty": 3},
 }
 
 

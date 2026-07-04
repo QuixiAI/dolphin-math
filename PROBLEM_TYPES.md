@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**355 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**356 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8460,4 +8460,19 @@ Steps:
   D|1020|68|15
   Z|p = 15
 Answer: p = 15
+```
+
+### Branching Ratio — `BranchingRatioGenerator`  ·  graduate · difficulty 3
+
+Particle partial widths, branching ratios, and lifetimes.
+
+**Variants:** `branching_ratio_branching_ratio`, `branching_ratio_combined`, `branching_ratio_lifetime`
+
+```
+Problem: Given hbar=14 and total width Gamma=2, compute the lifetime tau=hbar/Gamma.
+Steps:
+  WIDTH_SETUP|lifetime|hbar=14|Gamma=2
+  D|14|2|7
+  Z|tau = 7
+Answer: tau = 7
 ```
