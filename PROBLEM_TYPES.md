@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**381 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**382 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -9245,4 +9245,32 @@ Steps:
   A|102|0|102
   Z|initial cost=230; improved x11=1, x12=13, x21=8, x22=0; final cost=102
 Answer: initial cost=230; improved x11=1, x12=13, x21=8, x22=0; final cost=102
+```
+
+### ORFormula — `ORFormulaGenerator`  ·  graduate · difficulty 3
+
+Operations-research formula chains for EOQ and M/M/1 queues.
+
+**Variants:** `or_formula_eoq`, `or_formula_mm1`
+
+```
+Problem: For an M/M/1 queue with arrival rate lambda=14 and service rate mu=16, compute rho, L, W, Lq, and Wq.
+Steps:
+  OR_SETUP|M/M/1|lambda=14|mu=16
+  CHECK|lambda=14 < mu=16|stable
+  S|16|14|2
+  FORMULA|rho=lambda/mu
+  D|14|16|7/8
+  FORMULA|L=lambda/(mu-lambda)
+  D|14|2|7
+  FORMULA|W=1/(mu-lambda)
+  D|1|2|1/2
+  FORMULA|Lq=lambda^2/(mu*(mu-lambda))
+  E|14|2|196
+  M|16|2|32
+  D|196|32|49/8
+  FORMULA|Wq=lambda/(mu*(mu-lambda))
+  D|14|32|7/16
+  Z|rho=7/8; L=7; W=1/2; Lq=49/8; Wq=7/16
+Answer: rho=7/8; L=7; W=1/2; Lq=49/8; Wq=7/16
 ```

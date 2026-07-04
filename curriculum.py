@@ -413,6 +413,7 @@ CURRICULUM = {
     "GradientDescentGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "TransportationGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "GameTheoryGenerator": {"grade_level": COLLEGE, "difficulty": 4},
+    "ORFormulaGenerator": {"grade_level": GRADUATE, "difficulty": 3},
 }
 
 

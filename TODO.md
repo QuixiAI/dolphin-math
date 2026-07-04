@@ -154,7 +154,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Probability Theory & Mathematical Statistics
 
 ### Optimization & Operations Research
-- [ ] EOQ and M/M/1 queueing metrics — formula chains with unit checks · `ORFormulaGenerator` · graduate · d3
 
 ### Signals & Systems / Control
 - [ ] Discrete convolution of finite sequences — the sliding-window table · `ConvolutionGenerator` · college · d3

@@ -348,6 +348,7 @@ from generators.lp_corner_generator import LPCornerGenerator
 from generators.gradient_descent_generator import GradientDescentGenerator
 from generators.transportation_generator import TransportationGenerator
 from generators.game_theory_generator import GameTheoryGenerator
+from generators.or_formula_generator import ORFormulaGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -867,6 +868,7 @@ ALL_GENERATORS = [
     GradientDescentGenerator(),
     TransportationGenerator(),
     GameTheoryGenerator(),
+    ORFormulaGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]
