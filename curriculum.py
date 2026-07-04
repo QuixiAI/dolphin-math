@@ -363,6 +363,7 @@ CURRICULUM = {
     "QuantumGateGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "PartialTraceGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "DensityMatrixGenerator": {"grade_level": GRADUATE, "difficulty": 4},
+    "VonNeumannEntropyGenerator": {"grade_level": GRADUATE, "difficulty": 4},
 }
 
 

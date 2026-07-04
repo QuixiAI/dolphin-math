@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**331 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**332 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7899,4 +7899,30 @@ Steps:
   PURITY|Tr(rho^2)=173/225
   Z|rho = [[13/15,0],[0,2/15]]; expectation = -121/15; purity = 173/225
 Answer: rho = [[13/15,0],[0,2/15]]; expectation = -121/15; purity = 173/225
+```
+
+### Von Neumann Entropy — `VonNeumannEntropyGenerator`  ·  graduate · difficulty 4
+
+Von Neumann entropy from dyadic eigenvalues: S(rho) = -sum lambda_i log2(lambda_i).
+
+**Variants:** `von_neumann_entropy_dyadic`
+
+```
+Problem: Compute the von Neumann entropy in bits for a density matrix with eigenvalues [1/4,1/4,1/4,1/4].
+Steps:
+  ENTROPY_SETUP|eigenvalues=[1/4,1/4,1/4,1/4]|S=-sum lambda log2(lambda)
+  LOG2|1/4|-2
+  M|1/4|2|1/2
+  A|0|1/2|1/2
+  LOG2|1/4|-2
+  M|1/4|2|1/2
+  A|1/2|1/2|1
+  LOG2|1/4|-2
+  M|1/4|2|1/2
+  A|1|1/2|3/2
+  LOG2|1/4|-2
+  M|1/4|2|1/2
+  A|3/2|1/2|2
+  Z|S = 2 bits
+Answer: S = 2 bits
 ```
