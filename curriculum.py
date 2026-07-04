@@ -104,6 +104,7 @@ CURRICULUM = {
     "SyntheticDivisionGenerator": {"grade_level": HIGH, "difficulty": 4},
     "HornerEvaluationGenerator": {"grade_level": HIGH, "difficulty": 4},
     "RemainderFactorTheoremGenerator": {"grade_level": HIGH, "difficulty": 4},
+    "RationalRootGenerator": {"grade_level": HIGH, "difficulty": 5},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},

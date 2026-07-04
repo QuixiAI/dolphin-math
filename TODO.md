@@ -85,7 +85,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Complex Numbers
 
 ### Polynomials & Rational Functions
-- [ ] Rational root theorem — list candidates ±p/q, test each until a root is found (A2) · `RationalRootGenerator` · high · d5
 - [ ] Find all zeros — factor cascade from a given root · `PolynomialZerosGenerator` · high · d5
 - [ ] Rational function features — vertical/horizontal asymptotes and holes via factoring and degree comparison · `RationalFunctionFeaturesGenerator` · high · d4
 
