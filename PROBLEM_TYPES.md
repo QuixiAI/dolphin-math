@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**243 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**244 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5071,4 +5071,29 @@ Steps:
   HESSIAN_TEST|D = 40|f_xx = -4|local maximum
   Z|critical point (4, 3): local maximum
 Answer: critical point (4, 3): local maximum
+```
+
+### Lagrange Multiplier — `LagrangeMultiplierGenerator`  ·  college · difficulty 4
+
+One-constraint Lagrange multiplier computations with exact integer optimizers.
+
+**Variants:** `lagrange_multiplier_product_sum`, `lagrange_multiplier_quadratic_line`
+
+```
+Problem: Maximize f(x,y) = x^2*y subject to x + y = 12, with x > 0 and y > 0, using Lagrange multipliers.
+Steps:
+  LAGRANGE_SETUP|f(x,y) = x^2*y|constraint x + y = 12|maximize
+  PARTIAL_RESULT|f_x|2*x*y
+  PARTIAL_RESULT|f_y|x^2
+  GRAD_RESULT|grad g|(1, 1)
+  LAGRANGE_EQ|f_x = lambda|2*x*y
+  LAGRANGE_EQ|f_y = lambda|x^2
+  ELIMINATE_LAMBDA|f_x = f_y|2*y = x
+  RATIO|2*y = x|y = x/2
+  CONSTRAINT_SUBST|x + y = 12|x = 2*12/3|8
+  CONSTRAINT_SUBST|x + y = 12|y = 12/3|4
+  EVAL|f(8,4)|8^2*4|256
+  CHECK|boundary|product is 0 at x = 0 or y = 0|interior maximum
+  Z|maximum at (8, 4); value 256
+Answer: maximum at (8, 4); value 256
 ```

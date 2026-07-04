@@ -275,6 +275,7 @@ CURRICULUM = {
     "GradientGenerator": {"grade_level": COLLEGE, "difficulty": 2},
     "MultivarChainRuleGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "HessianClassifyGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "LagrangeMultiplierGenerator": {"grade_level": COLLEGE, "difficulty": 4},
 }
 
 

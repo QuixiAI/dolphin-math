@@ -115,7 +115,6 @@ bind extra hard at this level:
 - **A8 first.** These items use the `college` and `graduate` grade levels.
 
 ### Multivariable Calculus
-- [ ] Lagrange multipliers — one constraint · `LagrangeMultiplierGenerator` · college · d4
 - [ ] Double integrals — iterated, order reversal, polar conversion · `DoubleIntegralGenerator` · college · d3
 - [ ] Triple integrals — cylindrical and spherical · `TripleIntegralGenerator` · college · d4
 - [ ] Jacobians and change of variables · `JacobianGenerator` · college · d3
