@@ -97,7 +97,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Vectors & Matrices
 
 ### Limits
-- [ ] Limit evaluation — direct substitution, factor/cancel, rationalize, one-sided, at infinity via degree comparison · `LimitEvaluationGenerator` · high · d4
 - [ ] Limit definition of the derivative · `DerivativeLimitDefGenerator` · high · d5
 
 ### Calculus — Derivatives
