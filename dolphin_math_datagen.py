@@ -408,6 +408,7 @@ from generators.crc_generator import CRCGenerator
 from generators.kraft_inequality_generator import KraftInequalityGenerator
 from generators.gradient_step_generator import GradientStepGenerator
 from generators.perceptron_generator import PerceptronGenerator
+from generators.backprop_generator import BackpropGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -987,6 +988,7 @@ ALL_GENERATORS = [
     KraftInequalityGenerator(),
     GradientStepGenerator(),
     PerceptronGenerator(),
+    BackpropGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

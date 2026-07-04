@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**441 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**442 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -10812,4 +10812,88 @@ Steps:
   PERCEPTRON_UPDATE|i=4|w=(-2,-2,1)
   Z|w_final=(-2,-2,1); updates=3
 Answer: w_final=(-2,-2,1); updates=3
+```
+
+### Backprop — `BackpropGenerator`  ·  graduate · difficulty 5
+
+One exact backpropagation step for a tiny 2-2-1 ReLU network.
+
+**Variants:** `backprop_relu_step`
+
+```
+Problem: For a 2-2-1 ReLU network with x=(1,1), y=-4, eta=1/4, W1=[[0,2], [1,1]], b1=(0,1), v=(1,-1), c=2. Do one SGD backprop step using L=1/2*(y_hat-y)^2.
+Steps:
+  BACKPROP_SETUP|x=(1,1)|y=-4|eta=1/4
+  PARAMS|W1=[[0,2], [1,1]]|b1=(0,1)|v=(1,-1), c=2
+  M|0|1|0
+  M|2|1|2
+  A|0|2|2
+  A|2|0|2
+  HIDDEN_PRE|h1|z=2
+  RELU|z=2|h=2|deriv=1
+  M|1|1|1
+  M|1|1|1
+  A|1|1|2
+  A|2|1|3
+  HIDDEN_PRE|h2|z=3
+  RELU|z=3|h=3|deriv=1
+  M|1|2|2
+  M|-1|3|-3
+  A|2|-3|-1
+  A|-1|2|1
+  OUTPUT|y_hat=1
+  S|1|-4|5
+  E|5|2|25
+  D|25|2|25/2
+  BACKPROP_GRAD|dL/dy_hat|5
+  M|5|2|10
+  BACKPROP_GRAD|dv1|10
+  M|5|3|15
+  BACKPROP_GRAD|dv2|15
+  BACKPROP_GRAD|dc|5
+  M|5|1|5
+  M|5|1|5
+  BACKPROP_DELTA|h1|delta=5
+  M|5|1|5
+  BACKPROP_GRAD|dW1_11|5
+  M|5|1|5
+  BACKPROP_GRAD|dW1_12|5
+  BACKPROP_GRAD|db1_1|5
+  M|5|-1|-5
+  M|-5|1|-5
+  BACKPROP_DELTA|h2|delta=-5
+  M|-5|1|-5
+  BACKPROP_GRAD|dW1_21|-5
+  M|-5|1|-5
+  BACKPROP_GRAD|dW1_22|-5
+  BACKPROP_GRAD|db1_2|-5
+  M|1/4|5|5/4
+  S|0|5/4|-5/4
+  UPDATE|W1_11|-5/4
+  M|1/4|5|5/4
+  S|2|5/4|3/4
+  UPDATE|W1_12|3/4
+  M|1/4|5|5/4
+  S|0|5/4|-5/4
+  UPDATE|b1_1|-5/4
+  M|1/4|-5|-5/4
+  S|1|-5/4|9/4
+  UPDATE|W1_21|9/4
+  M|1/4|-5|-5/4
+  S|1|-5/4|9/4
+  UPDATE|W1_22|9/4
+  M|1/4|-5|-5/4
+  S|1|-5/4|9/4
+  UPDATE|b1_2|9/4
+  M|1/4|10|5/2
+  S|1|5/2|-3/2
+  UPDATE|v1|-3/2
+  M|1/4|15|15/4
+  S|-1|15/4|-19/4
+  UPDATE|v2|-19/4
+  M|1/4|5|5/4
+  S|2|5/4|3/4
+  UPDATE|c|3/4
+  Z|y_hat=1; loss=25/2; W1_new=[[-5/4,3/4], [9/4,9/4]]; b1_new=(-5/4,9/4); v_new=(-3/2,-19/4); c_new=3/4
+Answer: y_hat=1; loss=25/2; W1_new=[[-5/4,3/4], [9/4,9/4]]; b1_new=(-5/4,9/4); v_new=(-3/2,-19/4); c_new=3/4
 ```
