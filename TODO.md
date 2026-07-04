@@ -95,7 +95,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Trigonometry
 
 ### Vectors & Matrices
-- [ ] Determinants — 2×2 and 3×3 by cofactor expansion · `DeterminantGenerator` · high · d4
 - [ ] Inverse of a 2×2 matrix · `MatrixInverseGenerator` · high · d4
 - [ ] Cramer's rule · `CramersRuleGenerator` · high · d5
 - [ ] Row reduction / Gaussian elimination — superb tabular scratchpad material · `RowReductionGenerator` · high · d5
@@ -212,7 +211,6 @@ bind extra hard at this level:
 - [ ] Centroids and moments via integration · `CentroidGenerator` · college · d4
 
 ### Linear Algebra (beyond the small-matrix K-12 items)
-- [ ] Determinants via row reduction — track each row-op's effect (variant of `DeterminantGenerator`) · college · d3
 - [ ] LU decomposition · `LUDecompositionGenerator` · college · d3
 - [ ] RREF → rank, null space and column space bases · `SubspaceBasisGenerator` · college · d3
 - [ ] Eigenvalues & eigenvectors — characteristic polynomial, 2×2 and 3×3 · `EigenvalueGenerator` · college · d3
