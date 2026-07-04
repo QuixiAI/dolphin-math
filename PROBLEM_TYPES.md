@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**267 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**268 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5625,6 +5625,33 @@ Steps:
   INVERSE_LAPLACE|-4/(s - 4)|-4e^(4t)
   Z|y = -2e^(-4t) - 4e^(4t)
 Answer: y = -2e^(-4t) - 4e^(4t)
+```
+
+### ODESystem — `ODESystemGenerator`  ·  college · difficulty 5
+
+Linear systems x' = A x solved by eigenvalues and eigenvectors.
+
+**Variants:** `ode_system_two_by_two_distinct`
+
+```
+Problem: Solve x' = A x for A = [[2, 2], [-1, 5]] with x(0) = [-7, -3] using eigenvalues.
+Steps:
+  ODE_SETUP|A = [[2, 2], [-1, 5]]|x(0) = [-7, -3]
+  TRACE|2 + 5|7
+  M|2|5|10
+  M|2|-1|-2
+  S|10|-2|12
+  DET2|ad - bc|12
+  CHAR_EQ|det(A - rI)|r^2 - 7r + 12 = 0
+  EIGENPAIR|lambda = 3|[2, 1]
+  CHECK|A*[2, 1]|[6, 3]|3v = [6, 3]
+  EIGENPAIR|lambda = 4|[1, 1]
+  CHECK|A*[1, 1]|[4, 4]|4v = [4, 4]
+  SOL_FORM|x(t)|C1e^(3t)[2, 1] + C2e^(4t)[1, 1]
+  INITIAL_SYSTEM|C1[2, 1] + C2[1, 1]|[-7, -3]
+  SOLVE_CONST|C1 = -4|C2 = 1
+  Z|x(t) = [-8e^(3t) + e^(4t), -4e^(3t) + e^(4t)]
+Answer: x(t) = [-8e^(3t) + e^(4t), -4e^(3t) + e^(4t)]
 ```
 
 ## Graduate

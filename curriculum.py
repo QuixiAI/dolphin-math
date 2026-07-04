@@ -299,6 +299,7 @@ CURRICULUM = {
     "UndeterminedCoeffGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "VariationParametersGenerator": {"grade_level": COLLEGE, "difficulty": 5},
     "LaplaceIVPGenerator": {"grade_level": COLLEGE, "difficulty": 4},
+    "ODESystemGenerator": {"grade_level": COLLEGE, "difficulty": 5},
 }
 
 
