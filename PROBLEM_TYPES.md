@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**386 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**387 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7695,6 +7695,24 @@ Steps:
   FOURIER_COEF|b_1=14
   Z|a0=0, a_n=0, b_1=14
 Answer: a0=0, a_n=0, b_1=14
+```
+
+### Signal Arithmetic — `SignalArithmeticGenerator`  ·  college · difficulty 2
+
+Sampling/Nyquist and dB arithmetic.
+
+**Variants:** `signal_arithmetic_db_power`, `signal_arithmetic_nyquist`
+
+```
+Problem: For a power ratio P2/P1=10, use supplied log10(P2/P1)=1 to compute gain in dB.
+Steps:
+  SIGNAL_SETUP|dB power ratio|P2/P1=10
+  DB_FORMULA|G_dB=10*log10(P2/P1)
+  LOG_SUPPLIED|log10(10)|1
+  M|10|1|10
+  CHECK|positive is gain, negative is loss|10 dB
+  Z|G=10 dB
+Answer: G=10 dB
 ```
 
 ## Graduate

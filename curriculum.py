@@ -418,6 +418,7 @@ CURRICULUM = {
     "DFTGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "FourierSeriesGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "ZTransformGenerator": {"grade_level": GRADUATE, "difficulty": 4},
+    "SignalArithmeticGenerator": {"grade_level": COLLEGE, "difficulty": 2},
 }
 
 
