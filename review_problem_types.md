@@ -6,9 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] FunctionEvaluationGenerator — Function Evaluation (high · d3)
-- [ ] FunctionTableGenerator — Function Table (high · d3)
-- [ ] PiecewiseEvaluationGenerator — Piecewise Evaluation (high · d4)
 - [ ] FunctionOperationsGenerator — Function Operations (high · d4)
 - [ ] FunctionCompositionGenerator — Function Composition (high · d4)
 - [ ] DomainRangeGenerator — Domain Range (high · d4)
