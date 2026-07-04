@@ -1154,11 +1154,11 @@ Generates triangle angle sum problems (angles sum to 180°).
 **Variants:** `exterior_angle_theorem`, `triangle_angle_sum`, `triangle_angle_sum_algebraic`
 
 ```
-Problem: In a triangle, the angles measure (1x + 12)°, (3x + 9)°, and (4x - 25)°. Find the value of x.
+Problem: In a triangle, the angles measure (x + 12)°, (3x + 9)°, and (4x - 25)°. Find the value of x.
 Steps:
-  TRI_ANGLE_SETUP|1x + 12|3x + 9|4x - 25
-  TRI_ANGLE_SUM|(1x + 12) + (3x + 9) + (4x - 25) = 180
-  TRI_ANGLE_SOLVE|8x + -4 = 180|x = 23
+  TRI_ANGLE_SETUP|x + 12|3x + 9|4x - 25
+  TRI_ANGLE_SUM|(x + 12) + (3x + 9) + (4x - 25) = 180
+  TRI_ANGLE_SOLVE|8x - 4 = 180|x = 23
   Z|23
 Answer: 23
 ```

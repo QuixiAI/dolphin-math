@@ -424,20 +424,32 @@ class TriangleAngleSumGenerator(ProblemGenerator):
 
     def _generate_algebraic(self) -> dict:
         """Generate problem with algebraic expressions for angles."""
-        x = random.randint(10, 30)
 
-        # Generate three expressions that sum to 180
-        coef1 = random.randint(1, 4)
-        coef2 = random.randint(1, 4)
-        coef3 = random.randint(1, 4)
-        const1 = random.randint(0, 20)
-        const2 = random.randint(0, 20)
-        # const3 = 180 - (coef1 + coef2 + coef3)*x - const1 - const2
-        const3 = 180 - (coef1 + coef2 + coef3) * x - const1 - const2
+        def term(coef, const):
+            ctxt = "x" if coef == 1 else f"{coef}x"
+            if const > 0:
+                return f"{ctxt} + {const}"
+            if const < 0:
+                return f"{ctxt} - {-const}"
+            return ctxt
 
-        expr1 = f"{coef1}x + {const1}" if const1 > 0 else f"{coef1}x"
-        expr2 = f"{coef2}x + {const2}" if const2 > 0 else f"{coef2}x"
-        expr3 = f"{coef3}x + {const3}" if const3 >= 0 else f"{coef3}x - {-const3}"
+        # Generate three expressions that sum to 180 with all angles positive
+        while True:
+            x = random.randint(10, 30)
+            coef1 = random.randint(1, 4)
+            coef2 = random.randint(1, 4)
+            coef3 = random.randint(1, 4)
+            const1 = random.randint(0, 20)
+            const2 = random.randint(0, 20)
+            const3 = 180 - (coef1 + coef2 + coef3) * x - const1 - const2
+            angles = (coef1 * x + const1, coef2 * x + const2,
+                      coef3 * x + const3)
+            if all(a > 0 for a in angles):
+                break
+
+        expr1 = term(coef1, const1)
+        expr2 = term(coef2, const2)
+        expr3 = term(coef3, const3)
 
         problem = f"In a triangle, the angles measure ({expr1})°, ({expr2})°, and ({expr3})°. Find the value of x."
 
@@ -447,8 +459,10 @@ class TriangleAngleSumGenerator(ProblemGenerator):
 
         total_coef = coef1 + coef2 + coef3
         total_const = const1 + const2 + const3
+        const_txt = (f"+ {total_const}" if total_const >= 0
+                     else f"- {-total_const}")
 
-        steps_list.append(step("TRI_ANGLE_SOLVE", f"{total_coef}x + {total_const} = 180", f"x = {x}"))
+        steps_list.append(step("TRI_ANGLE_SOLVE", f"{total_coef}x {const_txt} = 180", f"x = {x}"))
         steps_list.append(step("Z", x))
 
         return dict(
