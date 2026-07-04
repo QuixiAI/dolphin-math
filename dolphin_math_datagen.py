@@ -357,6 +357,7 @@ from generators.signal_arithmetic_generator import SignalArithmeticGenerator
 from generators.transfer_function_generator import TransferFunctionGenerator
 from generators.routh_hurwitz_generator import RouthHurwitzGenerator
 from generators.projectile_motion_generator import ProjectileMotionGenerator
+from generators.newtons_laws_generator import NewtonsLawsGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -885,6 +886,7 @@ ALL_GENERATORS = [
     TransferFunctionGenerator(),
     RouthHurwitzGenerator(),
     ProjectileMotionGenerator(),
+    NewtonsLawsGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**390 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**391 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7737,6 +7737,31 @@ Steps:
   D|841|20|841/20
   Z|time=29/5 s; range=1711/5 m; max height=841/20 m
 Answer: time=29/5 s; range=1711/5 m; max height=841/20 m
+```
+
+### Newtons Laws — `NewtonsLawsGenerator`  ·  college · difficulty 3
+
+Newton's-law force systems: Atwood machines and frictional inclines.
+
+**Variants:** `newtons_laws_atwood`, `newtons_laws_incline_friction`
+
+```
+Problem: A 26 kg block slides down an incline with supplied sin(theta)=5/13, cos(theta)=12/13, and friction coefficient mu=1/26. Use g=10 m/s^2 to find normal force, friction, and acceleration.
+Steps:
+  NEWTON_SETUP|incline_friction|m=26, mu=1/26|g=10
+  NEWTON_SETUP|sin=5/13|cos=12/13
+  M|26|10|260
+  FORCE_COMPONENT|parallel=m*g*sin
+  M|260|5/13|100
+  FORCE_COMPONENT|normal=m*g*cos
+  M|260|12/13|240
+  FORCE_COMPONENT|friction=mu*N
+  M|1/26|240|120/13
+  FORCE_EQ|m*a=parallel-friction
+  S|100|120/13|1180/13
+  D|1180/13|26|590/169
+  Z|N=240 N; friction=120/13 N; a=590/169 m/s^2
+Answer: N=240 N; friction=120/13 N; a=590/169 m/s^2
 ```
 
 ## Graduate

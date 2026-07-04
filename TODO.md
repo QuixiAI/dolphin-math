@@ -158,7 +158,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Signals & Systems / Control
 
 ### Physics — Mechanics
-- [ ] Newton's laws systems — inclines, friction, Atwood machines; solve the simultaneous equations · `NewtonsLawsGenerator` · college · d3
 - [ ] Momentum and collisions — elastic/inelastic, 1D and 2D components · `CollisionGenerator` · college · d3
 - [ ] Work-energy theorem and energy conservation · `EnergyConservationGenerator` · college · d2
 - [ ] Circular motion and gravitation; Kepler's third law · `OrbitalMechanicsGenerator` · college · d3
