@@ -175,7 +175,6 @@ algebra checks. Constants and logs provided per Principle 5.
 Poetic bonus: the model learns to compute its own building blocks on paper.
 
 ### Matrix Calculus & ML Linear Algebra
-- [ ] Matrix calculus — gradients of vector/matrix expressions: ∇ₓ(aᵀx), ∇ₓ(xᵀAx) = (A + Aᵀ)x, applied numerically and symbolically · `MatrixCalculusGenerator` · graduate · d4
 - [ ] Norms — L1, L2, L∞, Frobenius; spectral norm of small matrices via eigenvalues; condition numbers · `MatrixNormGenerator` · college · d3
 - [ ] Positive-definiteness checks — Sylvester's criterion via leading principal minors · `PositiveDefiniteGenerator` · college · d3
 - [ ] Covariance matrix from a small dataset → 2×2 PCA — eigendecompose, project onto the principal component · `PCAGenerator` · graduate · d4

@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**447 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**448 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -11201,4 +11201,36 @@ Steps:
   CHECK|texture vs source|0.011625 < 0.716875|choose=source
   Z|best=source; gain_texture=0.011625; gain_source=0.716875
 Answer: best=source; gain_texture=0.011625; gain_source=0.716875
+```
+
+### Matrix Calculus — `MatrixCalculusGenerator`  ·  graduate · difficulty 4
+
+Matrix-calculus gradients for linear and quadratic vector expressions.
+
+**Variants:** `matrix_calculus_linear_form`, `matrix_calculus_quadratic_form`
+
+```
+Problem: For A=[[2,-4], [0,4]] and x=(2,1), compute grad_x(x^T A x) using (A+A^T)x.
+Steps:
+  MC_SETUP|expression=x^T A x|A=[[2,-4], [0,4]]|x=(2,1)
+  GRADIENT_FORMULA|grad_x(x^T A x)=(A+A^T)x
+  MATRIX_SUM|B=A+A^T
+  A|2|2|4
+  MAT_ENTRY|B11|4
+  A|-4|0|-4
+  MAT_ENTRY|B12|-4
+  A|0|-4|-4
+  MAT_ENTRY|B21|-4
+  A|4|4|8
+  MAT_ENTRY|B22|8
+  M|4|2|8
+  M|-4|1|-4
+  A|8|-4|4
+  GRAD_ENTRY|g1|4
+  M|-4|2|-8
+  M|8|1|8
+  A|-8|8|0
+  GRAD_ENTRY|g2|0
+  Z|grad=(4,0)
+Answer: grad=(4,0)
 ```
