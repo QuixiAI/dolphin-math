@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**304 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**305 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7286,4 +7286,23 @@ Steps:
   ROTATED_VECTOR|(4,0,-4)
   Z|qvq^-1 = (0,4,0,-4); vector = (4,0,-4)
 Answer: qvq^-1 = (0,4,0,-4); vector = (4,0,-4)
+```
+
+### Complex Log — `ComplexLogGenerator`  ·  graduate · difficulty 4
+
+Principal and multivalued complex logarithms, plus the principal power i^i = exp(i Log i).
+
+**Variants:** `complex_log_log`, `complex_log_power_ii`
+
+```
+Problem: Find the principal Log and all logarithms of z = 49 cis(300 deg).
+Steps:
+  LOG_SETUP|z=49 cis(300 deg)
+  S|300|360|-60
+  ANGLE_WRAP|300 deg|-60 deg
+  LOG_FORMULA|log z = ln r + i(arg + 2pi*k)
+  PRINCIPAL_LOG|ln(49) - i*pi/3
+  MULTIVALUED_LOG|ln(49) + i*(-pi/3 + 2pi*k)|k in Z
+  Z|Log(z) = ln(49) - i*pi/3; log(z) = ln(49) + i*(-pi/3 + 2pi*k), k in Z
+Answer: Log(z) = ln(49) - i*pi/3; log(z) = ln(49) + i*(-pi/3 + 2pi*k), k in Z
 ```
