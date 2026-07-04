@@ -88,7 +88,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Probability
 
 ### Applied & Cross-Disciplinary
-- [ ] Calendar arithmetic — days between dates, weekday counting · `CalendarArithmeticGenerator` · middle · d3
 - [ ] Fermi estimation with significant figures carried through the calculation · `FermiEstimationGenerator` · high · d4
 
 ### Critic & Estimation Formats

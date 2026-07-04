@@ -204,6 +204,7 @@ from generators.base_arithmetic_generator import BaseArithmeticGenerator
 from generators.bitwise_ops_generator import BitwiseOpsGenerator
 from generators.modular_arithmetic_generator import ModularArithmeticGenerator
 from generators.manual_square_root_generator import ManualSquareRootGenerator
+from generators.calendar_arithmetic_generator import CalendarArithmeticGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -419,6 +420,7 @@ ALL_GENERATORS = [
     BitwiseOpsGenerator(),
     ModularArithmeticGenerator(),
     ManualSquareRootGenerator(),
+    CalendarArithmeticGenerator(),
 
     # ===== HIGH SCHOOL =====
 

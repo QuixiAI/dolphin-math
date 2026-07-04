@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**237 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**238 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -1646,6 +1646,23 @@ Steps:
   CHECK|divide-and-average|(x + N/x)/2|21.8
   Z|21.8
 Answer: 21.8
+```
+
+### Calendar Arithmetic — `CalendarArithmeticGenerator`  ·  middle · difficulty 3
+
+Calendar arithmetic with explicit day counts and modulo-7 weekday logic: days between dates, weekday after an offset, and counting a weekday in an inclusive date range.
+
+**Variants:** `calendar_arithmetic_count_weekday`, `calendar_arithmetic_days_between`, `calendar_arithmetic_weekday_after`
+
+```
+Problem: 2028-04-01 is a Saturday. What weekday is it after 114 days?
+Steps:
+  CAL_SETUP|2028-04-01|Saturday, offset 114 days|weekday
+  A|5|114|119
+  MOD_REDUCE|119|mod 7|0
+  WEEKDAY_SCAN|index 0|Monday
+  Z|Monday
+Answer: Monday
 ```
 
 ### Pascal Triangle — `PascalTriangleGenerator`  ·  middle · difficulty 3
