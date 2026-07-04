@@ -109,6 +109,7 @@ CURRICULUM = {
     "RationalFunctionFeaturesGenerator": {"grade_level": HIGH, "difficulty": 4},
     "ExponentialModelGenerator": {"grade_level": HIGH, "difficulty": 4},
     "LogConversionGenerator": {"grade_level": HIGH, "difficulty": 4},
+    "LogPropertiesGenerator": {"grade_level": HIGH, "difficulty": 4},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},
