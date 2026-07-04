@@ -123,7 +123,6 @@ bind extra hard at this level:
 ### Discrete Math & Combinatorics
 
 ### Graph Theory & Algorithms
-- [ ] Dijkstra shortest path — full distance-table trace · `DijkstraGenerator` · college · d4
 - [ ] Minimum spanning trees — Kruskal and Prim traces · `MSTGenerator` · college · d4
 - [ ] BFS/DFS visit orders; topological sort · `GraphTraversalGenerator` · college · d3
 - [ ] Euler circuits/paths — degree-parity check plus construction · `EulerCircuitGenerator` · college · d3

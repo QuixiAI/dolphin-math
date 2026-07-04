@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**279 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**280 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5920,6 +5920,52 @@ Steps:
   WALK_ENTRY|A^2[4,2]|1
   Z|walks = 1
 Answer: walks = 1
+```
+
+### Dijkstra — `DijkstraGenerator`  ·  college · difficulty 4
+
+Dijkstra shortest paths with a full distance-table trace.
+
+**Variants:** `dijkstra_trace`
+
+```
+Problem: Use Dijkstra's algorithm on the weighted undirected graph with vertices A, B, C, D, E and edges AB=1, AD=3, BC=9, BD=7, CD=5, CE=8, DE=2. Start at E and find shortest distances to all vertices.
+Steps:
+  GRAPH_SETUP|weighted undirected graph|vertices A, B, C, D, E
+  EDGE_WEIGHT|AB|1
+  EDGE_WEIGHT|AD|3
+  EDGE_WEIGHT|BC|9
+  EDGE_WEIGHT|BD|7
+  EDGE_WEIGHT|CD|5
+  EDGE_WEIGHT|CE|8
+  EDGE_WEIGHT|DE|2
+  DIJKSTRA_INIT|start E|A=inf, B=inf, C=inf, D=inf, E=0
+  SELECT_MIN|E|0
+  A|0|8|8
+  RELAX|E->C|update inf to 8|via weight 8
+  A|0|2|2
+  RELAX|E->D|update inf to 2|via weight 2
+  DIST_TABLE|visited E|A=inf, B=inf, C=8, D=2, E=0
+  SELECT_MIN|D|2
+  A|2|3|5
+  RELAX|D->A|update inf to 5|via weight 3
+  A|2|7|9
+  RELAX|D->B|update inf to 9|via weight 7
+  A|2|5|7
+  RELAX|D->C|update 8 to 7|via weight 5
+  DIST_TABLE|visited E, D|A=5, B=9, C=7, D=2, E=0
+  SELECT_MIN|A|5
+  A|5|1|6
+  RELAX|A->B|update 9 to 6|via weight 1
+  DIST_TABLE|visited E, D, A|A=5, B=6, C=7, D=2, E=0
+  SELECT_MIN|B|6
+  A|6|9|15
+  RELAX|B->C|keep 7|candidate 15
+  DIST_TABLE|visited E, D, A, B|A=5, B=6, C=7, D=2, E=0
+  SELECT_MIN|C|7
+  DIST_TABLE|visited E, D, A, B, C|A=5, B=6, C=7, D=2, E=0
+  Z|distances = A:5, B:6, C:7, D:2, E:0
+Answer: distances = A:5, B:6, C:7, D:2, E:0
 ```
 
 ## Graduate
