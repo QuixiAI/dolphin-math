@@ -153,6 +153,7 @@ from generators.derivative_limit_def_generator import DerivativeLimitDefGenerato
 from generators.derivative_power_rule_generator import DerivativePowerRuleGenerator
 from generators.derivative_product_quotient_generator import DerivativeProductQuotientGenerator
 from generators.chain_rule_generator import ChainRuleGenerator
+from generators.derivative_transcendental_generator import DerivativeTranscendentalGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -465,6 +466,7 @@ ALL_GENERATORS = [
     DerivativePowerRuleGenerator(),
     DerivativeProductQuotientGenerator(),
     ChainRuleGenerator(),
+    DerivativeTranscendentalGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),

@@ -154,6 +154,7 @@ CURRICULUM = {
     "DerivativePowerRuleGenerator": {"grade_level": HIGH, "difficulty": 4},
     "DerivativeProductQuotientGenerator": {"grade_level": HIGH, "difficulty": 5},
     "ChainRuleGenerator": {"grade_level": HIGH, "difficulty": 5},
+    "DerivativeTranscendentalGenerator": {"grade_level": HIGH, "difficulty": 5},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},

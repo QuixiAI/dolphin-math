@@ -99,7 +99,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Limits
 
 ### Calculus — Derivatives
-- [ ] Trig, exponential, and log derivatives · `DerivativeTranscendentalGenerator` · high · d5
 - [ ] Implicit differentiation · `ImplicitDiffGenerator` · high · d5
 - [ ] Logarithmic differentiation; higher-order derivatives · variants of the above · high · d5
 - [ ] Tangent & normal line equations · `TangentLineGenerator` · high · d4
