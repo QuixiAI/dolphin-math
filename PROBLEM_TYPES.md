@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**414 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**415 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -9991,4 +9991,24 @@ Steps:
   D|31213|15|31213/15
   Z|N=sqrt(13/49); <x>=91/2; <x^2>=31213/15
 Answer: N=sqrt(13/49); <x>=91/2; <x^2>=31213/15
+```
+
+### Spin Half — `SpinHalfGenerator`  ·  graduate · difficulty 4
+
+Spin-1/2 calculations with Pauli matrices and exact probabilities.
+
+**Variants:** `spin_half_apply_pauli`, `spin_half_eigenvalue`, `spin_half_measurement_probability`
+
+```
+Problem: Show that psi=(ket0 - ket1)/sqrt(2) is an eigenstate of sigma_x and find the eigenvalue.
+Steps:
+  SPIN_SETUP|eigenvalue|operator=sigma_x|psi=(ket0 - ket1)/sqrt(2)
+  PAULI_MATRIX|sigma_x|[[0,1],[1,0]]
+  APPLY_PAULI|sigma_x ket0|ket1
+  APPLY_PAULI|sigma_x -ket1|-ket0
+  REWRITE|sigma_x psi=(ket1 - ket0)/sqrt(2)
+  REWRITE|sigma_x psi=-(ket0 - ket1)/sqrt(2)
+  EIGEN_CHECK|sigma_x psi|-1*psi|lambda=-1
+  Z|sigma_x psi=-1*psi; lambda=-1
+Answer: sigma_x psi=-1*psi; lambda=-1
 ```

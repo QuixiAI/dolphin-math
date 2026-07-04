@@ -381,6 +381,7 @@ from generators.blackbody_generator import BlackbodyGenerator
 from generators.quantum_formula_generator import QuantumFormulaGenerator
 from generators.particle_in_box_generator import ParticleInBoxGenerator
 from generators.wavefunction_generator import WavefunctionGenerator
+from generators.spin_half_generator import SpinHalfGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -933,6 +934,7 @@ ALL_GENERATORS = [
     QuantumFormulaGenerator(),
     ParticleInBoxGenerator(),
     WavefunctionGenerator(),
+    SpinHalfGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]
