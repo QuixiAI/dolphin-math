@@ -182,7 +182,6 @@ Poetic bonus: the model learns to compute its own building blocks on paper.
 The model hand-computes its own forward pass. Softmax stays exact by
 construction: choose logits as ln of rationals (Principle 5), so the weights
 come out as exact fractions.
-- [ ] LayerNorm by hand — mean, variance, normalize, scale-and-shift on small vectors (composes with `StandardDeviationGenerator`) · `LayerNormGenerator` · college · d3
 - [ ] Activation functions — ReLU/GELU/sigmoid values and derivatives (e-values provided); chain them through a two-layer computation · `ActivationGenerator` · college · d3
 - [ ] Sinusoidal positional encodings at nice angles · `PositionalEncodingGenerator` · college · d3
 - [ ] Parameter counting — attention + MLP + embeddings per layer, the ≈12·d²·L back-of-envelope; LoRA counting r(d_in + d_out) vs full fine-tuning · `ParamCountGenerator` · college · d3

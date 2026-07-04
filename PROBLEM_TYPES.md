@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**461 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**462 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8909,6 +8909,42 @@ Steps:
   NEAREST|queen|(4,-7)
   Z|target=(4,-7); nearest=queen
 Answer: target=(4,-7); nearest=queen
+```
+
+### Layer Norm — `LayerNormGenerator`  ·  college · difficulty 3
+
+LayerNorm by hand for a two-element vector with exact standard deviation.
+
+**Variants:** `layer_norm_exact_2d`
+
+```
+Problem: Apply LayerNorm to x=(-5,9) with gamma=(1,3) and beta=(3,2). Use population variance and epsilon=0.
+Steps:
+  LAYERNORM_SETUP|x=(-5,9)|gamma=(1,3)|beta=(3,2)
+  A|-5|9|4
+  D|4|2|2
+  MEAN|2
+  S|-5|2|-7
+  E|-7|2|49
+  S|9|2|7
+  E|7|2|49
+  A|49|49|98
+  D|98|2|49
+  VARIANCE|49
+  ROOT|sqrt(49)|7
+  STD|7
+  D|-7|7|-1
+  NORMALIZE|1|-1
+  M|1|-1|-1
+  A|-1|3|2
+  SCALE_SHIFT|1|2
+  D|7|7|1
+  NORMALIZE|2|1
+  M|3|1|3
+  A|3|2|5
+  SCALE_SHIFT|2|5
+  Z|mean=2; variance=49; normalized=(-1,1); y=(2,5)
+Answer: mean=2; variance=49; normalized=(-1,1); y=(2,5)
 ```
 
 ## Graduate
