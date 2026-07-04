@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**225 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**226 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -1669,6 +1669,26 @@ Steps:
   M|5|3/10|1.5
   Z|1.5
 Answer: 1.5
+```
+
+### Probability Addition Rule — `ProbabilityAdditionRuleGenerator`  ·  middle · difficulty 4
+
+The addition rule P(A ∪ B) = P(A) + P(B) − P(A ∩ B), for both mutually exclusive events (intersection 0) and overlapping ones, plus the rearrangement that solves for the intersection. A concrete die variant reads the events as sets and counts outcomes. All probabilities are exact fractions.
+
+**Variants:** `probability_addition_die`, `probability_addition_find_intersection`, `probability_addition_mutually_exclusive`, `probability_addition_overlapping`
+
+```
+Problem: A fair die is rolled. Let A be the event that the roll is at least 4 ([4, 5, 6]) and B the event that it is less than 3 ([1, 2]). Find P(A or B).
+Steps:
+  ADD_SETUP|fair die; A = [4, 5, 6], B = [1, 2]|P(A ∪ B)
+  COUNT|A = [4, 5, 6]|3/6
+  COUNT|B = [1, 2]|2/6
+  COUNT|A ∩ B = []|0/6
+  ADD_FORMULA|P(A ∪ B) = P(A) + P(B) - P(A ∩ B)
+  A|3/6|2/6|5/6
+  S|5/6|0/6|5/6
+  Z|5/6
+Answer: 5/6
 ```
 
 ### Error Spotting — `ErrorSpottingGenerator`  ·  middle · difficulty 4
