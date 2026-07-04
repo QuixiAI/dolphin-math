@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**384 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**385 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7673,6 +7673,28 @@ Steps:
   DFT_BIN|X3=5-14i
   Z|X=[13,5+14i,5,5-14i]
 Answer: X=[13,5+14i,5,5-14i]
+```
+
+### Fourier Series — `FourierSeriesGenerator`  ·  college · difficulty 4
+
+Fourier sine coefficients for square and sawtooth waves.
+
+**Variants:** `fourier_series_sawtooth`, `fourier_series_square`
+
+```
+Problem: For the 2pi-periodic sawtooth f(x)=7*x on (-pi,pi), compute b_1 by integration.
+Steps:
+  FOURIER_SETUP|sawtooth|A=7|n=1
+  SYMMETRY|odd function|a0=0, a_n=0
+  INTEGRAL|b_n=(1/pi)*int_-pi^pi A*x*sin(nx) dx
+  INTEGRATION_BY_PARTS|u=x|dv=sin(nx)dx
+  PARITY|(-1)^(n+1)=1
+  M|2|7|14
+  M|14|1|14
+  D|14|1|14
+  FOURIER_COEF|b_1=14
+  Z|a0=0, a_n=0, b_1=14
+Answer: a0=0, a_n=0, b_1=14
 ```
 
 ## Graduate

@@ -156,7 +156,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Optimization & Operations Research
 
 ### Signals & Systems / Control
-- [ ] Fourier series coefficients — square and sawtooth waves by integration · `FourierSeriesGenerator` · college · d4
 - [ ] z-transforms of basic sequences; solve difference equations · `ZTransformGenerator` · graduate · d4
 - [ ] Sampling/Nyquist and dB arithmetic · `SignalArithmeticGenerator` · college · d2
 - [ ] Transfer functions from ODEs; block-diagram reduction; poles and zeros · `TransferFunctionGenerator` · graduate · d4

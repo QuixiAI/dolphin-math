@@ -416,6 +416,7 @@ CURRICULUM = {
     "ORFormulaGenerator": {"grade_level": GRADUATE, "difficulty": 3},
     "ConvolutionGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "DFTGenerator": {"grade_level": COLLEGE, "difficulty": 4},
+    "FourierSeriesGenerator": {"grade_level": COLLEGE, "difficulty": 4},
 }
 
 
