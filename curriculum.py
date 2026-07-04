@@ -286,6 +286,7 @@ CURRICULUM = {
     "CentroidGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "LUDecompositionGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "SubspaceBasisGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "EigenvalueGenerator": {"grade_level": COLLEGE, "difficulty": 3},
 }
 
 

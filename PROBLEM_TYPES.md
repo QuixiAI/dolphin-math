@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**254 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**255 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5318,4 +5318,33 @@ Steps:
   COL_BASIS|original columns 1, 2, 3|[[0, 1, 1], [-1, 1, 0], [-1, 0, 0]]
   Z|rank 3; null basis [[-2, 4, 0, 1]]; column basis [[0, 1, 1], [-1, 1, 0], [-1, 0, 0]]
 Answer: rank 3; null basis [[-2, 4, 0, 1]]; column basis [[0, 1, 1], [-1, 1, 0], [-1, 0, 0]]
+```
+
+### Eigenvalue — `EigenvalueGenerator`  ·  college · difficulty 3
+
+Eigenvalues and eigenvectors for 2x2 and 3x3 upper-triangular matrices with distinct integer eigenvalues. The characteristic polynomial is shown from det(lambda I - A), then each eigenspace solves (A - lambda I)v = 0.
+
+**Variants:** `eigenvalues_three`, `eigenvalues_two`
+
+```
+Problem: Find the characteristic polynomial, eigenvalues, and eigenvectors of A = [[1, 4, 3], [0, -5, 1], [0, 0, -1]].
+Steps:
+  MAT_SETUP|A = [[1, 4, 3], [0, -5, 1], [0, 0, -1]]|characteristic polynomial and eigenvectors
+  CHAR_SETUP|p(λ) = det(λI - A)|triangular determinant
+  CHAR_DIAG|diagonal of λI - A|(λ - 1), (λ + 5), (λ + 1)
+  CHAR_POLY|p(λ) = λ^3 + 5λ^2 - λ - 5|(λ + 5)*(λ + 1)*(λ - 1)
+  EIGENVALUE|λ = -5|p(-5) = 0
+  EIGEN_MATRIX|A + 5I|[[6, 4, 3], [0, 0, 1], [0, 0, 4]]
+  EIGENVECTOR|A + 5I times v = 0|[2, -3, 0]
+  CHECK|A*[2, -3, 0]|[-10, 15, 0]|-5*v = [-10, 15, 0]
+  EIGENVALUE|λ = -1|p(-1) = 0
+  EIGEN_MATRIX|A + 1I|[[2, 4, 3], [0, -4, 1], [0, 0, 0]]
+  EIGENVECTOR|A + 1I times v = 0|[8, -1, -4]
+  CHECK|A*[8, -1, -4]|[-8, 1, 4]|-1*v = [-8, 1, 4]
+  EIGENVALUE|λ = 1|p(1) = 0
+  EIGEN_MATRIX|A - 1I|[[0, 4, 3], [0, -6, 1], [0, 0, -2]]
+  EIGENVECTOR|A - 1I times v = 0|[1, 0, 0]
+  CHECK|A*[1, 0, 0]|[1, 0, 0]|1*v = [1, 0, 0]
+  Z|p(λ)=λ^3 + 5λ^2 - λ - 5 = (λ + 5)*(λ + 1)*(λ - 1); eigenpairs λ=-5: span([2, -3, 0]), λ=-1: span([8, -1, -4]), λ=1: span([1, 0, 0])
+Answer: p(λ)=λ^3 + 5λ^2 - λ - 5 = (λ + 5)*(λ + 1)*(λ - 1); eigenpairs λ=-5: span([2, -3, 0]), λ=-1: span([8, -1, -4]), λ=1: span([1, 0, 0])
 ```
