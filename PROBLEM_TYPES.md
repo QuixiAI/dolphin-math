@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**455 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**456 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -11569,4 +11569,29 @@ Steps:
   CHECK|feature dot equals kernel|900=900|verified=true
   Z|phi_x=(16,8,2); phi_z=(49,14,2); dot=900; K=900; verified=true
 Answer: phi_x=(16,8,2); phi_z=(49,14,2); dot=900; K=900; verified=true
+```
+
+### Kernel Validity — `KernelValidityGenerator`  ·  graduate · difficulty 4
+
+Check whether a small candidate kernel Gram matrix is PSD.
+
+**Variants:** `kernel_validity_psd_2x2`
+
+```
+Problem: Check whether the candidate kernel Gram matrix K=[[7,-6], [-6,1]] is PSD using Sylvester's criterion for 2x2 matrices.
+Steps:
+  PSD_SETUP|K=[[7,-6], [-6,1]]|criterion=all principal minors >= 0
+  PRINCIPAL_MINOR|K11|7
+  CHECK|K11 >= 0|7 >= 0|true
+  PRINCIPAL_MINOR|K22|1
+  CHECK|K22 >= 0|1 >= 0|true
+  M|7|1|7
+  M|-6|-6|36
+  S|7|36|-29
+  DET|K|-29
+  PRINCIPAL_MINOR|det(K)|-29
+  CHECK|det(K) >= 0|-29 >= 0|false
+  KERNEL_VALIDITY|psd=false
+  Z|PSD=false; minors=(7,1,-29)
+Answer: PSD=false; minors=(7,1,-29)
 ```

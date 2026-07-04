@@ -487,6 +487,7 @@ CURRICULUM = {
     "LowRankApproxGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "KernelEvaluationGenerator": {"grade_level": GRADUATE, "difficulty": 3},
     "FeatureMapGenerator": {"grade_level": GRADUATE, "difficulty": 4},
+    "KernelValidityGenerator": {"grade_level": GRADUATE, "difficulty": 4},
 }
 
 
