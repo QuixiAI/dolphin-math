@@ -294,6 +294,7 @@ from generators.metric_arc_length_generator import MetricArcLengthGenerator
 from generators.function_inner_product_generator import FunctionInnerProductGenerator
 from generators.legendre_construction_generator import LegendreConstructionGenerator
 from generators.hermitian_check_generator import HermitianCheckGenerator
+from generators.tensor_product_generator import TensorProductGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -759,6 +760,7 @@ ALL_GENERATORS = [
     FunctionInnerProductGenerator(),
     LegendreConstructionGenerator(),
     HermitianCheckGenerator(),
+    TensorProductGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

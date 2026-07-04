@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**327 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**328 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7019,6 +7019,34 @@ Steps:
   CHECK|U^dagger U|I|unitary
   Z|unitary yes; U^dagger U = I
 Answer: unitary yes; U^dagger U = I
+```
+
+### Tensor Product — `TensorProductGenerator`  ·  college · difficulty 3
+
+Build a 4x4 operator from a 2x2 diagonal tensor product and apply it to a product state.
+
+**Variants:** `tensor_product_diagonal_apply`
+
+```
+Problem: Let A=diag(1,1), B=diag(-5,-1), u=[4,3], and v=[2,0]. Build A tensor B and apply it to u tensor v.
+Steps:
+  TENSOR_SETUP|A=diag(1,1)|B=diag(-5,-1)|u=[4,3], v=[2,0]
+  TENSOR_RULE|diag(a,b) tensor diag(c,d)=diag(ac,ad,bc,bd)
+  M|1|-5|-5
+  M|1|-1|-1
+  M|1|-5|-5
+  M|1|-1|-1
+  TENSOR_STATE|u tensor v|[8,0,6,0]
+  M|4|2|8
+  M|4|0|0
+  M|3|2|6
+  M|3|0|0
+  M|-5|8|-40
+  M|-1|0|0
+  M|-5|6|-30
+  M|-1|0|0
+  Z|A tensor B = diag(-5,-1,-5,-1); output = [-40,0,-30,0]
+Answer: A tensor B = diag(-5,-1,-5,-1); output = [-40,0,-30,0]
 ```
 
 ## Graduate

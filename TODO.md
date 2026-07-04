@@ -139,7 +139,6 @@ arithmetic. Nice angles (30°/45°/60°/90°) keep everything exact per Principl
 ### Hilbert Spaces & Quantum Information
 Where linear algebra becomes physics. Everything here is finite-dimensional
 matrix arithmetic or explicit integration — no functional analysis proofs.
-- [ ] Kronecker/tensor products — build 4×4 operators from 2×2 ⊗ 2×2; apply to product states · `TensorProductGenerator` · college · d3
 - [ ] Quantum gates — apply H, X, Y, Z, CNOT to qubit states; measurement probabilities; small circuits end to end · `QuantumGateGenerator` · college · d3
 - [ ] Bell states & entanglement arithmetic — separability by attempted factorization; reduced density matrix via partial trace · `PartialTraceGenerator` · graduate · d4
 - [ ] Density matrices — build ρ from ensembles; expectations Tr(ρA); purity Tr(ρ²) · `DensityMatrixGenerator` · graduate · d4
