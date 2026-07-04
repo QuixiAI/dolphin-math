@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**296 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**297 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -6650,6 +6650,53 @@ Steps:
   CHECK|shared secrets match|18
   Z|Alice public = 4; Bob public = 21; shared secret = 18
 Answer: Alice public = 4; Bob public = 21; shared secret = 18
+```
+
+### Cayley Table — `CayleyTableGenerator`  ·  college · difficulty 3
+
+Cayley tables and element orders for small finite groups.
+
+**Variants:** `cayley_table_d3`, `cayley_table_units`, `cayley_table_zn`
+
+```
+Problem: Build the Cayley table for U(28) under multiplication modulo 28 and find the order of element 17.
+Steps:
+  GROUP_SETUP|U(28)|multiplication mod n
+  CAYLEY_HEADER|1, 3, 5, 9, 11, 13, 15, 17, 19, 23, 25, 27
+  CAYLEY_ROW|row 1|1, 3, 5, 9, 11, 13, 15, 17, 19, 23, 25, 27
+  CAYLEY_ROW|row 3|3, 9, 15, 27, 5, 11, 17, 23, 1, 13, 19, 25
+  CAYLEY_ROW|row 5|5, 15, 25, 17, 27, 9, 19, 1, 11, 3, 13, 23
+  CAYLEY_ROW|row 9|9, 27, 17, 25, 15, 5, 23, 13, 3, 11, 1, 19
+  CAYLEY_ROW|row 11|11, 5, 27, 15, 9, 3, 25, 19, 13, 1, 23, 17
+  CAYLEY_ROW|row 13|13, 11, 9, 5, 3, 1, 27, 25, 23, 19, 17, 15
+  CAYLEY_ROW|row 15|15, 17, 19, 23, 25, 27, 1, 3, 5, 9, 11, 13
+  CAYLEY_ROW|row 17|17, 23, 1, 13, 19, 25, 3, 9, 15, 27, 5, 11
+  CAYLEY_ROW|row 19|19, 1, 11, 3, 13, 23, 5, 15, 25, 17, 27, 9
+  CAYLEY_ROW|row 23|23, 13, 3, 11, 1, 19, 9, 27, 17, 25, 15, 5
+  CAYLEY_ROW|row 25|25, 19, 13, 1, 23, 17, 11, 5, 27, 15, 9, 3
+  CAYLEY_ROW|row 27|27, 25, 23, 19, 17, 15, 13, 11, 9, 5, 3, 1
+  ORDER_START|17|identity 1
+  M|1|17|17
+  MOD_REDUCE|17|mod 28|17
+  ORDER_STEP|k=1|17
+  M|17|17|289
+  MOD_REDUCE|289|mod 28|9
+  ORDER_STEP|k=2|9
+  M|9|17|153
+  MOD_REDUCE|153|mod 28|13
+  ORDER_STEP|k=3|13
+  M|13|17|221
+  MOD_REDUCE|221|mod 28|25
+  ORDER_STEP|k=4|25
+  M|25|17|425
+  MOD_REDUCE|425|mod 28|5
+  ORDER_STEP|k=5|5
+  M|5|17|85
+  MOD_REDUCE|85|mod 28|1
+  ORDER_STEP|k=6|1
+  ELEMENT_ORDER|17|6
+  Z|order(17) = 6
+Answer: order(17) = 6
 ```
 
 ## Graduate

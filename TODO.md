@@ -127,7 +127,6 @@ bind extra hard at this level:
 ### Number Theory & Cryptography
 
 ### Abstract Algebra (computational side only)
-- [ ] Cayley tables for ℤₙ, U(n), D₃; element orders · `CayleyTableGenerator` · college · d3
 - [ ] Cyclic subgroups and generators · `CyclicGroupGenerator` · college · d3
 - [ ] Permutations — cycle notation, composition, order, parity · `PermutationGroupGenerator` · college · d3
 - [ ] Coset enumeration in small groups · `CosetGenerator` · graduate · d4
