@@ -123,6 +123,7 @@ CURRICULUM = {
     "DistanceFormulaGenerator": {"grade_level": HIGH, "difficulty": 3},
     "MidpointGenerator": {"grade_level": HIGH, "difficulty": 3},
     "SegmentPartitionGenerator": {"grade_level": HIGH, "difficulty": 4},
+    "TransformationGenerator": {"grade_level": HIGH, "difficulty": 3},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},

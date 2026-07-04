@@ -91,7 +91,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Conic Sections
 
 ### Geometry & Measurement
-- [ ] Transformations by coordinate rules — translate, reflect, rotate (90°/180°/270°), dilate, and compositions · `TransformationGenerator` · high · d3
 - [ ] Arc length & sector area · `ArcSectorGenerator` · high · d4
 - [ ] Central & inscribed angle relationships · `CircleAngleGenerator` · high · d4
 - [ ] Equation of a circle — standard form; general → standard via completing the square · `CircleEquationGenerator` · high · d5
