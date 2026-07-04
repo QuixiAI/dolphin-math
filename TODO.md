@@ -152,7 +152,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Numerical Methods
 
 ### Probability Theory & Mathematical Statistics
-- [ ] Named distributions — Poisson, exponential, uniform, normal (z-values provided) · `NamedDistributionGenerator` · college · d3
 - [ ] Joint distributions — marginals, conditionals, independence check, covariance/correlation · `JointDistributionGenerator` · college · d4
 - [ ] Moment generating functions — derive, differentiate for moments · `MGFGenerator` · graduate · d4
 - [ ] Transformations of random variables — CDF method and Jacobian · `RVTransformGenerator` · graduate · d5

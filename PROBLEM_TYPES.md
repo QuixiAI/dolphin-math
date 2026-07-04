@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**367 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**368 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7352,6 +7352,23 @@ Steps:
   S|98|784/9|98/9
   Z|k = 1/98, P = 13/49, mean = 28/3, variance = 98/9
 Answer: k = 1/98, P = 13/49, mean = 28/3, variance = 98/9
+```
+
+### Named Distribution — `NamedDistributionGenerator`  ·  college · difficulty 3
+
+Poisson, exponential, uniform, and normal distribution arithmetic.
+
+**Variants:** `named_distribution_exponential`, `named_distribution_normal`, `named_distribution_poisson`, `named_distribution_uniform`
+
+```
+Problem: For X~Normal(mu=-1, sigma=1), compute P(X<0). Use supplied Phi(1)=8413/10000.
+Steps:
+  DIST_SETUP|normal|mu=-1,sigma=1|x=0
+  S|0|-1|1
+  D|1|1|1
+  LOOKUP_SUPPLIED|Phi(1)|8413/10000
+  Z|P(X<0) = 8413/10000
+Answer: P(X<0) = 8413/10000
 ```
 
 ## Graduate

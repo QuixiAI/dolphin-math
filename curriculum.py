@@ -399,6 +399,7 @@ CURRICULUM = {
     "FiniteDifferenceGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "RungeKuttaGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "ContinuousDistributionGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "NamedDistributionGenerator": {"grade_level": COLLEGE, "difficulty": 3},
 }
 
 
