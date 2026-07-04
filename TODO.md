@@ -164,7 +164,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Physics — Thermodynamics & Statistical Mechanics
 
 ### Physics — Quantum Mechanics
-- [ ] Harmonic-oscillator ladder operators — algebraic energy computations · `LadderOperatorGenerator` · graduate · d5
 - [ ] Hydrogen atom — Rydberg transitions, ionization energies · `HydrogenAtomGenerator` · college · d3
 - [ ] Finite-dimensional bra-ket — inner products, time evolution under a diagonal Hamiltonian · `BraKetGenerator` · graduate · d4
 

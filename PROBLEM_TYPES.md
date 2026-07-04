@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**416 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**417 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -10034,4 +10034,30 @@ Steps:
   CHECK|identity|[D,x^2]=2x|matches 2x f
   Z|[D,x^2]f=2*x^15
 Answer: [D,x^2]f=2*x^15
+```
+
+### Ladder Operator — `LadderOperatorGenerator`  ·  graduate · difficulty 5
+
+Harmonic-oscillator ladder-operator algebra and energy levels.
+
+**Variants:** `ladder_operator_commutator_energy`, `ladder_operator_number_energy`, `ladder_operator_single_step_energy`
+
+```
+Problem: For harmonic oscillator state ket25 with hbar=7 and omega=1, compute N=adag*a and E_25.
+Steps:
+  LADDER_SETUP|number_energy|state=ket25|hbar=7, omega=1
+  LADDER_RULE|a ketn=sqrt(n) ket(n-1)|adag ketn=sqrt(n+1) ket(n+1)
+  LADDER_APPLY|a ket25|sqrt(25) ket24
+  LADDER_APPLY|adag sqrt(25) ket24|sqrt(25)*sqrt(25) ket25
+  M|25|25|625
+  ROOT|625|25
+  NUMBER_OPERATOR|N ket25|25 ket25
+  M|2|25|50
+  A|50|1|51
+  M|7|1|7
+  M|7|51|357
+  D|357|2|357/2
+  ENERGY_LEVEL|E_25=hbar*omega*(n+1/2)|357/2
+  Z|N ket25=25 ket25; E_25=357/2
+Answer: N ket25=25 ket25; E_25=357/2
 ```
