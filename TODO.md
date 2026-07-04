@@ -121,7 +121,6 @@ bind extra hard at this level:
 ### Differential Equations
 
 ### Discrete Math & Combinatorics
-- [ ] Inclusion-exclusion counting · `InclusionExclusionGenerator` · college · d3
 - [ ] Stars and bars; multinomial coefficients · `StarsAndBarsGenerator` · college · d3
 - [ ] Derangements · `DerangementGenerator` · college · d3
 - [ ] Linear recurrences — characteristic-root method, homogeneous and not · `RecurrenceGenerator` · college · d4

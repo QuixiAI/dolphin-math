@@ -239,6 +239,7 @@ from generators.series_solution_generator import SeriesSolutionGenerator
 from generators.stability_generator import StabilityGenerator
 from generators.set_operations_generator import SetOperationsGenerator
 from generators.relation_check_generator import RelationCheckGenerator
+from generators.inclusion_exclusion_generator import InclusionExclusionGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -649,6 +650,7 @@ ALL_GENERATORS = [
     StabilityGenerator(),
     SetOperationsGenerator(),
     RelationCheckGenerator(),
+    InclusionExclusionGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

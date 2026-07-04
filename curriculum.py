@@ -304,6 +304,7 @@ CURRICULUM = {
     "StabilityGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "SetOperationsGenerator": {"grade_level": COLLEGE, "difficulty": 2},
     "RelationCheckGenerator": {"grade_level": COLLEGE, "difficulty": 2},
+    "InclusionExclusionGenerator": {"grade_level": COLLEGE, "difficulty": 3},
 }
 
 

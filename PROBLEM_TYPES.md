@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**272 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**273 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5728,6 +5728,27 @@ Steps:
   PROPERTY_RESULT|transitive|no
   Z|reflexive no; symmetric no; antisymmetric no; transitive no
 Answer: reflexive no; symmetric no; antisymmetric no; transitive no
+```
+
+### Inclusion Exclusion — `InclusionExclusionGenerator`  ·  college · difficulty 3
+
+Inclusion-exclusion counting for two and three finite sets.
+
+**Variants:** `inclusion_exclusion_three_sets`, `inclusion_exclusion_two_sets`
+
+```
+Problem: In a survey, n(A) = 38, n(B) = 25, n(C) = 31, n(A intersect B) = 14, n(A intersect C) = 13, n(B intersect C) = 12, and n(A intersect B intersect C) = 5. How many are in A union B union C?
+Steps:
+  IE_SETUP|n(A)=38, n(B)=25, n(C)=31|n(AB)=14, n(AC)=13, n(BC)=12, n(ABC)=5
+  IE_FORMULA|n(A union B union C)|n(A)+n(B)+n(C) - n(AB)-n(AC)-n(BC) + n(ABC)
+  A|38|25|63
+  A|63|31|94
+  A|14|13|27
+  A|27|12|39
+  S|94|39|55
+  A|55|5|60
+  Z|n(A union B union C) = 60
+Answer: n(A union B union C) = 60
 ```
 
 ## Graduate
