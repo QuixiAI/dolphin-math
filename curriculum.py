@@ -170,6 +170,7 @@ CURRICULUM = {
     "RiemannSumGenerator": {"grade_level": HIGH, "difficulty": 4},
     "AreaBetweenCurvesGenerator": {"grade_level": HIGH, "difficulty": 5},
     "SolidRevolutionGenerator": {"grade_level": HIGH, "difficulty": 5},
+    "SeparableODEGenerator": {"grade_level": HIGH, "difficulty": 5},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},

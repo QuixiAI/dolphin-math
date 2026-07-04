@@ -169,6 +169,7 @@ from generators.definite_integral_generator import DefiniteIntegralGenerator
 from generators.riemann_sum_generator import RiemannSumGenerator
 from generators.area_between_curves_generator import AreaBetweenCurvesGenerator
 from generators.solid_revolution_generator import SolidRevolutionGenerator
+from generators.separable_ode_generator import SeparableODEGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -497,6 +498,7 @@ ALL_GENERATORS = [
     RiemannSumGenerator(),
     AreaBetweenCurvesGenerator(),
     SolidRevolutionGenerator(),
+    SeparableODEGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),
