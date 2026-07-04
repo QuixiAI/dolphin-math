@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**256 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**257 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5379,4 +5379,41 @@ Steps:
   CHECK|direct A^4|[[146, -130], [65, -49]]|matches diagonalization
   Z|P=[[1, 2], [1, 1]], D=[[2, 0], [0, 3]], P^-1=[[-1, 2], [1, -1]], A^4=[[146, -130], [65, -49]]
 Answer: P=[[1, 2], [1, 1]], D=[[2, 0], [0, 3]], P^-1=[[-1, 2], [1, -1]], A^4=[[146, -130], [65, -49]]
+```
+
+### Gram Schmidt — `GramSchmidtGenerator`  ·  college · difficulty 4
+
+Gram-Schmidt orthogonalization for two vectors in R2 or three vectors in R3. The requested output is an exact orthogonal basis, not a normalized basis, so no radicals are needed.
+
+**Variants:** `gram_schmidt_three`, `gram_schmidt_two`
+
+```
+Problem: Apply Gram-Schmidt to vectors [[2, 1, 0], [0, 5, 0], [4, -3, -1]] and give an orthogonal basis, not normalized.
+Steps:
+  GS_SETUP|vectors [[2, 1, 0], [0, 5, 0], [4, -3, -1]]|orthogonal basis, not normalized
+  GS_VECTOR|u1 = v1|[2, 1, 0]
+  GS_VECTOR|start v2|[0, 5, 0]
+  DOT|v2·u1|5|5
+  DOT|u1·u1|2*2 + 1|5
+  PROJ_COEFF|v2 on u1|5/5|1
+  PROJ_VECTOR|u1|[2, 1, 0]
+  GS_SUBTRACT|remove projection on u1|[-2, 4, 0]
+  GS_VECTOR|u2|[-2, 4, 0]
+  GS_VECTOR|start v3|[4, -3, -1]
+  DOT|v3·u1|4*2 + (-3)|5
+  DOT|u1·u1|2*2 + 1|5
+  PROJ_COEFF|v3 on u1|5/5|1
+  PROJ_VECTOR|u1|[2, 1, 0]
+  GS_SUBTRACT|remove projection on u1|[2, -4, -1]
+  DOT|v3·u2|4*(-2) + (-3)*4|-20
+  DOT|u2·u2|(-2)*(-2) + 4*4|20
+  PROJ_COEFF|v3 on u2|-20/20|-1
+  PROJ_VECTOR|-u2|[2, -4, 0]
+  GS_SUBTRACT|remove projection on u2|[0, 0, -1]
+  GS_VECTOR|u3|[0, 0, -1]
+  CHECK|u1·u2|0|orthogonal
+  CHECK|u1·u3|0|orthogonal
+  CHECK|u2·u3|0|orthogonal
+  Z|orthogonal basis [[2, 1, 0], [-2, 4, 0], [0, 0, -1]]
+Answer: orthogonal basis [[2, 1, 0], [-2, 4, 0], [0, 0, -1]]
 ```
