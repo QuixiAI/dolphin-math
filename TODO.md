@@ -173,7 +173,6 @@ algebra checks. Constants and logs provided per Principle 5.
 
 ### Machine Learning by Hand
 Poetic bonus: the model learns to compute its own building blocks on paper.
-- [ ] Perceptron updates over a small dataset · `PerceptronGenerator` · graduate · d3
 - [ ] Tiny neural network — forward pass plus one backprop step, chain-rule bookkeeping in tables · `BackpropGenerator` · graduate · d5
 - [ ] Naive Bayes classification from count tables · `NaiveBayesGenerator` · college · d4
 - [ ] Decision-tree splits — information gain via entropy (composes with `EntropyGenerator`) · `InformationGainGenerator` · graduate · d4

@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**440 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**441 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -10740,4 +10740,76 @@ Steps:
   GD_UPDATE|w_old=(0,-1)|eta=1/7|w_new=(-2/21,31/7)
   Z|loss=181/3; gradient=(2/3,-38); w_new=(-2/21,31/7)
 Answer: loss=181/3; gradient=(2/3,-38); w_new=(-2/21,31/7)
+```
+
+### Perceptron — `PerceptronGenerator`  ·  graduate · difficulty 3
+
+Perceptron updates over one ordered epoch of a small labeled dataset.
+
+**Variants:** `perceptron_four_point_epoch`, `perceptron_three_point_epoch`
+
+```
+Problem: Run one perceptron epoch with eta=2, starting weights w=(0,2,-1) for samples [(1,1,-1), (0,2,1), (-1,2,1), (1,0,-1)]. Use bias feature x0=1, score=w0+w1*x1+w2*x2, and update when y*score <= 0.
+Steps:
+  PERCEPTRON_SETUP|eta=2|w=(0,2,-1)|samples=[(1,1,-1), (0,2,1), (-1,2,1), (1,0,-1)]
+  PERCEPTRON_RULE|score=w0+w1*x1+w2*x2|if y*score <= 0 update
+  PERCEPTRON_SAMPLE|i=1|x=(1,1)|y=-1
+  M|2|1|2
+  A|0|2|2
+  M|-1|1|-1
+  A|2|-1|1
+  PERCEPTRON_SCORE|i=1|score=1
+  M|-1|1|-1
+  CHECK|i=1|y*score=-1|update
+  M|2|-1|-2
+  M|-2|1|-2
+  A|0|-2|-2
+  M|-2|1|-2
+  A|2|-2|0
+  M|-2|1|-2
+  A|-1|-2|-3
+  PERCEPTRON_UPDATE|i=1|w=(-2,0,-3)
+  PERCEPTRON_SAMPLE|i=2|x=(0,2)|y=1
+  M|0|0|0
+  A|-2|0|-2
+  M|-3|2|-6
+  A|-2|-6|-8
+  PERCEPTRON_SCORE|i=2|score=-8
+  M|1|-8|-8
+  CHECK|i=2|y*score=-8|update
+  M|2|1|2
+  M|2|1|2
+  A|-2|2|0
+  M|2|0|0
+  A|0|0|0
+  M|2|2|4
+  A|-3|4|1
+  PERCEPTRON_UPDATE|i=2|w=(0,0,1)
+  PERCEPTRON_SAMPLE|i=3|x=(-1,2)|y=1
+  M|0|-1|0
+  A|0|0|0
+  M|1|2|2
+  A|0|2|2
+  PERCEPTRON_SCORE|i=3|score=2
+  M|1|2|2
+  CHECK|i=3|y*score=2|keep
+  PERCEPTRON_UPDATE|i=3|no change|w=(0,0,1)
+  PERCEPTRON_SAMPLE|i=4|x=(1,0)|y=-1
+  M|0|1|0
+  A|0|0|0
+  M|1|0|0
+  A|0|0|0
+  PERCEPTRON_SCORE|i=4|score=0
+  M|-1|0|0
+  CHECK|i=4|y*score=0|update
+  M|2|-1|-2
+  M|-2|1|-2
+  A|0|-2|-2
+  M|-2|1|-2
+  A|0|-2|-2
+  M|-2|0|0
+  A|1|0|1
+  PERCEPTRON_UPDATE|i=4|w=(-2,-2,1)
+  Z|w_final=(-2,-2,1); updates=3
+Answer: w_final=(-2,-2,1); updates=3
 ```
