@@ -478,6 +478,7 @@ CURRICULUM = {
     "InformationGainGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "KMeansStepGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "KNNGenerator": {"grade_level": COLLEGE, "difficulty": 2},
+    "ClassifierMetricsGenerator": {"grade_level": COLLEGE, "difficulty": 2},
 }
 
 

@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**446 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**447 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8800,6 +8800,31 @@ Steps:
   CHECK|A vs B|0 < 3|predict=B
   Z|class=B; neighbors=P2:B,P4:B,P3:B
 Answer: class=B; neighbors=P2:B,P4:B,P3:B
+```
+
+### Classifier Metrics — `ClassifierMetricsGenerator`  ·  college · difficulty 2
+
+Precision, recall, and F1 from a binary confusion matrix.
+
+**Variants:** `classifier_precision_recall_f1`
+
+```
+Problem: Given confusion matrix counts TP=25, FP=25, FN=29, TN=27, compute precision, recall, and F1 for the positive class.
+Steps:
+  METRICS_SETUP|TP=25, FP=25, FN=29, TN=27
+  METRIC_FORMULA|precision=TP/(TP+FP)
+  A|25|25|50
+  D|25|50|1/2
+  METRIC_FORMULA|recall=TP/(TP+FN)
+  A|25|29|54
+  D|25|54|25/54
+  METRIC_FORMULA|F1=2PR/(P+R)
+  M|1/2|25/54|25/108
+  M|2|25/108|25/54
+  A|1/2|25/54|26/27
+  D|25/54|26/27|25/52
+  Z|precision=1/2; recall=25/54; F1=25/52
+Answer: precision=1/2; recall=25/54; F1=25/52
 ```
 
 ## Graduate

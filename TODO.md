@@ -173,7 +173,6 @@ algebra checks. Constants and logs provided per Principle 5.
 
 ### Machine Learning by Hand
 Poetic bonus: the model learns to compute its own building blocks on paper.
-- [ ] Confusion-matrix metrics — precision, recall, F1 · `ClassifierMetricsGenerator` · college · d2
 
 ### Matrix Calculus & ML Linear Algebra
 - [ ] Matrix calculus — gradients of vector/matrix expressions: ∇ₓ(aᵀx), ∇ₓ(xᵀAx) = (A + Aᵀ)x, applied numerically and symbolically · `MatrixCalculusGenerator` · graduate · d4
