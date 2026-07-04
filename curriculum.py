@@ -126,6 +126,7 @@ CURRICULUM = {
     "TransformationGenerator": {"grade_level": HIGH, "difficulty": 3},
     "ArcSectorGenerator": {"grade_level": HIGH, "difficulty": 4},
     "CircleAngleGenerator": {"grade_level": HIGH, "difficulty": 4},
+    "CircleEquationGenerator": {"grade_level": HIGH, "difficulty": 5},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},
