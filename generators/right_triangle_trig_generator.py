@@ -75,7 +75,7 @@ class RightTriangleTrigGenerator(ProblemGenerator):
                        f"in lowest terms.")
         elif variant == "find_side":
             deg, fn, val = random.choice(GIVEN_VALUES)
-            known = random.choice([10, 15, 20, 25, 40, 50])
+            known = val.denominator * random.choice([2, 3, 4, 5, 6, 8, 10])
             x = known * val
             assert x.denominator == 1
             side_names = {"sin": ("opposite side", "hypotenuse"),
