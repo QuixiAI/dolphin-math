@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**266 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**267 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5599,6 +5599,32 @@ Steps:
   SOL_FORM|y = C1e^(3x) + C2e^(4x) - 3e^(-x)
   Z|y = C1e^(3x) + C2e^(4x) - 3e^(-x)
 Answer: y = C1e^(3x) + C2e^(4x) - 3e^(-x)
+```
+
+### Laplace IVP — `LaplaceIVPGenerator`  ·  college · difficulty 4
+
+Laplace-transform IVPs with the transform table supplied in the problem.
+
+**Variants:** `laplace_ivp_first_order_exp`
+
+```
+Problem: Use Laplace transforms to solve y' + 4y = -32e^(4t), y(0) = -6. Table: L{y'} = sY - y(0); L{e^(kt)} = 1/(s-k); L^-1{1/(s-k)} = e^(kt).
+Steps:
+  ODE_SETUP|y' + 4y = -32e^(4t), y(0) = -6|Laplace transform
+  LAPLACE_TABLE|L{y'} = sY - y(0); L{e^(kt)} = 1/(s-k); L^-1{1/(s-k)} = e^(kt)
+  LAPLACE|L[y' + 4y]|(sY + 6) + 4Y
+  LAPLACE|L[-32e^(4t)]|-32/(s - 4)
+  SOLVE_Y|(s + 4)Y + 6 = -32/(s - 4)|Y = (-6(s - 4) - 32)/((s + 4)(s - 4))
+  PARTIAL_FRAC|Y(s)|-2/(s + 4) - 4/(s - 4)
+  A|4|4|8
+  M|-6|-8|48
+  A|48|-32|16
+  D|16|-8|-2
+  D|-32|8|-4
+  INVERSE_LAPLACE|-2/(s + 4)|-2e^(-4t)
+  INVERSE_LAPLACE|-4/(s - 4)|-4e^(4t)
+  Z|y = -2e^(-4t) - 4e^(4t)
+Answer: y = -2e^(-4t) - 4e^(4t)
 ```
 
 ## Graduate

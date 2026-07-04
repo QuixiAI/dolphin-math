@@ -298,6 +298,7 @@ CURRICULUM = {
     "SecondOrderODEGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "UndeterminedCoeffGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "VariationParametersGenerator": {"grade_level": COLLEGE, "difficulty": 5},
+    "LaplaceIVPGenerator": {"grade_level": COLLEGE, "difficulty": 4},
 }
 
 

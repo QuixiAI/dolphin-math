@@ -119,7 +119,6 @@ bind extra hard at this level:
 ### Linear Algebra (beyond the small-matrix K-12 items)
 
 ### Differential Equations
-- [ ] Laplace-transform IVPs — transform table provided (Principle 5), inverse via partial fractions · `LaplaceIVPGenerator` · college · d4
 - [ ] Linear systems x′ = Ax via eigenvalues · `ODESystemGenerator` · college · d5
 - [ ] Power-series solutions — derive the coefficient recurrence · `SeriesSolutionGenerator` · graduate · d4
 - [ ] Equilibria and stability of autonomous ODEs — sign analysis of f(y) · `StabilityGenerator` · college · d3

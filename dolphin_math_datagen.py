@@ -233,6 +233,7 @@ from generators.ode_substitution_generator import ODESubstitutionGenerator
 from generators.second_order_ode_generator import SecondOrderODEGenerator
 from generators.undetermined_coeff_generator import UndeterminedCoeffGenerator
 from generators.variation_parameters_generator import VariationParametersGenerator
+from generators.laplace_ivp_generator import LaplaceIVPGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -637,6 +638,7 @@ ALL_GENERATORS = [
     SecondOrderODEGenerator(),
     UndeterminedCoeffGenerator(),
     VariationParametersGenerator(),
+    LaplaceIVPGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]
