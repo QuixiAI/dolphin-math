@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**344 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**345 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8211,4 +8211,26 @@ Steps:
   A|8|-2|6
   Z|T_ii = 6
 Answer: T_ii = 6
+```
+
+### Index Raising — `IndexRaisingGenerator`  ·  graduate · difficulty 3
+
+Raise and lower vector/covector components with diagonal metrics.
+
+**Variants:** `index_raising_lower`, `index_raising_raise`
+
+```
+Problem: Raise w_i=[-2,2,1,0] using the diagonal Minkowski inverse metric g^ii=[-1,1,1,1].
+Steps:
+  INDEX_METRIC|raise|Minkowski|g^ii=[-1,1,1,1]
+  M|-1|-2|2
+  TENSOR_ENTRY|w^1|2
+  M|1|2|2
+  TENSOR_ENTRY|w^2|2
+  M|1|1|1
+  TENSOR_ENTRY|w^3|1
+  M|1|0|0
+  TENSOR_ENTRY|w^4|0
+  Z|w^i = [2,2,1,0]
+Answer: w^i = [2,2,1,0]
 ```

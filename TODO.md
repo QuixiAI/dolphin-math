@@ -144,7 +144,6 @@ matrix arithmetic or explicit integration — no functional analysis proofs.
 The symmetry machinery of particle physics, done as explicit matrix work.
 
 ### Tensors & General Relativity (computational)
-- [ ] Raising and lowering indices with diagonal metrics (Minkowski, the sphere) · `IndexRaisingGenerator` · graduate · d3
 - [ ] Riemann → Ricci → scalar curvature for the 2-sphere from its Christoffels (composes with `ChristoffelGenerator`) — tabular, long, glorious · `RiemannTensorGenerator` · graduate · d5
 - [ ] 4-vector arithmetic — signature dot products; solve E² = (pc)² + (mc²)² · `FourVectorGenerator` · graduate · d3
 - [ ] Schwarzschild plug-ins — rₛ = 2GM/c²; gravitational time dilation √(1 − rₛ/r); constants provided · `SchwarzschildGenerator` · graduate · d4

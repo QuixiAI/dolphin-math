@@ -376,6 +376,7 @@ CURRICULUM = {
     "YoungTableauxGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "ClebschGordanGenerator": {"grade_level": GRADUATE, "difficulty": 5},
     "EinsteinSummationGenerator": {"grade_level": GRADUATE, "difficulty": 3},
+    "IndexRaisingGenerator": {"grade_level": GRADUATE, "difficulty": 3},
 }
 
 

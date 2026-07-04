@@ -311,6 +311,7 @@ from generators.bch_generator import BCHGenerator
 from generators.young_tableaux_generator import YoungTableauxGenerator
 from generators.clebsch_gordan_generator import ClebschGordanGenerator
 from generators.einstein_summation_generator import EinsteinSummationGenerator
+from generators.index_raising_generator import IndexRaisingGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -793,6 +794,7 @@ ALL_GENERATORS = [
     YoungTableauxGenerator(),
     ClebschGordanGenerator(),
     EinsteinSummationGenerator(),
+    IndexRaisingGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]
