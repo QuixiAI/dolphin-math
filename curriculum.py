@@ -329,6 +329,7 @@ CURRICULUM = {
     "DiffieHellmanGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "PrimalityTestGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "CayleyTableGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "CyclicGroupGenerator": {"grade_level": COLLEGE, "difficulty": 3},
 }
 
 

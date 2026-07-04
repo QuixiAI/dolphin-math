@@ -127,7 +127,6 @@ bind extra hard at this level:
 ### Number Theory & Cryptography
 
 ### Abstract Algebra (computational side only)
-- [ ] Cyclic subgroups and generators · `CyclicGroupGenerator` · college · d3
 - [ ] Permutations — cycle notation, composition, order, parity · `PermutationGroupGenerator` · college · d3
 - [ ] Coset enumeration in small groups · `CosetGenerator` · graduate · d4
 - [ ] Polynomial arithmetic over ℤₚ; GF(2) polynomial division (the algebra behind CRC) · `FiniteFieldGenerator` · graduate · d4
