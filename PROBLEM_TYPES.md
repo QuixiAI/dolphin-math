@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**238 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**239 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -4886,6 +4886,27 @@ Steps:
   D|1|4/5|1.25
   Z|1.25
 Answer: 1.25
+```
+
+### Fermi Estimation — `FermiEstimationGenerator`  ·  high · difficulty 4
+
+Fermi-style estimates where the assumptions are supplied in the prompt, multiplied explicitly, and rounded to two significant figures.
+
+**Variants:** `fermi_estimation_cafeteria`, `fermi_estimation_stadium`, `fermi_estimation_water_use`
+
+```
+Problem: Estimate seats in a stadium with 40 sections, 18 rows per section, and 18 seats per row. Round to 2 significant figures.
+Steps:
+  FERMI_SETUP|stadium seats|seats
+  FERMI_FACTOR|sections|40
+  FERMI_FACTOR|rows per section|18
+  FERMI_FACTOR|seats per row|18
+  M|40|18|720
+  M|720|18|12960
+  SIGFIG_ROUND|12960|2 significant figures|1.3 × 10^4
+  ESTIMATE_CHECK|1.3 × 10^4|12960|rounded estimate
+  Z|1.3 × 10^4 seats
+Answer: 1.3 × 10^4 seats
 ```
 
 ### Normal Table — `NormalTableGenerator`  ·  high · difficulty 4

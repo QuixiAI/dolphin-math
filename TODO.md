@@ -88,7 +88,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Probability
 
 ### Applied & Cross-Disciplinary
-- [ ] Fermi estimation with significant figures carried through the calculation · `FermiEstimationGenerator` · high · d4
 
 ### Critic & Estimation Formats
 All four original items shipped (design: DESIGN.md "Derived Record
