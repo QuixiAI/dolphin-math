@@ -6,7 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] AnglesWithParallelLinesGenerator — Angles With Parallel Lines (middle · d4)
 - [ ] TriangleAngleSumGenerator — Triangle Angle Sum (middle · d4)
 - [ ] CircleAreaCircumferenceGenerator — Circle Area Circumference (middle · d4)
 - [ ] VolumePrismGenerator — Volume Prism (middle · d4)

@@ -245,7 +245,8 @@ class AnglesWithParallelLinesGenerator(ProblemGenerator):
         const1 = random.randint(5, 40)
         angle_value = coef1 * x + const1
 
-        coef2 = random.randint(2, 6)
+        # the coefficient must differ or the equation cannot determine x
+        coef2 = random.choice([c for c in range(2, 7) if c != coef1])
         const2 = angle_value - coef2 * x
 
         expr1 = f"{coef1}x + {const1}"
@@ -278,7 +279,8 @@ class AnglesWithParallelLinesGenerator(ProblemGenerator):
         const1 = random.randint(5, 40)
         angle_value = coef1 * x + const1
 
-        coef2 = random.randint(2, 6)
+        # the coefficient must differ or the equation cannot determine x
+        coef2 = random.choice([c for c in range(2, 7) if c != coef1])
         const2 = angle_value - coef2 * x
 
         expr1 = f"{coef1}x + {const1}"
@@ -311,7 +313,8 @@ class AnglesWithParallelLinesGenerator(ProblemGenerator):
         const1 = random.randint(5, 40)
         angle_value = coef1 * x + const1
 
-        coef2 = random.randint(2, 6)
+        # the coefficient must differ or the equation cannot determine x
+        coef2 = random.choice([c for c in range(2, 7) if c != coef1])
         const2 = angle_value - coef2 * x
 
         expr1 = f"{coef1}x + {const1}"
