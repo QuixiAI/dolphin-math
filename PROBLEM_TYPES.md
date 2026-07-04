@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**258 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**259 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5439,4 +5439,34 @@ Steps:
   CHECK|X^T residual|[0, 0]|orthogonal
   Z|ŷ = 18 - 3x; projection [27, 21, 15, 9]; residual [-1, 1, 1, -1]
 Answer: ŷ = 18 - 3x; projection [27, 21, 15, 9]; residual [-1, 1, 1, -1]
+```
+
+## Graduate
+
+### Matrix Exponential — `MatrixExponentialGenerator`  ·  graduate · difficulty 3
+
+Matrix exponential for diagonalizable 2x2 matrices: e^(At) = P*e^(Dt)*P^-1. Eigenvalues are small distinct integers and P is unimodular, so the symbolic entries are exact linear combinations of e^(lambda t) terms.
+
+**Variants:** `matrix_exponential_diagonalizable`
+
+```
+Problem: Find e^(At) for A = [[5, -4], [2, -1]] by diagonalization.
+Steps:
+  MAT_SETUP|A = [[5, -4], [2, -1]]|compute e^(At)
+  EIGENVALUE|λ = 1|diagonal entry of D
+  EIGENVECTOR|λ = 1|[1, 1]
+  CHECK|A*[1, 1]|[1, 1]|v = [1, 1]
+  EIGENVALUE|λ = 3|diagonal entry of D
+  EIGENVECTOR|λ = 3|[2, 1]
+  CHECK|A*[2, 1]|[6, 3]|3*v = [6, 3]
+  DIAG_FORM|P = [[1, 2], [1, 1]]|D = [[1, 0], [0, 3]]|P^-1 = [[-1, 2], [1, -1]]
+  EXP_DIAG|e^(Dt)|[[e^t, 0], [0, e^(3t)]]
+  EXP_FORM|e^(At) = P*e^(Dt)*P^-1
+  EXP_ENTRY|(1,1)|-e^t + 2*e^(3t)|-e^t + 2*e^(3t)
+  EXP_ENTRY|(1,2)|2*e^t - 2*e^(3t)|2*e^t - 2*e^(3t)
+  EXP_ENTRY|(2,1)|-e^t + e^(3t)|-e^t + e^(3t)
+  EXP_ENTRY|(2,2)|2*e^t - e^(3t)|2*e^t - e^(3t)
+  CHECK|t = 0|[[1, 0], [0, 1]]|identity
+  Z|e^(At)=[[-e^t + 2*e^(3t), 2*e^t - 2*e^(3t)], [-e^t + e^(3t), 2*e^t - e^(3t)]]
+Answer: e^(At)=[[-e^t + 2*e^(3t), 2*e^t - 2*e^(3t)], [-e^t + e^(3t), 2*e^t - e^(3t)]]
 ```
