@@ -117,7 +117,6 @@ bind extra hard at this level:
 ### Multivariable Calculus
 
 ### Linear Algebra (beyond the small-matrix K-12 items)
-- [ ] RREF → rank, null space and column space bases · `SubspaceBasisGenerator` · college · d3
 - [ ] Eigenvalues & eigenvectors — characteristic polynomial, 2×2 and 3×3 · `EigenvalueGenerator` · college · d3
 - [ ] Diagonalization; matrix powers Aᵏ via PDᵏP⁻¹ · `DiagonalizationGenerator` · college · d4
 - [ ] Gram-Schmidt orthogonalization · `GramSchmidtGenerator` · college · d4

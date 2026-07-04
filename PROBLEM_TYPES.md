@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**253 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**254 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5293,4 +5293,29 @@ Steps:
   CHECK|L*U|[[-1, 1, -1], [-2, 6, 0], [-2, -14, -7]]|matches A
   Z|L=[[1, 0, 0], [2, 1, 0], [2, -4, 1]]; U=[[-1, 1, -1], [0, 4, 2], [0, 0, 3]]
 Answer: L=[[1, 0, 0], [2, 1, 0], [2, -4, 1]]; U=[[-1, 1, -1], [0, 4, 2], [0, 0, 3]]
+```
+
+### Subspace Basis — `SubspaceBasisGenerator`  ·  college · difficulty 3
+
+RREF, rank, null-space basis, and column-space basis for 3x4 integer matrices. Problems are constructed from a known RREF and integer row additions, so the row-reduction path uses exact integer arithmetic.
+
+**Variants:** `subspace_basis_rank2`, `subspace_basis_rank3`
+
+```
+Problem: Find the RREF, rank, null space basis, and column space basis for A = [[0, -1, -1, 4], [1, 1, 0, -2], [1, 0, 0, 2]].
+Steps:
+  MAT_SETUP|A = [[0, -1, -1, 4], [1, 1, 0, -2], [1, 0, 0, 2]]|RREF, rank, null space, column space
+  ROW_OP|R3 -> R3 - R1|[1, 1, 1, -2]
+  ROW_OP|R1 -> R1 + R3|[1, 0, 0, 2]
+  ROW_OP|R3 -> R3 - R2|[0, 0, 1, 0]
+  ROW_OP|R2 -> R2 - R1|[0, 1, 0, -4]
+  RREF_RESULT|RREF(A)|[[1, 0, 0, 2], [0, 1, 0, -4], [0, 0, 1, 0]]
+  PIVOT_COLS|columns 1, 2, 3|rank = 3
+  NULL_REL|x1 + 2*x4 = 0|x1 = -2*x4
+  NULL_REL|x2 - 4*x4 = 0|x2 = 4*x4
+  NULL_REL|x3 = 0|x3 = 0
+  NULL_VECTOR|x4=1|[-2, 4, 0, 1]
+  COL_BASIS|original columns 1, 2, 3|[[0, 1, 1], [-1, 1, 0], [-1, 0, 0]]
+  Z|rank 3; null basis [[-2, 4, 0, 1]]; column basis [[0, 1, 1], [-1, 1, 0], [-1, 0, 0]]
+Answer: rank 3; null basis [[-2, 4, 0, 1]]; column basis [[0, 1, 1], [-1, 1, 0], [-1, 0, 0]]
 ```
