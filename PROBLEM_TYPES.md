@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**423 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**424 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8201,6 +8201,25 @@ Steps:
   M|141|8|1128
   Z|f_obs=1128 Hz
 Answer: f_obs=1128 Hz
+```
+
+### Optics — `OpticsGenerator`  ·  college · difficulty 2
+
+Exact geometric-optics arithmetic: Snell's law, thin lenses, and mirrors.
+
+**Variants:** `optics_mirror_magnification`, `optics_snell`, `optics_thin_lens`
+
+```
+Problem: A thin lens has focal length f=26 cm and object distance d_o=80 cm. Find image distance d_i.
+Steps:
+  OPTICS_SETUP|thin_lens|f=26|d_o=80
+  OPTICS_FORMULA|1/f=1/d_o+1/d_i
+  D|1|26|1/26
+  D|1|80|1/80
+  S|1/26|1/80|27/1040
+  D|1|27/1040|1040/27
+  Z|d_i=1040/27 cm
+Answer: d_i=1040/27 cm
 ```
 
 ## Graduate
