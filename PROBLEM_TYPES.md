@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**338 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**339 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8066,4 +8066,28 @@ Steps:
   CHECK|Tr(AB)|0|verified
   Z|Tr(AB) = 0
 Answer: Tr(AB) = 0
+```
+
+### Casimir — `CasimirGenerator`  ·  graduate · difficulty 4
+
+Verify the spin-1 Casimir using ladder-operator products: J^2 = Jz^2 + (J+J- + J-J+)/2 = j(j+1) hbar^2 I.
+
+**Variants:** `casimir_spin1`
+
+```
+Problem: Verify the spin-1 Casimir for hbar=19/4 using Jplus=hbar*sqrt2[[0,1,0],[0,0,1],[0,0,0]], Jminus=hbar*sqrt2[[0,0,0],[1,0,0],[0,1,0]], and Jz=hbar*[[1,0,0],[0,0,0],[0,0,-1]].
+Steps:
+  CASIMIR_SETUP|spin=1|hbar=19/4|J^2=Jz^2+(J+J-+J-J+)/2
+  E|19/4|2|361/16
+  MATRIX_PRODUCT|Jz^2|[[361/16, 0, 0], [0, 0, 0], [0, 0, 361/16]]
+  MATRIX_PRODUCT|J+J-|[[361/8, 0, 0], [0, 361/8, 0], [0, 0, 0]]
+  MATRIX_PRODUCT|J-J+|[[0, 0, 0], [0, 361/8, 0], [0, 0, 361/8]]
+  MATRIX_ADD|J+J- + J-J+|[[361/8, 0, 0], [0, 361/4, 0], [0, 0, 361/8]]
+  MATRIX_SCALE|1/2 ladder sum|[[361/16, 0, 0], [0, 361/8, 0], [0, 0, 361/16]]
+  MATRIX_ADD|Jz^2 + ladder half|[[361/8, 0, 0], [0, 361/8, 0], [0, 0, 361/8]]
+  A|1|1|2
+  M|2|361/16|361/8
+  CHECK|J^2|361/8I|verified
+  Z|J^2 = 361/8I = [[361/8, 0, 0], [0, 361/8, 0], [0, 0, 361/8]]
+Answer: J^2 = 361/8I = [[361/8, 0, 0], [0, 361/8, 0], [0, 0, 361/8]]
 ```

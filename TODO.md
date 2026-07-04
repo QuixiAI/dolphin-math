@@ -142,7 +142,6 @@ matrix arithmetic or explicit integration — no functional analysis proofs.
 
 ### Lie Groups & Symmetry (computational)
 The symmetry machinery of particle physics, done as explicit matrix work.
-- [ ] Casimir verification — J² = j(j+1)·I for given spin-1 matrices · `CasimirGenerator` · graduate · d4
 - [ ] Levi-Civita index gymnastics — εᵢⱼₖεᵢₗₘ = δⱼₗδₖₘ − δⱼₘδₖₗ applied numerically and symbolically · `IndexGymnasticsGenerator` · graduate · d4
 - [ ] Baker-Campbell-Hausdorff to second order — expand log(e^A e^B) for nilpotent/truncated matrices · `BCHGenerator` · graduate · d5
 - [ ] Representation dimensions — Young-tableaux hook-length arithmetic; SU(3) decompositions like 3 ⊗ 3̄ = 8 ⊕ 1 by tableau rules · `YoungTableauxGenerator` · graduate · d4
