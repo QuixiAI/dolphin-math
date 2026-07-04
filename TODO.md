@@ -158,7 +158,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Signals & Systems / Control
 
 ### Physics — Mechanics
-- [ ] Circular motion and gravitation; Kepler's third law · `OrbitalMechanicsGenerator` · college · d3
 - [ ] Statics — force and torque balance on beams and levers · `StaticsGenerator` · college · d3
 - [ ] Rotational dynamics — parallel-axis theorem, angular momentum conservation · `RotationalDynamicsGenerator` · college · d4
 - [ ] Simple harmonic motion — ω, period, energy exchange · `SHMGenerator` · college · d3

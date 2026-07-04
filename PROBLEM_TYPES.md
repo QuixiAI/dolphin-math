@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**393 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**394 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7812,6 +7812,25 @@ Steps:
   ROOT|4900|70
   Z|impact speed=70 m/s; potential energy=61250 J
 Answer: impact speed=70 m/s; potential energy=61250 J
+```
+
+### Orbital Mechanics — `OrbitalMechanicsGenerator`  ·  college · difficulty 3
+
+Circular motion, Newtonian gravitation, and Kepler's third law.
+
+**Variants:** `orbital_mechanics_centripetal_force`, `orbital_mechanics_gravity_force`, `orbital_mechanics_kepler_third`
+
+```
+Problem: In a scaled gravitation problem, two masses m1=54 kg and m2=6 kg are 10 m apart with G=1. Find the gravitational force magnitude.
+Steps:
+  ORBIT_SETUP|gravity_force|m1=54, m2=6|r=10, G=1
+  ORBIT_FORMULA|F=G*m1*m2/r^2
+  M|54|6|324
+  M|1|324|324
+  E|10|2|100
+  D|324|100|81/25
+  Z|F_g=81/25 N
+Answer: F_g=81/25 N
 ```
 
 ## Graduate
