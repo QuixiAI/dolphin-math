@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**383 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**384 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7642,6 +7642,37 @@ Steps:
   CONV_SUM|n=6|35
   Z|y=[0,24,64,102,104,89,35]
 Answer: y=[0,24,64,102,104,89,35]
+```
+
+### DFT — `DFTGenerator`  ·  college · difficulty 4
+
+Length-2 and length-4 discrete Fourier transforms with exact twiddles.
+
+**Variants:** `dft_length_2`, `dft_length_4`
+
+```
+Problem: Compute the length-4 DFT of x=[7,-5,2,9].
+Steps:
+  DFT_SETUP|N=4|x=[7,-5,2,9]
+  TWIDDLE|W4=-i|W4^2=-1|W4^3=i
+  DFT_BIN|X0=x0+x1+x2+x3
+  A|7|-5|2
+  A|2|2|4
+  A|4|9|13
+  DFT_BIN|X1=(x0-x2)+(x3-x1)i
+  S|7|2|5
+  S|9|-5|14
+  DFT_BIN|X1=5+14i
+  DFT_BIN|X2=x0-x1+x2-x3
+  S|7|-5|12
+  A|12|2|14
+  S|14|9|5
+  DFT_BIN|X3=(x0-x2)+(x1-x3)i
+  S|7|2|5
+  S|-5|9|-14
+  DFT_BIN|X3=5-14i
+  Z|X=[13,5+14i,5,5-14i]
+Answer: X=[13,5+14i,5,5-14i]
 ```
 
 ## Graduate

@@ -415,6 +415,7 @@ CURRICULUM = {
     "GameTheoryGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "ORFormulaGenerator": {"grade_level": GRADUATE, "difficulty": 3},
     "ConvolutionGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "DFTGenerator": {"grade_level": COLLEGE, "difficulty": 4},
 }
 
 

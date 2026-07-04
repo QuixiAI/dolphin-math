@@ -350,6 +350,7 @@ from generators.transportation_generator import TransportationGenerator
 from generators.game_theory_generator import GameTheoryGenerator
 from generators.or_formula_generator import ORFormulaGenerator
 from generators.convolution_generator import ConvolutionGenerator
+from generators.dft_generator import DFTGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -871,6 +872,7 @@ ALL_GENERATORS = [
     GameTheoryGenerator(),
     ORFormulaGenerator(),
     ConvolutionGenerator(),
+    DFTGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]
