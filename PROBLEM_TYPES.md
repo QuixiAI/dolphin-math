@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**469 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**470 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -12140,4 +12140,24 @@ Steps:
   ADAM_UPDATE|theta_new|41/20
   Z|m=-9/10; v=81/100; m_hat=-9; v_hat=81; theta_new=41/20
 Answer: m=-9/10; v=81/100; m_hat=-9; v_hat=81; theta_new=41/20
+```
+
+### Perplexity — `PerplexityGenerator`  ·  graduate · difficulty 3
+
+Cross-entropy and perplexity from dyadic probabilities.
+
+**Variants:** `perplexity_dyadic`
+
+```
+Problem: For a sequence of 99 tokens where each true-token probability is p=1/128, compute total negative log-likelihood, average cross-entropy, and perplexity.
+Steps:
+  PERPLEXITY_SETUP|tokens=99|p=1/128
+  D|1|128|1/128
+  NEG_LOG|p=1/128|ln(128)
+  NLL|99 tokens|99*ln(128)
+  CROSS_ENTROPY|average|ln(128)
+  D|1|1/128|128
+  PERPLEXITY|exp(CE)|128
+  Z|total_nll=99*ln(128); CE=ln(128); perplexity=128
+Answer: total_nll=99*ln(128); CE=ln(128); perplexity=128
 ```
