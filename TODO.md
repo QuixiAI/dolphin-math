@@ -121,7 +121,6 @@ bind extra hard at this level:
 ### Differential Equations
 
 ### Discrete Math & Combinatorics
-- [ ] Set algebra, power sets, Cartesian products · `SetOperationsGenerator` · college · d2
 - [ ] Relation property checks on small finite sets — explicit pair-by-pair verification · `RelationCheckGenerator` · college · d2
 - [ ] Inclusion-exclusion counting · `InclusionExclusionGenerator` · college · d3
 - [ ] Stars and bars; multinomial coefficients · `StarsAndBarsGenerator` · college · d3

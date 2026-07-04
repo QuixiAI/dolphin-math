@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**270 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**271 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5674,6 +5674,26 @@ Steps:
   STABILITY|y=1|left down, right up|unstable
   Z|equilibria: y=-5 unstable; y=-1 stable; y=1 unstable
 Answer: equilibria: y=-5 unstable; y=-1 stable; y=1 unstable
+```
+
+### Set Operations — `SetOperationsGenerator`  ·  college · difficulty 2
+
+Finite set algebra, power sets, and Cartesian products.
+
+**Variants:** `set_operations_algebra`, `set_operations_cartesian_product`, `set_operations_power_set`
+
+```
+Problem: Find the power set P(S) for S = {a, c, d}.
+Steps:
+  SET_SETUP|S = {a, c, d}|power set
+  E|2|3|8
+  SUBSET_SIZE|0|{}
+  SUBSET_SIZE|1|{a}, {c}, {d}
+  SUBSET_SIZE|2|{a, c}, {a, d}, {c, d}
+  SUBSET_SIZE|3|{a, c, d}
+  POWER_SET_RESULT|{{}, {a}, {c}, {d}, {a, c}, {a, d}, {c, d}, {a, c, d}}
+  Z|P(S) = {{}, {a}, {c}, {d}, {a, c}, {a, d}, {c, d}, {a, c, d}}
+Answer: P(S) = {{}, {a}, {c}, {d}, {a, c}, {a, d}, {c, d}, {a, c, d}}
 ```
 
 ## Graduate

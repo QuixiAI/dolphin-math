@@ -237,6 +237,7 @@ from generators.laplace_ivp_generator import LaplaceIVPGenerator
 from generators.ode_system_generator import ODESystemGenerator
 from generators.series_solution_generator import SeriesSolutionGenerator
 from generators.stability_generator import StabilityGenerator
+from generators.set_operations_generator import SetOperationsGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -645,6 +646,7 @@ ALL_GENERATORS = [
     ODESystemGenerator(),
     SeriesSolutionGenerator(),
     StabilityGenerator(),
+    SetOperationsGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]
