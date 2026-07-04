@@ -70,8 +70,8 @@ class TestSimilarTrianglesGenerator(unittest.TestCase):
             f = chk.split(DELIM)
             k = Fraction(f[3])
             for part in f[2].split(", "):
-                num, rest = part.split("/")
-                den = rest.split(" = ")[0]
+                ratio = part.split(" = ")[0]
+                num, den = ratio.split("/")
                 self.assertEqual(Fraction(int(num), int(den)), k, chk)
 
     def test_both_directions_occur(self):
