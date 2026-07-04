@@ -439,6 +439,7 @@ CURRICULUM = {
     "GasLawGenerator": {"grade_level": COLLEGE, "difficulty": 2},
     "FirstLawGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "HeatEngineGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "EntropyChangeGenerator": {"grade_level": COLLEGE, "difficulty": 4},
 }
 
 

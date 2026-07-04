@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**407 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**408 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8028,6 +8028,24 @@ Steps:
   D|431|919|431/919
   Z|Carnot efficiency=431/919
 Answer: Carnot efficiency=431/919
+```
+
+### Entropy Change — `EntropyChangeGenerator`  ·  college · difficulty 4
+
+Entropy changes for ideal-gas processes and ideal mixing.
+
+**Variants:** `entropy_change_constant_volume_heating`, `entropy_change_equal_gas_mixing`, `entropy_change_isothermal_expansion`
+
+```
+Problem: An ideal gas is heated at constant volume with n=7 mol, Cv=1, T1=5 K, and T2=50 K. Find DeltaS exactly.
+Steps:
+  ENTROPY_SETUP|constant_volume_heating|n=7, Cv=1|T1=5, T2=50
+  ENTROPY_FORMULA|DeltaS=nCv*ln(T2/T1)
+  M|7|1|7
+  D|50|5|10
+  LOG_TERM|7|ln(10)|7*ln(10)
+  Z|DeltaS=7*ln(10) J/K
+Answer: DeltaS=7*ln(10) J/K
 ```
 
 ## Graduate
