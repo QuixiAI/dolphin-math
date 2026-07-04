@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**295 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**296 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -6828,4 +6828,27 @@ Steps:
   LEGENDRE_RESULT|28|-1|quadratic nonresidue
   Z|Legendre(99,29) = -1
 Answer: Legendre(99,29) = -1
+```
+
+### Primality Test — `PrimalityTestGenerator`  ·  graduate · difficulty 4
+
+Miller-Rabin primality test traces with supplied witnesses.
+
+**Variants:** `primality_test_miller_rabin`
+
+```
+Problem: Use the Miller-Rabin test on n=221 with witnesses 4, 18.
+Steps:
+  MR_SETUP|n=221|witnesses 4, 18
+  D|220|2|110
+  D|110|2|55
+  MR_DECOMPOSE|220|2^2 * 55
+  MR_WITNESS|4
+  MOD_POWER|4^55|mod 221|30
+  M|30|30|900
+  MOD_REDUCE|900|mod 221|16
+  MR_SQUARE|r=1|16
+  MR_WITNESS_RESULT|4|composite
+  Z|composite; witness = 4
+Answer: composite; witness = 4
 ```

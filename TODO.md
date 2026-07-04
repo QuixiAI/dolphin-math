@@ -125,7 +125,6 @@ bind extra hard at this level:
 ### Graph Theory & Algorithms
 
 ### Number Theory & Cryptography
-- [ ] Miller-Rabin primality steps with given witnesses · `PrimalityTestGenerator` · graduate · d4
 
 ### Abstract Algebra (computational side only)
 - [ ] Cayley tables for ℤₙ, U(n), D₃; element orders · `CayleyTableGenerator` · college · d3
