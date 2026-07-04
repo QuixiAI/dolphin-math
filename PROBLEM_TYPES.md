@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**255 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**256 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5347,4 +5347,36 @@ Steps:
   CHECK|A*[1, 0, 0]|[1, 0, 0]|1*v = [1, 0, 0]
   Z|p(λ)=λ^3 + 5λ^2 - λ - 5 = (λ + 5)*(λ + 1)*(λ - 1); eigenpairs λ=-5: span([2, -3, 0]), λ=-1: span([8, -1, -4]), λ=1: span([1, 0, 0])
 Answer: p(λ)=λ^3 + 5λ^2 - λ - 5 = (λ + 5)*(λ + 1)*(λ - 1); eigenpairs λ=-5: span([2, -3, 0]), λ=-1: span([8, -1, -4]), λ=1: span([1, 0, 0])
+```
+
+### Diagonalization — `DiagonalizationGenerator`  ·  college · difficulty 4
+
+Diagonalize a 2x2 matrix with two distinct integer eigenvalues and use A^k = P*D^k*P^-1 to compute a matrix power. Matrices are built from a unimodular eigenvector matrix so every displayed matrix stays integral.
+
+**Variants:** `diagonalization_power`
+
+```
+Problem: Diagonalize A = [[4, -2], [1, 1]] and compute A^4.
+Steps:
+  MAT_SETUP|A = [[4, -2], [1, 1]], k = 4|diagonalize and compute A^k
+  CHAR_POLY|p(λ) = λ^2 - 5λ + 6|(λ - 2)*(λ - 3)
+  EIGENVALUE|λ = 2|p(2) = 0
+  EIGENVECTOR|λ = 2|[1, 1]
+  CHECK|A*[1, 1]|[2, 2]|2*v = [2, 2]
+  EIGENVALUE|λ = 3|p(3) = 0
+  EIGENVECTOR|λ = 3|[2, 1]
+  CHECK|A*[2, 1]|[6, 3]|3*v = [6, 3]
+  DIAG_FORM|P = [[1, 2], [1, 1]]|D = [[2, 0], [0, 3]]|P^-1 = [[-1, 2], [1, -1]]
+  CHECK|P*D*P^-1|[[4, -2], [1, 1]]|matches A
+  E|2|4|16
+  E|3|4|81
+  D_POWER|D^4|[[16, 0], [0, 81]]
+  POWER_FORM|A^4 = P*D^4*P^-1
+  POWER_ENTRY|(1,1)|(-16) + 162|146
+  POWER_ENTRY|(1,2)|16*2 + (-162)|-130
+  POWER_ENTRY|(2,1)|(-16) + 81|65
+  POWER_ENTRY|(2,2)|16*2 + (-81)|-49
+  CHECK|direct A^4|[[146, -130], [65, -49]]|matches diagonalization
+  Z|P=[[1, 2], [1, 1]], D=[[2, 0], [0, 3]], P^-1=[[-1, 2], [1, -1]], A^4=[[146, -130], [65, -49]]
+Answer: P=[[1, 2], [1, 1]], D=[[2, 0], [0, 3]], P^-1=[[-1, 2], [1, -1]], A^4=[[146, -130], [65, -49]]
 ```

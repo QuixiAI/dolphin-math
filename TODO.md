@@ -117,7 +117,6 @@ bind extra hard at this level:
 ### Multivariable Calculus
 
 ### Linear Algebra (beyond the small-matrix K-12 items)
-- [ ] Diagonalization; matrix powers Aᵏ via PDᵏP⁻¹ · `DiagonalizationGenerator` · college · d4
 - [ ] Gram-Schmidt orthogonalization · `GramSchmidtGenerator` · college · d4
 - [ ] Projections and least squares via normal equations (the linear-algebra route to `RegressionGenerator`'s formulas) · `LeastSquaresGenerator` · college · d4
 - [ ] Matrix exponential e^(At) for diagonalizable 2×2 · `MatrixExponentialGenerator` · graduate · d3

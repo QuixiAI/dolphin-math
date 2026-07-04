@@ -222,6 +222,7 @@ from generators.centroid_generator import CentroidGenerator
 from generators.lu_decomposition_generator import LUDecompositionGenerator
 from generators.subspace_basis_generator import SubspaceBasisGenerator
 from generators.eigenvalue_generator import EigenvalueGenerator
+from generators.diagonalization_generator import DiagonalizationGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -615,6 +616,7 @@ ALL_GENERATORS = [
     LUDecompositionGenerator(),
     SubspaceBasisGenerator(),
     EigenvalueGenerator(),
+    DiagonalizationGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]
