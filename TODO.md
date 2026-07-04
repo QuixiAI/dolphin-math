@@ -182,7 +182,6 @@ Poetic bonus: the model learns to compute its own building blocks on paper.
 The model hand-computes its own forward pass. Softmax stays exact by
 construction: choose logits as ln of rationals (Principle 5), so the weights
 come out as exact fractions.
-- [ ] Quantization arithmetic — int8 scale/zero-point, quantize → dequantize a small tensor, measure round-trip error · `QuantizationGenerator` · college · d3
 
 ### Financial Mathematics
 - [ ] Annuities — present/future value; amortization schedule tables · `AnnuityGenerator` · college · d4

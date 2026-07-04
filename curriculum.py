@@ -502,6 +502,7 @@ CURRICULUM = {
     "AdamStepGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "LRScheduleGenerator": {"grade_level": COLLEGE, "difficulty": 2},
     "PerplexityGenerator": {"grade_level": GRADUATE, "difficulty": 3},
+    "QuantizationGenerator": {"grade_level": COLLEGE, "difficulty": 3},
 }
 
 

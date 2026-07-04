@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**470 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**471 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -9084,6 +9084,51 @@ Steps:
   LR_VALUE|1/10000
   Z|phase=decay; lr=1/10000
 Answer: phase=decay; lr=1/10000
+```
+
+### Quantization — `QuantizationGenerator`  ·  college · difficulty 3
+
+Int8 affine quantize, dequantize, and round-trip error.
+
+**Variants:** `quantization_int8_affine`
+
+```
+Problem: Quantize tensor x=(-9/5,-17/25,61/100) with int8 scale=1/20 and zero_point=3 using q=round(x/scale)+zero_point, then dequantize and compute sum absolute round-trip error.
+Steps:
+  QUANT_SETUP|x=(-9/5,-17/25,61/100)|scale=1/20|zero_point=3
+  D|-9/5|1/20|-36
+  A|-36|3|-33
+  ROUND|-33|-33
+  QUANT_VALUE|1|-33
+  S|-33|3|-36
+  M|-36|1/20|-9/5
+  DEQUANT_VALUE|1|-9/5
+  S|-9/5|-9/5|0
+  ABS_ERROR|1|0
+  D|-17/25|1/20|-68/5
+  A|-68/5|3|-53/5
+  ROUND|-53/5|-11
+  QUANT_VALUE|2|-11
+  S|-11|3|-14
+  M|-14|1/20|-7/10
+  DEQUANT_VALUE|2|-7/10
+  S|-17/25|-7/10|1/50
+  ABS_ERROR|2|1/50
+  D|61/100|1/20|61/5
+  A|61/5|3|76/5
+  ROUND|76/5|15
+  QUANT_VALUE|3|15
+  S|15|3|12
+  M|12|1/20|3/5
+  DEQUANT_VALUE|3|3/5
+  S|61/100|3/5|1/100
+  ABS_ERROR|3|1/100
+  A|0|0|0
+  A|0|1/50|1/50
+  A|1/50|1/100|3/100
+  ROUNDTRIP_ERROR|sum_abs|3/100
+  Z|q=(-33,-11,15); dequant=(-9/5,-7/10,3/5); sum_abs_error=3/100
+Answer: q=(-33,-11,15); dequant=(-9/5,-7/10,3/5); sum_abs_error=3/100
 ```
 
 ## Graduate
