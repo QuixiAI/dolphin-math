@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**250 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**251 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5229,4 +5229,23 @@ Steps:
   FLUX_SUM|(1 - 5 - 1)*720|-3600
   Z|outward flux -3600
 Answer: outward flux -3600
+```
+
+### Curve Geometry — `CurveGeometryGenerator`  ·  college · difficulty 3
+
+Curve geometry: arc length, curvature, unit tangent, and unit normal.
+
+**Variants:** `curve_geometry_arc_line`, `curve_geometry_circle_tn`
+
+```
+Problem: For r(t) = <15*cos(t), 15*sin(t)>, find curvature, unit tangent, and unit normal at t = 0.
+Steps:
+  CURVE_GEOM_SETUP|r(t) = <15*cos(t), 15*sin(t)>|at t = 0|curvature, T, N
+  PATH_DERIV|r'(t)|<-15*sin(t), 15*cos(t)>
+  SPEED|norm r'(0)|15
+  UNIT_TANGENT|r'(0)/speed|<0, 1>
+  CURVATURE_FORMULA|circle|kappa = 1/R
+  UNIT_NORMAL|T'(0)/norm T'(0)|<-1, 0>
+  Z|curvature 1/15; T(0)=<0, 1>; N(0)=<-1, 0>
+Answer: curvature 1/15; T(0)=<0, 1>; N(0)=<-1, 0>
 ```

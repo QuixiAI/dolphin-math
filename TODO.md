@@ -115,7 +115,6 @@ bind extra hard at this level:
 - **A8 first.** These items use the `college` and `graduate` grade levels.
 
 ### Multivariable Calculus
-- [ ] Curve geometry — arc length, curvature, unit tangent/normal · `CurveGeometryGenerator` · college · d3
 - [ ] Centroids and moments via integration · `CentroidGenerator` · college · d4
 
 ### Linear Algebra (beyond the small-matrix K-12 items)
