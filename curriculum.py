@@ -120,6 +120,7 @@ CURRICULUM = {
     "RegularPolygonAreaGenerator": {"grade_level": HIGH, "difficulty": 4},
     "SimilarTrianglesGenerator": {"grade_level": HIGH, "difficulty": 4},
     "GeometricMeanGenerator": {"grade_level": HIGH, "difficulty": 4},
+    "DistanceFormulaGenerator": {"grade_level": HIGH, "difficulty": 3},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},

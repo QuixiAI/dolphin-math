@@ -91,7 +91,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Conic Sections
 
 ### Geometry & Measurement
-- [ ] Distance formula · `DistanceFormulaGenerator` · high · d3
 - [ ] Midpoint formula · `MidpointGenerator` · high · d3
 - [ ] Partitioning a segment (section formula) · `SegmentPartitionGenerator` · high · d4
 - [ ] Transformations by coordinate rules — translate, reflect, rotate (90°/180°/270°), dilate, and compositions · `TransformationGenerator` · high · d3

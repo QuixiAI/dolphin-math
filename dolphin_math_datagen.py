@@ -119,6 +119,7 @@ from generators.nets_surface_area_generator import NetsSurfaceAreaGenerator
 from generators.regular_polygon_area_generator import RegularPolygonAreaGenerator
 from generators.similar_triangles_generator import SimilarTrianglesGenerator
 from generators.geometric_mean_generator import GeometricMeanGenerator
+from generators.distance_formula_generator import DistanceFormulaGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -397,6 +398,7 @@ ALL_GENERATORS = [
     RegularPolygonAreaGenerator(),
     SimilarTrianglesGenerator(),
     GeometricMeanGenerator(),
+    DistanceFormulaGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),
