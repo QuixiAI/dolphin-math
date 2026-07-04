@@ -95,7 +95,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Trigonometry
 
 ### Vectors & Matrices
-- [ ] Matrix add/subtract/scalar; matrix multiplication with row×column sums shown · `MatrixOpsGenerator` · high · d4
 - [ ] Determinants — 2×2 and 3×3 by cofactor expansion · `DeterminantGenerator` · high · d4
 - [ ] Inverse of a 2×2 matrix · `MatrixInverseGenerator` · high · d4
 - [ ] Cramer's rule · `CramersRuleGenerator` · high · d5
