@@ -293,6 +293,7 @@ CURRICULUM = {
     "MatrixExponentialGenerator": {"grade_level": GRADUATE, "difficulty": 3},
     "SVDGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "IntegratingFactorGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "ExactODEGenerator": {"grade_level": COLLEGE, "difficulty": 3},
 }
 
 

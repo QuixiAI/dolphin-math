@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**261 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**262 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5462,6 +5462,23 @@ Steps:
   S|2|1|1
   Z|y = e^(4x) + e^(-4x)
 Answer: y = e^(4x) + e^(-4x)
+```
+
+### Exact ODE — `ExactODEGenerator`  ·  college · difficulty 3
+
+Exact first-order differential equations M dx + N dy = 0.
+
+**Variants:** `exact_ode_exact_test`, `exact_ode_not_exact_test`, `exact_ode_solve_exact`
+
+```
+Problem: Test whether (4*x - y + 2) dx + (4*x + y + 1) dy = 0 is exact.
+Steps:
+  ODE_SETUP|(4*x - y + 2) dx + (4*x + y + 1) dy = 0|test exactness
+  PARTIAL_RESULT|M_y|-1
+  PARTIAL_RESULT|N_x|4
+  CHECK|M_y != N_x|-1 != 4|not exact
+  Z|not exact because M_y = -1 and N_x = 4
+Answer: not exact because M_y = -1 and N_x = 4
 ```
 
 ## Graduate
