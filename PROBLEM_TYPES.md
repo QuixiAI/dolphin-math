@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**345 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**346 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8233,4 +8233,32 @@ Steps:
   TENSOR_ENTRY|w^4|0
   Z|w^i = [2,2,1,0]
 Answer: w^i = [2,2,1,0]
+```
+
+### Riemann Tensor — `RiemannTensorGenerator`  ·  graduate · difficulty 5
+
+Riemann -> Ricci -> scalar curvature for a 2-sphere.
+
+**Variants:** `riemann_tensor_sphere`
+
+```
+Problem: For a 2-sphere of radius R=100 at phi=90 deg with sin^2(phi)=1 and cos^2(phi)=0, compute R^phi_theta phi theta, the Ricci entries, and scalar curvature.
+Steps:
+  RIEMANN_SETUP|sphere|R=100|phi=90 deg
+  CHRISTOFFEL_VALUE|Gamma^phi_thetatheta|0
+  CHRISTOFFEL_VALUE|Gamma^theta_phitheta|0
+  DERIV|d_phi Gamma^phi_thetatheta|1
+  M|0|0|0
+  S|1|0|1
+  RIEMANN_ENTRY|R^phi_theta phi theta|1
+  RIEMANN_ENTRY|R^theta_phi theta phi|1
+  RICCI_ENTRY|R_phiphi|1
+  RICCI_ENTRY|R_thetatheta|1
+  E|100|2|10000
+  D|1|10000|1/10000
+  INVERSE_METRIC|g^phiphi=1/R^2|g^thetatheta=1/(R^2 sin^2(phi))
+  CHECK|g^thetatheta R_thetatheta|1/10000|sin^2 cancels
+  A|1/10000|1/10000|1/5000
+  Z|scalar curvature = 1/5000
+Answer: scalar curvature = 1/5000
 ```

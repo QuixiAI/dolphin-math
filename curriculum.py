@@ -377,6 +377,7 @@ CURRICULUM = {
     "ClebschGordanGenerator": {"grade_level": GRADUATE, "difficulty": 5},
     "EinsteinSummationGenerator": {"grade_level": GRADUATE, "difficulty": 3},
     "IndexRaisingGenerator": {"grade_level": GRADUATE, "difficulty": 3},
+    "RiemannTensorGenerator": {"grade_level": GRADUATE, "difficulty": 5},
 }
 
 
