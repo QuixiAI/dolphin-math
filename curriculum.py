@@ -343,6 +343,7 @@ CURRICULUM = {
     "CauchyRiemannGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "ResidueGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "ContourIntegralGenerator": {"grade_level": GRADUATE, "difficulty": 5},
+    "LaurentSeriesGenerator": {"grade_level": GRADUATE, "difficulty": 5},
 }
 
 

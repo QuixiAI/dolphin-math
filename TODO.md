@@ -129,7 +129,6 @@ bind extra hard at this level:
 ### Abstract Algebra (computational side only)
 
 ### Complex Analysis (computational)
-- [ ] Taylor/Laurent coefficients of rational functions · `LaurentSeriesGenerator` · graduate · d5
 
 ### Spherical & Non-Euclidean Geometry
 Angle sums that refuse to be 180° — mind-bending results from ordinary

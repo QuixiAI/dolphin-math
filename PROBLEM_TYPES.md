@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**311 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**312 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7454,4 +7454,44 @@ Steps:
   M|2|1|2
   Z|integral = 2pi i
 Answer: integral = 2pi i
+```
+
+### Laurent Series — `LaurentSeriesGenerator`  ·  graduate · difficulty 5
+
+Taylor and Laurent coefficients for hand-friendly rational functions.
+
+**Variants:** `laurent_series_geometric`, `laurent_series_pole`
+
+```
+Problem: Find the Taylor coefficients c_n for n=0..5 about z=2 of f(z) = -2/(z-7), written as sum c_n (z-2)^n.
+Steps:
+  LAURENT_SETUP|center a=2|w=(z-2)|f=-2/(z-7)
+  REWRITE|(z-7) = w - 5|d=a-b=-5
+  GEOMETRIC_FORMULA|c_n = A*(-1)^n/d^(n+1)|A=-2, d=-5
+  E|-5|1|-5
+  M|-2|1|-2
+  D|-2|-5|2/5
+  COEFF|c_0|2/5
+  E|-5|2|25
+  M|-2|-1|2
+  D|2|25|2/25
+  COEFF|c_1|2/25
+  E|-5|3|-125
+  M|-2|1|-2
+  D|-2|-125|2/125
+  COEFF|c_2|2/125
+  E|-5|4|625
+  M|-2|-1|2
+  D|2|625|2/625
+  COEFF|c_3|2/625
+  E|-5|5|-3125
+  M|-2|1|-2
+  D|-2|-3125|2/3125
+  COEFF|c_4|2/3125
+  E|-5|6|15625
+  M|-2|-1|2
+  D|2|15625|2/15625
+  COEFF|c_5|2/15625
+  Z|c_0=2/5, c_1=2/25, c_2=2/125, c_3=2/625, c_4=2/3125, c_5=2/15625
+Answer: c_0=2/5, c_1=2/25, c_2=2/125, c_3=2/625, c_4=2/3125, c_5=2/15625
 ```
