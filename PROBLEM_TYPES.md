@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**336 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**337 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8017,4 +8017,30 @@ Steps:
   CHECK|det R|1|proper rotation
   Z|e^(theta K_x)=[[1, 0, 0], [0, 1/2, sqrt3/2], [0, -sqrt3/2, 1/2]]
 Answer: e^(theta K_x)=[[1, 0, 0], [0, 1/2, sqrt3/2], [0, -sqrt3/2, 1/2]]
+```
+
+### Structure Constant — `StructureConstantGenerator`  ·  graduate · difficulty 4
+
+Verify su(2) structure constants with explicit matrix commutators.
+
+**Variants:** `structure_constant_su2`
+
+```
+Problem: For spin-1/2 generators Jx=[[0,1/2],[1/2,0]], Jy=[[0,-i/2],[i/2,0]], Jz=[[1/2,0],[0,-1/2]], compute [A,B] for A=-4Jy and B=Jz and verify the structure constant.
+Steps:
+  STRUCTURE_SETUP|A=-4Jy|B=Jz|epsilon_yzx=1
+  MATRIX_VALUE|A|[[0, 2i], [-2i, 0]]
+  MATRIX_VALUE|B|[[1/2, 0], [0, -1/2]]
+  MATRIX_PRODUCT|AB|[[0, -i], [-i, 0]]
+  MATRIX_PRODUCT|BA|[[0, i], [i, 0]]
+  COMM_ENTRY|(1,1)|0 - 0|0
+  COMM_ENTRY|(1,2)|-i - i|-2i
+  COMM_ENTRY|(2,1)|-i - i|-2i
+  COMM_ENTRY|(2,2)|0 - 0|0
+  COMMUTATOR|[A,B]|[[0, -2i], [-2i, 0]]
+  STRUCTURE_CONSTANT|epsilon_yzx|1|-4iJx
+  MATRIX_VALUE|-4iJx|[[0, -2i], [-2i, 0]]
+  CHECK|[A,B]|-4iJx|verified
+  Z|[A,B] = -4iJx = [[0, -2i], [-2i, 0]]
+Answer: [A,B] = -4iJx = [[0, -2i], [-2i, 0]]
 ```

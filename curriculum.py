@@ -368,6 +368,7 @@ CURRICULUM = {
     "UncertaintyGenerator": {"grade_level": GRADUATE, "difficulty": 5},
     "MatrixGroupCheckGenerator": {"grade_level": GRADUATE, "difficulty": 3},
     "LieExponentialGenerator": {"grade_level": GRADUATE, "difficulty": 4},
+    "StructureConstantGenerator": {"grade_level": GRADUATE, "difficulty": 4},
 }
 
 
