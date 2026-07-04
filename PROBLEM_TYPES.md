@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**413 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**414 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -9960,4 +9960,35 @@ Steps:
   M|9|1/41|9/41
   Z|Z=41/10; p_excited=1/41; mean_energy=9/41
 Answer: Z=41/10; p_excited=1/41; mean_energy=9/41
+```
+
+### Wavefunction — `WavefunctionGenerator`  ·  graduate · difficulty 4
+
+Normalize simple wavefunctions and compute expectation values by integration.
+
+**Variants:** `wavefunction_power_interval`
+
+```
+Problem: On 0<=x<=49, let psi(x)=N*(x/L)^6. Normalize it and compute <x> and <x^2>.
+Steps:
+  WAVE_SETUP|power_interval|psi=N*(x/L)^6|0<=x<=49
+  WAVE_FORMULA|1=N^2*integral_0^L (x/L)^(2k) dx
+  M|2|6|12
+  A|12|1|13
+  POWER_INTEGRAL|n=12|L/13
+  D|13|49|13/49
+  WAVE_FORMULA|N^2=13/49
+  WAVE_FORMULA|<x>=N^2*integral_0^L x*(x/L)^(2k) dx
+  A|12|2|14
+  POWER_INTEGRAL|n=13|L^2/14
+  M|13|49|637
+  D|637|14|91/2
+  WAVE_FORMULA|<x^2>=N^2*integral_0^L x^2*(x/L)^(2k) dx
+  A|12|3|15
+  POWER_INTEGRAL|n=14|L^3/15
+  E|49|2|2401
+  M|13|2401|31213
+  D|31213|15|31213/15
+  Z|N=sqrt(13/49); <x>=91/2; <x^2>=31213/15
+Answer: N=sqrt(13/49); <x>=91/2; <x^2>=31213/15
 ```

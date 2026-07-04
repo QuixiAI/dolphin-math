@@ -164,7 +164,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Physics — Thermodynamics & Statistical Mechanics
 
 ### Physics — Quantum Mechanics
-- [ ] Normalize wavefunctions; expectation values ⟨x⟩, ⟨x²⟩ by integration · `WavefunctionGenerator` · graduate · d4
 - [ ] Spin-½ — apply Pauli matrices, eigenvalues, measurement probabilities · `SpinHalfGenerator` · graduate · d4
 - [ ] Operator commutators — bracket algebra applied to test functions · `CommutatorGenerator` · graduate · d4
 - [ ] Harmonic-oscillator ladder operators — algebraic energy computations · `LadderOperatorGenerator` · graduate · d5
