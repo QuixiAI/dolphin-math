@@ -417,6 +417,7 @@ CURRICULUM = {
     "ConvolutionGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "DFTGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "FourierSeriesGenerator": {"grade_level": COLLEGE, "difficulty": 4},
+    "ZTransformGenerator": {"grade_level": GRADUATE, "difficulty": 4},
 }
 
 

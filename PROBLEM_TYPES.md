@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**385 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**386 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -9374,4 +9374,27 @@ Steps:
   D|14|32|7/16
   Z|rho=7/8; L=7; W=1/2; Lq=49/8; Wq=7/16
 Answer: rho=7/8; L=7; W=1/2; Lq=49/8; Wq=7/16
+```
+
+### ZTransform — `ZTransformGenerator`  ·  graduate · difficulty 4
+
+Basic z-transform pairs and first-order difference equations.
+
+**Variants:** `z_transform_difference`, `z_transform_geometric`
+
+```
+Problem: Solve y[n]-7y[n-1]=delta[n] with y[-1]=0 using z-transforms, and list y[0] through y[4].
+Steps:
+  ZT_SETUP|difference|y[n]-7y[n-1]=delta[n]|y[-1]=0
+  SHIFT|Z{y[n-1]}=z^-1Y(z)
+  REWRITE|(1-7z^-1)Y(z)=1
+  REWRITE|Y(z)=1/(1-7z^-1)
+  E|7|0|1
+  E|7|1|7
+  E|7|2|49
+  E|7|3|343
+  E|7|4|2401
+  TERMS|y[0..4]=[1,7,49,343,2401]
+  Z|Y(z)=1/(1-7z^-1); y[0..4]=[1,7,49,343,2401]
+Answer: Y(z)=1/(1-7z^-1); y[0..4]=[1,7,49,343,2401]
 ```

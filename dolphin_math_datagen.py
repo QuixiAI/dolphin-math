@@ -352,6 +352,7 @@ from generators.or_formula_generator import ORFormulaGenerator
 from generators.convolution_generator import ConvolutionGenerator
 from generators.dft_generator import DFTGenerator
 from generators.fourier_series_generator import FourierSeriesGenerator
+from generators.z_transform_generator import ZTransformGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -875,6 +876,7 @@ ALL_GENERATORS = [
     ConvolutionGenerator(),
     DFTGenerator(),
     FourierSeriesGenerator(),
+    ZTransformGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]
