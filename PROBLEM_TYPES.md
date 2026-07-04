@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**247 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**248 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5159,4 +5159,31 @@ Steps:
   AREA_SCALE|image area|abs(3)*72|216
   Z|image area 216
 Answer: image area 216
+```
+
+### Div Curl — `DivCurlGenerator`  ·  college · difficulty 2
+
+Divergence and curl of linear vector fields.
+
+**Variants:** `div_curl_plane`, `div_curl_space`
+
+```
+Problem: For F(x,y,z) = <6*x - 6*z, -2*x + 2*y + z, 6*y - 2*z>, compute the divergence and curl.
+Steps:
+  VECTOR_SETUP|F(x,y,z) = <6*x - 6*z, -2*x + 2*y + z, 6*y - 2*z>|divergence and curl
+  PARTIAL_RESULT|P_x|6
+  PARTIAL_RESULT|Q_y|2
+  PARTIAL_RESULT|R_z|-2
+  DIV_SUM|P_x + Q_y + R_z|6 + 2 - 2|6
+  PARTIAL_RESULT|R_y|6
+  PARTIAL_RESULT|Q_z|1
+  CURL_COMPONENT|i|6 - 1|5
+  PARTIAL_RESULT|P_z|-6
+  PARTIAL_RESULT|R_x|0
+  CURL_COMPONENT|j|-6 - 0|-6
+  PARTIAL_RESULT|Q_x|-2
+  PARTIAL_RESULT|P_y|0
+  CURL_COMPONENT|k|-2 - 0|-2
+  Z|divergence 6; curl <5, -6, -2>
+Answer: divergence 6; curl <5, -6, -2>
 ```

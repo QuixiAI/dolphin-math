@@ -214,6 +214,7 @@ from generators.lagrange_multiplier_generator import LagrangeMultiplierGenerator
 from generators.double_integral_generator import DoubleIntegralGenerator
 from generators.triple_integral_generator import TripleIntegralGenerator
 from generators.jacobian_generator import JacobianGenerator
+from generators.div_curl_generator import DivCurlGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -599,6 +600,7 @@ ALL_GENERATORS = [
     DoubleIntegralGenerator(),
     TripleIntegralGenerator(),
     JacobianGenerator(),
+    DivCurlGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]
