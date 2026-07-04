@@ -6,7 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] GeometricSequenceGenerator — Geometric Sequence (high · d4)
 - [ ] RecursiveExplicitGenerator — Recursive Explicit (high · d4)
 - [ ] SigmaNotationGenerator — Sigma Notation (high · d4)
 - [ ] ComplexNumberOpsGenerator — Complex Number Ops (high · d4)
