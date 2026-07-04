@@ -313,6 +313,7 @@ CURRICULUM = {
     "GraphCountingGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "DijkstraGenerator": {"grade_level": COLLEGE, "difficulty": 4},
     "MSTGenerator": {"grade_level": COLLEGE, "difficulty": 4},
+    "GraphTraversalGenerator": {"grade_level": COLLEGE, "difficulty": 3},
 }
 
 

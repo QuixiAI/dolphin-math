@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**281 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**282 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -6010,6 +6010,46 @@ Steps:
   MST_SET|AB, AC, CD, CE
   Z|MST weight = 31; edges = AB, AC, CD, CE
 Answer: MST weight = 31; edges = AB, AC, CD, CE
+```
+
+### Graph Traversal — `GraphTraversalGenerator`  ·  college · difficulty 3
+
+BFS/DFS visit orders and topological sorting traces.
+
+**Variants:** `graph_traversal_bfs`, `graph_traversal_dfs`, `graph_traversal_topo`
+
+```
+Problem: Run DFS from B on the undirected graph with vertices A, B, C, D, E and edges AB, AE, BC, BD, BE, CD, CE, DE. Visit neighbors in alphabetical order.
+Steps:
+  GRAPH_SETUP|undirected graph|vertices A, B, C, D, E
+  ADJ_LIST|A|B, E
+  ADJ_LIST|B|A, C, D, E
+  ADJ_LIST|C|B, D, E
+  ADJ_LIST|D|B, C, E
+  ADJ_LIST|E|A, B, C, D
+  VISIT|B|B
+  DFS_EDGE|B->A|tree
+  VISIT|A|B, A
+  DFS_EDGE|A->B|skip visited
+  DFS_EDGE|A->E|tree
+  VISIT|E|B, A, E
+  DFS_EDGE|E->A|skip visited
+  DFS_EDGE|E->B|skip visited
+  DFS_EDGE|E->C|tree
+  VISIT|C|B, A, E, C
+  DFS_EDGE|C->B|skip visited
+  DFS_EDGE|C->D|tree
+  VISIT|D|B, A, E, C, D
+  DFS_EDGE|D->B|skip visited
+  DFS_EDGE|D->C|skip visited
+  DFS_EDGE|D->E|skip visited
+  DFS_EDGE|C->E|skip visited
+  DFS_EDGE|E->D|skip visited
+  DFS_EDGE|B->C|skip visited
+  DFS_EDGE|B->D|skip visited
+  DFS_EDGE|B->E|skip visited
+  Z|DFS order = B, A, E, C, D
+Answer: DFS order = B, A, E, C, D
 ```
 
 ## Graduate

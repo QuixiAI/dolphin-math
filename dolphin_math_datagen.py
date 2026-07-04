@@ -248,6 +248,7 @@ from generators.boolean_algebra_generator import BooleanAlgebraGenerator
 from generators.graph_counting_generator import GraphCountingGenerator
 from generators.dijkstra_generator import DijkstraGenerator
 from generators.mst_generator import MSTGenerator
+from generators.graph_traversal_generator import GraphTraversalGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -667,6 +668,7 @@ ALL_GENERATORS = [
     GraphCountingGenerator(),
     DijkstraGenerator(),
     MSTGenerator(),
+    GraphTraversalGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]
