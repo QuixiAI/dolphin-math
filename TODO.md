@@ -54,9 +54,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 
 - [ ] **A4. Phrasing banks** — multiple NL templates per word-problem
       generator; more phrasings also grow the dedup space.
-- [ ] **A5. Composite problems** — one scratchpad chaining 2–3 skills (a mean
-      that requires long division; area with mixed-number sides; percent of a
-      computed total) · `CompositeArithmeticGenerator` · elementary · d4
 - [ ] **A6. Distractor word problems** — include an irrelevant quantity; the
       scratchpad's first step selects the relevant data (humans cross things
       out). Variant flag on existing word-problem generators.

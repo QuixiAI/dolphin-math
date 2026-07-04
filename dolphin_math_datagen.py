@@ -182,6 +182,7 @@ from generators.power_series_generator import PowerSeriesGenerator
 from generators.taylor_series_generator import TaylorSeriesGenerator
 from generators.five_number_summary_generator import FiveNumberSummaryGenerator
 from generators.standard_deviation_generator import StandardDeviationGenerator
+from generators.composite_arithmetic_generator import CompositeArithmeticGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -523,6 +524,7 @@ ALL_GENERATORS = [
     TaylorSeriesGenerator(),
     FiveNumberSummaryGenerator(),
     StandardDeviationGenerator(),
+    CompositeArithmeticGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),
