@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**337 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**338 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8043,4 +8043,27 @@ Steps:
   CHECK|[A,B]|-4iJx|verified
   Z|[A,B] = -4iJx = [[0, -2i], [-2i, 0]]
 Answer: [A,B] = -4iJx = [[0, -2i], [-2i, 0]]
+```
+
+### Pauli Algebra — `PauliAlgebraGenerator`  ·  graduate · difficulty 3
+
+Pauli products, anticommutators, traces, and Gell-Mann trace identities.
+
+**Variants:** `pauli_algebra_anticommutator`, `pauli_algebra_gellmann_trace`, `pauli_algebra_product`, `pauli_algebra_trace`
+
+```
+Problem: For Gell-Mann matrices lambda_1 through lambda_7, compute Tr(AB) for A=-4lambda_7 and B=lambda_4.
+Steps:
+  GELLMANN_SETUP|trace|A=-4lambda_7|B=lambda_4
+  MATRIX_VALUE|A|[[0, 0, 0], [0, 0, 4i], [0, -4i, 0]]
+  MATRIX_VALUE|B|[[0, 0, 1], [0, 0, 0], [1, 0, 0]]
+  MATRIX_PRODUCT|AB|[[0, 0, 0], [4i, 0, 0], [0, 0, 0]]
+  TRACE_ENTRY|(1,1)|0
+  TRACE_ENTRY|(2,2)|0
+  TRACE_ENTRY|(3,3)|0
+  TRACE_SUM|0 + 0 + 0|0
+  GELLMANN_IDENTITY|Tr(lambda_7 lambda_4)|2 delta_ab|0
+  CHECK|Tr(AB)|0|verified
+  Z|Tr(AB) = 0
+Answer: Tr(AB) = 0
 ```

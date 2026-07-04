@@ -369,6 +369,7 @@ CURRICULUM = {
     "MatrixGroupCheckGenerator": {"grade_level": GRADUATE, "difficulty": 3},
     "LieExponentialGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "StructureConstantGenerator": {"grade_level": GRADUATE, "difficulty": 4},
+    "PauliAlgebraGenerator": {"grade_level": GRADUATE, "difficulty": 3},
 }
 
 
