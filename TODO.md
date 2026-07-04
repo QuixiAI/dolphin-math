@@ -175,7 +175,6 @@ algebra checks. Constants and logs provided per Principle 5.
 Poetic bonus: the model learns to compute its own building blocks on paper.
 
 ### Matrix Calculus & ML Linear Algebra
-- [ ] Positive-definiteness checks — Sylvester's criterion via leading principal minors · `PositiveDefiniteGenerator` · college · d3
 - [ ] Covariance matrix from a small dataset → 2×2 PCA — eigendecompose, project onto the principal component · `PCAGenerator` · graduate · d4
 - [ ] Cosine similarity & distance matrices over small embedding sets — the geometry of embeddings, incl. king − man + woman analogy arithmetic · `EmbeddingSimilarityGenerator` · college · d3
 - [ ] Low-rank approximation — truncated SVD of small matrices, reconstruction error in Frobenius norm · `LowRankApproxGenerator` · graduate · d4

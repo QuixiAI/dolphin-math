@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**449 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**450 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8848,6 +8848,28 @@ Steps:
   ROOT|sqrt(36)|6
   Z|Frobenius=6
 Answer: Frobenius=6
+```
+
+### Positive Definite — `PositiveDefiniteGenerator`  ·  college · difficulty 3
+
+Positive-definiteness checks by Sylvester's criterion for 2x2 matrices.
+
+**Variants:** `positive_definite_not_positive`, `positive_definite_positive`
+
+```
+Problem: Use Sylvester's criterion to decide whether A=[[1,-6], [-6,-1]] is positive definite.
+Steps:
+  PD_SETUP|A=[[1,-6], [-6,-1]]|Sylvester criterion
+  LEADING_MINOR|Delta1|1
+  CHECK|Delta1 > 0|1 > 0|true
+  M|1|-1|-1
+  M|-6|-6|36
+  S|-1|36|-37
+  LEADING_MINOR|Delta2|-37
+  CHECK|Delta2 > 0|-37 > 0|false
+  CHECK|all leading minors positive|false
+  Z|not_positive_definite
+Answer: not_positive_definite
 ```
 
 ## Graduate

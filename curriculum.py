@@ -481,6 +481,7 @@ CURRICULUM = {
     "ClassifierMetricsGenerator": {"grade_level": COLLEGE, "difficulty": 2},
     "MatrixCalculusGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "MatrixNormGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "PositiveDefiniteGenerator": {"grade_level": COLLEGE, "difficulty": 3},
 }
 
 
