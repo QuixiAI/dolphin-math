@@ -6,7 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] IntegerOperationsGenerator — Integer Operations (middle · d3)
 - [ ] UnitRateGenerator — Unit Rate (middle · d3)
 - [ ] UnitRateFromTableGenerator — Unit Rate From Table (middle · d3)
 - [ ] RatioTableGenerator — Ratio Table (middle · d3)
