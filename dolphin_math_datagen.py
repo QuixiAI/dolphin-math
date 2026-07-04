@@ -330,6 +330,7 @@ from generators.running_coupling_generator import RunningCouplingGenerator
 from generators.bisection_generator import BisectionGenerator
 from generators.newton_raphson_generator import NewtonRaphsonGenerator
 from generators.fixed_point_generator import FixedPointGenerator
+from generators.interpolation_generator import InterpolationGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -831,6 +832,7 @@ ALL_GENERATORS = [
     BisectionGenerator(),
     NewtonRaphsonGenerator(),
     FixedPointGenerator(),
+    InterpolationGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

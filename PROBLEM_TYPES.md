@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**363 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**364 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7229,6 +7229,39 @@ Steps:
   FIXED_POINT_UPDATE|4|x_3=-719/243|x_4=-6541/2187
   Z|x_4 = -6541/2187
 Answer: x_4 = -6541/2187
+```
+
+### Interpolation — `InterpolationGenerator`  ·  college · difficulty 4
+
+Three-point polynomial interpolation by Lagrange and Newton forms.
+
+**Variants:** `interpolation_lagrange`, `interpolation_newton`
+
+```
+Problem: Use Newton divided differences through points (-1,-5), (2,7), (3,23) to find P(1).
+Steps:
+  INTERP_SETUP|newton|points=(-1,-5), (2,7), (3,23)|x=1
+  S|7|-5|12
+  S|2|-1|3
+  D|12|3|4
+  NEWTON_DD|f[x0,x1]|4
+  S|23|7|16
+  S|3|2|1
+  D|16|1|16
+  NEWTON_DD|f[x1,x2]|16
+  S|16|4|12
+  S|3|-1|4
+  D|12|4|3
+  NEWTON_DD|f[x0,x1,x2]|3
+  S|1|-1|2
+  M|4|2|8
+  S|1|2|-1
+  M|2|-1|-2
+  M|3|-2|-6
+  A|-5|8|3
+  A|3|-6|-3
+  Z|P(1) = -3
+Answer: P(1) = -3
 ```
 
 ## Graduate
