@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**401 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**402 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7932,6 +7932,28 @@ Steps:
   PI_DEN|27/2|π|27/(2π)
   Z|E=27/(2π) N/C outward-positive
 Answer: E=27/(2π) N/C outward-positive
+```
+
+### Transient Circuit — `TransientCircuitGenerator`  ·  college · difficulty 4
+
+RC and RL first-order transients with exact symbolic exponentials.
+
+**Variants:** `transient_circuit_rc_charging`, `transient_circuit_rl_rise`
+
+```
+Problem: An RL circuit has R=7 ohm, L=7 H, source V=18 V, and starts with zero current. Find current at t=5 s in exact exponential form.
+Steps:
+  TRANSIENT_SETUP|rl_rise|R=7, L=7|V=18, t=5
+  TRANSIENT_FORMULA|tau=L/R
+  D|7|7|1
+  TRANSIENT_FORMULA|I_inf=V/R
+  D|18|7|18/7
+  D|5|1|5
+  TRANSIENT_FORMULA|I=I_inf*(1-e^(-t/tau))
+  EXP_SUB|t/tau|5|e^-5
+  TRANSIENT_FORMULA|I=18/7*(1-e^-5)
+  Z|I=(18/7)*(1-e^-5) A
+Answer: I=(18/7)*(1-e^-5) A
 ```
 
 ## Graduate
