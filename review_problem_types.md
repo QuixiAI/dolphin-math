@@ -6,8 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] BaseArithmeticGenerator — Base Arithmetic (middle · d4)
-- [ ] BitwiseOpsGenerator — Bitwise Ops (middle · d3)
 - [ ] ModularArithmeticGenerator — Modular Arithmetic (middle · d4)
 - [ ] ManualSquareRootGenerator — Manual Square Root (middle · d4)
 - [ ] CalendarArithmeticGenerator — Calendar Arithmetic (middle · d3)
