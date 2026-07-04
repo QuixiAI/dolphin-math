@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**273 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**274 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5749,6 +5749,35 @@ Steps:
   A|55|5|60
   Z|n(A union B union C) = 60
 Answer: n(A union B union C) = 60
+```
+
+### Stars And Bars — `StarsAndBarsGenerator`  ·  college · difficulty 3
+
+Stars and bars counts and multinomial coefficients.
+
+**Variants:** `stars_and_bars_multinomial`, `stars_and_bars_nonnegative`, `stars_and_bars_positive`
+
+```
+Problem: How many positive integer solutions are there to x1 + ... + x5 = 8?
+Steps:
+  SB_SETUP|x1+...+x5 = 8|xi >= 1
+  SHIFT|yi = xi - 1|y1+...+y5 = 3
+  SB_FORMULA|C(n-1, k-1)
+  S|8|5|3
+  S|8|1|7
+  S|5|1|4
+  COMB_SETUP|C(7, 4)|n!/(r!(n-r)!)
+  REWRITE|numerator|7 * 6 * 5 * 4
+  M|7|6|42
+  M|42|5|210
+  M|210|4|840
+  REWRITE|denominator|1 * 2 * 3 * 4
+  M|1|2|2
+  M|2|3|6
+  M|6|4|24
+  D|840|24|35
+  Z|solutions = 35
+Answer: solutions = 35
 ```
 
 ## Graduate
