@@ -251,8 +251,8 @@ class SurfaceAreaCylinderGenerator(ProblemGenerator):
 
     def generate(self) -> dict:
         """Generate a cylinder surface area problem."""
-        radius = random.randint(2, 10)
-        height = random.randint(5, 15)
+        radius = random.randint(2, 20)
+        height = random.randint(3, 30)
 
         # Bases: 2πr²
         bases_coef = 2 * radius ** 2

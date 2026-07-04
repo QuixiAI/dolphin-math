@@ -1240,15 +1240,15 @@ Generates surface area of cylinder problems.
 **Variants:** `surface_area_cylinder`
 
 ```
-Problem: Find the surface area of a cylinder with radius 8 units and height 11 units.
+Problem: Find the surface area of a cylinder with radius 14 units and height 27 units.
 Steps:
-  SA_SETUP|cylinder|r=8, h=11
+  SA_SETUP|cylinder|r=14, h=27
   SA_FORMULA|SA = 2πr² + 2πrh
-  SA_BASES|2π(8)² = 2π × 64|128π
-  SA_LATERAL|2π × 8 × 11|176π
-  SA_TOTAL|SA = 128π + 176π|304π
-  Z|304π square units
-Answer: 304π square units
+  SA_BASES|2π(14)² = 2π × 196|392π
+  SA_LATERAL|2π × 14 × 27|756π
+  SA_TOTAL|SA = 392π + 756π|1148π
+  Z|1148π square units
+Answer: 1148π square units
 ```
 
 ### Round Solids — `RoundSolidsGenerator`  ·  middle · difficulty 4
