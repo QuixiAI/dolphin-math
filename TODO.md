@@ -89,7 +89,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Exponentials & Logarithms
 
 ### Conic Sections
-- [ ] Parabola — vertex, focus, directrix from standard form · `ParabolaFeaturesGenerator` · high · d5
 - [ ] Ellipse — center, vertices, foci · `EllipseFeaturesGenerator` · high · d5
 - [ ] Hyperbola — center, vertices, foci, asymptotes · `HyperbolaFeaturesGenerator` · high · d5
 - [ ] General form → standard form by completing the square · `ConicStandardFormGenerator` · high · d5

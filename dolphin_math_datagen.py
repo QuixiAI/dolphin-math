@@ -111,6 +111,7 @@ from generators.log_conversion_generator import LogConversionGenerator
 from generators.log_properties_generator import LogPropertiesGenerator
 from generators.exponential_equation_generator import ExponentialEquationGenerator
 from generators.log_equation_generator import LogEquationGenerator
+from generators.parabola_features_generator import ParabolaFeaturesGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -381,6 +382,7 @@ ALL_GENERATORS = [
     LogPropertiesGenerator(),
     ExponentialEquationGenerator(),
     LogEquationGenerator(),
+    ParabolaFeaturesGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),
