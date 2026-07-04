@@ -85,7 +85,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Complex Numbers
 
 ### Polynomials & Rational Functions
-- [ ] Synthetic division · `SyntheticDivisionGenerator` · high · d4
 - [ ] Horner's method evaluation — bridges to synthetic division · `HornerEvaluationGenerator` · high · d4
 - [ ] Remainder & factor theorems · `RemainderFactorTheoremGenerator` · high · d4
 - [ ] Rational root theorem — list candidates ±p/q, test each until a root is found (A2) · `RationalRootGenerator` · high · d5
