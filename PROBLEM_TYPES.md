@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**341 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**342 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -8149,4 +8149,27 @@ Steps:
   CHECK|[A,[A,B]] and [B,[A,B]]|0|truncates
   Z|log(e^A e^B) = [[0, -5, 5], [0, 0, 2], [0, 0, 0]]
 Answer: log(e^A e^B) = [[0, -5, 5], [0, 0, 2], [0, 0, 0]]
+```
+
+### Young Tableaux — `YoungTableauxGenerator`  ·  graduate · difficulty 4
+
+Young-tableaux arithmetic for representation dimensions and simple SU(3) tensor-product decompositions.
+
+**Variants:** `young_tableaux_hook_length`, `young_tableaux_su3_decomposition`
+
+```
+Problem: Use SU(3) Young-tableau rules to decompose 8 x 3 and check dimensions.
+Steps:
+  SU3_SETUP|left=8|right=3
+  TABLEAU_RULE|8 x 3|attach one box to the adjoint tableau|15 + 6bar + 3
+  M|8|3|24
+  REP_DIM|15|15
+  A|0|15|15
+  REP_DIM|6bar|6
+  A|15|6|21
+  REP_DIM|3|3
+  A|21|3|24
+  CHECK|dimension balance|24=24|ok
+  Z|8 x 3 = 15 + 6bar + 3
+Answer: 8 x 3 = 15 + 6bar + 3
 ```

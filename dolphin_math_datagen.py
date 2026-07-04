@@ -308,6 +308,7 @@ from generators.pauli_algebra_generator import PauliAlgebraGenerator
 from generators.casimir_generator import CasimirGenerator
 from generators.index_gymnastics_generator import IndexGymnasticsGenerator
 from generators.bch_generator import BCHGenerator
+from generators.young_tableaux_generator import YoungTableauxGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -787,6 +788,7 @@ ALL_GENERATORS = [
     CasimirGenerator(),
     IndexGymnasticsGenerator(),
     BCHGenerator(),
+    YoungTableauxGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

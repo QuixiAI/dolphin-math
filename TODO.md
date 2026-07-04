@@ -142,7 +142,6 @@ matrix arithmetic or explicit integration — no functional analysis proofs.
 
 ### Lie Groups & Symmetry (computational)
 The symmetry machinery of particle physics, done as explicit matrix work.
-- [ ] Representation dimensions — Young-tableaux hook-length arithmetic; SU(3) decompositions like 3 ⊗ 3̄ = 8 ⊕ 1 by tableau rules · `YoungTableauxGenerator` · graduate · d4
 - [ ] Clebsch-Gordan coefficients — ½⊗½ and 1⊗½ built by ladder operators plus orthogonality; the classic tabular grind · `ClebschGordanGenerator` · graduate · d5
 
 ### Tensors & General Relativity (computational)
