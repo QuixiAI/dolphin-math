@@ -85,7 +85,9 @@ class AngleRelationshipsGenerator(ProblemGenerator):
             steps_list.append(step("ANGLE_SETUP", "complementary", f"({expr1})° + ({expr2})° = 90°"))
             combined_coef = coef1 + coef2
             combined_const = const1 + const2
-            steps_list.append(step("ANGLE_RELATION", f"{combined_coef}x + {combined_const} = 90"))
+            const_txt = (f"+ {combined_const}" if combined_const >= 0
+                         else f"- {-combined_const}")
+            steps_list.append(step("ANGLE_RELATION", f"{combined_coef}x {const_txt} = 90"))
             steps_list.append(step("ANGLE_SOLVE", f"{combined_coef}x = {90 - combined_const}", f"x = {x}"))
             steps_list.append(step("Z", x))
 
@@ -137,7 +139,9 @@ class AngleRelationshipsGenerator(ProblemGenerator):
             steps_list.append(step("ANGLE_SETUP", "supplementary", f"({expr1})° + ({expr2})° = 180°"))
             combined_coef = coef1 + coef2
             combined_const = const1 + const2
-            steps_list.append(step("ANGLE_RELATION", f"{combined_coef}x + {combined_const} = 180"))
+            const_txt = (f"+ {combined_const}" if combined_const >= 0
+                         else f"- {-combined_const}")
+            steps_list.append(step("ANGLE_RELATION", f"{combined_coef}x {const_txt} = 180"))
             steps_list.append(step("ANGLE_SOLVE", f"{combined_coef}x = {180 - combined_const}", f"x = {x}"))
             steps_list.append(step("Z", x))
 
@@ -159,8 +163,9 @@ class AngleRelationshipsGenerator(ProblemGenerator):
         # angle1 = coef1 * x + const1
         angle_value = coef1 * x + const1
 
-        # angle2 expressed differently but equals angle1
-        coef2 = random.randint(2, 6)
+        # angle2 expressed differently but equals angle1; the coefficient
+        # must differ or the equation cannot determine x
+        coef2 = random.choice([c for c in range(2, 7) if c != coef1])
         const2 = angle_value - coef2 * x
 
         expr1 = f"{coef1}x + {const1}"
@@ -177,11 +182,7 @@ class AngleRelationshipsGenerator(ProblemGenerator):
         coef_diff = coef1 - coef2
         const_diff = const2 - const1
 
-        if coef_diff != 0:
-            steps_list.append(step("ANGLE_SOLVE", f"{coef_diff}x = {const_diff}", f"x = {x}"))
-        else:
-            # Edge case: same coefficient, solve differently
-            steps_list.append(step("ANGLE_SOLVE", f"x = {x}", f"x = {x}"))
+        steps_list.append(step("ANGLE_SOLVE", f"{coef_diff}x = {const_diff}", f"x = {x}"))
 
         steps_list.append(step("Z", x))
 
