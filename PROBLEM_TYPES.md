@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**459 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**460 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -11765,4 +11765,130 @@ Steps:
   UPDATE|alpha3|1
   Z|alpha=(1,0,1); updates=2
 Answer: alpha=(1,0,1); updates=2
+```
+
+### Attention — `AttentionGenerator`  ·  graduate · difficulty 5
+
+Scaled dot-product attention by hand for 2-3 tokens and d=2.
+
+**Variants:** `attention_scaled_dot_product_uniform`
+
+```
+Problem: Compute scaled dot-product attention for Q=[[0,0], [0,0], [0,0]], K=[[0,0], [0,0], [0,0]], V=[[4,-8], [-1,7], [6,3]] with d=2. Use softmax over each row of QK^T/sqrt(2).
+Steps:
+  ATTN_SETUP|tokens=3,d=2|Q=[[0,0], [0,0], [0,0]]|K=[[0,0], [0,0], [0,0]]
+  ATTN_SETUP|V=[[4,-8], [-1,7], [6,3]]
+  M|0|0|0
+  M|0|0|0
+  A|0|0|0
+  ATTN_SCORE|1,1|0
+  M|0|0|0
+  M|0|0|0
+  A|0|0|0
+  ATTN_SCORE|1,2|0
+  M|0|0|0
+  M|0|0|0
+  A|0|0|0
+  ATTN_SCORE|1,3|0
+  M|0|0|0
+  M|0|0|0
+  A|0|0|0
+  ATTN_SCORE|2,1|0
+  M|0|0|0
+  M|0|0|0
+  A|0|0|0
+  ATTN_SCORE|2,2|0
+  M|0|0|0
+  M|0|0|0
+  A|0|0|0
+  ATTN_SCORE|2,3|0
+  M|0|0|0
+  M|0|0|0
+  A|0|0|0
+  ATTN_SCORE|3,1|0
+  M|0|0|0
+  M|0|0|0
+  A|0|0|0
+  ATTN_SCORE|3,2|0
+  M|0|0|0
+  M|0|0|0
+  A|0|0|0
+  ATTN_SCORE|3,3|0
+  SOFTMAX_EXP|1,1|1
+  A|0|1|1
+  SOFTMAX_EXP|1,2|1
+  A|1|1|2
+  SOFTMAX_EXP|1,3|1
+  A|2|1|3
+  D|1|3|1/3
+  SOFTMAX_WEIGHT|1,1|1/3
+  D|1|3|1/3
+  SOFTMAX_WEIGHT|1,2|1/3
+  D|1|3|1/3
+  SOFTMAX_WEIGHT|1,3|1/3
+  M|1/3|4|4/3
+  A|0|4/3|4/3
+  M|1/3|-1|-1/3
+  A|4/3|-1/3|1
+  M|1/3|6|2
+  A|1|2|3
+  M|1/3|-8|-8/3
+  A|0|-8/3|-8/3
+  M|1/3|7|7/3
+  A|-8/3|7/3|-1/3
+  M|1/3|3|1
+  A|-1/3|1|2/3
+  ATTN_OUTPUT|1|[[3,2/3]]
+  SOFTMAX_EXP|2,1|1
+  A|0|1|1
+  SOFTMAX_EXP|2,2|1
+  A|1|1|2
+  SOFTMAX_EXP|2,3|1
+  A|2|1|3
+  D|1|3|1/3
+  SOFTMAX_WEIGHT|2,1|1/3
+  D|1|3|1/3
+  SOFTMAX_WEIGHT|2,2|1/3
+  D|1|3|1/3
+  SOFTMAX_WEIGHT|2,3|1/3
+  M|1/3|4|4/3
+  A|0|4/3|4/3
+  M|1/3|-1|-1/3
+  A|4/3|-1/3|1
+  M|1/3|6|2
+  A|1|2|3
+  M|1/3|-8|-8/3
+  A|0|-8/3|-8/3
+  M|1/3|7|7/3
+  A|-8/3|7/3|-1/3
+  M|1/3|3|1
+  A|-1/3|1|2/3
+  ATTN_OUTPUT|2|[[3,2/3]]
+  SOFTMAX_EXP|3,1|1
+  A|0|1|1
+  SOFTMAX_EXP|3,2|1
+  A|1|1|2
+  SOFTMAX_EXP|3,3|1
+  A|2|1|3
+  D|1|3|1/3
+  SOFTMAX_WEIGHT|3,1|1/3
+  D|1|3|1/3
+  SOFTMAX_WEIGHT|3,2|1/3
+  D|1|3|1/3
+  SOFTMAX_WEIGHT|3,3|1/3
+  M|1/3|4|4/3
+  A|0|4/3|4/3
+  M|1/3|-1|-1/3
+  A|4/3|-1/3|1
+  M|1/3|6|2
+  A|1|2|3
+  M|1/3|-8|-8/3
+  A|0|-8/3|-8/3
+  M|1/3|7|7/3
+  A|-8/3|7/3|-1/3
+  M|1/3|3|1
+  A|-1/3|1|2/3
+  ATTN_OUTPUT|3|[[3,2/3]]
+  Z|attention=[[3,2/3], [3,2/3], [3,2/3]]
+Answer: attention=[[3,2/3], [3,2/3], [3,2/3]]
 ```

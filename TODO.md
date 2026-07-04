@@ -182,7 +182,6 @@ Poetic bonus: the model learns to compute its own building blocks on paper.
 The model hand-computes its own forward pass. Softmax stays exact by
 construction: choose logits as ln of rationals (Principle 5), so the weights
 come out as exact fractions.
-- [ ] Scaled dot-product attention by hand — 2-3 tokens, d = 2: QKᵀ/√d, exact softmax, weighted sum of V; THE computation · `AttentionGenerator` · graduate · d5
 - [ ] Softmax & cross-entropy — plain evaluation, temperature scaling, log-softmax, and the softmax+CE gradient p − y applied numerically; the single home for softmax math · `SoftmaxGradientGenerator` · graduate · d4
 - [ ] LayerNorm by hand — mean, variance, normalize, scale-and-shift on small vectors (composes with `StandardDeviationGenerator`) · `LayerNormGenerator` · college · d3
 - [ ] Activation functions — ReLU/GELU/sigmoid values and derivatives (e-values provided); chain them through a two-layer computation · `ActivationGenerator` · college · d3

@@ -426,6 +426,7 @@ from generators.kernel_validity_generator import KernelValidityGenerator
 from generators.kernel_ridge_generator import KernelRidgeGenerator
 from generators.svm_margin_generator import SVMMarginGenerator
 from generators.kernel_perceptron_generator import KernelPerceptronGenerator
+from generators.attention_generator import AttentionGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -1023,6 +1024,7 @@ ALL_GENERATORS = [
     KernelRidgeGenerator(),
     SVMMarginGenerator(),
     KernelPerceptronGenerator(),
+    AttentionGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]
