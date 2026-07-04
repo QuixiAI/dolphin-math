@@ -177,7 +177,6 @@ Poetic bonus: the model learns to compute its own building blocks on paper.
 ### Matrix Calculus & ML Linear Algebra
 
 ### Kernel Methods
-- [ ] Kernel evaluations & Gram matrices — polynomial and RBF kernels over 2-3 points (RBF exponent values exact or provided per Principle 5) · `KernelEvaluationGenerator` · graduate · d3
 - [ ] Feature-map verification — expand φ(x)·φ(z) explicitly and confirm it equals K(x,z) for the polynomial kernel; the kernel trick made visible · `FeatureMapGenerator` · graduate · d4
 - [ ] Kernel validity — check a small Gram matrix is PSD via Sylvester's criterion (composes with `PositiveDefiniteGenerator`) · `KernelValidityGenerator` · graduate · d4
 - [ ] Kernel ridge regression on 2-3 points — solve (K + λI)α = y, predict a new point · `KernelRidgeGenerator` · graduate · d4

@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**453 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**454 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -11442,4 +11442,99 @@ Steps:
   ROOT|sqrt(169)|13
   Z|A_rank1=[[0,0], [0,15]]; error=13
 Answer: A_rank1=[[0,0], [0,15]]; error=13
+```
+
+### Kernel Evaluation — `KernelEvaluationGenerator`  ·  graduate · difficulty 3
+
+Exact kernel evaluations and Gram matrices for small point sets.
+
+**Variants:** `kernel_evaluation_polynomial_gram`, `kernel_evaluation_rbf_gram`
+
+```
+Problem: Compute the Gram matrix for points A=(-3,-1), B=(-1,-1), C=(1,2) using RBF kernel K(x,z)=exp(-gamma ||x-z||^2) with gamma=1.
+Steps:
+  KERNEL_SETUP|type=rbf|points=A=(-3,-1), B=(-1,-1), C=(1,2)|gamma=1
+  S|-3|-3|0
+  E|0|2|0
+  S|-1|-1|0
+  E|0|2|0
+  A|0|0|0
+  DIST2|A,A|0
+  M|1|0|0
+  KERNEL_EXPONENT|A,A|0
+  KERNEL_VALUE|A,A|1
+  S|-3|-1|-2
+  E|-2|2|4
+  S|-1|-1|0
+  E|0|2|0
+  A|4|0|4
+  DIST2|A,B|4
+  M|1|4|4
+  KERNEL_EXPONENT|A,B|-4
+  KERNEL_VALUE|A,B|exp(-4)
+  S|-3|1|-4
+  E|-4|2|16
+  S|-1|2|-3
+  E|-3|2|9
+  A|16|9|25
+  DIST2|A,C|25
+  M|1|25|25
+  KERNEL_EXPONENT|A,C|-25
+  KERNEL_VALUE|A,C|exp(-25)
+  S|-1|-3|2
+  E|2|2|4
+  S|-1|-1|0
+  E|0|2|0
+  A|4|0|4
+  DIST2|B,A|4
+  M|1|4|4
+  KERNEL_EXPONENT|B,A|-4
+  KERNEL_VALUE|B,A|exp(-4)
+  S|-1|-1|0
+  E|0|2|0
+  S|-1|-1|0
+  E|0|2|0
+  A|0|0|0
+  DIST2|B,B|0
+  M|1|0|0
+  KERNEL_EXPONENT|B,B|0
+  KERNEL_VALUE|B,B|1
+  S|-1|1|-2
+  E|-2|2|4
+  S|-1|2|-3
+  E|-3|2|9
+  A|4|9|13
+  DIST2|B,C|13
+  M|1|13|13
+  KERNEL_EXPONENT|B,C|-13
+  KERNEL_VALUE|B,C|exp(-13)
+  S|1|-3|4
+  E|4|2|16
+  S|2|-1|3
+  E|3|2|9
+  A|16|9|25
+  DIST2|C,A|25
+  M|1|25|25
+  KERNEL_EXPONENT|C,A|-25
+  KERNEL_VALUE|C,A|exp(-25)
+  S|1|-1|2
+  E|2|2|4
+  S|2|-1|3
+  E|3|2|9
+  A|4|9|13
+  DIST2|C,B|13
+  M|1|13|13
+  KERNEL_EXPONENT|C,B|-13
+  KERNEL_VALUE|C,B|exp(-13)
+  S|1|1|0
+  E|0|2|0
+  S|2|2|0
+  E|0|2|0
+  A|0|0|0
+  DIST2|C,C|0
+  M|1|0|0
+  KERNEL_EXPONENT|C,C|0
+  KERNEL_VALUE|C,C|1
+  Z|K=[[1,exp(-4),exp(-25)], [exp(-4),1,exp(-13)], [exp(-25),exp(-13),1]]
+Answer: K=[[1,exp(-4),exp(-25)], [exp(-4),1,exp(-13)], [exp(-25),exp(-13),1]]
 ```

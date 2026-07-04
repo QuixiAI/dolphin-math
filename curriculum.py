@@ -485,6 +485,7 @@ CURRICULUM = {
     "PCAGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "EmbeddingSimilarityGenerator": {"grade_level": COLLEGE, "difficulty": 3},
     "LowRankApproxGenerator": {"grade_level": GRADUATE, "difficulty": 4},
+    "KernelEvaluationGenerator": {"grade_level": GRADUATE, "difficulty": 3},
 }
 
 
