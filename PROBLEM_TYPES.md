@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**418 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**419 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -10082,4 +10082,26 @@ Steps:
   ENERGY_LEVEL|E_25=hbar*omega*(n+1/2)|357/2
   Z|N ket25=25 ket25; E_25=357/2
 Answer: N ket25=25 ket25; E_25=357/2
+```
+
+### Bra Ket — `BraKetGenerator`  ·  graduate · difficulty 4
+
+Finite-dimensional bra-ket arithmetic with exact complex components.
+
+**Variants:** `braket_inner_product`, `braket_time_evolution`
+
+```
+Problem: A diagonal Hamiltonian gives time-evolution phases [-i,-i,i] in its eigenbasis. For ket psi=[0,-2,1-i], compute U psi.
+Steps:
+  BRAKET_SETUP|time_evolution|psi=[0,-2,1-i]|phases=[-i,-i,i]
+  BRAKET_FORMULA|U=diag(phases)
+  CX_M|-i|0|0
+  TIME_COMPONENT|k=1|0
+  CX_M|-i|-2|2i
+  TIME_COMPONENT|k=2|2i
+  CX_M|i|1-i|1+i
+  TIME_COMPONENT|k=3|1+i
+  TIME_EVOLVE|U psi|[0,2i,1+i]
+  Z|U psi=[0,2i,1+i]
+Answer: U psi=[0,2i,1+i]
 ```

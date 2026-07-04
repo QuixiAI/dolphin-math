@@ -164,7 +164,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Physics — Thermodynamics & Statistical Mechanics
 
 ### Physics — Quantum Mechanics
-- [ ] Finite-dimensional bra-ket — inner products, time evolution under a diagonal Hamiltonian · `BraKetGenerator` · graduate · d4
 
 ### Physics — Relativity, Waves & Optics
 - [ ] Lorentz transformations — time dilation, length contraction · `SpecialRelativityGenerator` · college · d3

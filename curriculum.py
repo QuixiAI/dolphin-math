@@ -450,6 +450,7 @@ CURRICULUM = {
     "CommutatorGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "LadderOperatorGenerator": {"grade_level": GRADUATE, "difficulty": 5},
     "HydrogenAtomGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "BraKetGenerator": {"grade_level": GRADUATE, "difficulty": 4},
 }
 
 
