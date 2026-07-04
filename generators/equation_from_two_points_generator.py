@@ -2,6 +2,25 @@ import random
 from base_generator import ProblemGenerator
 from helpers import step, jid
 
+
+def sfrac(num, den):
+    """Signed reduced fraction string: (4, 2) -> '2', (-5, 3) -> '-5/3'."""
+    import math
+    g = math.gcd(num, den)
+    n, d = num // g, den // g
+    if d < 0:
+        n, d = -n, -d
+    return str(n) if d == 1 else f"{n}/{d}"
+
+
+def const_term(num, den):
+    """' + c' / ' - c' continuation for a fraction constant; '' when zero."""
+    if num == 0:
+        return ""
+    text = sfrac(abs(num), den)
+    return f" + {text}" if num > 0 else f" - {text}"
+
+
 class EquationFromTwoPointsGenerator(ProblemGenerator):
     """
     Generates problems to find the equation of a line passing through two points.
@@ -77,7 +96,9 @@ class EquationFromTwoPointsGenerator(ProblemGenerator):
         
         # Step 1: Slope
         steps.append(step("SLOPE_FORMULA", "m = (y2 - y1) / (x2 - x1)"))
-        steps.append(step("SLOPE_SUBST", f"m = ({y2} - {y1}) / ({x2} - {x1})"))
+        y1_txt = f"({y1})" if y1 < 0 else str(y1)
+        x1_txt = f"({x1})" if x1 < 0 else str(x1)
+        steps.append(step("SLOPE_SUBST", f"m = ({y2} - {y1_txt}) / ({x2} - {x1_txt})"))
         steps.append(step("SLOPE_RESULT", m_str))
         
         # Step 2: Point-Slope
@@ -124,7 +145,7 @@ class EquationFromTwoPointsGenerator(ProblemGenerator):
             c1_num = -m_num * x1 
             # c1 = c1_num / m_den
             
-            steps.append(step("DIST", m_str, f"(x {x1_op} {abs(x1)})", f"{term1} + {c1_num}/{m_den}"))
+            steps.append(step("DIST", m_str, f"(x {x1_op} {abs(x1)})", f"{term1}{const_term(c1_num, m_den)}"))
             
             # Combine constant: b = c1 + y1
             # y1 as fraction: (y1 * m_den) / m_den
@@ -142,7 +163,7 @@ class EquationFromTwoPointsGenerator(ProblemGenerator):
             else:
                 b_str = f"{f_num}/{f_den}"
                 
-            steps.append(step("COMB_CONST", f"{c1_num}/{m_den}", str(y1), b_str))
+            steps.append(step("COMB_CONST", sfrac(c1_num, m_den), str(y1), b_str))
             
             b_val = final_num / m_den
             b_sign = "+" if b_val >= 0 else "-" # simplistic check

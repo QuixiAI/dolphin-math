@@ -2117,14 +2117,14 @@ Generates problems involving Point-Slope form.
 **Variants:** `point_slope_convert`
 
 ```
-Problem: Convert to Slope-Intercept Form: y - 3 = 3(x - 2)
+Problem: Convert to Slope-Intercept Form: y - 4 = 3(x - 3)
 Steps:
-  POINT_SLOPE_SETUP|y - 3 = 3(x - 2)
+  POINT_SLOPE_SETUP|y - 4 = 3(x - 3)
   GOAL|Convert to Slope-Intercept Form (y = mx + b)
-  DIST|3|(x - 2)|3x -6
-  EQ_OP_NOTE|add|3|to isolate y
-  Z|y = 3x - 3
-Answer: y = 3x - 3
+  DIST|3|(x - 3)|3x - 9
+  EQ_OP_NOTE|add|4|to isolate y
+  Z|y = 3x - 5
+Answer: y = 3x - 5
 ```
 
 ### Standard Form Conversion — `StandardFormConversionGenerator`  ·  high · difficulty 4

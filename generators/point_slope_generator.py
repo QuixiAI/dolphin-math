@@ -2,6 +2,25 @@ import random
 from base_generator import ProblemGenerator
 from helpers import step, jid
 
+
+def sfrac(num, den):
+    """Signed reduced fraction string: (4, 2) -> '2', (-5, 3) -> '-5/3'."""
+    import math
+    g = math.gcd(num, den)
+    n, d = num // g, den // g
+    if d < 0:
+        n, d = -n, -d
+    return str(n) if d == 1 else f"{n}/{d}"
+
+
+def const_term(num, den):
+    """' + c' / ' - c' continuation for a fraction constant; '' when zero."""
+    if num == 0:
+        return ""
+    text = sfrac(abs(num), den)
+    return f" + {text}" if num > 0 else f" - {text}"
+
+
 class PointSlopeGenerator(ProblemGenerator):
     """
     Generates problems involving Point-Slope form.
@@ -20,9 +39,9 @@ class PointSlopeGenerator(ProblemGenerator):
         pass
         
     def generate(self) -> dict:
-        # Generate components
-        x1 = random.randint(-10, 10)
-        y1 = random.randint(-10, 10)
+        # Generate components (nonzero so 'y - 0' / '(x - 0)' never appear)
+        x1 = random.choice([v for v in range(-10, 11) if v != 0])
+        y1 = random.choice([v for v in range(-10, 11) if v != 0])
         
         # Slope (integer or simple fraction)
         if random.random() < 0.7:
@@ -57,10 +76,7 @@ class PointSlopeGenerator(ProblemGenerator):
         
         # Display distribution
         if m_den == 1:
-            term2 = f"{c1_num}" if c1_num < 0 else f"+{c1_num}"
-            if c1_num == 0: term2 = ""
-            if term2.startswith("+"): term2 = f"+ {c1_num}" # formatting
-            steps.append(step("DIST", m_str, f"(x {x1_op} {abs(x1)})", f"{term1} {term2}".strip()))
+            steps.append(step("DIST", m_str, f"(x {x1_op} {abs(x1)})", f"{term1}{const_term(c1_num, 1)}"))
             
             # Move y1
             steps.append(step("EQ_OP_NOTE", "add" if y1 > 0 else "subtract", abs(y1), "to isolate y"))
@@ -74,7 +90,7 @@ class PointSlopeGenerator(ProblemGenerator):
         else:
             # Fraction math
             # c1 = c1_num / m_den
-            steps.append(step("DIST", m_str, f"(x {x1_op} {abs(x1)})", f"{term1} + {c1_num}/{m_den}"))
+            steps.append(step("DIST", m_str, f"(x {x1_op} {abs(x1)})", f"{term1}{const_term(c1_num, m_den)}"))
             
             # Move y1
             steps.append(step("EQ_OP_NOTE", "add" if y1 > 0 else "subtract", abs(y1), "to isolate y"))

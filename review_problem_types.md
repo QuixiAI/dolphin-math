@@ -6,8 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] EquationFromTwoPointsGenerator — Equation From Two Points (high · d5)
-- [ ] PointSlopeGenerator — Point Slope (high · d4)
 - [ ] StandardFormConversionGenerator — Standard Form Conversion (high · d4)
 - [ ] ParallelPerpendicularLineGenerator — Parallel Perpendicular Line (high · d5)
 - [ ] SystemsSubstitutionGenerator — Systems Substitution (high · d5)
