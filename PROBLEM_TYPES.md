@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**428 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**429 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -5016,6 +5016,25 @@ Steps:
   D|311/3|8|311/24
   Z|V1=311/24 mL
 Answer: V1=311/24 mL
+```
+
+### PHCalculation — `PHCalculationGenerator`  ·  high · difficulty 4
+
+Exact pH and pOH arithmetic with powers of ten or supplied log values.
+
+**Variants:** `ph_calculation_hydronium_power`, `ph_calculation_hydronium_with_log`, `ph_calculation_hydroxide_power`, `ph_calculation_hydroxide_with_log`
+
+```
+Problem: A solution has [OH-]=8*10^-2 M. Use provided log10(8)=0.9 to find pOH and pH with pH+pOH=14.
+Steps:
+  PH_SETUP|hydroxide_with_log|[OH-]=8*10^-2|log10(8)=0.9
+  PH_FORMULA|pOH=-log10([OH-]), pH=14-pOH
+  LOG_PRODUCT|log10(8*10^-2)=log10(8)-2
+  S|0.9|2|-1.1
+  S|0|-1.1|1.1
+  S|14|1.1|12.9
+  Z|pOH=1.1; pH=12.9
+Answer: pOH=1.1; pH=12.9
 ```
 
 ## College

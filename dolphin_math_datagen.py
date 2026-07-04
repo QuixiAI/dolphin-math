@@ -395,6 +395,7 @@ from generators.interference_generator import InterferenceGenerator
 from generators.standing_wave_generator import StandingWaveGenerator
 from generators.stoichiometry_generator import StoichiometryGenerator
 from generators.solution_chem_generator import SolutionChemGenerator
+from generators.ph_calculation_generator import PHCalculationGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -961,6 +962,7 @@ ALL_GENERATORS = [
     StandingWaveGenerator(),
     StoichiometryGenerator(),
     SolutionChemGenerator(),
+    PHCalculationGenerator(),
 
     # --- (More High School generators coming soon) ---
 ]

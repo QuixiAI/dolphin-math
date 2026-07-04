@@ -460,6 +460,7 @@ CURRICULUM = {
     "StandingWaveGenerator": {"grade_level": COLLEGE, "difficulty": 2},
     "StoichiometryGenerator": {"grade_level": HIGH, "difficulty": 4},
     "SolutionChemGenerator": {"grade_level": HIGH, "difficulty": 3},
+    "PHCalculationGenerator": {"grade_level": HIGH, "difficulty": 4},
 }
 
 

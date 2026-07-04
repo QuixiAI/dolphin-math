@@ -168,7 +168,6 @@ algebra checks. Constants and logs provided per Principle 5.
 ### Physics — Relativity, Waves & Optics
 
 ### Chemistry Computations
-- [ ] pH/pOH — log arithmetic with provided log values or powers of ten · `PHCalculationGenerator` · high · d4
 - [ ] Ideal-gas stoichiometry — PV = nRT crossovers · `GasStoichiometryGenerator` · high · d4
 
 ### Information Theory & Coding
