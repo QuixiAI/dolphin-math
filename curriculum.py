@@ -352,6 +352,7 @@ CURRICULUM = {
     "HyperbolicDistanceGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "StereographicGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "FundamentalFormGenerator": {"grade_level": GRADUATE, "difficulty": 4},
+    "ChristoffelGenerator": {"grade_level": GRADUATE, "difficulty": 5},
 }
 
 

@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**320 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**321 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7663,4 +7663,26 @@ Steps:
   M|32/3|1/2|16/3
   Z|E = 64sin^2(phi), F = 0, G = 64, area = 16pi/3
 Answer: E = 64sin^2(phi), F = 0, G = 64, area = 16pi/3
+```
+
+### Christoffel — `ChristoffelGenerator`  ·  graduate · difficulty 5
+
+Christoffel symbols for hand-friendly 2D diagonal metrics.
+
+**Variants:** `christoffel_polar`, `christoffel_sphere`
+
+```
+Problem: For the sphere metric ds^2 = R^2 dphi^2 + R^2 sin^2(phi) dtheta^2 with R=109, compute the nonzero Christoffel symbols at phi=45 deg. Given sin(phi)=sqrt(2)/2 and cos(phi)=sqrt(2)/2.
+Steps:
+  CHRISTOFFEL_SETUP|sphere|g_phiphi=R^2, g_thetatheta=R^2 sin^2(phi)|R=109, phi=45 deg
+  INVERSE_METRIC|g^phiphi=1/R^2|g^thetatheta=1/(R^2 sin^2(phi))
+  CHRISTOFFEL_FORMULA|Gamma^i_jk = 1/2 g^im(d_j g_mk + d_k g_mj - d_m g_jk)
+  E|109|2|11881
+  TRIG_VALUE|sin(phi)=sqrt(2)/2|cos(phi)=sqrt(2)/2
+  DERIV|d_phi g_thetatheta|2R^2 sin(phi)cos(phi)
+  M|sqrt(2)/2|sqrt(2)/2|1/2
+  M|-1|1/2|-1/2
+  D|sqrt(2)/2|sqrt(2)/2|1
+  Z|Gamma^phi_thetatheta = -1/2, Gamma^theta_phitheta = Gamma^theta_thetaphi = 1
+Answer: Gamma^phi_thetatheta = -1/2, Gamma^theta_phitheta = Gamma^theta_thetaphi = 1
 ```
