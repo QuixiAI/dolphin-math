@@ -173,6 +173,7 @@ CURRICULUM = {
     "SeparableODEGenerator": {"grade_level": HIGH, "difficulty": 5},
     "IntegrationByPartsGenerator": {"grade_level": HIGH, "difficulty": 5},
     "PartialFractionsGenerator": {"grade_level": HIGH, "difficulty": 5},
+    "ImproperIntegralGenerator": {"grade_level": HIGH, "difficulty": 5},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},

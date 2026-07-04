@@ -172,6 +172,7 @@ from generators.solid_revolution_generator import SolidRevolutionGenerator
 from generators.separable_ode_generator import SeparableODEGenerator
 from generators.integration_by_parts_generator import IntegrationByPartsGenerator
 from generators.partial_fractions_generator import PartialFractionsGenerator
+from generators.improper_integral_generator import ImproperIntegralGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -503,6 +504,7 @@ ALL_GENERATORS = [
     SeparableODEGenerator(),
     IntegrationByPartsGenerator(),
     PartialFractionsGenerator(),
+    ImproperIntegralGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),

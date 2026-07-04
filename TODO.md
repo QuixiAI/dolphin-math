@@ -101,7 +101,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Calculus — Derivatives
 
 ### Calculus — Integrals & Differential Equations
-- [ ] Improper integrals · `ImproperIntegralGenerator` · high · d5
 - [ ] Euler's method — stepwise table, pure scratchpad · `EulerMethodGenerator` · high · d5
 - [ ] Logistic differential equations · `LogisticGrowthGenerator` · high · d5
 - [ ] Parametric dy/dx and arc length; polar area · `ParametricCalculusGenerator` · high · d5
