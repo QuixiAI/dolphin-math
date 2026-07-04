@@ -423,6 +423,7 @@ CURRICULUM = {
     "RouthHurwitzGenerator": {"grade_level": GRADUATE, "difficulty": 4},
     "ProjectileMotionGenerator": {"grade_level": COLLEGE, "difficulty": 2},
     "NewtonsLawsGenerator": {"grade_level": COLLEGE, "difficulty": 3},
+    "CollisionGenerator": {"grade_level": COLLEGE, "difficulty": 3},
 }
 
 

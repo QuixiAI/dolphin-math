@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**391 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**392 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -7762,6 +7762,35 @@ Steps:
   D|1180/13|26|590/169
   Z|N=240 N; friction=120/13 N; a=590/169 m/s^2
 Answer: N=240 N; friction=120/13 N; a=590/169 m/s^2
+```
+
+### Collision — `CollisionGenerator`  ·  college · difficulty 3
+
+Momentum and collision calculations in 1D and 2D.
+
+**Variants:** `collision_elastic_1d`, `collision_inelastic_1d`, `collision_inelastic_2d`
+
+```
+Problem: In a 1D elastic collision, m1=13 kg has u1=11 m/s and m2=15 kg has u2=-13 m/s. Find final velocities v1 and v2.
+Steps:
+  COLLISION_SETUP|elastic_1d|m1=13, u1=11|m2=15, u2=-13
+  A|13|15|28
+  FORMULA|v1=((m1-m2)u1+2m2u2)/(m1+m2)
+  S|13|15|-2
+  M|-2|11|-22
+  M|2|15|30
+  M|30|-13|-390
+  A|-22|-390|-412
+  D|-412|28|-103/7
+  FORMULA|v2=(2m1u1+(m2-m1)u2)/(m1+m2)
+  M|2|13|26
+  M|26|11|286
+  S|15|13|2
+  M|2|-13|-26
+  A|286|-26|260
+  D|260|28|65/7
+  Z|v1=-103/7 m/s; v2=65/7 m/s
+Answer: v1=-103/7 m/s; v2=65/7 m/s
 ```
 
 ## Graduate
