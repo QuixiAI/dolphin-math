@@ -37,6 +37,8 @@ class PythagoreanLegGenerator(ProblemGenerator):
         (11, 60, 61),
         (20, 21, 29),
         (12, 35, 37),
+        (28, 45, 53),
+        (13, 84, 85),
     ]
 
     def generate(self) -> dict:
@@ -46,7 +48,7 @@ class PythagoreanLegGenerator(ProblemGenerator):
         a, b, c = triple
 
         # Optionally scale the triple
-        scale = random.choice([1, 2, 3])
+        scale = random.choice([1, 2, 3, 4])
         a, b, c = a * scale, b * scale, c * scale
 
         # Randomly choose which leg is given and which to find

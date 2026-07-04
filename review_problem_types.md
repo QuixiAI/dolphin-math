@@ -6,8 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] PythagHypGenerator — Pythag Hyp (middle · d4)
-- [ ] PythagoreanLegGenerator — Pythagorean Leg (middle · d4)
 - [ ] PythagoreanWordProblemGenerator — Pythagorean Word Problem (middle · d4)
 - [ ] MeanGenerator — Mean (middle · d3)
 - [ ] MedianGenerator — Median (middle · d3)

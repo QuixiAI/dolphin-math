@@ -1276,14 +1276,14 @@ Generates Pythagorean theorem problems (finding hypotenuse).
 **Variants:** `pythag_hyp`
 
 ```
-Problem: Find hypotenuse: legs 60 and 32
+Problem: Find hypotenuse: legs 156 and 320
 Steps:
-  E|60|2|3600
-  E|32|2|1024
-  A|3600|1024|4624
-  ROOT|4624|68
-  Z|68
-Answer: 68
+  E|156|2|24336
+  E|320|2|102400
+  A|24336|102400|126736
+  ROOT|126736|356
+  Z|356
+Answer: 356
 ```
 
 ### Pythagorean Leg — `PythagoreanLegGenerator`  ·  middle · difficulty 4
@@ -1293,17 +1293,17 @@ Generates Pythagorean theorem problems to find a leg.
 **Variants:** `pythagorean_find_leg`
 
 ```
-Problem: In a right triangle, the hypotenuse is 40 units and one leg is 24 units. Find the length of the other leg.
+Problem: In a right triangle, the hypotenuse is 340 units and one leg is 336 units. Find the length of the other leg.
 Steps:
-  PYTHAG_SETUP|c=40|a=24|b=?
+  PYTHAG_SETUP|c=340|a=336|b=?
   PYTHAG_FORMULA|a² + b² = c²
-  PYTHAG_SUBSTITUTE|24² + b² = 40²
-  PYTHAG_SQUARE|24|576
-  PYTHAG_SQUARE|40|1600
-  PYTHAG_SOLVE|b² = 1600 - 576|1024
-  PYTHAG_ROOT|1024|32
-  Z|32 units
-Answer: 32 units
+  PYTHAG_SUBSTITUTE|336² + b² = 340²
+  PYTHAG_SQUARE|336|112896
+  PYTHAG_SQUARE|340|115600
+  PYTHAG_SOLVE|b² = 115600 - 112896|2704
+  PYTHAG_ROOT|2704|52
+  Z|52 units
+Answer: 52 units
 ```
 
 ### Pythagorean Word Problem — `PythagoreanWordProblemGenerator`  ·  middle · difficulty 4

@@ -8,7 +8,7 @@ class PythagHypGenerator(ProblemGenerator):
     def generate(self) -> dict:
         operation = "pythag_hyp"
         # Use common integer triples, scaled randomly
-        triples = [(3, 4, 5), (5, 12, 13), (7, 24, 25), (8, 15, 17), (9, 40, 41)]
+        triples = [(3, 4, 5), (5, 12, 13), (7, 24, 25), (8, 15, 17), (9, 40, 41), (20, 21, 29), (12, 35, 37), (11, 60, 61), (28, 45, 53), (16, 63, 65), (33, 56, 65), (13, 84, 85), (36, 77, 85), (39, 80, 89)]
         a, b, c_ans = random.choice(triples)
         k = random.randint(1, 5)
         a, b, c_ans = a * k, b * k, c_ans * k
