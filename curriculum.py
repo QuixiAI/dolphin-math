@@ -166,6 +166,7 @@ CURRICULUM = {
     "MeanValueTheoremGenerator": {"grade_level": HIGH, "difficulty": 4},
     "AntiderivativeGenerator": {"grade_level": HIGH, "difficulty": 4},
     "USubstitutionGenerator": {"grade_level": HIGH, "difficulty": 5},
+    "DefiniteIntegralGenerator": {"grade_level": HIGH, "difficulty": 4},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},
