@@ -91,7 +91,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Conic Sections
 
 ### Geometry & Measurement
-- [ ] Similar triangles — set up ratios, solve for missing sides · `SimilarTrianglesGenerator` · high · d4
 - [ ] Geometric mean — altitude and leg relationships in right triangles · `GeometricMeanGenerator` · high · d4
 - [ ] Distance formula · `DistanceFormulaGenerator` · high · d3
 - [ ] Midpoint formula · `MidpointGenerator` · high · d3
