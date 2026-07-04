@@ -133,6 +133,7 @@ from generators.right_triangle_trig_generator import RightTriangleTrigGenerator
 from generators.special_right_triangle_generator import SpecialRightTriangleGenerator
 from generators.angle_measure_generator import AngleMeasureGenerator
 from generators.unit_circle_generator import UnitCircleGenerator
+from generators.sinusoid_features_generator import SinusoidFeaturesGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -425,6 +426,7 @@ ALL_GENERATORS = [
     SpecialRightTriangleGenerator(),
     AngleMeasureGenerator(),
     UnitCircleGenerator(),
+    SinusoidFeaturesGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),

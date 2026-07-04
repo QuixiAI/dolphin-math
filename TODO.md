@@ -93,7 +93,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Geometry & Measurement
 
 ### Trigonometry
-- [ ] Amplitude, period, phase shift from equation · `SinusoidFeaturesGenerator` · high · d4
 - [ ] All six trig functions from one given ratio · `TrigSixFunctionsGenerator` · high · d4
 - [ ] Sum/difference, double- and half-angle evaluations · `TrigIdentityEvalGenerator` · high · d5
 - [ ] Verify trig identities — canonical transformation path (needs A0) · `TrigIdentityVerifyGenerator` · high · d5
