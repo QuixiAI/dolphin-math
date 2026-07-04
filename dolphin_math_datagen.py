@@ -189,6 +189,7 @@ from generators.regression_generator import RegressionGenerator
 from generators.expected_value_generator import ExpectedValueGenerator
 from generators.confidence_interval_generator import ConfidenceIntervalGenerator
 from generators.hypothesis_test_generator import HypothesisTestGenerator
+from generators.chi_square_generator import ChiSquareGenerator
 from generators.error_spotting_generator import ErrorSpottingGenerator
 from generators.fill_in_step_generator import FillInStepGenerator
 from generators.normal_table_generator import NormalTableGenerator
@@ -539,6 +540,7 @@ ALL_GENERATORS = [
     ExpectedValueGenerator(),
     ConfidenceIntervalGenerator(),
     HypothesisTestGenerator(),
+    ChiSquareGenerator(),
 
     # --- Critic formats (see DESIGN.md "Derived Record Formats") ---
     ErrorSpottingGenerator(),

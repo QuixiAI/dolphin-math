@@ -84,7 +84,6 @@ Not new skills — multipliers on everything. (A0-A2 and A9 shipped: see DESIGN.
 ### Calculus — Series (BC)
 
 ### Statistics
-- [ ] Chi-square — goodness of fit and independence, with expected-count tables · `ChiSquareGenerator` · high · d5
 
 ### Probability
 - [ ] Permutations & combinations — factorial arithmetic shown step by step (**was falsely checked off — no generator exists**) · `PermutationCombinationGenerator` · middle · d4

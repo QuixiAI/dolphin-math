@@ -2,7 +2,7 @@
 
 Every problem type this dataset can generate. For each type: a one-line description, the grade band and coarse difficulty (1–5, read relative to the band), the internal operation variants, and one real worked example (the pipe-delimited `steps` are the model's scratchpad).
 
-**222 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
+**223 problem types.** This file is generated — do not hand-edit. Regenerate with `uv run python tools/gen_problem_types.py`.
 
 ## Elementary (grades 3–5)
 
@@ -4562,6 +4562,33 @@ Steps:
   CHECK|abs(stat) vs critical value|2 ≤ 2.576|fail to reject H0
   Z|fail to reject H0
 Answer: fail to reject H0
+```
+
+### Chi Square — `ChiSquareGenerator`  ·  high · difficulty 5
+
+Chi-square tests worked cell by cell: a goodness-of-fit test against a uniform model, and a 2×2 test of independence with an expected-count table. Data are built so every expected count and every χ² contribution is exact; the critical value is supplied in the problem (Principle 5).
+
+**Variants:** `chi_square_gof_decision`, `chi_square_gof_stat`, `chi_square_independence_decision`, `chi_square_independence_stat`
+
+```
+Problem: A 2×2 contingency table has counts 15, 35 in row 1 and 5, 45 in row 2 (N = 100). Test the two variables for independence. Using a critical value of 3.841 (df = 1), state the conclusion (reject H0 or fail to reject H0).
+Steps:
+  CHI_SETUP|row 1: 15, 35; row 2: 5, 45; N = 100|independence; df = 1, critical value = 3.841
+  CHI_FORMULA|E = (row·col)/N; χ² = Σ (O - E)^2/E
+  EXP_CELL|(50·20)/100|10
+  EXP_CELL|(50·80)/100|40
+  EXP_CELL|(50·20)/100|10
+  EXP_CELL|(50·80)/100|40
+  CHI_TERM|15 - 10 = 5|5^2 = 25|25/10 = 2.5
+  CHI_TERM|35 - 40 = -5|(-5)^2 = 25|25/40 = 0.625
+  CHI_TERM|5 - 10 = -5|(-5)^2 = 25|25/10 = 2.5
+  CHI_TERM|45 - 40 = 5|5^2 = 25|25/40 = 0.625
+  A|2.5|0.625|3.125
+  A|3.125|2.5|5.625
+  A|5.625|0.625|6.25
+  CHECK|χ² vs critical value|6.25 > 3.841|reject H0
+  Z|reject H0
+Answer: reject H0
 ```
 
 ### Normal Table — `NormalTableGenerator`  ·  high · difficulty 4

@@ -195,6 +195,7 @@ CURRICULUM = {
     "ExpectedValueGenerator": {"grade_level": HIGH, "difficulty": 4},
     "ConfidenceIntervalGenerator": {"grade_level": HIGH, "difficulty": 5},
     "HypothesisTestGenerator": {"grade_level": HIGH, "difficulty": 5},
+    "ChiSquareGenerator": {"grade_level": HIGH, "difficulty": 5},
     "FillInStepGenerator": {"grade_level": MIDDLE, "difficulty": 3},
     "NormalTableGenerator": {"grade_level": HIGH, "difficulty": 4},
     "UnitRateFromTableGenerator": {"grade_level": MIDDLE, "difficulty": 3},
