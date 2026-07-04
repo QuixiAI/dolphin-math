@@ -112,6 +112,9 @@ class PythagoreanWordProblemGenerator(ProblemGenerator):
         (9, 12, 15),
         (12, 16, 20),
         (15, 20, 25),
+        (7, 24, 25),
+        (20, 21, 29),
+        (12, 35, 37),
     ]
 
     def generate(self) -> dict:
@@ -119,7 +122,7 @@ class PythagoreanWordProblemGenerator(ProblemGenerator):
         context = random.choice(['ladder', 'diagonal', 'distance'])
 
         triple = random.choice(self.TRIPLES)
-        scale = random.choice([1, 2])
+        scale = random.choice([1, 2, 3])
         a, b, c = triple[0] * scale, triple[1] * scale, triple[2] * scale
 
         if context == 'ladder':
@@ -145,7 +148,11 @@ class PythagoreanWordProblemGenerator(ProblemGenerator):
 
         steps_list = []
         steps_list.append(step("PYTHAG_CONTEXT", "ladder", f"ladder={c}ft, given={given}ft"))
-        steps_list.append(step("PYTHAG_MODEL", f"ground={a}", f"wall={b}", f"ladder={c}"))
+        # model the unknown as ? — never leak the answer in the setup
+        if find_height:
+            steps_list.append(step("PYTHAG_MODEL", f"ground={a}", "wall=?", f"ladder={c}"))
+        else:
+            steps_list.append(step("PYTHAG_MODEL", "ground=?", f"wall={b}", f"ladder={c}"))
         steps_list.append(step("PYTHAG_FORMULA", "a² + b² = c²"))
 
         if find_height:

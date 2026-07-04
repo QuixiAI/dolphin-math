@@ -1313,16 +1313,16 @@ Generates word problems involving the Pythagorean theorem.
 **Variants:** `pythagorean_word_problem`
 
 ```
-Problem: A rectangle has a length of 30 units and a width of 40 units. What is the length of its diagonal?
+Problem: A rectangle has a length of 15 units and a width of 20 units. What is the length of its diagonal?
 Steps:
-  PYTHAG_CONTEXT|rectangle_diagonal|length=30, width=40
-  PYTHAG_MODEL|length=30|width=40|diagonal=?
+  PYTHAG_CONTEXT|rectangle_diagonal|length=15, width=20
+  PYTHAG_MODEL|length=15|width=20|diagonal=?
   PYTHAG_FORMULA|d² = l² + w²
-  PYTHAG_SUBSTITUTE|d² = 30² + 40²
-  PYTHAG_CALCULATE|d² = 900 + 1600 = 2500|2500
-  PYTHAG_CALCULATE|d = √2500|50
-  Z|50 units
-Answer: 50 units
+  PYTHAG_SUBSTITUTE|d² = 15² + 20²
+  PYTHAG_CALCULATE|d² = 225 + 400 = 625|625
+  PYTHAG_CALCULATE|d = √625|25
+  Z|25 units
+Answer: 25 units
 ```
 
 ### Mean — `MeanGenerator`  ·  middle · difficulty 3
