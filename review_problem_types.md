@@ -6,7 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] ExponentMixedRulesGenerator — Exponent Mixed Rules (middle · d4)
 - [ ] RootsAndRadicalsGenerator — Roots And Radicals (middle · d4)
 - [ ] AngleRelationshipsGenerator — Angle Relationships (middle · d4)
 - [ ] AnglesWithParallelLinesGenerator — Angles With Parallel Lines (middle · d4)
