@@ -15,7 +15,11 @@ import argparse
 import ast
 import os
 import random
+import re
 import sys
+
+# Op-codes are ALL-CAPS tokens (letters, digits, underscores).
+OPCODE_RE = re.compile(r"[A-Z][A-Z0-9_]*\Z")
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if REPO_ROOT not in sys.path:
@@ -53,6 +57,35 @@ def _opcodes_from_first_arg(node):
     return None
 
 
+def _harvest_catalog_codes(tree):
+    """Op-codes declared in a module's data catalog (data-driven step
+    paths), for modules that emit codes dynamically from a table.
+
+    Returns {code: set(arities)}. A catalog entry is a tuple/list
+    literal whose first element is an op-code token; the arity counts
+    the payload elements that survive the usual ``step(code, f1[, f2])``
+    emit, where empty-string fields are omitted.
+    """
+    found = {}
+    for node in ast.walk(tree):
+        if not isinstance(node, (ast.Tuple, ast.List)) or not node.elts:
+            continue
+        head = node.elts[0]
+        if not (isinstance(head, ast.Constant)
+                and isinstance(head.value, str)
+                and OPCODE_RE.match(head.value)):
+            continue
+        arity = 0
+        for elt in node.elts[1:]:
+            if isinstance(elt, ast.Constant) and isinstance(elt.value, str):
+                if elt.value != "":
+                    arity += 1  # empty payload string is omitted at emit
+            else:
+                arity += 1
+        found.setdefault(head.value, set()).add(arity)
+    return found
+
+
 def scan_opcodes(generators_dir=GENERATORS_DIR):
     """AST-scan generator modules for step(...) calls.
 
@@ -68,6 +101,7 @@ def scan_opcodes(generators_dir=GENERATORS_DIR):
         path = os.path.join(generators_dir, fname)
         with open(path, encoding="utf-8") as fp:
             tree = ast.parse(fp.read(), filename=path)
+        catalog_site = False
         for node in ast.walk(tree):
             if not isinstance(node, ast.Call):
                 continue
@@ -79,12 +113,23 @@ def scan_opcodes(generators_dir=GENERATORS_DIR):
                 continue
             codes = _opcodes_from_first_arg(node.args[0])
             if codes is None:
-                dynamic_sites.append(f"{fname}:{node.lineno}")
+                # A bare Name means the code is pulled from a data
+                # catalog (e.g. `for code, ... in path:`); resolve it
+                # by harvesting the module's catalog rather than warning.
+                if isinstance(node.args[0], ast.Name):
+                    catalog_site = True
+                else:
+                    dynamic_sites.append(f"{fname}:{node.lineno}")
                 continue
             arity = len(node.args) - 1
             for code in codes:
                 info = opcodes.setdefault(code, OpInfo())
                 info.arities.add(arity)
+                info.files.add(fname)
+        if catalog_site:
+            for code, arities in _harvest_catalog_codes(tree).items():
+                info = opcodes.setdefault(code, OpInfo())
+                info.arities |= arities
                 info.files.add(fname)
     return opcodes, dynamic_sites
 

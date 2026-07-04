@@ -6,7 +6,10 @@ repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if repo_root not in sys.path:
     sys.path.insert(0, repo_root)
 
-from tools.gen_opcode_legend import scan_opcodes, render_markdown
+from tools.gen_opcode_legend import (
+    scan_opcodes, render_markdown, _harvest_catalog_codes,
+)
+import ast
 
 
 class TestGenOpcodeLegend(unittest.TestCase):
@@ -34,6 +37,24 @@ class TestGenOpcodeLegend(unittest.TestCase):
 
     def test_no_dynamic_sites(self):
         self.assertEqual(self.dynamic_sites, [])
+
+    def test_data_catalog_codes_resolved(self):
+        # trig_identity_verify emits codes from a data catalog via a
+        # loop variable; the scanner must harvest them (not warn), so
+        # a catalog-only code like IDENT_MATCH is in the table.
+        self.assertIn("IDENT_MATCH", self.opcodes)
+        self.assertIn("trig_identity_verify_generator.py",
+                      self.opcodes["IDENT_MATCH"].files)
+
+    def test_harvest_infers_arity_from_tuple(self):
+        tree = ast.parse(
+            'X = [("FOO", "a", ""), ("BAR", "a", "b"), '
+            '("lower", "x", "y")]'
+        )
+        found = _harvest_catalog_codes(tree)
+        self.assertEqual(found["FOO"], {1})   # empty field omitted
+        self.assertEqual(found["BAR"], {2})
+        self.assertNotIn("lower", found)      # not an op-code token
 
     def test_z_used_by_all_step_emitting_generators(self):
         # Every generator module that emits steps ends with Z.
