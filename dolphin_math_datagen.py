@@ -318,6 +318,7 @@ ALL_GENERATORS = [
     TemperatureConversionGenerator(),
     DimensionalAnalysisGenerator(),
     PercentWordProblemGenerator(),
+    PercentWordProblemGenerator(distractor=True),
     RepeatingDecimalGenerator(),
     ProportionWordProblemGenerator(),
 
