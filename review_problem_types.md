@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] QuantumGateGenerator — Quantum Gate (college · d3)
-- [ ] ConservationLawGenerator — Conservation Law (college · d3)
-- [ ] QuarkCompositionGenerator — Quark Composition (college · d3)
-- [ ] BisectionGenerator — Bisection (college · d2)
-- [ ] NewtonRaphsonGenerator — Newton Raphson (college · d3)
-- [ ] FixedPointGenerator — Fixed Point (college · d3)
 - [ ] InterpolationGenerator — Interpolation (college · d4)
 - [ ] FiniteDifferenceGenerator — Finite Difference (college · d3)
 - [ ] RungeKuttaGenerator — Runge Kutta (college · d4)

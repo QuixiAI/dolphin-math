@@ -7129,18 +7129,18 @@ Answer: A tensor B = diag(-5,-1,-5,-1); output = [-40,0,-30,0]
 
 Apply H, X, Y, Z, and CNOT gates to basis states, with exact measurement probabilities.
 
-**Variants:** `quantum_gate_cnot`, `quantum_gate_single`
+**Variants:** `quantum_gate_cnot`, `quantum_gate_sequence`, `quantum_gate_single`
 
 ```
-Problem: Apply the CNOT gate to ket10 and give measurement probabilities.
+Problem: Apply H then Y then Z to ket1 and give the final state and measurement probabilities.
 Steps:
-  QUANTUM_SETUP|gate=CNOT|input=ket10
-  GATE_MATRIX|CNOT|ket00bra00+ket01bra01+ket11bra10+ket10bra11
-  XOR|control=1|target=0|1
-  APPLY_GATE|CNOT|ket10|ket11
-  MEASURE_PROB|computational basis|P(11)=1|all other outcomes 0
-  Z|state = ket11; P(11) = 1
-Answer: state = ket11; P(11) = 1
+  QUANTUM_SETUP|gates=H then Y then Z|input=ket1
+  APPLY_GATE|H|ket1|(ket0 - ket1)/sqrt(2)
+  APPLY_GATE|Y|(ket0 - ket1)/sqrt(2)|i(ket0 + ket1)/sqrt(2)
+  APPLY_GATE|Z|i(ket0 + ket1)/sqrt(2)|i(ket0 - ket1)/sqrt(2)
+  MEASURE_PROB|computational basis|P(0)=1/2|P(1)=1/2
+  Z|state = i(ket0 - ket1)/sqrt(2); P(0) = 1/2, P(1) = 1/2
+Answer: state = i(ket0 - ket1)/sqrt(2); P(0) = 1/2, P(1) = 1/2
 ```
 
 ### Conservation Law — `ConservationLawGenerator`  ·  college · difficulty 3

@@ -6,6 +6,26 @@ from helpers import step, jid
 
 SINGLE_GATES = ["H", "X", "Y", "Z"]
 
+# exact single-qubit state machine over {|0>, |1>, |+>, |->} with a
+# global phase in {1, -1, i, -i}: gate -> kind -> (new_kind, phase_factor)
+GATE_ACTION = {
+    "X": {"0": ("1", 1), "1": ("0", 1), "+": ("+", 1), "-": ("-", -1)},
+    "Z": {"0": ("0", 1), "1": ("1", -1), "+": ("-", 1), "-": ("+", 1)},
+    "Y": {"0": ("1", 1j), "1": ("0", -1j), "+": ("-", -1j), "-": ("+", 1j)},
+    "H": {"0": ("+", 1), "1": ("-", 1), "+": ("0", 1), "-": ("1", 1)},
+}
+PHASE_TXT = {1: "", -1: "-", 1j: "i", -1j: "-i"}
+KIND_TXT = {
+    "0": "ket0",
+    "1": "ket1",
+    "+": "(ket0 + ket1)/sqrt(2)",
+    "-": "(ket0 - ket1)/sqrt(2)",
+}
+
+
+def state_txt(kind, phase):
+    return f"{PHASE_TXT[phase]}{KIND_TXT[kind]}"
+
 
 def ket(bit):
     return f"ket{bit}"
@@ -22,6 +42,7 @@ class QuantumGateGenerator(ProblemGenerator):
 
     Variants:
     - single: one-qubit gate on |0> or |1>.
+    - sequence: 2-3 one-qubit gates applied in order, phase tracked exactly.
     - cnot: two-qubit CNOT on |control target>.
 
     Op-codes used:
@@ -29,7 +50,7 @@ class QuantumGateGenerator(ProblemGenerator):
     - Z: output state and probabilities
     """
 
-    VARIANTS = ["single", "cnot"]
+    VARIANTS = ["single", "sequence", "cnot"]
 
     def __init__(self, variant=None):
         if variant is not None and variant not in self.VARIANTS:
@@ -40,6 +61,8 @@ class QuantumGateGenerator(ProblemGenerator):
         variant = self.variant or random.choice(self.VARIANTS)
         if variant == "single":
             problem, steps, answer = self._generate_single()
+        elif variant == "sequence":
+            problem, steps, answer = self._generate_sequence()
         else:
             problem, steps, answer = self._generate_cnot()
         steps.append(step("Z", answer))
@@ -88,6 +111,32 @@ class QuantumGateGenerator(ProblemGenerator):
         ]
         answer = f"state = {state}; P(0) = {p0}, P(1) = {p1}"
         problem = f"Apply the {gate} gate to {ket(bit)} and give measurement probabilities."
+        return problem, steps, answer
+
+    def _generate_sequence(self):
+        n = random.choice([2, 3])
+        gates = [random.choice(SINGLE_GATES) for _ in range(n)]
+        bit = random.randint(0, 1)
+        kind, phase = str(bit), 1
+        steps = [step("QUANTUM_SETUP", f"gates={' then '.join(gates)}",
+                      f"input={ket(bit)}")]
+        for gate in gates:
+            prev_txt = state_txt(kind, phase)
+            new_kind, factor = GATE_ACTION[gate][kind]
+            phase = phase * factor
+            kind = new_kind
+            steps.append(step("APPLY_GATE", gate, prev_txt,
+                              state_txt(kind, phase)))
+        state = state_txt(kind, phase)
+        if kind in ("0", "1"):
+            p0, p1 = probs_for_basis(int(kind))
+        else:
+            p0, p1 = "1/2", "1/2"
+        steps.append(step("MEASURE_PROB", "computational basis",
+                          f"P(0)={p0}", f"P(1)={p1}"))
+        answer = f"state = {state}; P(0) = {p0}, P(1) = {p1}"
+        problem = (f"Apply {' then '.join(gates)} to {ket(bit)} and give "
+                   f"the final state and measurement probabilities.")
         return problem, steps, answer
 
     def _generate_cnot(self):

@@ -37,15 +37,61 @@ def probs_for_basis(bit):
     return ("1", "0") if bit == 0 else ("0", "1")
 
 
+SEQ_RE = re.compile(
+    r"Apply ([HXYZ](?: then [HXYZ])+) to ket([01]) and give "
+    r"the final state and measurement probabilities\.")
+
+
 def parse_problem(problem):
     match = SINGLE_RE.fullmatch(problem)
     if match:
         return {"variant": "single", "gate": match.group(1),
                 "bit": int(match.group(2))}
+    match = SEQ_RE.fullmatch(problem)
+    if match:
+        return {"variant": "sequence",
+                "gates": match.group(1).split(" then "),
+                "bit": int(match.group(2))}
     match = CNOT_RE.fullmatch(problem)
     assert match is not None, problem
     return {"variant": "cnot", "control": int(match.group(1)),
             "target": int(match.group(2))}
+
+
+def simulate_sequence(gates, bit):
+    """Independent oracle: exact complex amplitudes (a0 + a1)/sqrt(2)^k."""
+    amps = [1 + 0j, 0j] if bit == 0 else [0j, 1 + 0j]
+    k = 0
+    for gate in gates:
+        a0, a1 = amps
+        if gate == "X":
+            amps = [a1, a0]
+        elif gate == "Y":
+            amps = [-1j * a1, 1j * a0]
+        elif gate == "Z":
+            amps = [a0, -a1]
+        else:  # H
+            amps = [a0 + a1, a0 - a1]
+            k += 1
+            if k >= 2 and all(a.real % 2 == 0 and a.imag % 2 == 0
+                              for a in amps):
+                amps = [a / 2 for a in amps]
+                k -= 2
+    return amps, k
+
+
+PHASE_TXT = {(1, 0): "", (-1, 0): "-", (0, 1): "i", (0, -1): "-i"}
+
+
+def state_text_from_amps(amps, k):
+    a0, a1 = amps
+    if k == 0:
+        if a1 == 0:
+            return f"{PHASE_TXT[(int(a0.real), int(a0.imag))]}ket0", ("1", "0")
+        return f"{PHASE_TXT[(int(a1.real), int(a1.imag))]}ket1", ("0", "1")
+    phase = PHASE_TXT[(int(a0.real), int(a0.imag))]
+    sign = "+" if a1 == a0 else "-"
+    return f"{phase}(ket0 {sign} ket1)/sqrt(2)", ("1/2", "1/2")
 
 
 def expected_single(parts):
@@ -131,17 +177,35 @@ class TestQuantumGateGenerator(unittest.TestCase):
     def test_oracle_reconstructs_full_trace_from_problem_text(self):
         for _ in range(200):
             result = self.gen.generate()
+            parts = parse_problem(result["problem"])
+            if parts["variant"] == "sequence":
+                continue  # covered by test_oracle_sequence_simulation
             expected_steps, answer = expected_flow(result)
             self.assertEqual(result["final_answer"], answer, result["problem"])
             self.assertEqual(result["steps"], expected_steps,
+                             result["problem"])
+
+    def test_oracle_sequence_simulation(self):
+        """A9 oracle: exact amplitude simulation must reproduce the
+        final state text and probabilities for gate sequences."""
+        gen = QuantumGateGenerator("sequence")
+        for _ in range(300):
+            result = gen.generate()
+            parts = parse_problem(result["problem"])
+            amps, k = simulate_sequence(parts["gates"], parts["bit"])
+            state, (p0, p1) = state_text_from_amps(amps, k)
+            expected = f"state = {state}; P(0) = {p0}, P(1) = {p1}"
+            self.assertEqual(result["final_answer"], expected,
                              result["problem"])
 
     def test_all_gates_available(self):
         seen = set()
         for _ in range(300):
             parts = parse_problem(self.gen.generate()["problem"])
-            seen.add(parts["gate"] if parts["variant"] == "single"
-                     else "CNOT")
+            if parts["variant"] == "single":
+                seen.add(parts["gate"])
+            elif parts["variant"] == "cnot":
+                seen.add("CNOT")
         self.assertEqual(seen, {"H", "X", "Y", "Z", "CNOT"})
 
     def test_xor_steps(self):
