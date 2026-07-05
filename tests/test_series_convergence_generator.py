@@ -41,9 +41,14 @@ def p_tail_converges(p):
     return delta < 0.05
 
 
+def verdict_of(answer):
+    """Composite answers carry a parenthetical reason; the verdict is the head."""
+    return answer.split(" (")[0]
+
+
 def oracle_check(example):
     body_q = example["problem"]
-    ans = example["final_answer"]
+    ans = verdict_of(example["final_answer"])
     key = (body_q, ans)
     if key in _cache:
         return _cache[key]
@@ -152,7 +157,7 @@ class TestSeriesConvergenceGenerator(unittest.TestCase):
     def test_all_verdict_kinds_occur(self):
         answers = set()
         for _ in range(300):
-            answers.add(self.gen.generate()["final_answer"]
+            answers.add(verdict_of(self.gen.generate()["final_answer"])
                         .split(" to ")[0])
         self.assertEqual(answers, {"diverges", "converges",
                                    "converges absolutely",

@@ -70,7 +70,7 @@ class SeriesConvergenceGenerator(ProblemGenerator):
                 step("CHECK", "nth-term", f"{lim} ≠ 0",
                      "terms do not approach 0"),
             ]
-            answer = "diverges"
+            answer = f"diverges (nth-term test: limit {lim} ≠ 0)"
             problem = (f"Determine whether Σ {body} for n ≥ 1 "
                        f"converges or diverges.")
         elif variant == "geometric":
@@ -104,7 +104,7 @@ class SeriesConvergenceGenerator(ProblemGenerator):
             else:
                 steps.append(step("CONVERGE_CHECK",
                                   f"abs({r}) ≥ 1", "diverges"))
-                answer = "diverges"
+                answer = f"diverges (geometric, abs(r) = {abs(r)} ≥ 1)"
             problem = (f"Determine whether Σ {body} for n ≥ 0 "
                        f"converges or diverges; if it converges, "
                        f"find the sum.")
@@ -123,7 +123,8 @@ class SeriesConvergenceGenerator(ProblemGenerator):
                      f"p = {p} {'>' if conv else '≤'} 1",
                      "converges" if conv else "diverges"),
             ]
-            answer = "converges" if conv else "diverges"
+            answer = (f"converges (p-series, p = {p} > 1)" if conv
+                      else f"diverges (p-series, p = {p} ≤ 1)")
             problem = (f"Determine whether Σ {body} for n ≥ 1 "
                        f"converges or diverges.")
         elif variant == "ratio":
@@ -149,7 +150,8 @@ class SeriesConvergenceGenerator(ProblemGenerator):
                      "0 < 1" if over else "∞ > 1",
                      "converges" if over else "diverges"),
             ]
-            answer = "converges" if over else "diverges"
+            answer = ("converges (ratio test, limit 0 < 1)" if over
+                      else "diverges (ratio test, limit ∞ > 1)")
             problem = (f"Determine whether Σ {body} for n ≥ 1 "
                        f"converges or diverges.")
         elif variant == "alternating":
@@ -194,7 +196,7 @@ class SeriesConvergenceGenerator(ProblemGenerator):
                     step("CHECK", "p-series", "p = 2 > 1",
                          "Σ 1/n^2 converges"),
                 ]
-                answer = "converges"
+                answer = "converges (comparison with Σ 1/n^2)"
             else:
                 body = f"n/(n^2 + {k})"
                 steps = [
@@ -212,7 +214,7 @@ class SeriesConvergenceGenerator(ProblemGenerator):
                     step("CHECK", "p-series", "p = 1 ≤ 1",
                          "Σ 1/n diverges"),
                 ]
-                answer = "diverges"
+                answer = "diverges (limit comparison with Σ 1/n)"
             problem = (f"Determine whether Σ {body} for n ≥ 1 "
                        f"converges or diverges.")
         steps.append(step("Z", answer))

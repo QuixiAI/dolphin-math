@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] ImproperIntegralGenerator — Improper Integral (high · d5)
-- [ ] EulerMethodGenerator — Euler Method (high · d5)
-- [ ] LogisticGrowthGenerator — Logistic Growth (high · d5)
-- [ ] ParametricCalculusGenerator — Parametric Calculus (high · d5)
-- [ ] ArcLengthGenerator — Arc Length (high · d5)
-- [ ] SeriesConvergenceGenerator — Series Convergence (high · d5)
 - [ ] PowerSeriesGenerator — Power Series (high · d5)
 - [ ] TaylorSeriesGenerator — Taylor Series (high · d5)
 - [ ] ZScoreGenerator — ZScore (high · d4)

@@ -4685,8 +4685,8 @@ Steps:
   REWRITE|a_(n+1)/a_n = 8/(n + 1)
   LIMIT_SETUP|lim n→∞ 8/(n + 1) = 0
   CHECK|ratio test|0 < 1|converges
-  Z|converges
-Answer: converges
+  Z|converges (ratio test, limit 0 < 1)
+Answer: converges (ratio test, limit 0 < 1)
 ```
 
 ### Power Series — `PowerSeriesGenerator`  ·  high · difficulty 5
