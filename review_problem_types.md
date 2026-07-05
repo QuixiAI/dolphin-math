@@ -6,8 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] ExponentialModelGenerator — Exponential Model (high · d4)
-- [ ] LogConversionGenerator — Log Conversion (high · d4)
 - [ ] LogPropertiesGenerator — Log Properties (high · d4)
 - [ ] ExponentialEquationGenerator — Exponential Equation (high · d5)
 - [ ] LogEquationGenerator — Log Equation (high · d5)
