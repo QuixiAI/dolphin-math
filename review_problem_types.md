@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] BraKetGenerator — Bra Ket (graduate · d4)
-- [ ] MinkowskiIntervalGenerator — Minkowski Interval (graduate · d4)
-- [ ] KLDivergenceGenerator — KLDivergence (graduate · d4)
-- [ ] ChannelCapacityGenerator — Channel Capacity (graduate · d4)
-- [ ] ArithmeticCodingGenerator — Arithmetic Coding (graduate · d5)
-- [ ] GradientStepGenerator — Gradient Step (graduate · d4)
 - [ ] PerceptronGenerator — Perceptron (graduate · d3)
 - [ ] BackpropGenerator — Backprop (graduate · d5)
 - [ ] InformationGainGenerator — Information Gain (graduate · d4)
