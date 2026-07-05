@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] RelationCheckGenerator — Relation Check (college · d2)
-- [ ] InclusionExclusionGenerator — Inclusion Exclusion (college · d3)
-- [ ] StarsAndBarsGenerator — Stars And Bars (college · d3)
-- [ ] DerangementGenerator — Derangement (college · d3)
-- [ ] RecurrenceGenerator — Recurrence (college · d4)
-- [ ] BooleanAlgebraGenerator — Boolean Algebra (college · d3)
 - [ ] GraphCountingGenerator — Graph Counting (college · d3)
 - [ ] DijkstraGenerator — Dijkstra (college · d4)
 - [ ] MSTGenerator — MST (college · d4)
