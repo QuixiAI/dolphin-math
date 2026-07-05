@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] PowerSeriesGenerator — Power Series (high · d5)
-- [ ] TaylorSeriesGenerator — Taylor Series (high · d5)
-- [ ] ZScoreGenerator — ZScore (high · d4)
-- [ ] RegressionGenerator — Regression (high · d5)
-- [ ] ExpectedValueGenerator — Expected Value (high · d4)
-- [ ] ConfidenceIntervalGenerator — Confidence Interval (high · d5)
 - [ ] HypothesisTestGenerator — Hypothesis Test (high · d5)
 - [ ] ChiSquareGenerator — Chi Square (high · d5)
 - [ ] ConditionalProbabilityGenerator — Conditional Probability (high · d5)
