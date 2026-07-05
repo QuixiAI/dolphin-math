@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] MultiplyingBinomialsGenerator — Multiplying Binomials (high · d5)
-- [ ] MultiplyingPolynomialsGenerator — Multiplying Polynomials (high · d5)
-- [ ] PolynomialDivMonomialGenerator — Polynomial Div Monomial (high · d5)
-- [ ] StoichiometryGenerator — Stoichiometry (high · d4)
-- [ ] SolutionChemGenerator — Solution Chem (high · d3)
-- [ ] PHCalculationGenerator — PHCalculation (high · d4)
 - [ ] GasStoichiometryGenerator — Gas Stoichiometry (high · d4)
 - [ ] PartialDerivativeGenerator — Partial Derivative (college · d2)
 - [ ] GradientGenerator — Gradient (college · d2)

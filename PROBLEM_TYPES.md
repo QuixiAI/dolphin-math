@@ -4961,8 +4961,8 @@ Steps:
   DIST_TERM|x|- 5x^3 - 1x^2 + 3x
   DIST_TERM|+1|- 5x^2 - 1x + 3
   POLY_GROUP_LIKE|-5x^3 + (-1x^2 - 5x^2) + (3x - 1x) + 3
-  Z|- 5x^3 - 6x^2 + 2x + 3
-Answer: - 5x^3 - 6x^2 + 2x + 3
+  Z|-5x^3 - 6x^2 + 2x + 3
+Answer: -5x^3 - 6x^2 + 2x + 3
 ```
 
 ### Polynomial Div Monomial — `PolynomialDivMonomialGenerator`  ·  high · difficulty 5
@@ -4976,8 +4976,8 @@ Problem: Divide: (3x^5 + 9x^4) / (3x^2)
 Steps:
   POLY_DIV_SETUP|(3x^5 + 9x^4) / (3x^2)
   POLY_DIV_SPLIT|(3x^5) / (3x^2) + (9x^4) / (3x^2)
-  Z|1x^3 + 3x^2
-Answer: 1x^3 + 3x^2
+  Z|x^3 + 3x^2
+Answer: x^3 + 3x^2
 ```
 
 ### Stoichiometry — `StoichiometryGenerator`  ·  high · difficulty 4

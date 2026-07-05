@@ -2,6 +2,18 @@ import random
 from base_generator import ProblemGenerator
 from helpers import step, jid
 
+
+def mono_txt(coef, power):
+    """Monomial with 1-coefficients dropped: x^3, -x, 7, 4x^2."""
+    var = "" if power == 0 else "x" if power == 1 else f"x^{power}"
+    if not var:
+        return str(coef)
+    if coef == 1:
+        return var
+    if coef == -1:
+        return f"-{var}"
+    return f"{coef}{var}"
+
 class PolynomialDivMonomialGenerator(ProblemGenerator):
     """
     Generates problems for dividing a polynomial by a monomial.
@@ -34,12 +46,12 @@ class PolynomialDivMonomialGenerator(ProblemGenerator):
         # Format Poly
         poly_str_parts = []
         for i, (c, p) in enumerate(poly_terms):
-            val = abs(c)
+            body = mono_txt(abs(c), p)
             sign = "-" if c < 0 else "+"
-            if i == 0: sign = "-" if c < 0 else ""
-            
-            p_str = f"x^{p}" if p > 1 else ("x" if p == 1 else "")
-            term = f"{sign} {val}{p_str}".strip()
+            if i == 0:
+                term = mono_txt(c, p)
+            else:
+                term = f"{sign} {body}"
             poly_str_parts.append(term)
             
         poly_str = " ".join(poly_str_parts)
@@ -60,7 +72,7 @@ class PolynomialDivMonomialGenerator(ProblemGenerator):
         
         for c, p in poly_terms:
             # Term string
-            term_c_str = f"{c}x^{p}" if p > 1 else (f"{c}x" if p==1 else f"{c}")
+            term_c_str = mono_txt(c, p)
             
             split_expr = f"({term_c_str}) / ({div_str})"
             split_parts.append(split_expr)
@@ -70,17 +82,11 @@ class PolynomialDivMonomialGenerator(ProblemGenerator):
             new_p = p - k
             
             if new_p < 0:
-                # Fraction remains: c x^p / d x^k -> (c/d) / x^(k-p)
-                # Keep it simple for now, maybe x^-1
-                res = f"{new_c}x^{new_p}" # allow negative exponent or fraction?
-                # Usually algebra 1 prefers positive exponents in denominator
-                res = f"{new_c}/x^{abs(new_p)}"
-            elif new_p == 0:
-                res = str(new_c)
-            elif new_p == 1:
-                res = f"{new_c}x"
+                # positive exponents in the denominator (algebra 1 style)
+                denom = "x" if new_p == -1 else f"x^{abs(new_p)}"
+                res = f"{new_c}/{denom}"
             else:
-                res = f"{new_c}x^{new_p}"
+                res = mono_txt(new_c, new_p)
                 
             # Handle sign for joining
             if not simplified_parts: # first term

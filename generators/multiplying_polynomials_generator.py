@@ -123,6 +123,9 @@ class MultiplyingPolynomialsGenerator(ProblemGenerator):
             # But " - 5x^2" is fine. "+ 5x^2" -> "5x^2" at start? handled for first term of original set.
             # But if first term was 0, next term might be "+ 5x^2".
             if final_terms[0].startswith("+"): final_terms[0] = final_terms[0][2:]
+            # a leading negative attaches to the term: -15x^3, not - 15x^3
+            if final_terms[0].startswith("- "):
+                final_terms[0] = "-" + final_terms[0][2:]
             ans = " ".join(final_terms)
             
         steps.append(step("Z", ans))
