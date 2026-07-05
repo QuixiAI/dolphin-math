@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] ContourIntegralGenerator — Contour Integral (graduate · d5)
-- [ ] LaurentSeriesGenerator — Laurent Series (graduate · d5)
-- [ ] SphericalTriangleGenerator — Spherical Triangle (graduate · d4)
-- [ ] HyperbolicDistanceGenerator — Hyperbolic Distance (graduate · d4)
-- [ ] StereographicGenerator — Stereographic (graduate · d4)
-- [ ] FundamentalFormGenerator — Fundamental Form (graduate · d4)
 - [ ] ChristoffelGenerator — Christoffel (graduate · d5)
 - [ ] GaussianCurvatureGenerator — Gaussian Curvature (graduate · d5)
 - [ ] GaussBonnetGenerator — Gauss Bonnet (graduate · d4)
