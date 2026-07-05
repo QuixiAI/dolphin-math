@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] CurveAnalysisGenerator — Curve Analysis (high · d5)
-- [ ] OptimizationGenerator — Optimization (high · d5)
-- [ ] MeanValueTheoremGenerator — Mean Value Theorem (high · d4)
-- [ ] AntiderivativeGenerator — Antiderivative (high · d4)
-- [ ] USubstitutionGenerator — USubstitution (high · d5)
-- [ ] DefiniteIntegralGenerator — Definite Integral (high · d4)
 - [ ] RiemannSumGenerator — Riemann Sum (high · d4)
 - [ ] AreaBetweenCurvesGenerator — Area Between Curves (high · d5)
 - [ ] SolidRevolutionGenerator — Solid Revolution (high · d5)

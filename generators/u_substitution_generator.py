@@ -94,10 +94,10 @@ class USubstitutionGenerator(ProblemGenerator):
                      "u-substitution"),
                 step("SUBST", "u", "x^2", "du = 2x dx"),
                 step("REWRITE", f"{c}x dx = {newc} du"),
-                step("REWRITE", f"∫ {newc}e^u du"),
+                step("REWRITE", f"∫ {res_head}e^u du"),
                 step("INTEG_RULE", "exponential rule",
                      "∫ e^u du = e^u + C"),
-                step("ANTIDERIV", f"{newc}e^u",
+                step("ANTIDERIV", f"{res_head}e^u",
                      f"{res_head}e^u"),
                 step("SUBST", "u", "x^2", F),
             ]
