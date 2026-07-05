@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] InterpolationGenerator — Interpolation (college · d4)
-- [ ] FiniteDifferenceGenerator — Finite Difference (college · d3)
-- [ ] RungeKuttaGenerator — Runge Kutta (college · d4)
-- [ ] ContinuousDistributionGenerator — Continuous Distribution (college · d3)
-- [ ] NamedDistributionGenerator — Named Distribution (college · d3)
-- [ ] JointDistributionGenerator — Joint Distribution (college · d4)
 - [ ] MarkovChainGenerator — Markov Chain (college · d4)
 - [ ] SimplexGenerator — Simplex (college · d5)
 - [ ] LPCornerGenerator — LPCorner (college · d3)
