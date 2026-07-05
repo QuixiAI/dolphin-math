@@ -101,7 +101,10 @@ def expected_verify(a, b, c, delta):
         make_step("CHECK", "u_x = v_y", "yes" if first_ok else "no"),
         make_step("CHECK", "u_y = -v_x", "yes" if second_ok else "no"),
     ]
-    return steps, f"Cauchy-Riemann = {verdict}"
+    answer = (f"Cauchy-Riemann = {verdict} "
+              f"(u_x = v_y: {'yes' if first_ok else 'no'}; "
+              f"u_y = -v_x: {'yes' if second_ok else 'no'})")
+    return steps, answer
 
 
 def expected_harmonic(a, b, c):

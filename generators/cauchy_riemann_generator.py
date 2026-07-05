@@ -102,7 +102,11 @@ class CauchyRiemannGenerator(ProblemGenerator):
             step("CHECK", "u_x = v_y", "yes" if first_ok else "no"),
             step("CHECK", "u_y = -v_x", "yes" if second_ok else "no"),
         ]
-        answer = f"Cauchy-Riemann = {verdict}"
+        # composite verdict: name both equation checks so the bare yes/no
+        # label is not a gradable coin flip
+        answer = (f"Cauchy-Riemann = {verdict} "
+                  f"(u_x = v_y: {'yes' if first_ok else 'no'}; "
+                  f"u_y = -v_x: {'yes' if second_ok else 'no'})")
         problem = (
             f"For a={a}, b={b}, c={c}, let "
             "u=a(x^2-y^2)+b*x-c*y and "

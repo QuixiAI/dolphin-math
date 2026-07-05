@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] PermutationGroupGenerator — Permutation Group (college · d3)
-- [ ] EulerFormulaGenerator — Euler Formula (college · d3)
-- [ ] DeMoivreGenerator — De Moivre (college · d3)
-- [ ] ComplexLocusGenerator — Complex Locus (college · d3)
-- [ ] FractalIterationGenerator — Fractal Iteration (college · d3)
-- [ ] CauchyRiemannGenerator — Cauchy Riemann (college · d3)
 - [ ] GreatCircleGenerator — Great Circle (college · d3)
 - [ ] SphericalExcessGenerator — Spherical Excess (college · d3)
 - [ ] HyperbolicFunctionGenerator — Hyperbolic Function (college · d3)
