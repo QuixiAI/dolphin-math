@@ -36,7 +36,7 @@ class SeparableODEGenerator(ProblemGenerator):
         if variant == "exponential":
             k = random.choice([v for v in range(-5, 6) if v != 0])
             y0 = random.choice([2, 3, 4, 5, 7, 10])
-            kt = "t" if k == 1 else f"{k}t"
+            kt = "t" if k == 1 else "-t" if k == -1 else f"{k}t"
             answer = f"y = {y0}e^({kt})"
             steps = [
                 step("ODE_SETUP", f"dy/dt = {k}y, y(0) = {y0}", "solve"),

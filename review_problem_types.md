@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] RiemannSumGenerator — Riemann Sum (high · d4)
-- [ ] AreaBetweenCurvesGenerator — Area Between Curves (high · d5)
-- [ ] SolidRevolutionGenerator — Solid Revolution (high · d5)
-- [ ] SeparableODEGenerator — Separable ODE (high · d5)
-- [ ] IntegrationByPartsGenerator — Integration By Parts (high · d5)
-- [ ] PartialFractionsGenerator — Partial Fractions (high · d5)
 - [ ] ImproperIntegralGenerator — Improper Integral (high · d5)
 - [ ] EulerMethodGenerator — Euler Method (high · d5)
 - [ ] LogisticGrowthGenerator — Logistic Growth (high · d5)

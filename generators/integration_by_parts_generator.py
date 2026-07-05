@@ -63,8 +63,8 @@ class IntegrationByPartsGenerator(ProblemGenerator):
                      f"u = {cm(c, 'x')}, dv = {ex} dx",
                      f"du = {c} dx, v = {v_txt}"),
                 step("REWRITE",
-                     f"{cm(c, 'x')}({v_txt}) - ∫ {c}({v_txt}) dx"),
-                step("ANTIDERIV", f"{c}({v_txt})",
+                     f"{cm(c, 'x')}({v_txt}) - ∫ {cm(c, f'({v_txt})')} dx"),
+                step("ANTIDERIV", cm(c, f"({v_txt})"),
                      leftover if not neg else f"{cm(c, ex)}"),
                 step("REWRITE", F),
             ]
@@ -95,8 +95,8 @@ class IntegrationByPartsGenerator(ProblemGenerator):
                      f"u = {cm(c, 'x')}, dv = {fn}(x) dx",
                      f"du = {c} dx, v = {v_txt}"),
                 step("REWRITE",
-                     f"{cm(c, 'x')}({v_txt}) - ∫ {c}({v_txt}) dx"),
-                step("ANTIDERIV", f"{c}({v_txt})", left_anti),
+                     f"{cm(c, 'x')}({v_txt}) - ∫ {cm(c, f'({v_txt})')} dx"),
+                step("ANTIDERIV", cm(c, f"({v_txt})"), left_anti),
                 step("REWRITE", F),
             ]
             answer = f"{F} + C"
