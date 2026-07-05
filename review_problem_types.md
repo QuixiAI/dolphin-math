@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] EntropyGenerator — Entropy (college · d3)
-- [ ] MutualInformationGenerator — Mutual Information (college · d4)
-- [ ] HuffmanCodingGenerator — Huffman Coding (college · d4)
-- [ ] HammingCodeGenerator — Hamming Code (college · d4)
-- [ ] CRCGenerator — CRC (college · d4)
-- [ ] KraftInequalityGenerator — Kraft Inequality (college · d3)
 - [ ] NaiveBayesGenerator — Naive Bayes (college · d4)
 - [ ] KMeansStepGenerator — KMeans Step (college · d3)
 - [ ] KNNGenerator — KNN (college · d2)
