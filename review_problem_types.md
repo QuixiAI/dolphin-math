@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] ACCircuitGenerator — ACCircuit (graduate · d4)
-- [ ] PartitionFunctionGenerator — Partition Function (graduate · d4)
-- [ ] WavefunctionGenerator — Wavefunction (graduate · d4)
-- [ ] SpinHalfGenerator — Spin Half (graduate · d4)
-- [ ] CommutatorGenerator — Commutator (graduate · d4)
-- [ ] LadderOperatorGenerator — Ladder Operator (graduate · d5)
 - [ ] BraKetGenerator — Bra Ket (graduate · d4)
 - [ ] MinkowskiIntervalGenerator — Minkowski Interval (graduate · d4)
 - [ ] KLDivergenceGenerator — KLDivergence (graduate · d4)
