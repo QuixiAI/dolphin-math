@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] TransformationGenerator — Transformation (high · d3)
-- [ ] ArcSectorGenerator — Arc Sector (high · d4)
-- [ ] CircleAngleGenerator — Circle Angle (high · d4)
-- [ ] CircleEquationGenerator — Circle Equation (high · d5)
-- [ ] HypercubeCountingGenerator — Hypercube Counting (high · d4)
-- [ ] RightTriangleTrigGenerator — Right Triangle Trig (high · d4)
 - [ ] SpecialRightTriangleGenerator — Special Right Triangle (high · d4)
 - [ ] AngleMeasureGenerator — Angle Measure (high · d4)
 - [ ] UnitCircleGenerator — Unit Circle (high · d4)
