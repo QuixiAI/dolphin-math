@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] EnergyConservationGenerator — Energy Conservation (college · d2)
-- [ ] OrbitalMechanicsGenerator — Orbital Mechanics (college · d3)
-- [ ] StaticsGenerator — Statics (college · d3)
-- [ ] RotationalDynamicsGenerator — Rotational Dynamics (college · d4)
-- [ ] SHMGenerator — SHM (college · d3)
-- [ ] ElectrostaticsGenerator — Electrostatics (college · d3)
 - [ ] GaussLawGenerator — Gauss Law (college · d4)
 - [ ] TransientCircuitGenerator — Transient Circuit (college · d4)
 - [ ] MagnetismGenerator — Magnetism (college · d4)
