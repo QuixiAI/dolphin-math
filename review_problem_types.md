@@ -6,12 +6,6 @@ unique answer (verified independently), op-codes, formatting, and
 near-infinite unique-question capacity. Delete a line when its review
 is complete (fixes applied if needed).
 
-- [ ] RVTransformGenerator — RVTransform (graduate · d5)
-- [ ] MLEGenerator — MLE (graduate · d4)
-- [ ] MethodOfMomentsGenerator — Method Of Moments (graduate · d3)
-- [ ] BayesianUpdateGenerator — Bayesian Update (graduate · d4)
-- [ ] OrderStatisticsGenerator — Order Statistics (graduate · d4)
-- [ ] TransportationGenerator — Transportation (graduate · d4)
 - [ ] ORFormulaGenerator — ORFormula (graduate · d3)
 - [ ] ZTransformGenerator — ZTransform (graduate · d4)
 - [ ] TransferFunctionGenerator — Transfer Function (graduate · d4)
