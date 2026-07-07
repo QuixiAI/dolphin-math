@@ -19,6 +19,8 @@ classifiers = [
 
 [dependency-groups]
 dev = ["pytest>=8.0"]
+# Parquet writer used by tools/build_hf_release.py for Hugging Face releases.
+release = ["pyarrow==20.0.0"]
 
 [tool.setuptools]
 py-modules = ["quixi_math_datagen", "base_generator", "helpers", "curriculum"]
