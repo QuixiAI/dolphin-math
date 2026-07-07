@@ -1,5 +1,7 @@
 # Quixi Math Data Generator
 
+<img width="504" height="322" alt="math" src="https://github.com/user-attachments/assets/47fb7346-2ba1-49fb-b9e6-21917f078256" />
+
 <img width="410" alt="image" src="https://github.com/user-attachments/assets/f8a5d3d2-7820-4f7c-a5d3-fbac667e7084" />
 
 ## Purpose
